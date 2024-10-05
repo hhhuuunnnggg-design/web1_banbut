@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="/backup2/style/index.css" /> -->
+    <link rel="stylesheet" href="style/index.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <title>Bán bút bi</title>
+  </head>
+  <body>
+    <!--  phần menu đa cấp ở đây sẽ không có xuất hiện -->
+    <div class="header-main">
+      <div class="container">
+        <div class="inner-wrap">
+          <div class="inner-menu">
+            <ul>
+              <li class="thuonghieu">
+                <i class="fa-solid fa-house"></i><a href="#">Thương hiệu</a>
+                <div class="box-submenu">
+                  <ul>
+                    <li><a href="#">bút monyblanc</a></li>
+                    <li><a href="#">Bút waterman</a></li>
+                    <li><a href="#">Bút Parker</a></li>
+                    <li><a href="#">Bút Allan D'Lious</a></li>
+                    <li><a href="#">Bút Lamy</a></li>
+                    <li><a href="#">Bút Sheaffer</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="loaibut">
+                <i class="fa-solid fa-pen"></i><a href="#">Loại bút</a>
+                <div class="box-submenu">
+                  <ul class="loaibut-list">
+                    <li><div>Bút------------ html</div></li>
+                    <li><div>Bút bi</div></li>
+                    <li><div>Bút dạ bi</div></li>
+                    <li><div>Bút dạ kim</div></li>
+                    <li><div>Bút máy</div></li>
+                    <li><div>Bút chì</div></li>
+                    <li><div>Bút hàng độc</div></li>
+                    <li><div>Bút viết chữ đẹp</div></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="phukien">
+                <a href="#">Phụ kiện</a>
+                <div class="box-submenu">
+                  <ul>
+                    <li><a href="#">ruột -------------- html</a></li>
+                    <li><a href="#">Bút bi</a></li>
+                    <li><a href="#">Bút dạ bi</a></li>
+                    <li><a href="#">Bút dạ kim</a></li>
+                    <li><a href="#">Bút máy</a></li>
+                    <li><a href="#">Bút chì</a></li>
+                    <li><a href="#">Bút hàng độc</a></li>
+                    <li><a href="#">Bút viết chữ đẹp</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li><i class="fa-solid fa-book"></i><a href="#">Thư viện</a></li>
+              <li>
+                <i class="fa-solid fa-person-chalkboard"></i
+                ><a href="#">Hướng dẫn mua hàng</a>
+              </li>
+              <li><i class="fa-solid fa-phone"></i><a href="#">Liên hệ</a></li>
+            </ul>
+          </div>
+          <div class="layout-defauft_account" style="margin-left: 50%">
+            <a
+              href="./login_logout.html"
+              id="btnLogin"
+              style="text-decoration: none"
+            >
+              <button>Đăng nhập</button>
+            </a>
+            <a href="/register" id="btnSignup" style="text-decoration: none">
+              <button>Đăng ký</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end menu đa cấp -->
+    <h2>Danh sách sản phẩm bút bi</h2>
+    <!-- search -->
+    <div class="search" id="search">
+      <input type="text" />
+      <button>Search</button>
+    </div>
+
+    <select id="filter">
+      <option value="mac-dinh">Mặc định</option>
+      <option value="gia-thap-den-cao">Gía thấp đến cao</option>
+      <option value="gia-cao-den-thap">Gía cao đến thấp</option>
+      <option value="giam-gia-nhieu">Giam giá nhiều</option>
+    </select>
+
+    <!-- end search -->
+    <div id="products" class="product_list">
+      <div class="product_item">
+        <div class="product_image">
+          <img src="" alt="" />
+          <div class="product_percent">10%</div>
+        </div>
+        <div class="product_content">
+          <h3 class="product_title"></h3>
+          <div class="product_meta">
+            <div class="product_price">10 $</div>
+            <div class="product_sotck">10sp</div>
+            <div class="product_order"><a href="#">bút monyblanc</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- phân trang -->
+    <div class="pagination">
+      <span class="pagination_buttun" id="paginationPrev">Prev</span>
+      <span class="pagination_number" id="paginationNumber">1</span>
+      <span class="pagination_buttun" id="paginationNext">Next</span>
+    </div>
+    <!-- end phân trang -->
+    <!-- đây là phần chân -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-contact">
+          <h3>Liên hệ với chúng tôi</h3>
+          <ul>
+            <li>
+              <i class="fa-solid fa-phone"></i> Điện thoại: +84 123 456 789
+            </li>
+            <li>
+              <i class="fa-solid fa-envelope"></i> Email:
+              nguyendinhhungtc2020@gmail.com
+            </li>
+            <li>
+              <i class="fa-solid fa-map-marker-alt"></i> Địa chỉ: Đại học sài
+              gòn, quận 5, đường an dương vương
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-hours">
+          <h3>Giờ làm việc</h3>
+          <ul>
+            <li>
+              <i class="fa-solid fa-clock"></i> Thứ 2 - Thứ 6: 8:00 - 18:00
+            </li>
+            <li><i class="fa-solid fa-clock"></i> Thứ 7: 9:00 - 17:00</li>
+            <li><i class="fa-solid fa-clock"></i> Chủ nhật: Nghỉ</li>
+          </ul>
+        </div>
+
+        <div class="footer-social">
+          <h3>Kết nối với chúng tôi</h3>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/"
+              ><i class="fa-brands fa-facebook"></i
+            ></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 Bán Bút | Thiết kế bởi Nguyễn Đình Hùng</p>
+      </div>
+    </footer>
+
+    <script src="user/view/view.js" type="module"></script>
+    <script src="user/controller/login.js" type="module"></script>
+  </body>
+</html>
