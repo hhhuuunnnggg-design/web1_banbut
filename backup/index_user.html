@@ -93,8 +93,8 @@
     <h2>Danh sách sản phẩm bút bi</h2>
     <!-- search -->
     <div class="search" id="search">
-      <input type="text" />
-      <button>Search</button>
+      <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm..." />
+      <button id="searchButton">Search</button>
     </div>
 
     <select id="filter">
@@ -177,7 +177,10 @@
       </div>
     </footer>
 
-    <script src="user/view/view.js" type="module"></script>
-    <!-- <script src="user/controller/login.js" type="module"></script> -->
+    <!-- <script src="user/view/view.js" type="module"></script> -->
+    <script src="user/controller/drawProducts.js" type="module"></script>
+    <script src="user/controller/renderLoaibutList.js" type="module"></script>
+    <!-- <script src="user/controller/search.js" type="module"></script> -->
+    <!-- <script src="user/controller/test.js" type="module"></script> -->
   </body>
 </html>
