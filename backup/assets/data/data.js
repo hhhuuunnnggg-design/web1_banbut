@@ -361,14 +361,11 @@ export const sanpham = [
       },
     ],
     loaibut: [
-      { id: 1, name: "Bút mới về!" },
       { id: 2, name: "Bút bi" },
       { id: 3, name: "Bút dạ bi" },
       { id: 4, name: "Bút dạ kim" },
       { id: 5, name: "Bút máy" },
       { id: 6, name: "Bút chì" },
-      { id: 7, name: "Bút hàng độc" },
-      { id: 8, name: "Bút viết chữ đẹp !" },
     ],
     phukien: [
       { id: 1, name: "ruột bi !" },
