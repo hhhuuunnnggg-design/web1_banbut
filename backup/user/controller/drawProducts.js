@@ -1,14 +1,14 @@
 const productList = document.getElementById("products");
 
-export function drawProducts(filteredProducts) {
+export function drawProducts(userLocal) {
   productList.innerHTML = "";
-  if (filteredProducts.length === 0) {
+  if (userLocal.length === 0) {
     productList.innerHTML =
       "<p>Không tìm thấy sản phầm hoặc sản phẩm đã hết <p>";
   }
 
   // Duyệt qua từng sản phẩm
-  filteredProducts.forEach((product) => {
+  userLocal.forEach((product) => {
     const productItem = `
       <div class="product_item">
         <div class="product_image">

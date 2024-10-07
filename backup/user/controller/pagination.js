@@ -1,7 +1,7 @@
 import { drawProducts } from "./drawProducts.js"; // Đảm bảo đường dẫn đúng tới hàm drawProducts
 
 // Khai báo biến toàn cục
-let currentPage = 1;
+export let currentPage = 1;
 const limitPerPage = 4;
 let filteredProducts = []; // Mảng lưu trữ các sản phẩm đã được lọc
 

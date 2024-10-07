@@ -1,16 +1,33 @@
 import { sanpham } from "../../assets/data/data.js";
 import { drawProducts } from "../controller/drawProducts.js";
 import {
+  currentPage,
   paginateProducts,
   setFilteredProducts,
-} from "../controller/pagination.js"; // Import hàm paginateProducts
+} from "../controller/pagination.js";
 import { renderLoaibutList } from "../controller/renderLoaibutList.js";
 import { setupSearchEvents } from "../controller/search.js";
 
 const products = sanpham[0].products;
-const loaibut = sanpham[0].loaibut; // Danh sách các loại bút
+const loaibut = sanpham[0].loaibut;
+console.log(products);
 
-drawProducts(products);
+// function SaveProductToLocalStorage() {
+//   if (localStorage.getItem("ListPens")) {
+//     return;
+//   }
+//   var StringPen = JSON.stringify(products);
+//   localStorage.setItem("ListPens", StringPen);
+// }
+// SaveProductToLocalStorage();
+const userLocal = JSON.parse(localStorage.getItem("ListPens")) || [];
+
+if (userLocal.length > 0) {
+  drawProducts(userLocal);
+} else {
+  alert("del có san phảm nào từ localStorage");
+}
+
 setFilteredProducts(products); // Thiết lập sản phẩm để phân trang và hiển thị
 
 // Hàm cập nhật hiển thị trang hiện tại
@@ -23,7 +40,7 @@ function updateDisplayCurrentPage() {
 const inputSearch = document.querySelector("#search input");
 const buttonSearch = document.querySelector("#search button");
 const filterSelect = document.getElementById("filter");
-const loaibutList = document.querySelector(".loaibut-list"); // Phần tử danh sách loại bút
+const loaibutList = document.querySelector(".loaibut-list");
 
 // Thiết lập sự kiện tìm kiếm
 setupSearchEvents(products, inputSearch, buttonSearch, filterSelect);

@@ -28,6 +28,7 @@ function paginateProducts(page = 1) {
 }
 
 // Hàm để tạo HTML cho từng sản phẩm
+
 function drawProducts(filteredProducts) {
   // Xóa nội dung cũ trước khi render
   productList.innerHTML = "";
