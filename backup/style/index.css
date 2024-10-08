@@ -316,3 +316,23 @@ body {
 .loaibut:hover .loaibut-list {
   display: block;
 }
+/* -----------------------------------cart------------- */
+.cart {
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  padding-top: 30px;
+}
+.cart h2 {
+  margin-bottom: 20px;
+}
+.cart table {
+  width: 100%;
+}
+.cart table thread tr th:first-child {
+  text-align: left;
+}
+.cart table tr td {
+  border-bottom: 1px solid #ddd;
+  padding: 12px 0;
+}

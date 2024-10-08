@@ -80,11 +80,14 @@
               id="btnLogin"
               style="text-decoration: none"
             >
-              <button>Đăng nhập</button>
+              <button id="loginBtn">Đăng nhập</button>
             </a>
-            <a href="/register" id="btnSignup" style="text-decoration: none">
-              <button>Đăng ký</button>
-            </a>
+            <div id="greeting" style="display: none">
+              Xin chào, <span id="userNameDisplay"></span>!
+            </div>
+            <div id="btnLogout" style="display: none; text-decoration: none">
+              <button>Đăng xuất</button>
+            </div>
           </div>
         </div>
       </div>
@@ -121,6 +124,72 @@
         </div>
       </div>
     </div>
+    <!-- cart -->
+    <section class="cart">
+      <h2>cart</h2>
+      <form action="">
+        <table>
+          <thead>
+            <tr>
+              <th>Sản Phẩm</th>
+              <th>Gía</th>
+              <th>Số Lượng</th>
+              <th>Lựa chọn</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="display: flex; align-items: center">
+                <img
+                  style="width: 70px"
+                  src="./Images/thumnails/ButBi/ButBiAllan120BBL.jpg"
+                  alt="dssa"
+                />but 1
+              </td>
+              <td>
+                <p><span>320000</span><sup>đ</sup></p>
+              </td>
+              <td>
+                <input
+                  style="width: 30px; outline: none"
+                  type="number"
+                  value="1"
+                  min="0"
+                />
+              </td>
+              <td style="cursor: pointer">Xoas</td>
+            </tr>
+            <tr>
+              <td style="display: flex; align-items: center">
+                <img
+                  style="width: 70px"
+                  src="./Images/thumnails/ButBi/ButBiAllan120BBL.jpg"
+                  alt="dssa"
+                />but 1
+              </td>
+              <td>
+                <p><span>320000</span><sup>đ</sup></p>
+              </td>
+              <td>
+                <input
+                  style="width: 30px; outline: none"
+                  type="number"
+                  value="1"
+                  min="0"
+                />
+              </td>
+              <td style="cursor: pointer">Xoas</td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="text-align: right" class="price-total">
+          <p style="font-weight: bold">
+            Tổng tiền: <span>320000</span><sup>đ</sup>
+          </p>
+        </div>
+      </form>
+    </section>
+    <!-- end cart -->
     <!-- phân trang -->
     <div class="pagination">
       <span class="pagination_buttun" id="paginationPrev">Prev</span>
@@ -178,9 +247,32 @@
     </footer>
 
     <!-- <script src="user/view/view.js" type="module"></script> -->
+
     <script src="user/controller/drawProducts.js" type="module"></script>
     <script src="user/controller/renderLoaibutList.js" type="module"></script>
+    <script src="user/controller/gioHang.js" type="module"></script>
+    <script src="user/controller/logout.js" type="module"></script>
+    <script src="user/controller/cartGui.js" type="module"></script>
     <!-- <script src="user/controller/search.js" type="module"></script> -->
     <!-- <script src="user/controller/test.js" type="module"></script> -->
+    <script>
+      // Kiểm tra trạng thái đăng nhập và hiển thị lời chào
+      document.addEventListener("DOMContentLoaded", function () {
+        const userName = localStorage.getItem("loggedInUserName");
+
+        // Nếu người dùng đã đăng nhập, hiển thị lời chào và nút đăng xuất
+        if (userName) {
+          document.getElementById("greeting").style.display = "block";
+          document.getElementById("userNameDisplay").textContent = userName;
+          document.getElementById("btnLogout").style.display = "block";
+          document.getElementById("btnLogin").style.display = "none"; // Ẩn nút đăng nhập
+        } else {
+          // Nếu chưa đăng nhập, chỉ hiển thị nút đăng nhập
+          document.getElementById("btnLogin").style.display = "block";
+          document.getElementById("btnLogout").style.display = "none";
+          document.getElementById("greeting").style.display = "none";
+        }
+      });
+    </script>
   </body>
 </html>

@@ -1,13 +1,16 @@
-// drawProducts(currentPage, document.getElementById("searchInput").value);
 import { sanpham } from "../../assets/data/data.js";
+import {
+  layDsItemGioHang,
+  luuDSvaoStorage,
+  taoGioHang,
+} from "../controller/gioHang.js";
+import { drawcartGui } from "./cartGui.js";
 const products = sanpham[0].products;
 const productList = document.getElementById("products");
 
-// Biến trạng thái
 let currentPage = 1;
-const itemsPerPage = 4; // Số sản phẩm trên mỗi trang
+const itemsPerPage = 4;
 
-// Lưu sản phẩm vào localStorage nếu chưa có
 function SaveProductToLocalStorage() {
   if (!localStorage.getItem("ListPens")) {
     const StringPen = JSON.stringify(products);
@@ -16,13 +19,12 @@ function SaveProductToLocalStorage() {
 }
 SaveProductToLocalStorage();
 
-// Hàm tìm kiếm sản phẩm theo từ khóa
-function searchProducts(searchTerm) {
-  const userLocal = JSON.parse(localStorage.getItem("ListPens")) || [];
-  return userLocal.filter((product) =>
-    product.title.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-}
+// function searchProducts(searchTerm) {
+//   const userLocal = JSON.parse(localStorage.getItem("ListPenss")) || [];
+//   return userLocal.filter((product) =>
+//     product.title.toLowerCase().includes(searchTerm.toLowerCase())
+//   );
+// }
 
 // Hàm tìm kiếm và lọc sản phẩm theo từ khóa và tiêu chí
 function searchAndFilterProducts(searchTerm, filterCriteria) {
@@ -82,7 +84,13 @@ export function drawProducts(page = 1, searchTerm = "") {
           <div class="product_meta">
             <div class="product_price">${product.price} $</div>
             <div class="product_stock">${product.stock} sp</div>
-            <div class="product_order"><a href="#">Đặt hàng ngay</a></div>
+            <div class="product_order">
+              <button class="addToCart" data-id="${product.id}" 
+                      data-img="${product.thumbnail}" 
+                      data-title="${product.title}">
+                Thêm vào giỏ hàng
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -90,7 +98,17 @@ export function drawProducts(page = 1, searchTerm = "") {
     productList.innerHTML += productItem;
   });
 
-  // Cập nhật nút phân trang
+  // Gán sự kiện onclick cho các nút "Thêm vào giỏ hàng" và lấy mã sản phẩm từ thuộc tính `data-id`
+  document.querySelectorAll(".addToCart").forEach((button) => {
+    button.addEventListener("click", function () {
+      const productId = button.getAttribute("data-id");
+      const imgSanPham = button.getAttribute("data-img");
+      const tenSanPham = button.getAttribute("data-title");
+      onclickDuaVaoGioHang(productId, imgSanPham, tenSanPham);
+    });
+  });
+
+  // Cập nhật nút phân trang  <div class="product_order"><a href="#">thêm vào giỏ hàng</a></div>
   document.getElementById("paginationNumber").innerText = page;
   document.getElementById("paginationPrev").style.display =
     page === 1 ? "none" : "inline";
@@ -129,20 +147,58 @@ document
     if (e.key === "Enter") {
       const searchTerm = document.getElementById("searchInput").value; // Lấy giá trị từ input tìm kiếm
       currentPage = 1; //reset lại trang đầu
-      drawProducts(currentPage, document.getElementById("searchInput").value);
+      drawProducts(currentPage, searchTerm);
     }
   });
 
 document.getElementById("searchButton").addEventListener("click", function () {
   const searchTerm = document.getElementById("searchInput").value;
   currentPage = 1;
-  drawProducts(currentPage, document.getElementById("searchInput").value);
+  drawProducts(currentPage, searchTerm);
 });
 
 // Sự kiện khi thay đổi bộ lọc
 document.getElementById("filter").addEventListener("change", function () {
   drawProducts(currentPage, document.getElementById("searchInput").value);
 });
+// giỏ hànga
+// Hàm xử lý khi người dùng click "Thêm vào giỏ hàng"
+function onclickDuaVaoGioHang(idsanpham, imgSanPham, tenSanPham) {
+  // Kiểm tra xem người dùng đã đăng nhập chưa
+  var isLoggedIn = localStorage.getItem("isLoggedIn");
 
-// Khởi tạo trang đầu tiên với tất cả sản phẩm
+  if (!isLoggedIn || isLoggedIn === "false") {
+    alert("Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng.");
+    window.location.href = "./login_logout.html";
+    return;
+  }
+
+  // Lấy email của người dùng hiện tại từ localStorage
+  var currentUserEmail = localStorage.getItem("loggedInUserEmail");
+  if (!currentUserEmail) {
+    alert("Lỗi: không thể xác định người dùng. Vui lòng đăng nhập lại.");
+    return;
+  }
+
+  // Lấy giỏ hàng hiện tại của người dùng
+  var dsItemgiohang = layDsItemGioHang(); // Hàm lấy giỏ hàng của người dùng từ localStorage
+  var coTonTai = false;
+  for (var i = 0; i < dsItemgiohang.length; i++) {
+    var gioHienTai = dsItemgiohang[i];
+    if (gioHienTai.idSanPham == idsanpham) {
+      dsItemgiohang[i].soLuongSanPham++;
+      coTonTai = true;
+    }
+  }
+  if (!coTonTai) {
+    var itemGioHang = taoGioHang(idsanpham, imgSanPham, tenSanPham, 1);
+    dsItemgiohang.push(itemGioHang);
+  }
+
+  // Lưu giỏ hàng riêng của người dùng vào localStorage
+  luuDSvaoStorage(dsItemgiohang);
+  alert("Sản phẩm đã được thêm vào giỏ hàng.");
+  drawcartGui();
+}
+
 drawProducts(currentPage);

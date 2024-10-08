@@ -63,16 +63,14 @@ formRegister.addEventListener("submit", function (e) {
     element_emaildk.value &&
     element_passworddk.value === element_repassworddk.value
   ) {
-    // lấy dữ liệu từ form gộp thành đối tượng user
     const user = {
       userId: Math.ceil(Math.random() * 10000000),
       userName: element_namedk.value,
       userEmail: element_emaildk.value,
       userPasWord: element_passworddk.value,
     };
-    //    push user vào trong mảng
     userLocal.push(user);
-    // lưu trữ mãng lên localStorage
+
     localStorage.setItem("users", JSON.stringify(userLocal));
     alert("Bạn đã tạo tài khoảng thành công");
   }
