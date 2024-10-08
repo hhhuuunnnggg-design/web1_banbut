@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- <link rel="stylesheet" href="/backup2/style/index.css" /> -->
     <link rel="stylesheet" href="style/index.css" />
-
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -69,19 +68,34 @@
               <li><i class="fa-solid fa-book"></i><a href="#">Thư viện</a></li>
               <li>
                 <i class="fa-solid fa-person-chalkboard"></i
-                ><a href="#">Hướng dẫn mua hàng</a>
+                ><a href="#">hướng dẫn mua hàng</a>
               </li>
               <li><i class="fa-solid fa-phone"></i><a href="#">Liên hệ</a></li>
+              <li>
+                <a href="./login_logout.html" id="btnLogin" style="text-decoration: none">
+                  <button id="loginBtn">Đăng nhập</button>
+                </a>
+              </li>
+              <li>
+                    <!-- search -->
+    <div class="search" id="search">
+      <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm..." />
+      <button id="searchButton">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    </div>
+
+    <select id="filter">
+      <option value="mac-dinh">Mặc định</option>
+      <option value="gia-thap-den-cao">Gía thấp đến cao</option>
+      <option value="gia-cao-den-thap">Gía cao đến thấp</option>
+      <option value="giam-gia-nhieu">Giam giá nhiều</option>
+    </select>
+                       <!--  -->
+              </li>
             </ul>
           </div>
           <div class="layout-defauft_account" style="margin-left: 50%">
-            <a
-              href="./login_logout.html"
-              id="btnLogin"
-              style="text-decoration: none"
-            >
-              <button id="loginBtn">Đăng nhập</button>
-            </a>
             <div id="greeting" style="display: none">
               Xin chào, <span id="userNameDisplay"></span>!
             </div>
@@ -91,22 +105,10 @@
           </div>
         </div>
       </div>
-    </div>
+    </div>  
+
     <!-- end menu đa cấp -->
     <h2>Danh sách sản phẩm bút bi</h2>
-    <!-- search -->
-    <div class="search" id="search">
-      <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm..." />
-      <button id="searchButton">Search</button>
-    </div>
-
-    <select id="filter">
-      <option value="mac-dinh">Mặc định</option>
-      <option value="gia-thap-den-cao">Gía thấp đến cao</option>
-      <option value="gia-cao-den-thap">Gía cao đến thấp</option>
-      <option value="giam-gia-nhieu">Giam giá nhiều</option>
-    </select>
-
     <!-- end search -->
     <div id="products" class="product_list">
       <div class="product_item">
