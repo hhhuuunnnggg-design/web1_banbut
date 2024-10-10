@@ -1,5 +1,4 @@
 // login.js
-
 // Xử lý đăng nhập
 const formLogin = document.getElementById("formLogin");
 const email_dn = document.getElementById("email_dn");
@@ -23,7 +22,6 @@ formLogin.addEventListener("submit", function (e) {
     // Nếu không tìm thấy tài khoản, hiển thị cảnh báo lỗi
     alertError.style.display = "block";
   } else {
-    // Nếu tìm thấy, lưu trạng thái đăng nhập và tên người dùng vào localStorage
     localStorage.setItem("isLoggedIn", "true");
     localStorage.setItem("loggedInUserName", findAccount.userName);
     localStorage.setItem("loggedInUserEmail", findAccount.userEmail); // Lưu email vào localStorage

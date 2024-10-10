@@ -18,13 +18,18 @@ export function getCurrentUserEmail() {
 // hàm lấy danh sách giỏ hàng trên localstorage
 export function layDsItemGioHang() {
   const currentUserEmail = getCurrentUserEmail(); // Lấy email người dùng hiện tại
+  console.log(currentUserEmail);
+
   var DsItemGioHang = [];
 
   if (currentUserEmail) {
     //nguyendinhhung@gmail.com
     var jsonDSItemGioHang = localStorage.getItem(currentUserEmail);
+    console.log(DsItemGioHang);
+
     if (jsonDSItemGioHang) {
       DsItemGioHang = JSON.parse(jsonDSItemGioHang); // Parse giỏ hàng từ JSON
+      console.log(DsItemGioHang);
     }
   }
 

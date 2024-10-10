@@ -74,7 +74,7 @@ export function drawProducts(page = 1, searchTerm = "") {
   productsToShow.forEach((product) => {
     const productItem = `
       <div class="product_item">
-        <div class="product_image">
+        <div class="product_image" >
           <img src="${product.thumbnail}" alt="${product.title}" />
           <div class="product_percent">${product.discountPercentage}%</div>
         </div>
@@ -161,6 +161,7 @@ document.getElementById("searchButton").addEventListener("click", function () {
 document.getElementById("filter").addEventListener("change", function () {
   drawProducts(currentPage, document.getElementById("searchInput").value);
 });
+
 // giỏ hànga
 // Hàm xử lý khi người dùng click "Thêm vào giỏ hàng"
 function onclickDuaVaoGioHang(idsanpham, imgSanPham, tenSanPham) {

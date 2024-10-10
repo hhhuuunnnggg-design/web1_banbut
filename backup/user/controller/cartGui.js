@@ -2,7 +2,6 @@ import { layDsItemGioHang, luuDSvaoStorage } from "./gioHang.js";
 
 export function drawcartGui() {
   const dsItemGioHang = layDsItemGioHang();
-  console.log();
 
   const cartTableBody = document.querySelector("tbody");
   const priceTotalElement = document.querySelector(".price-total span");
@@ -19,7 +18,6 @@ export function drawcartGui() {
 
   dsItemGioHang.forEach((item) => {
     const { idSanPham, imgSanPham, tenSanPham, soLuongSanPham } = item;
-    console.log(item);
 
     const giaSanPham = 320000; // Giá sản phẩm tạm thời (có thể thay đổi tùy vào từng sản phẩm)
 
