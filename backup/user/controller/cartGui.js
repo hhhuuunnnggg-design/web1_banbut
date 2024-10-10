@@ -2,7 +2,6 @@ import { layDsItemGioHang, luuDSvaoStorage } from "./gioHang.js";
 
 export function drawcartGui() {
   const dsItemGioHang = layDsItemGioHang();
-  console.log();
 
   const cartTableBody = document.querySelector("tbody");
   const priceTotalElement = document.querySelector(".price-total span");
@@ -18,16 +17,13 @@ export function drawcartGui() {
   let tongTien = 0;
 
   dsItemGioHang.forEach((item) => {
-    const { idSanPham, imgSanPham, tenSanPham, soLuongSanPham } = item;
-    console.log(item);
-
-    const giaSanPham = 320000; // Giá sản phẩm tạm thời (có thể thay đổi tùy vào từng sản phẩm)
+    const { idSanPham, imgSanPham, tenSanPham, soLuongSanPham, giaSanPham } =
+      item;
 
     // Tính tổng giá cho sản phẩm này (số lượng * giá)
     const tongGiaSanPham = giaSanPham * soLuongSanPham;
     tongTien += tongGiaSanPham;
 
-    // Tạo HTML cho một hàng sản phẩm
     const productRow = `
       <tr>
         <td style="display: flex; align-items: center">
@@ -37,7 +33,7 @@ export function drawcartGui() {
           <p><span>${giaSanPham}</span><sup>đ</sup></p>
         </td>
         <td>
-          <input style="width: 30px; outline: none" type="number" value="${soLuongSanPham}" min="0" />
+          <input style="width: 30px; outline: none" type="number" id=input_number value="${soLuongSanPham}" min="0" />
         </td>
         <td style="cursor: pointer" class="xoa-san-pham" data-id="${idSanPham}">Xóa</td>
       </tr>
@@ -48,7 +44,7 @@ export function drawcartGui() {
   });
 
   // đây là tổng tiền
-  priceTotalElement.textContent = tongTien.toLocaleString();
+  priceTotalElement.textContent = tongTien;
 
   // Thêm sự kiện xóa sản phẩm khỏi giỏ hàng
   document.querySelectorAll(".xoa-san-pham").forEach((btn) => {
@@ -71,5 +67,4 @@ function xoaSanPhamKhoiGioHang(idSanPham) {
   drawcartGui();
 }
 
-// Gọi hàm để vẽ giao diện khi trang được tải
 drawcartGui();

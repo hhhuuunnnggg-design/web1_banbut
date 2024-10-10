@@ -19,13 +19,6 @@ function SaveProductToLocalStorage() {
 }
 SaveProductToLocalStorage();
 
-// function searchProducts(searchTerm) {
-//   const userLocal = JSON.parse(localStorage.getItem("ListPenss")) || [];
-//   return userLocal.filter((product) =>
-//     product.title.toLowerCase().includes(searchTerm.toLowerCase())
-//   );
-// }
-
 // Hàm tìm kiếm và lọc sản phẩm theo từ khóa và tiêu chí
 function searchAndFilterProducts(searchTerm, filterCriteria) {
   const userLocal = JSON.parse(localStorage.getItem("ListPens")) || [];
@@ -87,7 +80,9 @@ export function drawProducts(page = 1, searchTerm = "") {
             <div class="product_order">
               <button class="addToCart" data-id="${product.id}" 
                       data-img="${product.thumbnail}" 
-                      data-title="${product.title}">
+                      data-title="${product.title}"
+                      data-price="${product.price}"
+                      >
                 Thêm vào giỏ hàng
               </button>
             </div>
@@ -104,7 +99,9 @@ export function drawProducts(page = 1, searchTerm = "") {
       const productId = button.getAttribute("data-id");
       const imgSanPham = button.getAttribute("data-img");
       const tenSanPham = button.getAttribute("data-title");
-      onclickDuaVaoGioHang(productId, imgSanPham, tenSanPham);
+      const giaSanPham = button.getAttribute("data-price");
+
+      onclickDuaVaoGioHang(productId, imgSanPham, tenSanPham, giaSanPham);
     });
   });
 
@@ -163,8 +160,7 @@ document.getElementById("filter").addEventListener("change", function () {
 });
 // giỏ hànga
 // Hàm xử lý khi người dùng click "Thêm vào giỏ hàng"
-function onclickDuaVaoGioHang(idsanpham, imgSanPham, tenSanPham) {
-  // Kiểm tra xem người dùng đã đăng nhập chưa
+function onclickDuaVaoGioHang(idsanpham, imgSanPham, tenSanPham, giaSanPham) {
   var isLoggedIn = localStorage.getItem("isLoggedIn");
 
   if (!isLoggedIn || isLoggedIn === "false") {
@@ -191,7 +187,13 @@ function onclickDuaVaoGioHang(idsanpham, imgSanPham, tenSanPham) {
     }
   }
   if (!coTonTai) {
-    var itemGioHang = taoGioHang(idsanpham, imgSanPham, tenSanPham, 1);
+    var itemGioHang = taoGioHang(
+      idsanpham,
+      imgSanPham,
+      tenSanPham,
+      giaSanPham,
+      1
+    );
     dsItemgiohang.push(itemGioHang);
   }
 
