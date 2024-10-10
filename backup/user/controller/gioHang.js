@@ -67,30 +67,3 @@ close.addEventListener("click", function () {
   console.log("đóng cart");
   document.querySelector(".cart").style.left = "100%";
 });
-
-// -----------test thư viện-------------------------
-const thuvien = document.getElementsByClassName("thu_vien")[0];
-
-const libraryContainer = document.getElementById("products");
-if (thuvien) {
-  thuvien.addEventListener("click", function () {
-    console.log("bạn đã click vào thư viện");
-
-    // Tạo giao diện thư viện
-    libraryContainer.innerHTML = `
-      <h2>Thư viện</h2>
-      <p>Chào mừng bạn đến với thư viện của chúng tôi!</p>
-      <button class="close-btn">Đóng</button>
-    `;
-
-    libraryContainer.classList.add("visible"); // Hiện giao diện
-
-    // Gán sự kiện cho nút đóng
-    const closeButton = document.querySelector(".close-btn");
-    closeButton.addEventListener("click", function () {
-      libraryContainer.classList.remove("visible"); // Ẩn giao diện
-    });
-  });
-} else {
-  console.log("Không tìm thấy phần tử với class 'thu_vien'");
-}

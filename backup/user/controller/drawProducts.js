@@ -20,7 +20,12 @@ function SaveProductToLocalStorage() {
 SaveProductToLocalStorage();
 
 // Hàm tìm kiếm và lọc sản phẩm theo từ khóa và tiêu chí
-function searchAndFilterProducts(searchTerm, filterCriteria) {
+function searchAndFilterProducts(
+  searchTerm,
+  filterCriteria,
+  minPrice,
+  maxPrice
+) {
   const userLocal = JSON.parse(localStorage.getItem("ListPens")) || [];
 
   // Tìm kiếm theo từ khóa
@@ -39,6 +44,17 @@ function searchAndFilterProducts(searchTerm, filterCriteria) {
     );
   }
 
+  // Lọc theo giá min và max
+  if (minPrice) {
+    filteredProducts = filteredProducts.filter(
+      (product) => product.price >= minPrice
+    );
+  }
+  if (maxPrice) {
+    filteredProducts = filteredProducts.filter(
+      (product) => product.price <= maxPrice
+    );
+  }
   return filteredProducts;
 }
 
@@ -47,7 +63,18 @@ export function drawProducts(page = 1, searchTerm = "") {
   // Lấy tiêu chí tìm kiếm từ giao diện
   const filterCriteria = document.getElementById("filter").value;
 
-  let userLocal = searchAndFilterProducts(searchTerm, filterCriteria);
+  // Lấy giá min và max từ input
+  const minPrice =
+    parseFloat(document.getElementById("searchPriceMin").value) || 0;
+  const maxPrice =
+    parseFloat(document.getElementById("searchPriceMax").value) || Infinity;
+
+  let userLocal = searchAndFilterProducts(
+    searchTerm,
+    filterCriteria,
+    minPrice,
+    maxPrice
+  );
   productList.innerHTML = "";
 
   if (userLocal.length === 0) {
@@ -92,7 +119,8 @@ export function drawProducts(page = 1, searchTerm = "") {
     `;
     productList.innerHTML += productItem;
   });
-
+  // cập nhật phân trang
+  updatePagination(page, totalPages);
   // Gán sự kiện onclick cho các nút "Thêm vào giỏ hàng" và lấy mã sản phẩm từ thuộc tính `data-id`
   document.querySelectorAll(".addToCart").forEach((button) => {
     button.addEventListener("click", function () {
@@ -105,12 +133,14 @@ export function drawProducts(page = 1, searchTerm = "") {
     });
   });
 
-  // Cập nhật nút phân trang  <div class="product_order"><a href="#">thêm vào giỏ hàng</a></div>
-  document.getElementById("paginationNumber").innerText = page;
-  document.getElementById("paginationPrev").style.display =
-    page === 1 ? "none" : "inline";
-  document.getElementById("paginationNext").style.display =
-    page === totalPages ? "none" : "inline";
+  // Cập nhật nút phân trang
+  function updatePagination(currentPage, totalPages) {
+    document.getElementById("paginationNumber").innerText = currentPage;
+    document.getElementById("paginationPrev").style.display =
+      currentPage === 1 ? "none" : "inline";
+    document.getElementById("paginationNext").style.display =
+      currentPage === totalPages ? "none" : "inline";
+  }
 }
 
 // Điều khiển phân trang
@@ -131,7 +161,7 @@ document
   });
 
 // Sự kiện tìm kiếm
-document.getElementById("searchButton").addEventListener("click", function () {
+document.getElementById("searchButton").addEventListener("click", function (e) {
   const searchTerm = document.getElementById("searchInput").value; // Lấy giá trị từ input tìm kiếm
   currentPage = 1; // Reset lại trang đầu tiên khi tìm kiếm
   drawProducts(currentPage, document.getElementById("searchInput").value);
@@ -144,15 +174,28 @@ document
     if (e.key === "Enter") {
       const searchTerm = document.getElementById("searchInput").value; // Lấy giá trị từ input tìm kiếm
       currentPage = 1; //reset lại trang đầu
+      document.getElementsByClassName("tim_gia")[0].style.display = "block";
       drawProducts(currentPage, searchTerm);
     }
   });
 
 document.getElementById("searchButton").addEventListener("click", function () {
   const searchTerm = document.getElementById("searchInput").value;
+  document.getElementsByClassName("tim_gia")[0].style.display = "block";
   currentPage = 1;
   drawProducts(currentPage, searchTerm);
 });
+
+//  tìm kiếm giá min đến max
+document
+  .getElementById("searchButtonPrice")
+  .addEventListener("click", function () {
+    const PriceMax = document.getElementById("searchPriceMax").value;
+    const PriceMin = document.getElementById("searchPriceMin").value;
+    console.log(PriceMin + " và " + PriceMax);
+    currentPage = 1; // Reset lại trang đầu tiên khi tìm kiếm
+    drawProducts(currentPage, document.getElementById("searchInput").value);
+  });
 
 // Sự kiện khi thay đổi bộ lọc
 document.getElementById("filter").addEventListener("change", function () {
