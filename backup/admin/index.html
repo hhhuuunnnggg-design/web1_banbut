@@ -1,43 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+    <head>
+        <link rel="stylesheet" href="./style/indexstyle.css">
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin</title>
-    <link rel="stylesheet" href="style/style.css" />
-</head>
+    <body style="margin:0;">
+        <table >
+            <td style="height:100%">
+            <div id="box1" style="display: flex;">
+                <a>
+                    <img src="../Images/logo.png" width="100px">
+                </a>
+                <h3>Quản lí</h3>
+            </div>  
+            <div id="box2">
+                <div style="display: flex;" >
+                    <a href="./userManage.html"> <button >
+                       
+                    <img src="../Images/admin/user-admin.png" width="35px" height="auto" style="margin: 10px ;">
+                    <h3>Quản lí tài khoản</h3>  
+                    </button>
+                    </a>
+                </div>
+                    <div>
+                    <a href="./productManage.html"><button >
+                    <div style="display: flex;">
+                        <img src="../Images/admin/giohang-admin.png" width="35px" height="auto" style="margin: 10px ;">
+                        <h3>Quản lí sản phẩm</h3>
+                    </div>
+                    </button>
+                    </a>
 
-<body>
-    <!--title-->
-    <div class="title-page" style="margin-bottom:20px">
-        <h1
-            style="color: rgb(56, 54, 55); border-radius: 10px; background:linear-gradient(to right, #7a47f0, #d6d2e0) ;">
-            welcome to the
-            admin page</h1>
-    </div>
+                    <a href="#"><button >
+                    <div style="display: flex;">
+                        <img src="../Images/admin/donhang-admin.png" width="35px" height="auto" style="margin: 10px ;">
+                        <h3>Quản lí đơn hàng</h3>
+                    </div>
+                    </button>
+                    </a>
 
-    <!--login-->
-    <div class="login-container">
-        <form name="admin-login" action="" method="">
-            <h1 style="text-align: center;">Sign In</h1>
-            <input type="text" id="box" placeholder="email/username" /><br>
-            <input type="text" id="box" placeholder="password" /><br>
-            <label for="pass-rem">remember me</label>
-            <input style="width: 15px; height: 15px; margin: 5px;" type="checkbox" id="pass-rem" name="pass-rem"
-                value="remember" />
-            <p align="right" style="display: inline-block; margin-left: 20px;">
-                <a href="#" style="color: rgb(51, 51, 51); text-decoration: none; display: inline-block;
-                                margin-top: 15px; margin-bottom: 15px;">forgot your password?</a>
-            </p>
-            <button
-                style="display:block; box-sizing: border-box; margin: auto; border-style: none; border-radius: 15px; font-size: 20px;
-                            text-align: center; padding: 10px; background-color: #7a47f0; color: white; cursor: pointer;"
-                type="submit">
-                sign in
-            </button>
-        </form>
-    </div>
-</body>
+                    <a href="./statsManager.html"></a><button >
+                    <div style="display: flex;">
+                        <img src="../Images/admin/thongke-admin.png" width="35px" height="auto" style="margin: 10px ;">
+                        <h3>Quản lí doanh thu</h3>
+                    </button>
+                </div>
+            <div>
 
+            </div>
+            </td>
+
+            <td style="background-color: #f8f8f9;">
+
+            </td>
+        </table>
+    </body>
 </html>
