@@ -10,17 +10,17 @@ body {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 .header-main {
-  position: fixed; 
-  top: 0; 
+  position: fixed;
+  top: 0;
   width: 100%;
-  z-index: 999; 
-  height: 88px; 
+  z-index: 999;
+  height: 88px;
 }
 
 .header-main .inner-menu {
   text-align: center;
   background-color: #4e5a62;
-  height: 100%; 
+  height: 100%;
 }
 
 .header-main .inner-menu ul {
@@ -32,7 +32,7 @@ body {
 }
 
 .header-main .inner-menu ul li {
-  position: relative; 
+  position: relative;
   justify-content: space-between;
   min-width: 120px;
   margin-right: 13px;
@@ -96,63 +96,63 @@ body {
 }
 
 #loginBtn {
-  font-family: Arial, sans-serif; 
-  font-size: 20px; 
-  color: #e8c22e; 
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  color: #e8c22e;
 }
 
 #loginBtn {
-  background-color: transparent; 
+  background-color: transparent;
   border: none;
   padding: 0;
   cursor: pointer;
-  color: #e8c22e; 
+  color: #e8c22e;
 }
 
 /* Cấu hình thanh tìm kiếm không có màu nền, border, outline */
 /* Cấu hình thanh tìm kiếm */
 .search {
-  display: flex; 
-  align-items: center; 
+  display: flex;
+  align-items: center;
   width: 100%;
 }
 
 .search input {
-  background-color: transparent; 
-  border: 1px solid #e8c22e; 
-  color: #e8c22e; 
-  outline: none; 
+  background-color: transparent;
+  border: 1px solid #e8c22e;
+  color: #e8c22e;
+  outline: none;
 }
 
 .search input::placeholder {
-  color: #e8c22e; 
+  color: #e8c22e;
 }
 
 .search button {
   cursor: pointer;
   margin-left: 10px;
-  background-color: transparent; 
-  color: #e8c22e; 
-  border: 1px solid #e8c22e; 
+  background-color: transparent;
+  color: #e8c22e;
+  border: 1px solid #e8c22e;
 }
 
 .search button:hover {
-  color: #f0b11f; 
-  border-color: #f0b11f; 
+  color: #f0b11f;
+  border-color: #f0b11f;
 }
 /* Cấu hình select filter */
 #filter {
-  background-color: transparent; 
-  color: #e8c22e; 
-  border: 1px solid #e8c22e; 
+  background-color: transparent;
+  color: #e8c22e;
+  border: 1px solid #e8c22e;
   margin: 5px 0;
 }
-.sear{
+.sear {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; 
+  align-items: flex-start;
 }
-.fa-solid{
+.fa-solid {
   color: #e8c22e;
 }
 /* Đảm bảo tính thẩm mỹ cho các phần tử trong tutorial */
@@ -168,7 +168,7 @@ body {
   font-weight: 600;
   text-align: center;
   text-transform: uppercase;
-  margin:0;
+  margin: 0;
 }
 
 .tutorial__bar {
@@ -182,7 +182,7 @@ body {
   font-size: 24px;
   color: #6b003e;
   text-decoration: underline;
-  margin:35px auto 0 auto;
+  margin: 35px auto 0 auto;
 }
 
 .tutorial__detail {
@@ -241,7 +241,6 @@ p[style="color: red;"] {
   color: red;
   font-weight: bold;
 }
-
 
 /* end phân trang */
 
@@ -363,6 +362,6 @@ p[style="color: red;"] {
   padding: 12px 0;
 }
 /* tutorial */
-.tutorial h2{
+.tutorial h2 {
   text-align: center;
 }

@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link rel="stylesheet" href="/backup2/style/index.css" /> -->
+
     <link rel="stylesheet" href="style/tutorial.css" />
     <link
       rel="stylesheet"
@@ -16,7 +16,6 @@
     <title>Bán bút bi</title>
   </head>
   <body>
-    <!--  phần menu đa cấp ở đây sẽ không có xuất hiện -->
     <div class="header-main">
       <div class="container">
         <div class="inner-wrap">
@@ -81,7 +80,6 @@
                 </a>
               </li>
               <li>
-                <!-- search -->
                 <div class="sear">
                   <div class="search" id="search">
                     <input
@@ -318,28 +316,22 @@
       </div>
     </footer>
 
-    <!-- <script src="user/view/view.js" type="module"></script> -->
-
     <script src="user/controller/drawProducts.js" type="module"></script>
     <script src="user/controller/renderLoaibutList.js" type="module"></script>
     <script src="user/controller/gioHang.js" type="module"></script>
     <script src="user/controller/logout.js" type="module"></script>
     <script src="user/controller/cartGui.js" type="module"></script>
-    <!-- <script src="user/controller/search.js" type="module"></script> -->
-    <!-- <script src="user/controller/test.js" type="module"></script> -->
+
     <script>
-      // Kiểm tra trạng thái đăng nhập và hiển thị lời chào
       document.addEventListener("DOMContentLoaded", function () {
         const userName = localStorage.getItem("loggedInUserName");
 
-        // Nếu người dùng đã đăng nhập, hiển thị lời chào và nút đăng xuất
         if (userName) {
           document.getElementById("greeting").style.display = "block";
           document.getElementById("userNameDisplay").textContent = userName;
           document.getElementById("btnLogout").style.display = "block";
-          document.getElementById("btnLogin").style.display = "none"; // Ẩn nút đăng nhập
+          document.getElementById("btnLogin").style.display = "none";
         } else {
-          // Nếu chưa đăng nhập, chỉ hiển thị nút đăng nhập
           document.getElementById("btnLogin").style.display = "block";
           document.getElementById("btnLogout").style.display = "none";
           document.getElementById("greeting").style.display = "none";
@@ -347,4 +339,4 @@
       });
     </script>
   </body>
-</html>
+</html> -->

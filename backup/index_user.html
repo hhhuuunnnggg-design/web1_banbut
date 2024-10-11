@@ -162,7 +162,7 @@
         <i class="fa-solid fa-circle-xmark" id="close_cart"></i>
       </div>
 
-      <form action="">
+      <form id="formCart" action="">
         <table>
           <thead>
             <tr>
@@ -221,7 +221,10 @@
           <p style="font-weight: bold">
             Tổng tiền: <span>320000</span><sup>đ</sup>
           </p>
-          <button class="chot_don">chốt đơn</button>
+
+          <button id="chotdon">Chốt đơn</button>
+
+          <button type="button" class="submit">thanh toán bằng qr</button>
         </div>
       </form>
     </section>
@@ -288,10 +291,10 @@
     <script src="user/controller/renderLoaibutList.js" type="module"></script>
     <script src="user/controller/gioHang.js" type="module"></script>
     <script src="user/controller/logout.js" type="module"></script>
+    <!-- <script src="user/controller/thanhtoanQr.js" type="module"></script> -->
     <script src="user/controller/cartGui.js" type="module"></script>
-    <script src="user/controller/huongdanmuahang.js" type="module"></script>
-    <!-- <script src="user/controller/search.js" type="module"></script> -->
-    <!-- <script src="user/controller/test.js" type="module"></script> -->
+    <script src="user/GUI/huongdanmuahang.js" type="module"></script>
+
     <script>
       // Kiểm tra trạng thái đăng nhập và hiển thị lời chào
       document.addEventListener("DOMContentLoaded", function () {
@@ -310,6 +313,14 @@
           document.getElementById("greeting").style.display = "none";
         }
       });
+    </script>
+    <script>
+      document
+        .getElementById("chotdon")
+        .addEventListener("click", function (e) {
+          e.preventDefault(); // Ngăn chặn hành động mặc định của form
+          window.location.href = "./Payment.html"; // Điều hướng sang trang Payment.html
+        });
     </script>
   </body>
 </html>

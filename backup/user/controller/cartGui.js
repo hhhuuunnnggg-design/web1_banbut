@@ -1,5 +1,19 @@
 import { layDsItemGioHang, luuDSvaoStorage } from "./gioHang.js";
 
+// Hàm tính tổng tiền giỏ hàng
+function tinhTongTienGioHang() {
+  const dsItemGioHang = layDsItemGioHang();
+  let tongTien = 0;
+
+  dsItemGioHang.forEach((item) => {
+    const { soLuongSanPham, giaSanPham } = item;
+    const tongGiaSanPham = giaSanPham * soLuongSanPham;
+    tongTien += tongGiaSanPham;
+  });
+
+  return tongTien;
+}
+
 export function drawcartGui() {
   const dsItemGioHang = layDsItemGioHang();
 
@@ -14,15 +28,11 @@ export function drawcartGui() {
     return;
   }
 
-  let tongTien = 0;
-
   dsItemGioHang.forEach((item) => {
     const { idSanPham, imgSanPham, tenSanPham, soLuongSanPham, giaSanPham } =
       item;
 
-    // Tính tổng giá cho sản phẩm này (số lượng * giá)
     const tongGiaSanPham = giaSanPham * soLuongSanPham;
-    tongTien += tongGiaSanPham;
 
     const productRow = `
       <tr>
@@ -43,7 +53,8 @@ export function drawcartGui() {
     cartTableBody.innerHTML += productRow;
   });
 
-  // đây là tổng tiền
+  // đây là tổng tiền, sử dụng hàm tinhTongTienGioHang để cập nhật tổng tiền
+  const tongTien = tinhTongTienGioHang();
   priceTotalElement.textContent = tongTien;
 
   // Thêm sự kiện xóa sản phẩm khỏi giỏ hàng

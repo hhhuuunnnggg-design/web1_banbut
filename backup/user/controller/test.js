@@ -15,13 +15,6 @@ function SaveProductToLocalStorage() {
 }
 SaveProductToLocalStorage();
 
-// function searchProducts(searchTerm) {
-//   const userLocal = JSON.parse(localStorage.getItem("ListPenss")) || [];
-//   return userLocal.filter((product) =>
-//     product.title.toLowerCase().includes(searchTerm.toLowerCase())
-//   );
-// }
-
 // Hàm tìm kiếm và lọc sản phẩm theo từ khóa và tiêu chí
 function searchAndFilterProducts(searchTerm, filterCriteria) {
   const userLocal = JSON.parse(localStorage.getItem("ListPens")) || [];
@@ -174,8 +167,3 @@ function onclickDuaVaoGioHang(idsanpham) {
 
 // Khởi tạo trang đầu tiên với tất cả sản phẩm
 drawProducts(currentPage);
-
-// <script src="user/controller/drawProducts.js" type="module"></script>
-//     <script src="user/controller/renderLoaibutList.js" type="module"></script>
-//     <script src="user/controller/gioHang.js" type="module"></script>
-//     <script src="user/controller/logout.js" type="module"></script>

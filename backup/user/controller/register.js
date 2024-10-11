@@ -68,6 +68,8 @@ formRegister.addEventListener("submit", function (e) {
       userName: element_namedk.value,
       userEmail: element_emaildk.value,
       userPasWord: element_passworddk.value,
+      off: false,
+      donhang: [],
     };
     userLocal.push(user);
 
@@ -75,3 +77,7 @@ formRegister.addEventListener("submit", function (e) {
     alert("Bạn đã tạo tài khoảng thành công");
   }
 });
+
+function getCurrentUser() {
+  return JSON.parse(window.localStorage.getItem("users"));
+}
