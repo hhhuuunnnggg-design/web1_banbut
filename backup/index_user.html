@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- <link rel="stylesheet" href="/backup2/style/index.css" /> -->
     <link rel="stylesheet" href="style/index.css" />
-
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -18,23 +17,15 @@
   </head>
   <body>
     <!--  phần menu đa cấp ở đây sẽ không có xuất hiện -->
+
     <div class="header-main">
       <div class="container">
         <div class="inner-wrap">
           <div class="inner-menu">
             <ul>
               <li class="thuonghieu">
-                <i class="fa-solid fa-house"></i><a href="#">Thương hiệu</a>
-                <div class="box-submenu">
-                  <ul>
-                    <li><a href="#">bút monyblanc</a></li>
-                    <li><a href="#">Bút waterman</a></li>
-                    <li><a href="#">Bút Parker</a></li>
-                    <li><a href="#">Bút Allan D'Lious</a></li>
-                    <li><a href="#">Bút Lamy</a></li>
-                    <li><a href="#">Bút Sheaffer</a></li>
-                  </ul>
-                </div>
+                <i class="fa-solid fa-house"></i
+                ><a href="./index_user.html">Trang chủ</a>
               </li>
               <li class="loaibut">
                 <i class="fa-solid fa-pen"></i><a href="#">Loại bút</a>
@@ -66,44 +57,87 @@
                   </ul>
                 </div>
               </li>
-              <li><i class="fa-solid fa-book"></i><a href="#">Thư viện</a></li>
+              <li>
+                <i class="fa-solid fa-book"></i
+                ><a href="#" class="thu_vien">Thư viện</a>
+              </li>
+              <!-- <li>
+                <i class="fa-solid fa-book"></i>
+                <a class="thu_vien">Thư viện</a>
+              </li> -->
               <li>
                 <i class="fa-solid fa-person-chalkboard"></i
-                ><a href="#">Hướng dẫn mua hàng</a>
+                ><a href="#" class="huong_dan_mua_hang">hướng dẫn mua hàng</a>
               </li>
               <li><i class="fa-solid fa-phone"></i><a href="#">Liên hệ</a></li>
+              <li>
+                <a
+                  href="./login_logout.html"
+                  id="btnLogin"
+                  style="text-decoration: none"
+                >
+                  <button id="loginBtn">Đăng nhập</button>
+                </a>
+              </li>
+              <div class="cart-icon" id="xem_gio_hang">
+                <i class="fa-solid fa-cart-shopping"></i>giỏ hàng
+              </div>
+              <li>
+                <!-- search -->
+                <div class="sear">
+                  <div class="search" id="search">
+                    <input
+                      type="text"
+                      id="searchInput"
+                      placeholder="Tìm kiếm sản phẩm..."
+                    />
+                    <button id="searchButton">
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                  </div>
+
+                  <select id="filter">
+                    <option value="mac-dinh">Mặc định</option>
+                    <option value="gia-thap-den-cao">Gía thấp đến cao</option>
+                    <option value="gia-cao-den-thap">Gía cao đến thấp</option>
+                    <option value="giam-gia-nhieu">Giam giá nhiều</option>
+                  </select>
+
+                  <!-- tìm kiếm theo giá từ -->
+                  <div class="tim_gia" style="display: none">
+                    <input
+                      type="text"
+                      placeholder="giá min"
+                      id="searchPriceMin"
+                    />
+                    <input
+                      type="text"
+                      placeholder="giá max"
+                      id="searchPriceMax"
+                    />
+                    <button id="searchButtonPrice">
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                  </div>
+                </div>
+              </li>
             </ul>
           </div>
+
           <div class="layout-defauft_account" style="margin-left: 50%">
-            <a
-              href="./login_logout.html"
-              id="btnLogin"
-              style="text-decoration: none"
-            >
-              <button>Đăng nhập</button>
-            </a>
-            <a href="/register" id="btnSignup" style="text-decoration: none">
-              <button>Đăng ký</button>
-            </a>
+            <div id="greeting" style="display: none">
+              Xin chào, <span id="userNameDisplay"></span>!
+            </div>
+            <div id="btnLogout" style="display: none; text-decoration: none">
+              <button>Đăng xuất</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
     <!-- end menu đa cấp -->
-    <h2>Danh sách sản phẩm bút bi</h2>
-    <!-- search -->
-    <div class="search" id="search">
-      <input type="text" />
-      <button>Search</button>
-    </div>
-
-    <select id="filter">
-      <option value="mac-dinh">Mặc định</option>
-      <option value="gia-thap-den-cao">Gía thấp đến cao</option>
-      <option value="gia-cao-den-thap">Gía cao đến thấp</option>
-      <option value="giam-gia-nhieu">Giam giá nhiều</option>
-    </select>
-
+    <!-- <h2>Danh sách sản phẩm bút bi</h2> -->
     <!-- end search -->
     <div id="products" class="product_list">
       <div class="product_item">
@@ -121,6 +155,77 @@
         </div>
       </div>
     </div>
+    <!-- cart -->
+    <section class="cart" style="margin-top: 50px">
+      <div>
+        <h2>đây chính là giỏ hàng</h2>
+        <i class="fa-solid fa-circle-xmark" id="close_cart"></i>
+      </div>
+
+      <form action="">
+        <table>
+          <thead>
+            <tr>
+              <th>Sản Phẩm</th>
+              <th>Gía</th>
+              <th>Số Lượng</th>
+              <th>Lựa chọn</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="display: flex; align-items: center">
+                <img
+                  style="width: 70px"
+                  src="./Images/thumnails/ButBi/ButBiAllan120BBL.jpg"
+                  alt="dssa"
+                />but 1
+              </td>
+              <td>
+                <p><span>320000</span><sup>đ</sup></p>
+              </td>
+              <td>
+                <input
+                  style="width: 30px; outline: none"
+                  type="number"
+                  value="1"
+                  min="0"
+                />
+              </td>
+              <td style="cursor: pointer">Xoas</td>
+            </tr>
+            <tr>
+              <td style="display: flex; align-items: center">
+                <img
+                  style="width: 70px"
+                  src="./Images/thumnails/ButBi/ButBiAllan120BBL.jpg"
+                  alt="dssa"
+                />but 1
+              </td>
+              <td>
+                <p><span>320000</span><sup>đ</sup></p>
+              </td>
+              <td>
+                <input
+                  style="width: 30px; outline: none"
+                  type="number"
+                  value="1"
+                  min="0"
+                />
+              </td>
+              <td style="cursor: pointer">Xoas</td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="text-align: right" class="price-total">
+          <p style="font-weight: bold">
+            Tổng tiền: <span>320000</span><sup>đ</sup>
+          </p>
+          <button class="chot_don">chốt đơn</button>
+        </div>
+      </form>
+    </section>
+    <!-- end cart -->
     <!-- phân trang -->
     <div class="pagination">
       <span class="pagination_buttun" id="paginationPrev">Prev</span>
@@ -177,7 +282,34 @@
       </div>
     </footer>
 
-    <script src="user/view/view.js" type="module"></script>
-    <!-- <script src="user/controller/login.js" type="module"></script> -->
+    <!-- <script src="user/view/view.js" type="module"></script> -->
+
+    <script src="user/controller/drawProducts.js" type="module"></script>
+    <script src="user/controller/renderLoaibutList.js" type="module"></script>
+    <script src="user/controller/gioHang.js" type="module"></script>
+    <script src="user/controller/logout.js" type="module"></script>
+    <script src="user/controller/cartGui.js" type="module"></script>
+    <script src="user/controller/huongdanmuahang.js" type="module"></script>
+    <!-- <script src="user/controller/search.js" type="module"></script> -->
+    <!-- <script src="user/controller/test.js" type="module"></script> -->
+    <script>
+      // Kiểm tra trạng thái đăng nhập và hiển thị lời chào
+      document.addEventListener("DOMContentLoaded", function () {
+        const userName = localStorage.getItem("loggedInUserName");
+
+        // Nếu người dùng đã đăng nhập, hiển thị lời chào và nút đăng xuất
+        if (userName) {
+          document.getElementById("greeting").style.display = "block";
+          document.getElementById("userNameDisplay").textContent = userName;
+          document.getElementById("btnLogout").style.display = "block";
+          document.getElementById("btnLogin").style.display = "none"; // Ẩn nút đăng nhập
+        } else {
+          // Nếu chưa đăng nhập, chỉ hiển thị nút đăng nhập
+          document.getElementById("btnLogin").style.display = "block";
+          document.getElementById("btnLogout").style.display = "none";
+          document.getElementById("greeting").style.display = "none";
+        }
+      });
+    </script>
   </body>
 </html>

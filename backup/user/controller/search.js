@@ -1,64 +1,81 @@
-import { setFilteredProducts } from "./pagination.js"; // Import hàm cập nhật sản phẩm đã lọc
+// // Hàm tìm kiếm và lọc sản phẩm theo từ khóa và tiêu chí
+// function searchAndFilterProducts(searchTerm, filterCriteria) {
+//   const userLocal = JSON.parse(localStorage.getItem("ListPens")) || [];
 
-// Hàm tìm kiếm sản phẩm theo tên
-export const searchByName = (products, searchTerm) => {
-  return products.filter((product) =>
-    product.title.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-};
+//   // Tìm kiếm theo từ khóa
+//   let filteredProducts = userLocal.filter((product) =>
+//     product.title.toLowerCase().includes(searchTerm.toLowerCase())
+//   );
 
-// Hàm sắp xếp sản phẩm theo tiêu chí
-export const sortProducts = (products, criteria) => {
-  switch (criteria) {
-    case "gia-thap-den-cao":
-      return [...products].sort((a, b) => a.price - b.price);
-    case "gia-cao-den-thap":
-      return [...products].sort((a, b) => b.price - a.price);
-    case "giam-gia-nhieu":
-      return [...products].sort(
-        (a, b) => b.discountPercentage - a.discountPercentage
-      );
-    default:
-      return products;
-  }
-};
+//   // Lọc theo tiêu chí
+//   if (filterCriteria === "gia-thap-den-cao") {
+//     filteredProducts.sort((a, b) => a.price - b.price);
+//     console.log("giá thấp đến cáo");
+//   } else if (filterCriteria === "gia-cao-den-thap") {
+//     filteredProducts.sort((a, b) => b.price - a.price);
+//   } else if (filterCriteria === "giam-gia-nhieu") {
+//     filteredProducts.sort(
+//       (a, b) => b.discountPercentage - a.discountPercentage
+//     );
+//   }
 
-// Hàm xử lý tìm kiếm tổng quát
-export const handleSearch = (products, searchTerm, criteria) => {
-  console.log("Search Term:", searchTerm);
-  let filteredProducts = searchByName(products, searchTerm);
-  filteredProducts = sortProducts(filteredProducts, criteria);
+//   return filteredProducts;
+// }
 
-  // Cập nhật sản phẩm đã lọc cho phân trang
-  console.log("Filtered Products:", filteredProducts);
-  setFilteredProducts(filteredProducts); // Sử dụng setFilteredProducts để cập nhật sản phẩm
-};
+// // Hàm vẽ sản phẩm lên giao diện (cập nhật để nhận tiêu chí tìm kiếm)
+// export function drawProducts(page = 1, searchTerm = "") {
+//   // Lấy tiêu chí tìm kiếm từ giao diện
+//   const filterCriteria = document.getElementById("filter").value;
 
-// Hàm thiết lập sự kiện cho tìm kiếm
-export const setupSearchEvents = (
-  products,
-  inputSearch,
-  buttonSearch,
-  filterSelect
-) => {
-  // Sự kiện khi nhấn nút tìm kiếm
-  buttonSearch.addEventListener("click", () => {
-    const searchTerm = inputSearch.value; // Lấy giá trị từ input tìm kiếm
-    const criteria = filterSelect.value; // Lấy giá trị từ dropdown tiêu chí
-    handleSearch(products, searchTerm, criteria); // Gọi hàm tìm kiếm
-  });
+//   let userLocal = searchAndFilterProducts(searchTerm, filterCriteria);
+//   productList.innerHTML = "";
 
-  // Xử lý khi nhấn phím Enter trong input
-  inputSearch.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-      buttonSearch.click(); // Gọi sự kiện nhấn nút tìm kiếm
-    }
-  });
+//   if (userLocal.length === 0) {
+//     productList.innerHTML =
+//       "<p>Không tìm thấy sản phẩm hoặc sản phẩm đã hết<p>";
+//     return;
+//   }
 
-  // Sự kiện khi người dùng chọn tiêu chí lọc
-  filterSelect.addEventListener("change", () => {
-    const searchTerm = inputSearch.value; // Lấy giá trị từ input tìm kiếm
-    const criteria = filterSelect.value; // Lấy giá trị từ dropdown tiêu chí
-    handleSearch(products, searchTerm, criteria); // Gọi hàm tìm kiếm
-  });
-};
+//   const totalPages = Math.ceil(userLocal.length / itemsPerPage);
+//   if (page < 1) page = 1;
+//   if (page > totalPages) page = totalPages;
+
+//   const start = (page - 1) * itemsPerPage;
+//   const end = start + itemsPerPage;
+//   const productsToShow = userLocal.slice(start, end);
+
+//   productsToShow.forEach((product) => {
+//     const productItem = `
+//       <div class="product_item">
+//         <div class="product_image">
+//           <img src="${product.thumbnail}" alt="${product.title}" />
+//           <div class="product_percent">${product.discountPercentage}%</div>
+//         </div>
+//         <div class="product_content">
+//           <h3 class="product_title">${product.title}</h3>
+//           <p class="product_description">${product.description}</p>
+//           <div class="product_meta">
+//             <div class="product_price">${product.price} $</div>
+//             <div class="product_stock">${product.stock} sp</div>
+//             <div class="product_order"><a href="#">Đặt hàng ngay</a></div>
+//           </div>
+//         </div>
+//       </div>
+//     `;
+//     productList.innerHTML += productItem;
+//   });
+
+//   document.getElementById("paginationNumber").innerText = page;
+//   document.getElementById("paginationPrev").style.display =
+//     page === 1 ? "none" : "inline";
+//   document.getElementById("paginationNext").style.display =
+//     page === totalPages ? "none" : "inline";
+// }
+
+// // Sự kiện khi thay đổi bộ lọc
+// document.getElementById("filter").addEventListener("change", function () {
+//   drawProducts(currentPage, document.getElementById("searchInput").value);
+// });
+
+// // Khởi tạo trang đầu tiên với tất cả sản phẩm
+// drawProducts(currentPage);

@@ -1,48 +1,46 @@
-// renderLoaibutList.js
+import { sanpham } from "../../assets/data/data.js";
+import { drawProducts } from "./drawProducts.js";
+const ListLoaiBut = sanpham[0].loaibut;
 
-// Hàm lọc sản phẩm theo danh mục
-function filterByCategory(
-  category,
-  products,
-  setFilteredProducts,
-  updateDisplayCurrentPage
-) {
-  const filteredProducts = products.filter((product) =>
-    product.category.toLowerCase().includes(category)
-  );
+function SaveLoaiButToLocalStorage() {
+  if (!localStorage.getItem("ListLoaiBut")) {
+    const StringLoaiBut = JSON.stringify(ListLoaiBut);
+    localStorage.setItem("ListLoaiBut", StringLoaiBut);
+  }
+}
+SaveLoaiButToLocalStorage();
 
-  // Cập nhật sản phẩm đã lọc
-  setFilteredProducts(filteredProducts);
-  updateDisplayCurrentPage(); // Hiển thị sản phẩm sau khi lọc
+// Lấy danh sách loại bút từ localStorage
+function getLoaiButFromLocalStorage() {
+  const listLoaiBut = JSON.parse(localStorage.getItem("ListLoaiBut")) || [];
+  return listLoaiBut;
 }
 
-// Hàm hiển thị danh sách các loại bút
-export function renderLoaibutList(
-  loaibut,
-  loaibutList,
-  products,
-  setFilteredProducts,
-  updateDisplayCurrentPage
-) {
-  loaibutList.innerHTML = ""; // Xóa nội dung cũ nếu có
+// Hàm vẽ danh sách loại bút ra giao diện
+function renderLoaiButList() {
+  const listLoaiBut = getLoaiButFromLocalStorage();
+  const loaiButContainer = document.querySelector(".loaibut-list"); // Chọn container mà danh sách sẽ hiển thị
 
-  // Duyệt qua từng loại bút và thêm vào danh sách
-  loaibut.forEach((item) => {
-    const li = document.createElement("li");
-    const div = document.createElement("div");
-    div.textContent = item.name; // Thêm tên loại bút vào div
+  loaiButContainer.innerHTML = "";
 
-    // Gán sự kiện click để lọc sản phẩm theo loại bút
-    div.addEventListener("click", function () {
-      filterByCategory(
-        item.name.toLowerCase(),
-        products,
-        setFilteredProducts,
-        updateDisplayCurrentPage
-      ); // Gọi hàm lọc sản phẩm
+  listLoaiBut.forEach((loaiBut) => {
+    const listItem = document.createElement("li");
+    listItem.innerHTML = `<div>${loaiBut.name}</div>`;
+
+    // Thêm sự kiện click cho từng loại bút
+    listItem.addEventListener("click", function () {
+      searchByLoaiBut(loaiBut.name);
+      console.log("bạn đã click vào bút nafy");
     });
 
-    li.appendChild(div);
-    loaibutList.appendChild(li); // Thêm phần tử li vào danh sách loaibut-list
+    loaiButContainer.appendChild(listItem);
   });
 }
+
+// Hàm tìm kiếm theo loại bút mà không cập nhật thanh tìm kiếm
+function searchByLoaiBut(loaiButName) {
+  drawProducts(1, loaiButName);
+}
+
+// Khởi tạo danh sách loại bút khi trang được tải
+renderLoaiButList();
