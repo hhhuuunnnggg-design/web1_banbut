@@ -1,0 +1,39 @@
+#box1
+{
+        border:0px;
+        width: 250px;
+        height: auto;
+        background-color: #182444;
+        position: sticky;
+}
+
+#box2
+{
+        border:0px;
+        width: 250px;
+        height: 100vh;
+        background-color: #0f1a34;
+        position: absolute;
+}
+
+h3
+{
+        color: #c9d8eb;
+}
+button
+{
+        cursor: pointer;
+        transition: background-color 0.3s ;
+        background-color:#0f1a34 ;
+        display: flex;
+        width: 250px;
+        border: none;
+}
+
+button:hover
+{
+        background-color: #0056B3;
+}
+a{
+        text-decoration: none;
+}
