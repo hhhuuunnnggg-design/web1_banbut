@@ -90,7 +90,7 @@
         <div class="Pay__Method">
           <div class="Pay__Method__detail">
             <div class="Pay__Method__header"><h4>HÌNH THỨC THANH TOÁN</h4></div>
-            <div class="Pay__Method__body">
+            <div class="Pay__Method__body" id="Pay__Method__body">
               <label>
                 <input
                   type="radio"
@@ -179,7 +179,7 @@
                 <p>Cám ơn Quý khách!</p>
               </div>
             </div>
-            <button class="order-button">ĐẶT HÀNG (ấn đúp)</button>
+            <button class="order-button">ĐẶT HÀNG</button>
           </div>
         </div>
         <div class="Pay__Order">
@@ -238,15 +238,11 @@
       </div>
     </footer>
 
-    <!-- <script src="user/view/view.js" type="module"></script> -->
     <script
       src="user/ThanhToanSanPham/hinhThucThanhToan.js"
       type="module"
     ></script>
-    <!-- <script
-      src="user/ThanhToanSanPham/thongTinThanhToan.js"
-      type="module"
-    ></script> -->
+
     <script>
       // Hàm để ẩn/hiển thị các nội dung
       function toggleVisibility(showId, hideId) {

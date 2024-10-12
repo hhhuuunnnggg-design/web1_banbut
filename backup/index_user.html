@@ -14,6 +14,7 @@
     />
 
     <title>Bán bút bi</title>
+    <!-- ./Images/thumnails/logo.png -->
   </head>
   <body>
     <!--  phần menu đa cấp ở đây sẽ không có xuất hiện -->
@@ -223,8 +224,6 @@
           </p>
 
           <button id="chotdon">Chốt đơn</button>
-
-          <button type="button" class="submit">thanh toán bằng qr</button>
         </div>
       </form>
     </section>
@@ -318,8 +317,8 @@
       document
         .getElementById("chotdon")
         .addEventListener("click", function (e) {
-          e.preventDefault(); // Ngăn chặn hành động mặc định của form
-          window.location.href = "./Payment.html"; // Điều hướng sang trang Payment.html
+          e.preventDefault();
+          window.location.href = "./Payment.html";
         });
     </script>
   </body>

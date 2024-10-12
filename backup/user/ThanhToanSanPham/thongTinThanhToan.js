@@ -23,10 +23,8 @@ function checkRong() {
 }
 export function checkThongTinThanhToan() {
   if (checkRong()) {
-    console.log("Đã đủ dữ liệu");
     return true;
   } else {
-    console.log("Chưa đủ dữ liệu");
     alert("vui Lòng Nhập đầy đủ thông tin thanh toán");
     return false;
   }

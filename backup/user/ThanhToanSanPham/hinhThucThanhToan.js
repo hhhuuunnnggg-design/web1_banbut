@@ -1,6 +1,7 @@
 // hinhThucThanhToan.js
-import { checkThongTinThanhToan } from "./thongTinThanhToan.js";
 
+import { GuiQr } from "./thanhtoanQr.js";
+import { checkThongTinThanhToan } from "./thongTinThanhToan.js";
 function checkHinhThucThanhToan() {
   const dathang = document.getElementsByClassName("order-button")[0];
   const bankTransferInput = document.getElementById("bank-transfer");
@@ -8,6 +9,7 @@ function checkHinhThucThanhToan() {
 
   if (bankTransferInput.checked) {
     console.log("Bạn đã chọn phương thức thanh toán: Chuyển khoản ngân hàng");
+    GuiQr();
   } else if (cashTransferInput.checked) {
     console.log("Bạn đã chọn phương thức thanh toán: thanh toán bằng tiền mặt");
     thanhToanKhiNhanHang();

@@ -1,8 +1,11 @@
 import { layDsItemGioHang, luuDSvaoStorage } from "./gioHang.js";
 
 // Hàm tính tổng tiền giỏ hàng
-function tinhTongTienGioHang() {
+
+export function tinhTongTienGioHang() {
   const dsItemGioHang = layDsItemGioHang();
+  console.log("Danh sách sản phẩm trong giỏ hàng:", dsItemGioHang);
+
   let tongTien = 0;
 
   dsItemGioHang.forEach((item) => {
@@ -11,6 +14,7 @@ function tinhTongTienGioHang() {
     tongTien += tongGiaSanPham;
   });
 
+  console.log("Tổng tiền:", tongTien);
   return tongTien;
 }
 
