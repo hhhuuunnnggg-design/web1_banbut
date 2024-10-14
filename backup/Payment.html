@@ -186,12 +186,7 @@
           <div class="Pay__Order__detail">
             <div class="Pay__Order__header"><h4>ĐƠN HÀNG CỦA BẠN</h4></div>
             <div class="Pay__Order__body" style="height: 400px">
-              <section class="cart" style="margin-top: 50px">
-                <div>
-                  <h2>đây chính là giỏ hàng</h2>
-                  <i class="fa-solid fa-circle-xmark" id="close_cart"></i>
-                </div>
-
+              <section class="cart">
                 <form id="formCart" action="">
                   <table>
                     <thead>
@@ -202,65 +197,12 @@
                         <th>Lựa chọn</th>
                       </tr>
                     </thead>
-                    <tbody id="cartTableBody">
-                      <tr>
-                        <td style="display: flex; align-items: center">
-                          <img
-                            style="width: 70px"
-                            src="./Images/thumnails/ButBi/ButBiAllan120BBL.jpg"
-                            alt="dssa"
-                          />but 1
-                        </td>
-                        <td>
-                          <p><span>320000</span><sup>đ</sup></p>
-                        </td>
-                        <td>
-                          <input
-                            style="width: 30px; outline: none"
-                            type="number"
-                            value="1"
-                            min="0"
-                          />
-                        </td>
-                        <td style="cursor: pointer">Xoas</td>
-                      </tr>
-                      <tr>
-                        <td style="display: flex; align-items: center">
-                          <img
-                            style="width: 70px"
-                            src="./Images/thumnails/ButBi/ButBiAllan120BBL.jpg"
-                            alt="dssa"
-                          />but 1
-                        </td>
-                        <td>
-                          <p><span>320000</span><sup>đ</sup></p>
-                        </td>
-                        <td>
-                          <input
-                            style="width: 30px; outline: none"
-                            type="number"
-                            value="1"
-                            min="0"
-                          />
-                        </td>
-                        <td style="cursor: pointer">Xoas</td>
-                      </tr>
-                    </tbody>
+                    <tbody id="cartTableBody"></tbody>
                   </table>
                   <div style="text-align: right" class="price-total">
                     <p style="font-weight: bold">
                       Tổng tiền: <span>320000</span><sup>đ</sup>
                     </p>
-                    <button
-                      id="chotdon"
-                      style="
-                        background-color: orange;
-                        cursor: pointer;
-                        border-radius: 5px;
-                      "
-                    >
-                      Chốt đơn
-                    </button>
                   </div>
                 </form>
               </section>
