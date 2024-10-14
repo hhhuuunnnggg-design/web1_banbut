@@ -7,7 +7,7 @@ export const sanpham = [
         description:
           "Bút dạ kim Montblanc Starwalker Doué Fineliner Pen MB118872 là sản phẩm mới nhất mà hãng vừa được cho ra mắt. Đánh dấu...",
         category: "Bút dạ kim",
-        price: 15800000,
+        price: 10000,
         discountPercentage: 10,
         stock: 35,
         returnPolicy: "30 ngày miễn phí đổi trả",
@@ -137,8 +137,7 @@ export const sanpham = [
         discountPercentage: 5,
         inStock: 4,
         returnPolicy: "30 ngày miễn phí đổi trả",
-        thumbnail:
-          "./Images/thumnails/ButDaKim/ButDaKimParkerIngennuity.jpg",
+        thumbnail: "./Images/thumnails/ButDaKim/ButDaKimParkerIngennuity.jpg",
       },
       {
         id: 12,
@@ -155,7 +154,8 @@ export const sanpham = [
       },
       {
         id: 13,
-        title: "Bút máy Montblanc Meisterstuck Olympic Heritage Paris 1924 Legrand Fountain Pen M 131359",
+        title:
+          "Bút máy Montblanc Meisterstuck Olympic Heritage Paris 1924 Legrand Fountain Pen M 131359",
         description:
           "Để kỷ niệm 100 năm Meisterstück vào năm 2024, Montblanc vinh danh nguồn gốc của công cụ viết mang tính biểu tượng...",
         category: "Bút máy",
@@ -207,7 +207,8 @@ export const sanpham = [
       },
       {
         id: 17,
-        title: "Bút máy Montblanc Writers Edition Brothers Grimm Limited Edition 1812 Fountain Pen MB128848",
+        title:
+          "Bút máy Montblanc Writers Edition Brothers Grimm Limited Edition 1812 Fountain Pen MB128848",
         description:
           "Bút máy Montblanc Writers Edition Brothers Grimm Limited Edition 1812 Fountain Pen MB128848 là phiên bản giới hạn với...",
         category: "Bút máy",
@@ -220,7 +221,8 @@ export const sanpham = [
       },
       {
         id: 18,
-        title: "Bút máy Montblanc Great Characters Jimi Hendrix Limited Edition 1942 Fountain Pen MB128844",
+        title:
+          "Bút máy Montblanc Great Characters Jimi Hendrix Limited Edition 1942 Fountain Pen MB128844",
         description:
           "Bút Montblanc Great Characters Jimi Hendrix Limited Edition 1942 Fountain Pen MB-128844 là phiên bản giới hạn với...",
         category: "Bút máy",
@@ -233,7 +235,8 @@ export const sanpham = [
       },
       {
         id: 19,
-        title: "Bút bi Parker Premier 2017 Monochrome Black PVD Ballpoint Pen 1931430",
+        title:
+          "Bút bi Parker Premier 2017 Monochrome Black PVD Ballpoint Pen 1931430",
         description:
           "Bút bi Parker Premier 2017 Monochrome Black PVD Ballpoint Pen 1931430 là chiếc bút thuộc dòng Premier Monochrome. Parker Premier được hãng...",
         category: "Bút bi",
@@ -272,7 +275,8 @@ export const sanpham = [
       },
       {
         id: 22,
-        title: "Bút bi Parker Sonnet Metal And Pearl Slim GT Ballpoint Pen S0947350",
+        title:
+          "Bút bi Parker Sonnet Metal And Pearl Slim GT Ballpoint Pen S0947350",
         description:
           "Bút bi Parker Sonnet Metal And Pearl Slim GT Ballpoint Pen S0947350 là chiếc bút ký thuộc dòng Parker Sonnet. Parker Sonnet bao gồm 8 mẫu bút với...",
         category: "Bút bi",
@@ -311,7 +315,8 @@ export const sanpham = [
       },
       {
         id: 25,
-        title: "Bút bi Parker Urban Premium 2017 Green CT Ballpoint Pen 1931619",
+        title:
+          "Bút bi Parker Urban Premium 2017 Green CT Ballpoint Pen 1931619",
         description:
           "Bút bi Parker Urban Premium 2017 Green CT Ballpoint Pen 1931619 có thân được làm bằng nguyên liệu cao cấp Nhôm Anodized...",
         category: "Bút bi",
@@ -324,7 +329,8 @@ export const sanpham = [
       },
       {
         id: 26,
-        title: "Bút bi Parker Urban Premium 2017 Dark Blue CT Ballpoint Pen 1931565",
+        title:
+          "Bút bi Parker Urban Premium 2017 Dark Blue CT Ballpoint Pen 1931565",
         description:
           "Bút bi Parker Urban Premium 2017 Dark Blue CT Ballpoint Pen 1931619 có thân được làm bằng nguyên liệu cao cấp Nhôm Anodized...",
         category: "Bút bi",
@@ -337,7 +343,8 @@ export const sanpham = [
       },
       {
         id: 27,
-        title: "Bút bi Parker Urban Premium 2017 Dark Purple CT Ballpoint Pen 1931569",
+        title:
+          "Bút bi Parker Urban Premium 2017 Dark Purple CT Ballpoint Pen 1931569",
         description:
           "Bút bi Parker Urban Premium 2017 Dark Purple CT Ballpoint Pen 1931569 có thân được làm bằng nguyên liệu cao cấp Nhôm Anodized...",
         category: "Bút bi",
@@ -354,7 +361,7 @@ export const sanpham = [
         description:
           "Bút bi Parker IM Writing Rituals Green Ballpoint Pen 2203894 là một sản phẩm mới nhất của năm 2024, đã được chế tác đẹp mắt, mang lại sự kết hợp hoàn hảo...",
         category: "Bút bi",
-        price:  1330000,
+        price: 1330000,
         discountPercentage: 5,
         inStock: 8,
         returnPolicy: "30 ngày miễn phí đổi trả",
@@ -367,7 +374,7 @@ export const sanpham = [
         description:
           "Bút bi Parker IM Premium 2017 Blue CT Ballpoint Pen 1931691 làm bằng nhôm “anodized” khác với đồng thay của dòng bút Parker IM Core truyền thống...",
         category: "Bút bi",
-        price:1570000,
+        price: 1570000,
         discountPercentage: 10,
         inStock: 14,
         returnPolicy: "30 ngày miễn phí đổi trả",
@@ -376,7 +383,8 @@ export const sanpham = [
       },
       {
         id: 30,
-        title: "Bút bi Parker IM Premium 2017 Pale Green CT Ballpoint Pen 1975658",
+        title:
+          "Bút bi Parker IM Premium 2017 Pale Green CT Ballpoint Pen 1975658",
         description:
           "Bút bi Parker IM Premium 2017 Pale Green CT Ballpoint Pen 1975658 làm bằng nhôm “anodized” khác với đồng thay của dòng bút Parker IM Core truyền thống...",
         category: "Bút bi",
@@ -410,8 +418,7 @@ export const sanpham = [
         discountPercentage: 15,
         inStock: 23,
         returnPolicy: "30 ngày miễn phí đổi trả",
-        thumbnail:
-          "./Images/thumnails/ButDaBi/ButDaBiAllanDlious405R.jpg",
+        thumbnail: "./Images/thumnails/ButDaBi/ButDaBiAllanDlious405R.jpg",
       },
       {
         id: 33,
@@ -449,8 +456,7 @@ export const sanpham = [
         discountPercentage: 15,
         inStock: 17,
         returnPolicy: "30 ngày miễn phí đổi trả",
-        thumbnail:
-          "./Images/thumnails/ButDaBi/ButDaBIAllanDlious6002RG.jpg",
+        thumbnail: "./Images/thumnails/ButDaBi/ButDaBIAllanDlious6002RG.jpg",
       },
       {
         id: 36,
@@ -462,12 +468,12 @@ export const sanpham = [
         discountPercentage: 15,
         inStock: 22,
         returnPolicy: "30 ngày miễn phí đổi trả",
-        thumbnail:
-          "./Images/thumnails/ButDaBi/ButLamyAl-StarOceanBlueRB.jpg",
+        thumbnail: "./Images/thumnails/ButDaBi/ButLamyAl-StarOceanBlueRB.jpg",
       },
       {
         id: 37,
-        title: "Bút Lamy Safari Candy Aquamarine Special Edition 2020 Rollerball",
+        title:
+          "Bút Lamy Safari Candy Aquamarine Special Edition 2020 Rollerball",
         description:
           "Giống như những dòng bút Lamy Safari mang trong mình nét hiện đại vượt thời gian tới cho những người trẻ tuổi...",
         category: "Bút dạ bi",
@@ -506,7 +512,8 @@ export const sanpham = [
       },
       {
         id: 40,
-        title: "Bút dạ bi Montblanc Meisterstuck Doue Around The World 80 Days Rollerball MB126350",
+        title:
+          "Bút dạ bi Montblanc Meisterstuck Doue Around The World 80 Days Rollerball MB126350",
         description:
           "Bút dạ bi Montblanc Meisterstuck Doue Around The World 80 Days Rollerball thuộc dòng Meisterstuck với...",
         category: "Bút dạ bi",

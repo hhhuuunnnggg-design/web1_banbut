@@ -1,7 +1,7 @@
 export function drawcartGui() {
   const dsItemGioHang = layDsItemGioHang();
 
-  const cartTableBody = document.querySelector("tbody");
+  const cartTableBody = document.querySelector("Pay__Order__body");
   const priceTotalElement = document.querySelector(".price-total span");
 
   cartTableBody.innerHTML = "";

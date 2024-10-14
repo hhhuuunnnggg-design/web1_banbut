@@ -24,45 +24,61 @@ const userEmailError = document.getElementById("userEmailError");
 const userPasswordError = document.getElementById("userPasswordError");
 const reuserPasswordError = document.getElementById("reuserPasswordError");
 
-// Lấy dữ liệu từ LocalStỏage
+// Lấy dữ liệu từ LocalStorage
 const userLocal = JSON.parse(localStorage.getItem("users")) || [];
 
-// các sự kiện không được thiếu
+function reSetInPut() {
+  element_namedk.value = "";
+  element_emaildk.value = "";
+  element_passworddk.value = "";
+  element_repassworddk.value = "";
+}
+
+function checkTrungEmail(emailInput) {
+  const Array_valueUsers = JSON.parse(localStorage.getItem("users")) || [];
+  return Array_valueUsers.some((user) => user.userEmail === emailInput);
+}
+
 formRegister.addEventListener("submit", function (e) {
   e.preventDefault();
+
+  userNameError.style.display = "none";
+  userEmailError.style.display = "none";
+  userPasswordError.style.display = "none";
+  reuserPasswordError.style.display = "none";
+
+  let isValid = true;
+
+  // Kiểm tra từng trường
   if (!element_namedk.value) {
     userNameError.style.display = "block";
-  } else {
-    userNameError.style.display = "none";
+    isValid = false;
   }
   if (!element_emaildk.value) {
     userEmailError.style.display = "block";
-  } else {
-    userEmailError.style.display = "none";
+    isValid = false;
+  } else if (checkTrungEmail(element_emaildk.value)) {
+    userEmailError.style.display = "block";
+    userEmailError.innerHTML = "Email đã có người sử dụng";
+    isValid = false;
   }
   if (!element_passworddk.value) {
     userPasswordError.style.display = "block";
-  } else {
-    userPasswordError.style.display = "none";
+    isValid = false;
   }
   if (!element_repassworddk.value) {
     reuserPasswordError.style.display = "block";
-  } else {
-    reuserPasswordError.style.display = "none";
+    isValid = false;
   }
-  //    kiểm tra mật khẩu với nhập lại mk
+
   if (element_passworddk.value !== element_repassworddk.value) {
     reuserPasswordError.style.display = "block";
-    reuserPasswordError.innerHTML = "mật khẩu không khớp";
-  } else {
-    reuserPasswordError.style.display = "none";
+    reuserPasswordError.innerHTML = "Mật khẩu không khớp";
+    isValid = false;
   }
-  //   gửi dữ liệu lên localstore
-  if (
-    element_namedk.value &&
-    element_emaildk.value &&
-    element_passworddk.value === element_repassworddk.value
-  ) {
+
+  // Nếu tất cả các trường hợp đều hợp lệ, gửi dữ liệu
+  if (isValid) {
     const user = {
       userId: Math.ceil(Math.random() * 10000000),
       userName: element_namedk.value,
@@ -71,10 +87,13 @@ formRegister.addEventListener("submit", function (e) {
       off: false,
       donhang: [],
     };
-    userLocal.push(user);
 
+    userLocal.push(user);
+    reSetInPut(); // Reset input fields
     localStorage.setItem("users", JSON.stringify(userLocal));
-    alert("Bạn đã tạo tài khoảng thành công");
+    alert("Bạn đã tạo tài khoản thành công");
+  } else {
+    alert("Không thể tạo tài khoản do có lỗi");
   }
 });
 
