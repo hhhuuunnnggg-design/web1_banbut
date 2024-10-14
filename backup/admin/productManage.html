@@ -142,7 +142,7 @@
             {
                 const productId=sanpham[i].id;
                 const productName = sanpham[i].title;
-                const productImage = sanpham[i].thumnail; // Lấy hình ảnh
+                const productImage = sanpham[i].thumbnail; // Lấy hình ảnh
                 const productPrice = sanpham[i].price;
                 const productInfo = sanpham[i].description;
                 // Tạo một hàng mới trong bảng
@@ -150,7 +150,7 @@
                         <tr id="product-${productId}">
                             <td>${productId}</td>
                             <td>${productName}</td>
-                            <td><img src="${productImage}" class="img-thumbnail"></td>
+                            <td><img src=".${productImage}" alt="${productName}" class="img-thumbnail"></td>
                             <td>${productPrice} VNĐ</td>
                             <td>${productInfo}</td>
                             <td>
