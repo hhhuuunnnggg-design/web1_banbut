@@ -28,18 +28,18 @@ function tinhTongTienGioHang() {
   }, 0);
 }
 
-export function drawcartGui() {
+export function donHangCuaBan() {
   const dsItemGioHang = layDsItemGioHang();
 
-  const cartTableBody = document.querySelector("#cartTableBody"); // Sửa lại selector
+  const cartTableBody = document.querySelector("#cartTableBody");
   const priceTotalElement = document.querySelector(".price-total span");
 
   if (!cartTableBody || !priceTotalElement) {
     console.error("Không tìm thấy phần tử cần thiết trong DOM");
-    return; // Thoát khỏi hàm nếu phần tử không tồn tại
+    return;
   }
 
-  cartTableBody.innerHTML = ""; // Đặt lại nội dung của tbody
+  cartTableBody.innerHTML = "";
 
   if (dsItemGioHang.length === 0) {
     cartTableBody.innerHTML = `<tr><td colspan="4">Giỏ hàng trống</td></tr>`;
@@ -53,29 +53,26 @@ export function drawcartGui() {
 
     const productRow = `
           <tr>
-              <td style="display: flex; align-items: center">
+              <td style="display: flex; align-items: center ">
                   <img style="width: 70px" src="${imgSanPham}" alt="${tenSanPham}" />${tenSanPham}
               </td>
               <td>
                   <p><span>${giaSanPham}</span><sup>đ</sup></p>
               </td>
               <td>
-                  <input style="width: 30px; outline: none" type="number" value="${soLuongSanPham}" min="0" />
+                  <input style="width: 30px; outline: none" type="text" value="${soLuongSanPham}" min="0" />
               </td>
-              <td style="cursor: pointer" class="xoa-san-pham" data-id="${idSanPham}">Xóa</td>
+              <td style="cursor: pointer" class="xoa-san-pham" data-id="${idSanPham}"></td>
           </tr>
       `;
 
-    // Thêm hàng sản phẩm vào bảng
     cartTableBody.innerHTML += productRow;
   });
 
-  // Cập nhật tổng tiền
   const tongTien = tinhTongTienGioHang();
   priceTotalElement.textContent = tongTien;
 }
 
-// Đảm bảo hàm này chỉ được gọi sau khi DOM đã tải xong
 document.addEventListener("DOMContentLoaded", () => {
-  drawcartGui();
+  donHangCuaBan();
 });
