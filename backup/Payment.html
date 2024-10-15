@@ -185,7 +185,27 @@
         <div class="Pay__Order">
           <div class="Pay__Order__detail">
             <div class="Pay__Order__header"><h4>ĐƠN HÀNG CỦA BẠN</h4></div>
-            <div class="Pay__Order__body" style="height: 400px"></div>
+            <div class="Pay__Order__body" style="height: 400px">
+              <section class="cart">
+                <form id="formCart" action="">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Sản Phẩm</th>
+                        <th>Gía</th>
+                        <th>Số Lượng</th>
+                      </tr>
+                    </thead>
+                    <tbody id="cartTableBody"></tbody>
+                  </table>
+                  <div style="text-align: right" class="price-total">
+                    <p style="font-weight: bold">
+                      Tổng tiền: <span>320000</span><sup>đ</sup>
+                    </p>
+                  </div>
+                </form>
+              </section>
+            </div>
           </div>
         </div>
       </div>
@@ -242,6 +262,7 @@
       src="user/ThanhToanSanPham/hinhThucThanhToan.js"
       type="module"
     ></script>
+    <script src="user/ThanhToanSanPham/donHangCuaBan.js" type="module"></script>
 
     <script>
       // Hàm để ẩn/hiển thị các nội dung

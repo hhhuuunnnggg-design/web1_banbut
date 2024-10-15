@@ -134,6 +134,39 @@
         let productId = 1; // ID cho sản phẩm mới
         const productTableBody = document.querySelector('#productTable tbody');
 
+        //Hàm lấy dữ liệu từ localStorage
+        function GetItemFromLocalStorage(){
+            const sanpham=JSON.parse(localStorage.getItem("ListPens"));//Lấy dữ liệu từ LocalStorage
+            let i=0;
+            while(sanpham[i].id)
+            {
+                const productId=sanpham[i].id;
+                const productName = sanpham[i].title;
+                const productImage = sanpham[i].thumbnail; // Lấy hình ảnh
+                const productPrice = sanpham[i].price;
+                const productInfo = sanpham[i].description;
+                // Tạo một hàng mới trong bảng
+                const newRow = `
+                        <tr id="product-${productId}">
+                            <td>${productId}</td>
+                            <td>${productName}</td>
+                            <td><img src=".${productImage}" alt="${productName}" class="img-thumbnail"></td>
+                            <td>${productPrice} VNĐ</td>
+                            <td>${productInfo}</td>
+                            <td>
+                                <button class="btn btn-warning" onclick="openEditProductModal(${productId}, '${productName}', '${productImage}', ${productPrice}, '${productInfo}')">Sửa</button>
+                                <button class="btn btn-danger" onclick="deleteProduct(${productId})">Xóa</button>
+                            </td>
+                        </tr>
+                    `;
+
+                // Thêm hàng mới vào bảng
+                productTableBody.insertAdjacentHTML('beforeend', newRow);
+                i++;       
+            }
+        }
+
+        GetItemFromLocalStorage();
         // Hàm thêm sản phẩm
         document.getElementById('addProductForm').onsubmit = function (e) {
             e.preventDefault();
@@ -192,8 +225,7 @@
         // Hàm cập nhật sản phẩm
         document.getElementById('editProductForm').onsubmit = function (e) {
             e.preventDefault();
-
-            const id = document.getElementById('editProductId').value;
+            const sanpham=JSON.parse(localStorage.getItem("ListPens"));
             const name = document.getElementById('editProductName').value;
             const price = document.getElementById('editProductPrice').value;
             const info = document.getElementById('editProductInfo').value;

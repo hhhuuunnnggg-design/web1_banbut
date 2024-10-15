@@ -1,7 +1,5 @@
 import { layDsItemGioHang, luuDSvaoStorage } from "./gioHang.js";
 
-// Hàm tính tổng tiền giỏ hàng
-
 export function tinhTongTienGioHang() {
   const dsItemGioHang = layDsItemGioHang();
   console.log("Danh sách sản phẩm trong giỏ hàng:", dsItemGioHang);
@@ -36,8 +34,6 @@ export function drawcartGui() {
     const { idSanPham, imgSanPham, tenSanPham, soLuongSanPham, giaSanPham } =
       item;
 
-    const tongGiaSanPham = giaSanPham * soLuongSanPham;
-
     const productRow = `
       <tr>
         <td style="display: flex; align-items: center">
@@ -47,7 +43,7 @@ export function drawcartGui() {
           <p><span>${giaSanPham}</span><sup>đ</sup></p>
         </td>
         <td>
-          <input style="width: 30px; outline: none" type="number" id=input_number value="${soLuongSanPham}" min="0" />
+          <input style="width: 30px; outline: none" type="number" value="${soLuongSanPham}" min="0" />
         </td>
         <td style="cursor: pointer" class="xoa-san-pham" data-id="${idSanPham}">Xóa</td>
       </tr>
@@ -57,7 +53,7 @@ export function drawcartGui() {
     cartTableBody.innerHTML += productRow;
   });
 
-  // đây là tổng tiền, sử dụng hàm tinhTongTienGioHang để cập nhật tổng tiền
+  // cập nhật tổng tiền
   const tongTien = tinhTongTienGioHang();
   priceTotalElement.textContent = tongTien;
 
@@ -66,6 +62,19 @@ export function drawcartGui() {
     btn.addEventListener("click", (e) => {
       const idSanPham = e.target.getAttribute("data-id");
       xoaSanPhamKhoiGioHang(idSanPham);
+    });
+  });
+
+  // Thêm sự kiện cho các input số lượng
+  const quantityInputs = document.querySelectorAll("input[type='number']");
+  quantityInputs.forEach((input) => {
+    input.addEventListener("input", (e) => {
+      const newQuantity = parseInt(e.target.value);
+      const idSanPham = e.target
+        .closest("tr")
+        .querySelector(".xoa-san-pham")
+        .getAttribute("data-id");
+      capNhatSoLuongSanPham(idSanPham, newQuantity);
     });
   });
 }
@@ -79,6 +88,23 @@ function xoaSanPhamKhoiGioHang(idSanPham) {
   luuDSvaoStorage(dsItemGioHang);
 
   // Vẽ lại giỏ hàng sau khi xóa
+  drawcartGui();
+}
+
+// Hàm cập nhật số lượng sản phẩm
+function capNhatSoLuongSanPham(idSanPham, soLuong) {
+  let dsItemGioHang = layDsItemGioHang();
+
+  // Cập nhật số lượng sản phẩm trong giỏ hàng
+  dsItemGioHang = dsItemGioHang.map((item) => {
+    if (item.idSanPham === idSanPham) {
+      return { ...item, soLuongSanPham: soLuong };
+    }
+    return item;
+  });
+
+  luuDSvaoStorage(dsItemGioHang);
+
   drawcartGui();
 }
 
