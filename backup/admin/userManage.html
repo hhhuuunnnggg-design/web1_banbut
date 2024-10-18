@@ -174,6 +174,7 @@
         // Hàm thêm tài khoản
         document.getElementById('addAccountForm').onsubmit = function (e) {
             e.preventDefault();
+            const users=JSON.parse(localStorage.getItem("users")) || [];//Lấy dữ liệu từ LocalStorage
             const userId= document.getElementById('usersId1').value;
             const username = document.getElementById('username').value;
             const email = document.getElementById('email').value;
@@ -198,10 +199,23 @@
             // Thêm hàng mới vào bảng
             accountTableBody.insertAdjacentHTML('beforeend', newRow);
             accountId++; // Tăng ID cho tài khoản tiếp theo
+            users.push({
+                donhang:[],
+                off:false,
+                userEmail:email,
+                userId:userId,
+                userName:username,
+                userPasWord:password,
+            }
+            )
+            console.log(users[1].userId);
+            localStorage.setItem('users',JSON.stringify(users));
 
             // Đóng modal và reset form
             $('#addAccountModal').modal('hide');
             document.getElementById('addAccountForm').reset();
+
+
         };
 
         //Hàm xác nhận xóa tài khoản và gọi hàm xóa
@@ -276,7 +290,7 @@
                         {
                             if(users[j].userId==id)
                             {
-                                users.off=true;
+                                //users.off=true;
                                 break;
                             }
                         }
@@ -298,7 +312,7 @@
                         {
                             if(users[j].userId==id)
                             {
-                                users.off=false;
+                                //users.off=false;
                                 break;
                             }
                         }
@@ -326,5 +340,12 @@
                 button.innerHTML="Khóa";
             }
         }
+
+        //Hàm đưa dữ liệu vừa mới cập nhật lên LocalStorage
+        function PushDataToLocalStorage(users)
+        {
+            localStorage.getItem('users',JSON.stringify(users));
+        }
+
     </script>
 </body
