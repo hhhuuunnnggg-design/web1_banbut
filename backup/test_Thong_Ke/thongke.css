@@ -1,0 +1,22 @@
+.chart-container {
+  display: flex;
+  justify-content: space-between; /* Đặt các biểu đồ ở 2 bên */
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* Định dạng cho từng biểu đồ */
+.chart-item {
+  width: 45%; /* Biểu đồ chiếm 45% chiều rộng màn hình */
+  height: 400px; /* Chiều cao cố định của canvas biểu đồ */
+}
+
+canvas {
+  width: 100% !important; /* Đảm bảo biểu đồ lấp đầy toàn bộ vùng canvas */
+  height: 100% !important;
+}
+
+h2 {
+  text-align: center;
+}
