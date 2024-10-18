@@ -6,22 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
     <link rel="stylesheet" href="./style/styleDonHang.css" />
-    <h1> QUẢN LÝ ĐƠN HÀNG </h1>
 </head>
 
+    <h1> QUẢN LÝ ĐƠN HÀNG </h1>
     <body>
         <div class="order-container">
             <!-- Header của bảng đơn hàng -->
             <table class="table-header">
                 <tr>
-                    <th title="Sắp xếp" style="width: 7%">Mã đơn <i class="fa fa-sort"></i></th>
-                    <th title="Sắp xếp" style="width: 15%">Khách <i class="fa fa-sort"></i></th>
-                    <th title="Sắp xếp" style="width: 25%">Sản phẩm <i class="fa fa-sort"></i></th>
-                    <th title="Sắp xếp" style="width: 14%">Tổng tiền <i class="fa fa-sort"></i></th>
-                    <th title="Sắp xếp" style="width: 13%">Ngày giờ <i class="fa fa-sort"></i></th>
-                    <th title="Sắp xếp" style="width: 13%">Trạng thái <i class="fa fa-sort"></i></th>
-                    <th style="width: 13%">Hành động</th>
-
+                    <th title="Sắp xếp" style="width: 5%">Stt <i class="fa fa-sort"></i></th>
+                    <th title="Sắp xếp" style="width: 9%">Mã đơn <i class="fa fa-sort"></i></th>
+                    <th title="Sắp xếp" style="width: 9%">Khách <i class="fa fa-sort"></i></th>
+                    <th title="Sắp xếp" style="width: 15%">Địa chỉ <i class="fa fa-sort"></i></th>
+                    <th title="Sắp xếp" style="width: 9%">Số điện thoại<i class="fa fa-sort"></i></th>
+                    <th title="Sắp xếp" style="width: 15%">Sản phẩm <i class="fa fa-sort"></i></th>
+                    <th title="Sắp xếp" style="width: 9%">Tổng tiền <i class="fa fa-sort"></i></th>
+                    <th title="Sắp xếp" style="width: 9%">Ngày giờ <i class="fa fa-sort"></i></th>
+                    <th title="Sắp xếp" style="width: 9%">Trạng thái <i class="fa fa-sort"></i></th>
+                    <th style="width: 9%">Hành động</th>
                 </tr>
             </table>
         
@@ -31,7 +33,13 @@
             </div>
         
             <!-- Footer của bảng -->
-            <div class="table-footer"></div>
+            <div class="table-footer">
+                <div class="date-filter">
+                    Từ ngày: <input type="date" id="fromDate">
+                    Đến ngày: <input type="date" id="toDate">
+                    <button onclick="locDonHangTheoKhoangNgay()"><i class="fa fa-search"></i> Tìm kiếm </button>
+                </div>
+        
                 <div class="search-options">
                     <select name="searchOrderType">
                         <option value="ma">Tìm theo mã đơn</option>
@@ -41,6 +49,6 @@
                     <input type="text" placeholder="Tìm kiếm...">
                 </div>
             </div>
-        </div>    
+        </div>        
     </body>
 </html>

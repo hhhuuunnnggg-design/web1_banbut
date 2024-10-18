@@ -9,7 +9,7 @@
 .table-header {
     width: 100%;
     border-collapse: collapse;
-    margin-top: -25px;
+    margin-bottom: 15px;
 }
 
 .table-header th {
@@ -34,6 +34,7 @@
     margin: 0 auto;
     width: 100%;
     border-collapse: collapse;
+
 }
 
 .table-content tr {
@@ -51,6 +52,36 @@
     justify-content: space-between;
     padding: 15px 0;
     border-top: 1px solid #ddd;
+}
+
+/* Style cho ô tìm theo ngày */
+.date-filter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.date-filter input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 150px;
+    font-size: 14px;
+}
+
+/* Style cho nút tìm kiếm */
+.date-filter button {
+    padding: 8px 16px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.date-filter button:hover {
+    background-color: #0056b3;
 }
 
 /* Style cho ô tìm kiếm và chọn kiểu */
