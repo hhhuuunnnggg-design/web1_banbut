@@ -1,311 +1,282 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link rel="stylesheet" href="/backup2/style/index.css" /> -->
-    <link rel="stylesheet" href="style/index.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-
-    <title>Bán bút bi</title>
-    <!-- ./Images/thumnails/logo.png -->
-  </head>
-  <body>
-    <!--  phần menu đa cấp ở đây sẽ không có xuất hiện -->
-
-    <div class="header-main">
-      <div class="container">
-        <div class="inner-wrap">
-          <div class="inner-menu">
-            <ul>
-              <li class="thuonghieu">
-                <i class="fa-solid fa-house"></i
-                ><a href="./index_user.html">Trang chủ</a>
-              </li>
-              <li class="loaibut">
-                <i class="fa-solid fa-pen"></i><a href="#">Loại bút</a>
-                <div class="box-submenu">
-                  <ul class="loaibut-list">
-                    <li><div>Bút------------ html</div></li>
-                    <li><div>Bút bi</div></li>
-                    <li><div>Bút dạ bi</div></li>
-                    <li><div>Bút dạ kim</div></li>
-                    <li><div>Bút máy</div></li>
-                    <li><div>Bút chì</div></li>
-                    <li><div>Bút hàng độc</div></li>
-                    <li><div>Bút viết chữ đẹp</div></li>
-                  </ul>
-                </div>
-              </li>
-
-              <li>
-                <i class="fa-solid fa-person-chalkboard"></i
-                ><a href="#" class="huong_dan_mua_hang">hướng dẫn mua hàng</a>
-              </li>
-              <li><i class="fa-solid fa-phone"></i><a href="#">Liên hệ</a></li>
-              <li>
-                <a
-                  href="./login_logout.html"
-                  id="btnLogin"
-                  style="text-decoration: none"
-                >
-                  <button id="loginBtn">Đăng nhập</button>
-                </a>
-              </li>
-              <div class="cart-icon" id="xem_gio_hang">
-                <i class="fa-solid fa-cart-shopping"></i>giỏ hàng
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style/index.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <title>Bán bút bi</title>
+</head>
+<body>
+  <div class="header-main">
+    <div class="container">
+      <div class="inner-wrap">
+        <div class="hamburger" id="hamburger">
+          <div><i class="fa-solid fa-bars"></i></div>
+          <div class="sear">
+            <div class="search" id="search">
+              <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm..." />
+              <button id="searchButton">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </div>
+            <select id="filter">
+              <option value="mac-dinh">Mặc định</option>
+              <option value="gia-thap-den-cao">Gía thấp đến cao</option>
+              <option value="gia-cao-den-thap">Gía cao đến thấp</option>
+              <option value="giam-gia-nhieu">Giảm giá nhiều</option>
+            </select>
+            <div class="tim_gia" style="display: none">
+              <input type="text" placeholder="Giá min" id="searchPriceMin" />
+              <input type="text" placeholder="Giá max" id="searchPriceMax" />
+              <button id="searchButtonPrice">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="inner-menu" id="menu">
+          <ul>
+            <li class="thuonghieu">
+              <i class="fa-solid fa-house"></i>
+              <a href="./index_user.html">Trang chủ</a>
+            </li>
+            <li class="loaibut">
+              <i class="fa-solid fa-pen"></i>
+              <a href="#">Loại bút</a>
+              <div class="box-submenu">
+                <ul class="loaibut-list">
+                  <li><div>Bút------------ html</div></li>
+                  <li><div>Bút bi</div></li>
+                  <li><div>Bút dạ bi</div></li>
+                  <li><div>Bút dạ kim</div></li>
+                  <li><div>Bút máy</div></li>
+                  <li><div>Bút chì</div></li>
+                  <li><div>Bút hàng độc</div></li>
+                  <li><div>Bút viết chữ đẹp</div></li>
+                </ul>
               </div>
-              <li>
-                <!-- search -->
-                <div class="sear">
-                  <div class="search" id="search">
-                    <input
-                      type="text"
-                      id="searchInput"
-                      placeholder="Tìm kiếm sản phẩm..."
-                    />
-                    <button id="searchButton">
-                      <i class="fa-solid fa-magnifying-glass"></i>
-                    </button>
-                  </div>
-
-                  <select id="filter">
-                    <option value="mac-dinh">Mặc định</option>
-                    <option value="gia-thap-den-cao">Gía thấp đến cao</option>
-                    <option value="gia-cao-den-thap">Gía cao đến thấp</option>
-                    <option value="giam-gia-nhieu">Giam giá nhiều</option>
-                  </select>
-
-                  <!-- tìm kiếm theo giá từ -->
-                  <div class="tim_gia" style="display: none">
-                    <input
-                      type="text"
-                      placeholder="giá min"
-                      id="searchPriceMin"
-                    />
-                    <input
-                      type="text"
-                      placeholder="giá max"
-                      id="searchPriceMax"
-                    />
-                    <button id="searchButtonPrice">
-                      <i class="fa-solid fa-magnifying-glass"></i>
-                    </button>
-                  </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-person-chalkboard"></i>
+              <a href="#" class="huong_dan_mua_hang">Hướng dẫn mua hàng</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-phone"></i>
+              <a href="#">Liên hệ</a>
+            </li>
+            <li>
+              <a href="./login_logout.html" id="btnLogin" style="text-decoration: none">
+                <button id="loginBtn">Đăng nhập</button>
+              </a>
+            </li>
+            <div class="cart-icon" id="xem_gio_hang">
+              <i class="fa-solid fa-cart-shopping"></i> Giỏ hàng
+            </div>
+            <li>
+              <div class="sear2">
+                <div class="search" id="search">
+                  <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm..." />
+                  <button id="searchButton">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                  </button>
                 </div>
-              </li>
-            </ul>
-          </div>
-
-          <div class="layout-defauft_account" style="margin-left: 50%">
-            <div id="greeting" style="display: none">
-              Xin chào, <span id="userNameDisplay"></span>!
-            </div>
-            <div id="btnLogout" style="display: none; text-decoration: none">
-              <button>Đăng xuất</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- end menu đa cấp -->
-    <!-- <h2>Danh sách sản phẩm bút bi</h2> -->
-    <!-- end search -->
-    <div id="products" class="product_list">
-      <div class="product_item">
-        <div class="product_image">
-          <img src="" alt="" />
-          <div class="product_percent">10%</div>
-        </div>
-        <div class="product_content">
-          <h3 class="product_title"></h3>
-          <div class="product_meta">
-            <div class="product_price">10 $</div>
-            <div class="product_sotck">10sp</div>
-            <div class="product_order"><a href="#">bút monyblanc</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- cart -->
-    <section class="cart" style="margin-top: 50px">
-      <div>
-        <h2>đây chính là giỏ hàng</h2>
-        <i class="fa-solid fa-circle-xmark" id="close_cart"></i>
-      </div>
-
-      <form id="formCart" action="">
-        <table>
-          <thead>
-            <tr>
-              <th>Sản Phẩm</th>
-              <th>Gía</th>
-              <th>Số Lượng</th>
-              <th>Lựa chọn</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="display: flex; align-items: center">
-                <img
-                  style="width: 70px"
-                  src="./Images/thumnails/ButBi/ButBiAllan120BBL.jpg"
-                  alt="dssa"
-                />but 1
-              </td>
-              <td>
-                <p><span>320000</span><sup>đ</sup></p>
-              </td>
-              <td>
-                <input
-                  style="width: 30px; outline: none"
-                  type="number"
-                  value="1"
-                  min="0"
-                />
-              </td>
-              <td style="cursor: pointer">Xoas</td>
-            </tr>
-            <tr>
-              <td style="display: flex; align-items: center">
-                <img
-                  style="width: 70px"
-                  src="./Images/thumnails/ButBi/ButBiAllan120BBL.jpg"
-                  alt="dssa"
-                />but 1
-              </td>
-              <td>
-                <p><span>320000</span><sup>đ</sup></p>
-              </td>
-              <td>
-                <input
-                  style="width: 30px; outline: none"
-                  type="number"
-                  value="1"
-                  min="0"
-                />
-              </td>
-              <td style="cursor: pointer">Xoas</td>
-            </tr>
-          </tbody>
-        </table>
-        <div style="text-align: right" class="price-total">
-          <p style="font-weight: bold">
-            Tổng tiền: <span>320000</span><sup>đ</sup>
-          </p>
-          <button
-            id="chotdon"
-            style="
-              background-color: orange;
-              cursor: pointer;
-              border-radius: 5px;
-            "
-          >
-            Chốt đơn
-          </button>
-        </div>
-      </form>
-    </section>
-    <!-- end cart -->
-    <!-- phân trang -->
-    <div class="pagination">
-      <span class="pagination_buttun" id="paginationPrev">Prev</span>
-      <span class="pagination_number" id="paginationNumber">1</span>
-      <span class="pagination_buttun" id="paginationNext">Next</span>
-    </div>
-    <!-- end phân trang -->
-    <!-- đây là phần chân -->
-    <footer class="footer">
-      <div class="footer-container">
-        <div class="footer-contact">
-          <h3>Liên hệ với chúng tôi</h3>
-          <ul>
-            <li>
-              <i class="fa-solid fa-phone"></i> Điện thoại: +84 123 456 789
-            </li>
-            <li>
-              <i class="fa-solid fa-envelope"></i> Email:
-              nguyendinhhungtc2020@gmail.com
-            </li>
-            <li>
-              <i class="fa-solid fa-map-marker-alt"></i> Địa chỉ: Đại học sài
-              gòn, quận 5, đường an dương vương
+                <select id="filter">
+                  <option value="mac-dinh">Mặc định</option>
+                  <option value="gia-thap-den-cao">Gía thấp đến cao</option>
+                  <option value="gia-cao-den-thap">Gía cao đến thấp</option>
+                  <option value="giam-gia-nhieu">Giảm giá nhiều</option>
+                </select>
+                <div class="tim_gia" style="display: none">
+                  <input type="text" placeholder="Giá min" id="searchPriceMin" />
+                  <input type="text" placeholder="Giá max" id="searchPriceMax" />
+                  <button id="searchButtonPrice">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                  </button>
+                </div>
+              </div>
             </li>
           </ul>
         </div>
-
-        <div class="footer-hours">
-          <h3>Giờ làm việc</h3>
-          <ul>
-            <li>
-              <i class="fa-solid fa-clock"></i> Thứ 2 - Thứ 6: 8:00 - 18:00
-            </li>
-            <li><i class="fa-solid fa-clock"></i> Thứ 7: 9:00 - 17:00</li>
-            <li><i class="fa-solid fa-clock"></i> Chủ nhật: Nghỉ</li>
-          </ul>
-        </div>
-
-        <div class="footer-social">
-          <h3>Kết nối với chúng tôi</h3>
-          <div class="social-icons">
-            <a href="https://www.facebook.com/"
-              ><i class="fa-brands fa-facebook"></i
-            ></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-twitter"></i></a>
-            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        <div class="layout-defauft_account" style="margin-left: 50%">
+          <div id="greeting" style="display: none">Xin chào, <span id="userNameDisplay"></span>!</div>
+          <div id="btnLogout" style="display: none; text-decoration: none">
+            <button>Đăng xuất</button>
           </div>
         </div>
       </div>
+    </div>
+  </div>
 
-      <div class="footer-bottom">
-        <p>&copy; 2024 Bán Bút | Thiết kế bởi Nguyễn Đình Hùng</p>
+  <div id="products" class="product_list">
+    <div class="product_item">
+      <div class="product_image">
+        <img src="" alt="" />
+        <div class="product_percent">10%</div>
       </div>
-    </footer>
+      <div class="product_content">
+        <h3 class="product_title"></h3>
+        <div class="product_meta">
+          <div class="product_price">10 $</div>
+          <div class="product_stock">10 sp</div>
+          <div class="product_order"><a href="#">Bút Montblanc</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <!-- <script src="user/view/view.js" type="module"></script> -->
+  <section class="cart" style="margin-top: 50px">
+    <div>
+      <h2>Đây chính là giỏ hàng</h2>
+      <i class="fa-solid fa-circle-xmark" id="close_cart"></i>
+    </div>
 
-    <script src="user/controller/drawProducts.js" type="module"></script>
-    <script src="user/controller/renderLoaibutList.js" type="module"></script>
-    <script src="user/controller/gioHang.js" type="module"></script>
-    <script src="user/controller/logout.js" type="module"></script>
-    <!-- <script src="user/controller/thanhtoanQr.js" type="module"></script> -->
-    <script src="user/controller/cartGui.js" type="module"></script>
-    <script src="user/GUI/huongdanmuahang.js" type="module"></script>
+    <form id="formCart" action="">
+      <table>
+        <thead>
+          <tr>
+            <th>Sản Phẩm</th>
+            <th>Giá</th>
+            <th>Số Lượng</th>
+            <th>Lựa chọn</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="display: flex; align-items: center">
+              <img style="width: 70px" src="./Images/thumnails/ButBi/ButBiAllan120BBL.jpg" alt="dssa" /> Bút 1
+            </td>
+            <td>
+              <p><span>320000</span><sup>đ</sup></p>
+            </td>
+            <td>
+              <input style="width: 30px; outline: none" type="number" value="1" min="0" />
+            </td>
+            <td style="cursor: pointer">Xóa</td>
+          </tr>
+          <tr>
+            <td style="display: flex; align-items: center">
+              <img style="width: 70px" src="./Images/thumnails/ButBi/ButBiAllan120BBL.jpg" alt="dssa" /> Bút 1
+            </td>
+            <td>
+              <p><span>320000</span><sup>đ</sup></p>
+            </td>
+            <td>
+              <input style="width: 30px; outline: none" type="number" value="1" min="0" />
+            </td>
+            <td style="cursor: pointer">Xóa</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="text-align: right" class="price-total">
+        <p style="font-weight: bold">Tổng tiền: <span>320000</span><sup>đ</sup></p>
+        <button id="chotdon" style="background-color: orange; cursor: pointer; border-radius: 5px;">Chốt đơn</button>
+      </div>
+    </form>
+  </section>
 
-    <script>
-      // Kiểm tra trạng thái đăng nhập và hiển thị lời chào
-      document.addEventListener("DOMContentLoaded", function () {
-        const userName = localStorage.getItem("loggedInUserName");
+  <div class="pagination">
+    <span class="pagination_buttun" id="paginationPrev">Prev</span>
+    <span class="pagination_number" id="paginationNumber">1</span>
+    <span class="pagination_buttun" id="paginationNext">Next</span>
+  </div>
 
-        // Nếu người dùng đã đăng nhập, hiển thị lời chào và nút đăng xuất
-        if (userName) {
-          document.getElementById("greeting").style.display = "block";
-          document.getElementById("userNameDisplay").textContent = userName;
-          document.getElementById("btnLogout").style.display = "block";
-          document.getElementById("btnLogin").style.display = "none"; // Ẩn nút đăng nhập
-        } else {
-          // Nếu chưa đăng nhập, chỉ hiển thị nút đăng nhập
-          document.getElementById("btnLogin").style.display = "block";
-          document.getElementById("btnLogout").style.display = "none";
-          document.getElementById("greeting").style.display = "none";
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-contact">
+        <h3>Liên hệ với chúng tôi</h3>
+        <ul>
+          <li><i class="fa-solid fa-phone"></i> Điện thoại: +84 123 456 789</li>
+          <li><i class="fa-solid fa-envelope"></i> Email: nguyendinhhungtc2020@gmail.com</li>
+          <li><i class="fa-solid fa-map-marker-alt"></i> Địa chỉ: Đại học Sài Gòn, quận 5, đường An Dương Vương</li>
+        </ul>
+      </div>
+      <div class="footer-hours">
+        <h3>Giờ làm việc</h3>
+        <ul>
+          <li><i class="fa-solid fa-clock"></i> Thứ 2 - Thứ 6: 8:00 - 18:00</li>
+          <li><i class="fa-solid fa-clock"></i> Thứ 7: 9:00 - 17:00</li>
+          <li><i class="fa-solid fa-clock"></i> Chủ nhật: Nghỉ</li>
+        </ul>
+      </div>
+      <div class="footer-social">
+        <h3>Kết nối với chúng tôi</h3>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Bán Bút | Thiết kế bởi Nguyễn Đình Hùng</p>
+    </div>
+  </footer>
+  <div class="overlay" id="overlay"></div>
+  <script src="user/controller/drawProducts.js" type="module"></script>
+  <script src="user/controller/renderLoaibutList.js" type="module"></script>
+  <script src="user/controller/gioHang.js" type="module"></script>
+  <script src="user/controller/logout.js" type="module"></script>
+  <script src="user/controller/cartGui.js" type="module"></script>
+  <script src="user/GUI/huongdanmuahang.js" type="module"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const userName = localStorage.getItem("loggedInUserName");
+      if (userName) {
+        document.getElementById("greeting").style.display = "block";
+        document.getElementById("userNameDisplay").textContent = userName;
+        document.getElementById("btnLogout").style.display = "block";
+        document.getElementById("btnLogin").style.display = "none";
+      } else {
+        document.getElementById("btnLogin").style.display = "block";
+        document.getElementById("btnLogout").style.display = "none";
+        document.getElementById("greeting").style.display = "none";
+      }
+
+      // Mở/đóng menu
+      document.getElementById('hamburger').addEventListener('click', function() {
+        var menu = document.querySelector('.inner-menu');
+        var overlay = document.getElementById('overlay'); // Thêm dòng này
+        menu.classList.toggle('show');
+        overlay.style.display = menu.classList.contains('show') ? 'block' : 'none'; // Hiện/ẩn overlay
+      });
+
+      // Đóng menu khi nhấp ra ngoài
+      document.addEventListener('click', function(event) {
+        const menu = document.querySelector('.inner-menu');
+        const hamburger = document.getElementById('hamburger');
+        const overlay = document.getElementById('overlay'); // Thêm dòng này
+        if (!menu.contains(event.target) && !hamburger.contains(event.target)) {
+          menu.classList.remove('show');
+          overlay.style.display = 'none'; // Ẩn overlay
         }
       });
-    </script>
-    <script>
-      document
-        .getElementById("chotdon")
-        .addEventListener("click", function (e) {
-          e.preventDefault();
-          window.location.href = "./Payment.html";
-        });
-    </script>
-  </body>
+    });
+
+    document.getElementById("chotdon").addEventListener("click", function (e) {
+      e.preventDefault();
+      window.location.href = "./Payment.html";
+    });
+    function toggleSearchDisplay() {
+    const searchElement = document.querySelector('.sear2');
+    if (window.innerWidth < 768) {
+        searchElement.style.display = 'none'; // Ẩn khi trên màn hình điện thoại
+    } else {
+        searchElement.style.display = 'block'; // Hiện khi trên màn hình lớn
+    }
+}
+
+// Kiểm tra kích thước khi trang được tải
+document.addEventListener("DOMContentLoaded", toggleSearchDisplay);
+</script>
+
+</body>
 </html>
