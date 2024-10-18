@@ -123,7 +123,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
-        let accountId = 0; // ID cho tài khoản mới
+        let accountid = 0; // ID cho tài khoản mới
         const accountTableBody = document.querySelector('#accountTable tbody');
         
         //Hàm lấy thông tin tài khoản đã đăng ký từ LocalStorage
@@ -190,8 +190,8 @@
                     <td>${password}</td>    
                     <td class="status" id="status-${userId}">Hoạt động</td>
                     <td>
-                        <button class="btn btn-warning" onclick="openEditAccountModal(${accountId}, '${username}', '${email}', '${password}')">Sửa</button>
-                        <button class="btn btn-danger" onclick="Confirmbeforedelete(${accountId})">Xóa</button>
+                        <button class="btn btn-warning" onclick="openEditAccountModal(${accountid}, '${username}', '${email}', '${password}')">Sửa</button>
+                        <button class="btn btn-danger" onclick="Confirmbeforedelete(${accountid})">Xóa</button>
                         <button class="btn btn-secondary" id="button-id1" onclick="toggleUserStatus(${userId})">${LoadButton()}</button>
                     </td>
                 </tr>
@@ -235,7 +235,17 @@
         function deleteAccount(id) {
             const users=JSON.parse(localStorage.getItem("users")) || [];//Lấy dữ liệu từ LocalStorage
             const row = document.getElementById(`account-${id}`); // Lấy hàng theo ID
-            users.splice()
+            let index;
+            for(let j=0;j<users.length;j++)
+            {
+                if(users[j].userId==row)
+                {
+                    index=j;
+                    break;
+                }
+            }
+            users.splice(index,1);
+            localStorage.setItem('users',JSON.stringify(users));
             row.remove(); // Xóa hàng
         }
 
@@ -282,7 +292,6 @@
         function toggleUserStatus(id) {
             const users=JSON.parse(localStorage.getItem("users")) || [];//Lấy dữ liệu từ LocalStorage
             const statusCell = document.getElementById(`status-${id}`);
-            let index;
             if (statusCell.textContent == "Hoạt động") {
                 {
                     if(confirm("Bạn có chắc chắn muốn khóa tài khoản này không"))
@@ -347,13 +356,14 @@
         {
             let button=document.getElementById("button-id1");
             // Kiểm tra nội dung hiện tại và thay đổi
-            if(button.innerHTML==="Khóa")
+            if(button.innerHTML=="Khóa")
             {                  
                 button.innerHTML="Mở khóa"
             }
             else
-            {
-                button.innerHTML="Khóa";
+            {   
+                if(button.innerHTML=="Mở khóa")
+                    button.innerHTML="Khóa";
             }
         }
 
