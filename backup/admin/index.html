@@ -57,16 +57,18 @@
     function passWordInput() {
         passData = passWord.value;
     }
-    signIn.addEventListener('click', inputVerification);
-    function inputVerification() {
+    signIn.addEventListener('click', inputVerification(event));
+    function inputVerification(event) {
         if (userData == UN && passData == PW) {
             alert('đăng nhập thành công!');
         }
         else if (userData == "" && passData == "") {
             alert('xin hãy điền thông tin vào ô trống!');
+            event.preventDefault();
         }
         else {
             alert('thông tin đăng nhập không đúng!');
+            event.preventDefault();
         }
     }
 </script>
