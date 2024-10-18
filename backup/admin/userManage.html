@@ -35,7 +35,6 @@
                     <th>Tên</th>
                     <th>Email</th>
                     <th>Mật khẩu</th>
-                    <th>Quyền</th>
                     <th>Trạng thái</th>
                     <th>Thao tác</th>
                 </tr>
@@ -60,6 +59,10 @@
                     <div class="modal-body">
                         <form id="addAccountForm">
                             <div class="form-group">
+                                <label for="usersId1">ID:</label>
+                                <input type="number" class="form-control" id="usersId1" required>
+                            </div>
+                            <div class="form-group">
                                 <label for="username">Tên:</label>
                                 <input type="text" class="form-control" id="username" required>
                             </div>
@@ -70,13 +73,6 @@
                             <div class="form-group">
                                 <label for="password">Mật khẩu:</label>
                                 <input type="password" class="form-control" id="password" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="role">Quyền:</label>
-                                <select class="form-control" id="role" required>
-                                    <option value="admin">Admin</option>
-                                    <option value="user">Người dùng</option>
-                                </select>
                             </div>
                             <button type="submit" class="btn btn-success">Thêm Tài khoản</button>
                         </form>
@@ -98,6 +94,10 @@
                     </div>
                     <div class="modal-body">
                         <form id="editAccountForm">
+                            <div class="form-group">
+                                <label for="editUsersId1">ID:</label>
+                                <input type="number" class="form-control" id="editUsersId1" required>
+                            </div>
                             <input type="hidden" id="editAccountId">
                             <div class="form-group">
                                 <label for="editUsername">Tên:</label>
@@ -110,13 +110,6 @@
                             <div class="form-group">
                                 <label for="editPassword">Mật khẩu:</label>
                                 <input type="password" class="form-control" id="editPassword" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="editRole">Quyền:</label>
-                                <select class="form-control" id="editRole" required>
-                                    <option value="admin">Admin</option>
-                                    <option value="user">Người dùng</option>
-                                </select>
                             </div>
                             <button type="submit" class="btn btn-success">Cập nhật Tài khoản</button>
                         </form>
@@ -133,29 +126,72 @@
     <script>
         let accountId = 1; // ID cho tài khoản mới
         const accountTableBody = document.querySelector('#accountTable tbody');
+        
+        //Hàm lấy thông tin tài khoản đã đăng ký từ LocalStorage
+        function GetAccountFromLocalStorage()
+        {
+            const users=JSON.parse(localStorage.getItem("users")) || [];//Lấy dữ liệu từ LocalStorage
+            let i=0;
+            while(users[i])
+            {
+                const accountId= users[i].userId;
+                const username= users[i].userName;
+                const password= users[i].userPasWord;
+                const email= users[i].userEmail;
+                const lock=users[i].off;
+                //Tạo 1 hàng mới
+                const newRow = `
+                    <tr id="account-${accountId}">
+                        <td>${accountId}</td>
+                        <td>${username}</td>
+                        <td>${email}</td>
+                        <td>${password}</td>
+                        <td class="status" id="status-${accountId}" >${Checkifaccountislocked(lock)}</td>
+                        <td>
+                            <button class="btn btn-warning" onclick="openEditAccountModal(${accountId}, '${username}', '${email}', '${password}')">Sửa</button>
+                            <button class="btn btn-danger" onclick="Confirmbeforedelete(${accountId})">Xóa</button>
+                            <button class="btn btn-secondary" id="button-id1" onclick="toggleUserStatus(${accountId})">Khóa</button>
+                        </td>
+                    </tr>
+                `;
+                // Thêm hàng mới vào bảng
+                accountTableBody.insertAdjacentHTML('beforeend',newRow);
+                i++;
+            }
+        }
 
+        //Hàm kiểm tra tài khoản có bị khóa hay không
+        function  Checkifaccountislocked(lock)
+        {
+            if(lock)
+            {
+                return "Khóa";
+            }
+            else
+                return "Hoạt động";
+        }
+
+        GetAccountFromLocalStorage();
         // Hàm thêm tài khoản
         document.getElementById('addAccountForm').onsubmit = function (e) {
             e.preventDefault();
-
+            const userId= document.getElementById('usersId1').value;
             const username = document.getElementById('username').value;
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
-            const role = document.getElementById('role').value;
 
             // Tạo một hàng mới trong bảng
             const newRow = `
-                <tr id="account-${accountId}">
-                    <td>${accountId}</td>
+                <tr id="account-${userId}">
+                    <td>${userId}</td>
                     <td>${username}</td>
                     <td>${email}</td>
-                    <td>${password}</td>
-                    <td>${role}</td>
+                    <td>${password}</td>    
                     <td class="status" id="status-${accountId}">Hoạt động</td>
                     <td>
-                        <button class="btn btn-warning" onclick="openEditAccountModal(${accountId}, '${username}', '${email}', '${password}', '${role}')">Sửa</button>
-                        <button class="btn btn-danger" onclick="deleteAccount(${accountId})">Xóa</button>
-                        <button class="btn btn-secondary" onclick="toggleUserStatus(${accountId})">Khóa</button>
+                        <button class="btn btn-warning" onclick="openEditAccountModal(${accountId}, '${username}', '${email}', '${password}')">Sửa</button>
+                        <button class="btn btn-danger" onclick="Confirmbeforedelete(${accountId})">Xóa</button>
+                        <button class="btn btn-secondary" id="button-id1" onclick="toggleUserStatus(${accountId})">Khóa</button>
                     </td>
                 </tr>
             `;
@@ -169,6 +205,18 @@
             document.getElementById('addAccountForm').reset();
         };
 
+        //Hàm xác nhận xóa tài khoản và gọi hàm xóa
+        function Confirmbeforedelete(id)
+        {
+            if(confirm("Bạn có chắc chắn muốn xóa không ?"))
+            {
+            deleteAccount(id);
+            alert("Đã xóa thành công");
+            }
+            else 
+            alert("Đã hủy bỏ thao tác xóa");
+        }
+
         // Hàm xóa tài khoản
         function deleteAccount(id) {
             const row = document.getElementById(`account-${id}`); // Lấy hàng theo ID
@@ -181,7 +229,6 @@
             document.getElementById('editUsername').value = username;
             document.getElementById('editEmail').value = email;
             document.getElementById('editPassword').value = password;
-            document.getElementById('editRole').value = role;
 
             $('#editAccountModal').modal('show');
         }
@@ -207,13 +254,79 @@
             document.getElementById('editAccountForm').reset();
         };
 
+        function Comfirmbeforelockaccount(id)
+        {
+            if(confirm("Bạn có chắc chắn muốn khóa tài khoản này không"))
+            {
+                alert("Đã khóa tài khoản");
+            }
+            else
+                alert("Đã hủy bỏ thao tác");
+        }
+
         // Hàm khóa và mở tài khoản
         function toggleUserStatus(id) {
+            const users=JSON.parse(localStorage.getItem("users")) || [];//Lấy dữ liệu từ LocalStorage
             const statusCell = document.getElementById(`status-${id}`);
-            if (statusCell.textContent === "Hoạt động") {
-                statusCell.textContent = "Khóa";
-            } else {
-                statusCell.textContent = "Hoạt động";
+            if (statusCell.textContent == "Hoạt động") {
+                {
+                    if(confirm("Bạn có chắc chắn muốn khóa tài khoản này không"))
+                    {
+                        statusCell.textContent = "Khóa";
+                        alert("Đã khóa tài khoản");
+                        ChangeButton(); 
+                        for(let j=0;j<users.length;i++)
+                        {
+                            if(users[j].userId==id)
+                            {
+                                users.off=true;
+                                break;
+                            }
+                        }
+                        localStorage.setItem(users,JSON.stringify(users));
+                        return;             
+                    }    
+                    else                        
+                        alert("Đã hủy bỏ thao tác");
+                    return;                       
+                }
+            if (statusCell.textContent == "Khóa")
+                {
+                    if(confirm("Bạn có chắc chắn muốn mở khóa tài khoản này không"))
+                    {
+                        statusCell.textContent ="Hoạt động";
+                        alert("Đã mở khóa tài khoản");
+                        ChangeButton();
+                        for(let j=0;j<users.length;i++)
+                        {
+                            if(users[j].userId==id)
+                            {
+                                users.off=false;
+                                break;
+                            }
+                        }
+                        localStorage.setItem(users",JSON.stringify(users));
+                        return;
+                    }
+                    else
+                        alert("Đã hủy bỏ thao tác");
+                    return;
+                }
+            }
+        }
+
+        //Hàm đổi chữ nút khóa khi bấm vào
+        function ChangeButton()
+        {
+            let button=document.getElementById("button-id1");
+            // Kiểm tra nội dung hiện tại và thay đổi
+            if(button.innerHTML==="Khóa")
+            {                  
+                button.innerHTML="Mở khóa"
+            }
+            else
+            {
+                button.innerHTML="Khóa";
             }
         }
     </script>
