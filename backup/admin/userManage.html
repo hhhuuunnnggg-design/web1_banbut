@@ -123,7 +123,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
-        let accountId = 1; // ID cho tài khoản mới
+        let accountId = 0; // ID cho tài khoản mới
         const accountTableBody = document.querySelector('#accountTable tbody');
         
         //Hàm lấy thông tin tài khoản đã đăng ký từ LocalStorage
@@ -133,6 +133,7 @@
             let i=0;
             while(users[i])
             {
+
                 const accountId= users[i].userId;
                 const username= users[i].userName;
                 const password= users[i].userPasWord;
@@ -149,7 +150,7 @@
                         <td>
                             <button class="btn btn-warning" onclick="openEditAccountModal(${accountId}, '${username}', '${email}', '${password}')">Sửa</button>
                             <button class="btn btn-danger" onclick="Confirmbeforedelete(${accountId})">Xóa</button>
-                            <button class="btn btn-secondary" id="button-id1" onclick="toggleUserStatus(${accountId})">Khóa</button>
+                            <button class="btn btn-secondary" id="button-id1" onclick="toggleUserStatus(${accountId})">${LoadButton(lock)}</button>
                         </td>
                     </tr>
                 `;
@@ -187,11 +188,11 @@
                     <td>${username}</td>
                     <td>${email}</td>
                     <td>${password}</td>    
-                    <td class="status" id="status-${accountId}">Hoạt động</td>
+                    <td class="status" id="status-${userId}">Hoạt động</td>
                     <td>
                         <button class="btn btn-warning" onclick="openEditAccountModal(${accountId}, '${username}', '${email}', '${password}')">Sửa</button>
                         <button class="btn btn-danger" onclick="Confirmbeforedelete(${accountId})">Xóa</button>
-                        <button class="btn btn-secondary" id="button-id1" onclick="toggleUserStatus(${accountId})">Khóa</button>
+                        <button class="btn btn-secondary" id="button-id1" onclick="toggleUserStatus(${userId})">${LoadButton()}</button>
                     </td>
                 </tr>
             `;
@@ -232,7 +233,9 @@
 
         // Hàm xóa tài khoản
         function deleteAccount(id) {
+            const users=JSON.parse(localStorage.getItem("users")) || [];//Lấy dữ liệu từ LocalStorage
             const row = document.getElementById(`account-${id}`); // Lấy hàng theo ID
+            users.splice()
             row.remove(); // Xóa hàng
         }
 
@@ -279,6 +282,7 @@
         function toggleUserStatus(id) {
             const users=JSON.parse(localStorage.getItem("users")) || [];//Lấy dữ liệu từ LocalStorage
             const statusCell = document.getElementById(`status-${id}`);
+            let index;
             if (statusCell.textContent == "Hoạt động") {
                 {
                     if(confirm("Bạn có chắc chắn muốn khóa tài khoản này không"))
@@ -286,15 +290,16 @@
                         statusCell.textContent = "Khóa";
                         alert("Đã khóa tài khoản");
                         ChangeButton(); 
-                        for(let j=0;j<users.length;i++)
+                        for(let j=0;j<users.length;j++)
                         {
                             if(users[j].userId==id)
                             {
-                                //users.off=true;
+                                users[j].off=true;
                                 break;
                             }
                         }
-                        localStorage.setItem(users,JSON.stringify(users));
+                        localStorage.removeItem('users');
+                        localStorage.setItem('users',JSON.stringify(users));
                         return;             
                     }    
                     else                        
@@ -307,16 +312,19 @@
                     {
                         statusCell.textContent ="Hoạt động";
                         alert("Đã mở khóa tài khoản");
-                        ChangeButton();
-                        for(let j=0;j<users.length;i++)
+
+                        ChangeButton(users);
+                        for(let j=0;j<users.length;j++)
                         {
                             if(users[j].userId==id)
                             {
-                                //users.off=false;
+                                users[j].off=false;
                                 break;
                             }
                         }
-                        localStorage.setItem("users",JSON.stringify(users));
+
+                        localStorage.removeItem('users');
+                        localStorage.setItem('users',JSON.stringify(users));
                         return;
                     }
                     else
@@ -326,8 +334,16 @@
             }
         }
 
+        //Hàm kiểm tra chữ nút khóa khi tải trang
+        function LoadButton(lock)
+        {
+            if(lock==true)
+            return "Mở khóa";
+            else
+            return "Khóa";
+        }
         //Hàm đổi chữ nút khóa khi bấm vào
-        function ChangeButton()
+        function ChangeButton(users)
         {
             let button=document.getElementById("button-id1");
             // Kiểm tra nội dung hiện tại và thay đổi
