@@ -276,6 +276,16 @@
 
 // Kiểm tra kích thước khi trang được tải
 document.addEventListener("DOMContentLoaded", toggleSearchDisplay);
+    // Kiểm tra kích thước khi trang được tải
+document.addEventListener("DOMContentLoaded", toggleSearchDisplay);
+document.querySelectorAll('.inner-menu a').forEach(item => {
+  item.addEventListener('click', function() {
+    var menu = document.querySelector('.inner-menu');
+    var overlay = document.getElementById('overlay');
+    menu.classList.remove('show');
+    overlay.style.display = 'none';
+  });
+});
 </script>
 
 </body>
