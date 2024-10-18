@@ -4,6 +4,69 @@ const hd = document.getElementById("products");
 
 huongdanmuahang.addEventListener("click", function () {
   hd.innerHTML = `
+  <style>
+    .tutorial {
+      max-width: 800px;
+      margin: 5px auto;
+      padding: 5px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .tutorial h2 {
+      font-size: 28px;
+      color: #4e5a62;
+      margin-bottom: 10px;
+    }
+    .tutorial__bar {
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(to right, #4e5a62, #e8c22e);
+      margin-bottom: 20px;
+    }
+    .tutorial h3 {
+      font-size: 24px;
+      color: #6b003e;
+      margin: 20px 0 10px;
+    }
+    .tutorial__detail {
+      font-weight: 700;
+    }
+    .tutorial__highlight {
+      font-weight: 700;
+      color: #e8c22e;
+    }
+    .tutorial__diamond {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    .tutorial__diamond li {
+      position: relative;
+      padding-left: 20px;
+      margin: 10px 0;
+    }
+    .tutorial__diamond i {
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #cf2e2e;
+    }
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    p[style="color: red;"] {
+      color: red;
+      font-weight: bold;
+    }
+    .tutorial img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      margin: 20px 0;
+    }
+  </style>
   <div class="tutorial">
       <h2>Hướng dẫn mua hàng tại Thế Giới Bút</h2>
       <div class="tutorial__bar"></div>

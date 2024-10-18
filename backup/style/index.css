@@ -1,7 +1,8 @@
+
 body {
   margin: 0;
   padding: 0;
-  padding-top: 150px;
+  padding-top: 100px;
 }
 * {
   box-sizing: border-box;
@@ -14,7 +15,7 @@ body {
   top: 0;
   width: 100%;
   z-index: 999;
-  height: 150px;
+  height: 80px;
 }
 
 .header-main .inner-menu {
@@ -44,6 +45,71 @@ body {
   color: #e8c22e;
   text-decoration: none;
   font-size: 20px;
+}
+.hamburger {
+  display: block;
+  cursor: pointer;
+  color: #e8c22e;
+  font-size: 30px;
+  background-color: rgba(78, 90, 98, 0.8); /* Background cho hamburger */
+  padding: 10px; /* Đệm cho hamburger */
+  border-radius: 5px; /* Bo góc cho hamburger */
+}
+/* Ẩn menu và hiện hamburger trên thiết bị di động */
+@media screen and (max-width: 768px) {
+  .header-main .inner-menu {
+    display: none; /* Ẩn menu chính trên thiết bị di động */
+  }
+  .sear {
+    display: none; /* Ẩn thanh tìm kiếm trên điện thoại */
+  }
+
+  .hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between ;
+    cursor: pointer;
+    color: #e8c22e;
+    font-size: 30px;
+  }
+
+  /* Menu trượt ra từ bên trái khi nhấn nút hamburger */
+  .header-main .inner-menu.show {
+    display: block; /* Hiển thị menu khi nhấn hamburger */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 70%;
+    height: 100%;
+    background-color: #4e5a62;
+    z-index: 1001;
+    padding: 20px;
+  }
+
+  .header-main .inner-menu ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .header-main .inner-menu ul li {
+    text-align: left;
+    padding: 15px 0;
+  }
+}
+@media screen and (min-width: 769px) {
+  .hamburger {
+    display: none; 
+  }
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Màu đen với độ mờ 50% */
+  display: none; /* Ẩn theo mặc định */
+  z-index: 998; /* Để chắc chắn nằm dưới menu */
 }
 
 .header-main .inner-menu ul li:not(:last-child):hover {
@@ -173,7 +239,7 @@ body {
   margin-bottom: 20px; /* Khoảng cách dưới mỗi sản phẩm */
   border: 1px solid #ccc; /* Viền xung quanh mỗi sản phẩm */
   border-radius: 5px; /* Bo góc cho các sản phẩm */
-  overflow: hidden; /* Giấu những phần nội dung vượt quá viền */
+  /* Giấu những phần nội dung vượt quá viền */
   background-color: #fff; /* Màu nền trắng cho mỗi sản phẩm */
   transition: transform 0.2s; /* Hiệu ứng chuyển tiếp cho sự thay đổi */
 }
