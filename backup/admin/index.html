@@ -57,8 +57,7 @@
     function passWordInput() {
         passData = passWord.value;
     }
-    signIn.addEventListener('click', inputVerification(event));
-    function inputVerification(event) {
+    signIn.addEventListener('click', function (event) {
         if (userData == UN && passData == PW) {
             alert('đăng nhập thành công!');
         }
@@ -70,7 +69,8 @@
             alert('thông tin đăng nhập không đúng!');
             event.preventDefault();
         }
-    }
+    });
+
 </script>
 
 </html>
