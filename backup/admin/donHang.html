@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="./style/styleDonHang.css" />
+    <h1> QUẢN LÝ ĐƠN HÀNG </h1>
+</head>
+
+    <body>
+        <div class="order-container">
+            <!-- Header của bảng đơn hàng -->
+            <table class="table-header">
+                <tr>
+                    <th title="Sắp xếp" style="width: 7%">Mã đơn <i class="fa fa-sort"></i></th>
+                    <th title="Sắp xếp" style="width: 15%">Khách <i class="fa fa-sort"></i></th>
+                    <th title="Sắp xếp" style="width: 25%">Sản phẩm <i class="fa fa-sort"></i></th>
+                    <th title="Sắp xếp" style="width: 14%">Tổng tiền <i class="fa fa-sort"></i></th>
+                    <th title="Sắp xếp" style="width: 13%">Ngày giờ <i class="fa fa-sort"></i></th>
+                    <th title="Sắp xếp" style="width: 13%">Trạng thái <i class="fa fa-sort"></i></th>
+                    <th style="width: 13%">Hành động</th>
+
+                </tr>
+            </table>
+        
+            <!-- Content của bảng -->
+            <div class="table-content">
+                <!-- Nội dung đơn hàng sẽ hiển thị ở đây -->
+            </div>
+        
+            <!-- Footer của bảng -->
+            <div class="table-footer"></div>
+                <div class="search-options">
+                    <select name="searchOrderType">
+                        <option value="ma">Tìm theo mã đơn</option>
+                        <option value="khachhang">Tìm theo tên khách hàng</option>
+                        <option value="trangThai">Tìm theo trạng thái</option>
+                    </select>
+                    <input type="text" placeholder="Tìm kiếm...">
+                </div>
+            </div>
+        </div>    
+    </body>
+</html>

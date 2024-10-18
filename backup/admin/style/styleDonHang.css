@@ -1,0 +1,104 @@
+/* Style cho container tổng thể */
+.order-container {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Style cho bảng header */
+.table-header {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: -25px;
+}
+
+.table-header th {
+    background-color: #f4f4f4;
+    padding: 12px;
+    text-align: left;
+    font-weight: bold;
+    border-bottom: 2px solid #ddd;
+    cursor: pointer;
+    color: #333;
+}
+
+.table-header th i {
+    margin-left: 5px;
+}
+
+/* Style cho content của bảng */
+.table-content {
+    min-height: 200px;
+    max-height: 550px;
+    overflow: auto;
+    margin: 0 auto;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-content tr {
+    border-bottom: 1px solid #ddd;
+}
+
+.table-content td {
+    padding: 12px;
+    text-align: left;
+}
+
+/* Style cho footer */
+.table-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-top: 1px solid #ddd;
+}
+
+/* Style cho ô tìm kiếm và chọn kiểu */
+.search-options {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-options select,
+.search-options input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.search-options input[type="text"] {
+    width: 200px;
+}
+
+/* Căn chỉnh bảng nội dung */
+.table-header th,
+.table-content td {
+    text-align: center;
+}
+
+.table-content td {
+    font-size: 14px;
+}
+
+/* Đặt border dashed giữa các ô trong bảng */
+.table-header th,
+.table-content td {
+    border-right: 2px solid black; /* Nét đứt phía bên phải */
+    border-left: 2px solid black;  /* Nét đứt phía bên trái (nếu cần) */
+    padding: 8px; /* Khoảng cách giữa nội dung và biên của ô */
+    text-align: center; /* Căn giữa nội dung trong ô */
+}
+
+.table-header th:last-child,
+.table-content td:last-child {
+    border-right: none; /* Bỏ nét đứt ở ô cuối cùng của mỗi hàng */
+}
+
+/* Để tránh trùng nét ở phần đầu, có thể bỏ border cho th phần đầu */
+.table-header th:first-child,
+.table-content td:first-child {
+    border-left: none; /* Bỏ nét đứt ở ô đầu tiên của mỗi hàng */
+}
+
