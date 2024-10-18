@@ -98,7 +98,6 @@
                                 <label for="editUsersId1">ID:</label>
                                 <input type="number" class="form-control" id="editUsersId1" required>
                             </div>
-                            <input type="hidden" id="editAccountId">
                             <div class="form-group">
                                 <label for="editUsername">Tên:</label>
                                 <input type="text" class="form-control" id="editUsername" required>
@@ -225,7 +224,7 @@
 
         // Hàm mở modal sửa tài khoản
         function openEditAccountModal(id, username, email, password, role) {
-            document.getElementById('editAccountId').value = id;
+            document.getElementById('editUsersId1').value = id;
             document.getElementById('editUsername').value = username;
             document.getElementById('editEmail').value = email;
             document.getElementById('editPassword').value = password;
@@ -237,17 +236,15 @@
         document.getElementById('editAccountForm').onsubmit = function (e) {
             e.preventDefault();
 
-            const id = document.getElementById('editAccountId').value;
+            const id = document.getElementById('editUsersId1').value;
             const username = document.getElementById('editUsername').value;
             const email = document.getElementById('editEmail').value;
             const password = document.getElementById('editPassword').value;
-            const role = document.getElementById('editRole').value;
 
             const row = document.getElementById(`account-${id}`);
             row.cells[1].textContent = username;
             row.cells[2].textContent = email;
             row.cells[3].textContent = password; // Hiển thị mật khẩu
-            row.cells[4].textContent = role;
 
             // Đóng modal và reset form
             $('#editAccountModal').modal('hide');
@@ -305,7 +302,7 @@
                                 break;
                             }
                         }
-                        localStorage.setItem(users",JSON.stringify(users));
+                        localStorage.setItem("users",JSON.stringify(users));
                         return;
                     }
                     else
