@@ -27,7 +27,7 @@ function thanhToanKhiNhanHang() {
   const loggedInUserEmail = localStorage.getItem("loggedInUserEmail");
   const sanPhamData = JSON.parse(localStorage.getItem(loggedInUserEmail));
 
-  if (sanPhamData.length === 0) {
+  if (!sanPhamData || sanPhamData.length === 0) {
     console.log("Không có sản phẩm nào để di chuyển.");
     return;
   }
@@ -39,13 +39,6 @@ function thanhToanKhiNhanHang() {
   );
 
   if (matchedUser) {
-    // Thêm thông tin ngày mua và tình trạng thanh toán
-    const donhangMoi = {
-      sp: sanPhamData, // Danh sách sản phẩm
-      ngaymua: new Date().toISOString(), // Lấy thời gian hiện tại theo định dạng ISO 8601
-      tinhTrang: "Đang chờ xử lý", // Trạng thái thanh toán mặc định
-    };
-
     // Lấy thông tin khách hàng từ các trường input trong form
     const ten = document.getElementById("name").value;
     const ho = document.getElementById("lname").value;
@@ -56,36 +49,40 @@ function thanhToanKhiNhanHang() {
     const email = document.getElementById("Email").value;
     const ghichu = document.getElementById("note").value;
 
-    const khachHang = {
-      ho: ho,
-      ten: ten,
-      diachi: diachi,
-      quocgia: quocgia,
-      tinh: tinh,
-      sdt: sdt,
-      email: email,
-      ghichu: ghichu,
+    // Thêm trực tiếp thông tin khách hàng vào từng sản phẩm
+    const sanPhamDataWithCustomerInfo = sanPhamData.map((sanPham) => {
+      return {
+        ...sanPham, // Giữ nguyên các thông tin sản phẩm
+        ho: ho, // Thêm thông tin khách hàng trực tiếp vào sản phẩm
+        ten: ten,
+        diachi: diachi,
+        quocgia: quocgia,
+        tinh: tinh,
+        sdt: sdt,
+        email: email,
+        ghichu: ghichu,
+      };
+    });
+
+    // Tạo đối tượng đơn hàng mới
+    const donhangMoi = {
+      sanPham: sanPhamDataWithCustomerInfo, // Danh sách sản phẩm cùng với thông tin khách hàng
+      ngaymua: new Date().toISOString(), // Thời gian mua hàng hiện tại
+      tinhTrang: "Đang chờ xử lý", // Trạng thái đơn hàng
     };
 
-    // Kiểm tra mảng donhang và thongtinkhachhang đã tồn tại chưa, nếu chưa thì khởi tạo chúng
+    // Kiểm tra mảng donhang đã tồn tại chưa, nếu chưa thì khởi tạo
     if (!Array.isArray(matchedUser.donhang)) {
       matchedUser.donhang = [];
-    }
-
-    if (!Array.isArray(matchedUser.thongtinkhachhang)) {
-      matchedUser.thongtinkhachhang = [];
     }
 
     // Đẩy đơn hàng mới vào mảng `donhang[]`
     matchedUser.donhang.push(donhangMoi);
 
-    // Đẩy thông tin khách hàng vào mảng `thongtinkhachhang[]`
-    matchedUser.thongtinkhachhang.push(khachHang);
-
     // Cập nhật lại danh sách users vào localStorage
     localStorage.setItem("users", JSON.stringify(users));
 
-    // Xóa sản phẩm khỏi email sau khi đặt hàng thành công
+    // Xóa sản phẩm khỏi giỏ hàng sau khi đặt hàng
     localStorage.setItem(loggedInUserEmail, JSON.stringify([]));
 
     alert("Đặt hàng thành công");

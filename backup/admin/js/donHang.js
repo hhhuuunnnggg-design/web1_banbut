@@ -1,108 +1,134 @@
-// Đơn hànghàng
+// Hàm thêm bảng đơn hàng vào giao diện
 function addTableDonHang() {
-  var tc = document
-    .getElementsByClassName("order-container")[0]
-    .getElementsByClassName("table-content")[0];
-  var s = `<table class="table-outline hideImg">`;
+  const tc = document.getElementsByClassName("table-content")[0]; // Vùng để hiển thị bảng
+  let s = `<table class="table-outline hideImg">`; // Bắt đầu tạo bảng
 
-  var listDH = getListDonHang();
+  const listDH = quanlydonhang(); // Lấy danh sách đơn hàng
+  let tongTienTatCa = 0; // Biến lưu tổng tiền của tất cả đơn hàng
 
-  TONGTIEN = 0;
-  for (var i = 0; i < listDH.length; i++) {
-    var d = listDH[i];
-    s +=
-      `<tr>
-            <td style="width: 7%">` +
-      d.ma +
-      `</td>
-            <td style="width: 15%">` +
-      d.khach +
-      `</td>
-            <td style="width: 25%">` +
-      d.sp +
-      `</td>
-            <td style="width: 14%">` +
-      d.tongtien +
-      `</td>
-            <td style="width: 13%">` +
-      d.ngaygio +
-      `</td>
-            <td style="width: 13%">` +
-      d.tinhTrang +
-      `</td>
-            <td style="width: 13%">
-                <div class="tooltip">
-                    <i class="fa fa-check" onclick="duyet('` +
-      d.ma +
-      `', true)"></i>
-                    <span class="tooltiptext">Duyệt</span>
-                </div>
-                <div class="tooltip">
-                    <i class="fa fa-remove" onclick="duyet('` +
-      d.ma +
-      `', false)"></i>
-                    <span class="tooltiptext">Hủy</span>
-                </div>
-                
-            </td>
-        </tr>`;
-    TONGTIEN += stringToNum(d.tongtien);
+  // Duyệt qua từng đơn hàng
+  for (let i = 0; i < listDH.length; i++) {
+    const d = listDH[i];
+    s += `
+      <tr>
+        <td style="width: 5%">${i + 1}</td> <!-- Số thứ tự -->
+        <td style="width: 9%">${d.maDon}</td> <!-- Mã đơn hàng -->
+        <td style="width: 9%">${d.tenKhach}</td> <!-- Tên khách hàng -->
+        <td style="width: 15%">${d.diaChi}</td> <!-- Địa chỉ -->
+        <td style="width: 9%">${d.soDienThoai}</td> <!-- Số điện thoại -->
+        <td style="width: 15%"><ul>${
+          d.sanPhamList
+        }</ul> <!-- Danh sách sản phẩm --></td>
+        <td style="width: 9%">${d.tongTien}<sup>đ</sup></td> <!-- Tổng tiền -->
+        <td style="width: 9%">${d.ngayMua}</td> <!-- Ngày giờ mua -->
+        <td style="width: 9%">${d.tinhTrang}</td> <!-- Tình trạng -->
+        <td style="width: 9%">
+          <button onclick="duyetDonHang('${d.maDon}', true)">Duyệt</button>
+          <button onclick="huyDonHang('${d.maDon}', false)">Xóa</button>
+        </td>
+      </tr>
+    `;
+    tongTienTatCa += d.tongTien;
   }
 
   s += `</table>`;
   tc.innerHTML = s;
+
+  const footer = document.querySelector(".table-footer");
+  footer.innerHTML = `<p>Tổng tiền của tất cả đơn hàng: ${tongTienTatCa}<sup>đ</sup></p>`;
 }
 
-function getListDonHang(traVeDanhSachSanPham = false) {
-  var u = getListUser();
-  var result = [];
-  for (var i = 0; i < u.length; i++) {
-    for (var j = 0; j < u[i].donhang.length; j++) {
-      // Tổng tiền
-      var tongtien = 0;
-      for (var s of u[i].donhang[j].sp) {
-        var timsp = timKiemTheoMa(list_products, s.ma);
-        if (timsp.promo.name == "giareonline")
-          tongtien += stringToNum(timsp.promo.value);
-        else tongtien += stringToNum(timsp.price);
-      }
+// Hàm lấy thông tin đơn hàng từ localStorage và trả về danh sách
+function quanlydonhang() {
+  const layUser = JSON.parse(localStorage.getItem("users"));
+  let danhSachDonHang = [];
 
-      // Ngày giờ
-      var x = new Date(u[i].donhang[j].ngaymua).toLocaleString();
+  // Duyệt qua từng user trong danh sách
+  layUser.forEach((user) => {
+    user.donhang.forEach((don) => {
+      let tongTienDon = 0;
+      let danhSachSanPham = "";
 
-      // Các sản phẩm - dạng html
-      var sps = "";
-      for (var s of u[i].donhang[j].sp) {
-        sps +=
-          `<p style="text-align: right">` +
-          (timKiemTheoMa(list_products, s.ma).name + " [" + s.soluong + "]") +
-          `</p>`;
-      }
+      don.sanPham.forEach((sanpham) => {
+        const tenSp = sanpham.tenSanPham;
+        const soLuong = sanpham.soLuongSanPham;
+        const giaSp = Number(sanpham.giaSanPham);
+        const thanhTien = soLuong * giaSp;
+        tongTienDon += thanhTien;
 
-      // Các sản phẩm - dạng mảng
-      var danhSachSanPham = [];
-      for (var s of u[i].donhang[j].sp) {
-        danhSachSanPham.push({
-          sanPham: timKiemTheoMa(list_products, s.ma),
-          soLuong: s.soluong,
-        });
-      }
-
-      // Lưu vào result
-      result.push({
-        ma: u[i].donhang[j].ngaymua.toString(),
-        khach: u[i].username,
-        sp: traVeDanhSachSanPham ? danhSachSanPham : sps,
-        tongtien: numToString(tongtien),
-        ngaygio: x,
-        tinhTrang: u[i].donhang[j].tinhTrang,
+        danhSachSanPham += `<li>${tenSp} x ${soLuong} - ${thanhTien}<sup>đ</sup></li>`;
       });
-    }
-  }
-  return result;
-}
-//---------------------------------------------------------------------------------------------------
-// function getUser
-// const layUser = JSON.parse(localStorage.getItem("users"));
 
-function maDonang() {}
+      const tenKh = don.sanPham[0].ten;
+      const diachiKh = don.sanPham[0].diachi;
+      const sdtKh = don.sanPham[0].sdt;
+
+      const donHangMoi = {
+        maDon: don.ngaymua,
+        tenKhach: tenKh,
+        diaChi: diachiKh,
+        soDienThoai: sdtKh,
+        sanPhamList: danhSachSanPham,
+        tongTien: tongTienDon,
+        ngayMua: new Date(don.ngaymua).toLocaleString(),
+        tinhTrang: don.tinhTrang,
+      };
+
+      danhSachDonHang.push(donHangMoi);
+    });
+  });
+
+  return danhSachDonHang;
+}
+
+// Hàm duyệt đơn hàng
+function duyetDonHang(maDon, trangThai) {
+  const layUser = JSON.parse(localStorage.getItem("users"));
+
+  layUser.forEach((user) => {
+    user.donhang.forEach((don) => {
+      if (don.ngaymua === maDon) {
+        don.tinhTrang = "đã giao hàng";
+      }
+    });
+  });
+
+  localStorage.setItem("users", JSON.stringify(layUser));
+
+  addTableDonHang();
+
+  console.log(`Đơn hàng mã ${maDon} đã giao hàng.`);
+}
+
+// Hàm hủy đơn hàng
+function huyDonHang(maDon, trangThai) {
+  const layUser = JSON.parse(localStorage.getItem("users"));
+  let isDeleted = false;
+
+  layUser.forEach((user) => {
+    user.donhang = user.donhang.filter((don) => {
+      if (don.ngaymua === maDon) {
+        if (don.tinhTrang === "đã giao hàng") {
+          alert("Đơn hàng đã giao hàng, bạn không thể xóa nó!");
+          return true;
+        } else {
+          isDeleted = true;
+          return false;
+        }
+      }
+      return true;
+    });
+  });
+
+  if (isDeleted) {
+    localStorage.setItem("users", JSON.stringify(layUser));
+
+    addTableDonHang();
+    console.log(`Đơn hàng mã ${maDon} đã được hủy.`);
+  }
+}
+
+// Gọi hàm hiển thị bảng đơn hàng khi trang được tải
+document.addEventListener("DOMContentLoaded", () => {
+  addTableDonHang();
+});
