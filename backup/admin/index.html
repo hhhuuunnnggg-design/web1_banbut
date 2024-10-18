@@ -40,6 +40,7 @@
 </body>
 <script>
     //kiểm tra username và password vừa nhập
+    //thông tin admin
     const UN = 'admin';
     const PW = '12345';
     const userName = document.getElementById("boxUsern");
@@ -61,7 +62,7 @@
         if (userData == UN && passData == PW) {
             alert('đăng nhập thành công!');
         }
-        else if (userData == "" && passData == "") {
+        else if (userData == "" || passData == "") {
             alert('xin hãy điền thông tin vào ô trống!');
             event.preventDefault();
         }
