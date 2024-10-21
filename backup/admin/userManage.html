@@ -96,19 +96,19 @@
                         <form id="editAccountForm">
                             <div class="form-group">
                                 <label for="editUsersId1">ID:</label>
-                                <input type="number" class="form-control" id="editUsersId1" required>
+                                <output class="form-control" id="editUsersId1" >
                             </div>
                             <div class="form-group">
                                 <label for="editUsername">Tên:</label>
-                                <input type="text" class="form-control" id="editUsername" required>
+                                <input type="text" class="form-control" id="editUsername" >
                             </div>
                             <div class="form-group">
                                 <label for="editEmail">Email:</label>
-                                <input type="email" class="form-control" id="editEmail" required>
+                                <input type="email" class="form-control" id="editEmail" >
                             </div>
                             <div class="form-group">
                                 <label for="editPassword">Mật khẩu:</label>
-                                <input type="password" class="form-control" id="editPassword" required>
+                                <input type="password" class="form-control" id="editPassword" >
                             </div>
                             <button type="submit" class="btn btn-success">Cập nhật Tài khoản</button>
                         </form>
@@ -130,15 +130,14 @@
         function GetAccountFromLocalStorage()
         {
             const users=JSON.parse(localStorage.getItem("users")) || [];//Lấy dữ liệu từ LocalStorage
-            let i=0;
-            while(users[i])
+            while(users[accountid])
             {
 
-                const accountId= users[i].userId;
-                const username= users[i].userName;
-                const password= users[i].userPasWord;
-                const email= users[i].userEmail;
-                const lock=users[i].off;
+                const accountId= users[accountid].userId;
+                const username= users[accountid].userName;
+                const password= users[accountid].userPasWord;
+                const email= users[accountid].userEmail;
+                const lock=users[accountid].off;
                 //Tạo 1 hàng mới
                 const newRow = `
                     <tr id="account-${accountId}">
@@ -150,13 +149,13 @@
                         <td>
                             <button class="btn btn-warning" onclick="openEditAccountModal(${accountId}, '${username}', '${email}', '${password}')">Sửa</button>
                             <button class="btn btn-danger" onclick="Confirmbeforedelete(${accountId})">Xóa</button>
-                            <button class="btn btn-secondary" id="button-id1" onclick="toggleUserStatus(${accountId})">${LoadButton(lock)}</button>
+                            <button class="btn btn-secondary" id="button-${accountId}" onclick="toggleUserStatus(${accountId})">${LoadButton(lock)}</button>
                         </td>
                     </tr>
                 `;
                 // Thêm hàng mới vào bảng
                 accountTableBody.insertAdjacentHTML('beforeend',newRow);
-                i++;
+                accountid++;
             }
         }
 
@@ -175,11 +174,12 @@
         // Hàm thêm tài khoản
         document.getElementById('addAccountForm').onsubmit = function (e) {
             e.preventDefault();
-            const users=JSON.parse(localStorage.getItem("users")) || [];//Lấy dữ liệu từ LocalStorage
+            const users=JSON.parse(localStorage.getItem("users")) || [];
             const userId= document.getElementById('usersId1').value;
             const username = document.getElementById('username').value;
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
+            const lock= false;
 
             // Tạo một hàng mới trong bảng
             const newRow = `
@@ -188,28 +188,41 @@
                     <td>${username}</td>
                     <td>${email}</td>
                     <td>${password}</td>    
-                    <td class="status" id="status-${userId}">Hoạt động</td>
+                    <td class="status" id="status-${userId}">${Checkifaccountislocked(lock)}</td>
                     <td>
-                        <button class="btn btn-warning" onclick="openEditAccountModal(${accountid}, '${username}', '${email}', '${password}')">Sửa</button>
-                        <button class="btn btn-danger" onclick="Confirmbeforedelete(${accountid})">Xóa</button>
-                        <button class="btn btn-secondary" id="button-id1" onclick="toggleUserStatus(${userId})">${LoadButton()}</button>
+                        <button class="btn btn-warning" onclick="openEditAccountModal(${userId}, '${username}', '${email}', '${password}')">Sửa</button>
+                        <button class="btn btn-danger" onclick="Confirmbeforedelete(${userId})">Xóa</button>
+                        <button class="btn btn-secondary" id="button-${userId}" onclick="toggleUserStatus(${userId})">${LoadButton(lock)}</button>
                     </td>
                 </tr>
             `;
 
             // Thêm hàng mới vào bảng
             accountTableBody.insertAdjacentHTML('beforeend', newRow);
-            accountId++; // Tăng ID cho tài khoản tiếp theo
-            users.push({
-                donhang:[],
-                off:false,
-                userEmail:email,
-                userId:userId,
-                userName:username,
-                userPasWord:password,
+            accountid++; // Tăng ID cho tài khoản tiếp theo
+            if(users)
+            {
+                users.push({
+                    donhang:[],
+                    off:false,
+                    userEmail:email,
+                    userId:userId,
+                    userName:username,
+                    userPasWord:password,
+                }
+                )
             }
-            )
-            console.log(users[1].userId);
+            else   
+            {
+                const users = {
+                userId: userId,
+                userName: username,
+                userEmail: email,
+                userPasWord: password,
+                off: lock,
+                donhang: [],
+                };
+            }
             localStorage.setItem('users',JSON.stringify(users));
 
             // Đóng modal và reset form
@@ -262,7 +275,7 @@
         // Hàm cập nhật tài khoản
         document.getElementById('editAccountForm').onsubmit = function (e) {
             e.preventDefault();
-
+            
             const id = document.getElementById('editUsersId1').value;
             const username = document.getElementById('editUsername').value;
             const email = document.getElementById('editEmail').value;
@@ -272,7 +285,16 @@
             row.cells[1].textContent = username;
             row.cells[2].textContent = email;
             row.cells[3].textContent = password; // Hiển thị mật khẩu
-
+            //Đưa dữ liệu mới cập nhật vào LocalStorage
+            const users=JSON.parse(localStorage.getItem("users")) || [];//Lấy dữ liệu từ LocalStorage
+            const index= users.findindex(users => user.userId==id)
+            if(index!=-1)
+            {
+                users[index].userName = username;
+                users[index].userEmail = email;
+                users[index].userPasWord = password;
+            }
+            localStorage.setItem('users',JSON.stringify(users));
             // Đóng modal và reset form
             $('#editAccountModal').modal('hide');
             document.getElementById('editAccountForm').reset();
@@ -292,13 +314,13 @@
         function toggleUserStatus(id) {
             const users=JSON.parse(localStorage.getItem("users")) || [];//Lấy dữ liệu từ LocalStorage
             const statusCell = document.getElementById(`status-${id}`);
-            if (statusCell.textContent == "Hoạt động") {
+            if (statusCell.textContent === "Hoạt động") {
                 {
                     if(confirm("Bạn có chắc chắn muốn khóa tài khoản này không"))
                     {
                         statusCell.textContent = "Khóa";
                         alert("Đã khóa tài khoản");
-                        ChangeButton(); 
+                        ChangeButton(id); 
                         for(let j=0;j<users.length;j++)
                         {
                             if(users[j].userId==id)
@@ -308,21 +330,21 @@
                             }
                         }
                         localStorage.removeItem('users');
-                        localStorage.setItem('users',JSON.stringify(users));
-                        return;             
+                        localStorage.setItem('users',JSON.stringify(users));     
+                        return;     
                     }    
                     else                        
-                        alert("Đã hủy bỏ thao tác");
-                    return;                       
+                        alert("Đã hủy bỏ thao tác");  
+                        return;                   
                 }
-            if (statusCell.textContent == "Khóa")
+            }
+            if (statusCell.textContent === "Khóa")
                 {
                     if(confirm("Bạn có chắc chắn muốn mở khóa tài khoản này không"))
                     {
                         statusCell.textContent ="Hoạt động";
                         alert("Đã mở khóa tài khoản");
-
-                        ChangeButton(users);
+                        ChangeButton(id);
                         for(let j=0;j<users.length;j++)
                         {
                             if(users[j].userId==id)
@@ -341,7 +363,6 @@
                     return;
                 }
             }
-        }
 
         //Hàm kiểm tra chữ nút khóa khi tải trang
         function LoadButton(lock)
@@ -352,26 +373,27 @@
             return "Khóa";
         }
         //Hàm đổi chữ nút khóa khi bấm vào
-        function ChangeButton(users)
+        function ChangeButton(id)
         {
-            let button=document.getElementById("button-id1");
+            const button=document.getElementById(`button-${id}`);
             // Kiểm tra nội dung hiện tại và thay đổi
-            if(button.innerHTML=="Khóa")
-            {                  
-                button.innerHTML="Mở khóa"
+            if(button){
+                if(button.textContent==="Khóa")
+                {                  
+                    button.textContent="Mở khóa";
+                    return;
+                }
+                else
+                {   
+                    if(button.textContent==="Mở khóa")
+                        button.textContent="Khóa";
+                    return;
+                }
             }
-            else
-            {   
-                if(button.innerHTML=="Mở khóa")
-                    button.innerHTML="Khóa";
-            }
+            else 
+                console.error(`Không tìm thấy nút với ID: button-${id}`);
         }
 
-        //Hàm đưa dữ liệu vừa mới cập nhật lên LocalStorage
-        function PushDataToLocalStorage(users)
-        {
-            localStorage.getItem('users',JSON.stringify(users));
-        }
 
     </script>
 </body
