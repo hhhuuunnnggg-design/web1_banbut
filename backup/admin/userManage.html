@@ -141,7 +141,7 @@
                 //Tạo 1 hàng mới
                 const newRow = `
                     <tr id="account-${accountId}">
-                        <td>${accountId}</td>
+                        <td id="id-${accountId}">${accountId}</td>
                         <td>${username}</td>
                         <td>${email}</td>
                         <td>${password}</td>
@@ -184,7 +184,7 @@
             // Tạo một hàng mới trong bảng
             const newRow = `
                 <tr id="account-${userId}">
-                    <td>${userId}</td>
+                    <td id="id-${userId}">${userId}</td>
                     <td>${username}</td>
                     <td>${email}</td>
                     <td>${password}</td>    
@@ -251,7 +251,7 @@
             let index;
             for(let j=0;j<users.length;j++)
             {
-                if(users[j].userId==row)
+                if(users[j].userId==id)
                 {
                     index=j;
                     break;
