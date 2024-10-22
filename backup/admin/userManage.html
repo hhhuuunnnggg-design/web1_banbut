@@ -287,7 +287,7 @@
             row.cells[3].textContent = password; // Hiển thị mật khẩu
             //Đưa dữ liệu mới cập nhật vào LocalStorage
             const users=JSON.parse(localStorage.getItem("users")) || [];//Lấy dữ liệu từ LocalStorage
-            const index= users.findindex(users => user.userId==id)
+            const index= users.findIndex(users => users.userId==id)
             if(index!=-1)
             {
                 users[index].userName = username;
