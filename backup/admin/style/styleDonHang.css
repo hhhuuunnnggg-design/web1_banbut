@@ -26,25 +26,27 @@
     margin-left: 5px;
 }
 
-/* Style cho content của bảng */
-.table-content {
-    min-height: 200px;
-    max-height: 550px;
-    overflow: auto;
-    margin: 0 auto;
-    width: 100%;
-    border-collapse: collapse;
-
-}
-
+/* Style cho bảng content */
 .table-content tr {
-    border-bottom: 1px solid #ddd;
+    border-bottom: 2px solid black; /* Đường kẻ giữa các hàng */
 }
 
 .table-content td {
     padding: 12px;
-    text-align: left;
+    text-align: center; /* Căn giữa nội dung */
+    border-right: 2px solid black; /* Đường kẻ dọc */
+    border-left: 2px solid black;  /* Đường kẻ dọc */
+    border-bottom: 2px solid black;
 }
+
+/* Để tránh trùng đường viền */
+/* .table-content td:first-child {
+    border-left: none;
+}
+
+.table-content td:last-child {
+    border-right: none;
+} */
 
 /* Style cho footer */
 .table-footer {
@@ -103,33 +105,13 @@
     width: 200px;
 }
 
-/* Căn chỉnh bảng nội dung */
-.table-header th,
-.table-content td {
-    text-align: center;
+/* Chỉnh sửa border cho bảng */
+table {
+    border-collapse: collapse; /* Đảm bảo các đường kẻ không bị đè lên nhau */
+    width: 100%; /* Đảm bảo bảng chiếm toàn bộ chiều rộng */
+    border-spacing: 0;
 }
 
-.table-content td {
-    font-size: 14px;
+td, th {
+    padding: 10px; /* Tạo khoảng cách giữa nội dung và đường viền */
 }
-
-/* Đặt border dashed giữa các ô trong bảng */
-.table-header th,
-.table-content td {
-    border-right: 2px solid black; /* Nét đứt phía bên phải */
-    border-left: 2px solid black;  /* Nét đứt phía bên trái (nếu cần) */
-    padding: 8px; /* Khoảng cách giữa nội dung và biên của ô */
-    text-align: center; /* Căn giữa nội dung trong ô */
-}
-
-.table-header th:last-child,
-.table-content td:last-child {
-    border-right: none; /* Bỏ nét đứt ở ô cuối cùng của mỗi hàng */
-}
-
-/* Để tránh trùng nét ở phần đầu, có thể bỏ border cho th phần đầu */
-.table-header th:first-child,
-.table-content td:first-child {
-    border-left: none; /* Bỏ nét đứt ở ô đầu tiên của mỗi hàng */
-}
-
