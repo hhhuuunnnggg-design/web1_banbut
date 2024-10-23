@@ -78,27 +78,27 @@ function displayFilteredOrders(filteredOrders) {
       d.tinhTrang === "đã giao hàng" ? "text-success" : "text-warning"; // class Bootstrap cho màu xanh và cam
 
     s += `
-      <tr class="donhang-row"> <!-- Class được thêm vào hàng -->
-        <td>${index + 1}</td><!-- Số thứ tự -->
-        <td>${d.maDon}</td>
-        <td>${d.tenKhach}</td>
-        <td>${d.diaChi}</td>
-        <td>${d.soDienThoai}</td>
-        <td><ul>${d.sanPhamList}</ul></td>
-        <td>${d.tongTien}<sup>đ</sup></td>
-        <td>${d.ngayMua}</td>
-        <td class="${colorClass}">${
+          <tr class="donhang-row"> <!-- Class được thêm vào hàng -->
+            <td>${index + 1}</td><!-- Số thứ tự -->
+            <td>${d.maDon}</td>
+            <td>${d.tenKhach}</td>
+            <td>${d.diaChi}</td>
+            <td>${d.soDienThoai}</td>
+            <td><ul>${d.sanPhamList}</ul></td>
+            <td>${d.tongTien}<sup>đ</sup></td>
+            <td>${d.ngayMua}</td>
+            <td class="${colorClass}">${
       d.tinhTrang
     }</td> <!-- Áp dụng màu sắc cho trạng thái -->
-        <td>
-          <button class="btn btn-warning" style="background-color:#15de16;border-color:#15de16;color:#ffffff" onclick="duyetDonHang('${
-            d.maDon
-          }', true)">Duyệt</button>
-          <button class="btn btn-danger" onclick="huyDonHang('${
-            d.maDon
-          }', false)">Xóa</button>
-        </td>
-      </tr>`;
+            <td>
+              <button class="btn btn-warning" style="background-color:#15de16;border-color:#15de16;color:#ffffff" onclick="duyetDonHang('${
+                d.maDon
+              }', true)">Duyệt</button>
+              <button class="btn btn-danger" onclick="huyDonHang('${
+                d.maDon
+              }', false)">Xóa</button>
+            </td>
+          </tr>`;
   });
 
   tc.innerHTML = s;
@@ -162,4 +162,21 @@ function locDonHangTheoKhoangNgay() {
   } else {
     displayFilteredOrders(filteredOrders); // Hiển thị đơn hàng đã lọc
   }
+}
+function duyetDonHang(maDon, trangThai) {
+  const layUser = JSON.parse(localStorage.getItem("users"));
+
+  layUser.forEach((user) => {
+    user.donhang.forEach((don) => {
+      if (don.ngaymua === maDon) {
+        don.tinhTrang = "đã giao hàng";
+      }
+    });
+  });
+
+  localStorage.setItem("users", JSON.stringify(layUser));
+
+  addTableDonHang();
+
+  console.log(`Đơn hàng mã ${maDon} đã giao hàng.`);
 }
