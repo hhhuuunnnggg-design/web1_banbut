@@ -1,32 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin</title>
-    <link rel="stylesheet" href="./style/styleDonHang.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <title>QUẢN LÝ ĐƠN HÀNG</title>
+    <style>
+      body {
+          background-color: #f8f9fa;
+      }
 
+      h2 {
+          margin-bottom: 20px;
+      }
+
+      .table {
+          background-color: #fff;
+      }
+
+      button {
+          margin-right: 5px;
+          border-radius: 0;
+      }
+    </style>
   </head>
-
-  <h1>QUẢN LÝ ĐƠN HÀNG</h1>
   <body>
-    <div class="order-container">
-      <!-- Header của bảng đơn hàng -->
-      <table class="table-header">
-        <thead>
-          <tr >
-            <th title="Sắp xếp" style="width: 5%; border-bottom: 2px solid black; color: red">Stt <i class="fa fa-sort"></i></th>
-            <th title="Sắp xếp" style="width: 9%; border-bottom: 2px solid black; color: red">Mã đơn <i class="fa fa-sort"></i></th>
-            <th title="Sắp xếp" style="width: 9%; border-bottom: 2px solid black; color: red">Khách <i class="fa fa-sort"></i></th>
-            <th title="Sắp xếp" style="width: 15%; border-bottom: 2px solid black; color: red">Địa chỉ <i class="fa fa-sort"></i></th>
-            <th title="Sắp xếp" style="width: 9%; border-bottom: 2px solid black; color: red">Số điện thoại<i class="fa fa-sort"></i></th>
-            <th title="Sắp xếp" style="width: 15%; border-bottom: 2px solid black; color: red">Sản phẩm <i class="fa fa-sort"></i></th>
-            <th title="Sắp xếp" style="width: 9%; border-bottom: 2px solid black; color: red">Tổng tiền <i class="fa fa-sort"></i></th>
-            <th title="Sắp xếp" style="width: 9%; border-bottom: 2px solid black; color: red">Ngày giờ <i class="fa fa-sort"></i></th>
-            <th title="Sắp xếp" style="width: 9%; border-bottom: 2px solid black; color: red">Trạng thái <i class="fa fa-sort"></i></th>
-            <th style="width: 9%; border-bottom: 2px solid black; color: red">Hành động</th>
-          </tr>
-        </thead>
+    <div class="container mt-4">
+        <h2>Quản lý đơn hàng</h2>
+        <table class="table table-striped" id="accountTable">
+            <thead>
+                <tr>
+                    <th>Stt<i class="fa fa-sort"></i></th>
+                    <th>Mã đơn<i class="fa fa-sort"></i></th>
+                    <th>Khách<i class="fa fa-sort"></i></th>
+                    <th>Địa chỉ<i class="fa fa-sort"></i></th>
+                    <th>Số điện thoại<i class="fa fa-sort"></i></th>
+                    <th>Sản phẩm<i class="fa fa-sort"></i></th>
+                    <th>Tổng tiền<i class="fa fa-sort"></i></th>
+                    <th>Ngày giờ<i class="fa fa-sort"></i></th>
+                    <th>Trạng thái<i class="fa fa-sort"></i></th>
+                    <th>Hành động<i class="fa fa-sort"></i></th>
+                </tr>
+            </thead>
         <tbody class="table-content">
           <!-- Nội dung đơn hàng sẽ hiển thị ở đây -->
         </tbody>
@@ -53,5 +68,11 @@
       </div>
     </div>
     <script src="./js/donHang.js"></script>
+    <script>
+document.addEventListener("DOMContentLoaded", () => {
+  addTableDonHang();
+});
+
+    </script>
   </body>
 </html>
