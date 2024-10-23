@@ -1,30 +1,73 @@
 <!DOCTYPE html>
 <html lang="vi">
-  <head>
+<head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <title>QUẢN LÝ ĐƠN HÀNG</title>
     <style>
-      body {
-          background-color: #f8f9fa;
-      }
+        body {
+            background-color: #f8f9fa;
+        }
 
-      h2 {
-          margin-bottom: 20px;
-      }
+        h2 {
+            margin-bottom: 20px;
+        }
 
-      .table {
-          background-color: #fff;
-      }
+        .table {
+            background-color: #fff;
+        }
 
-      button {
-          margin-right: 5px;
-          border-radius: 0;
-      }
+        /* CSS cho nút bên ngoài */
+        .external-buttons {
+            margin-top: 30px; /* Khoảng cách phía trên */
+            margin-bottom: 20px; /* Khoảng cách phía dưới */
+            display: flex;
+            flex-direction: column; /* Sắp xếp theo cột */
+        }
+
+        .date-filter,
+        .search-options {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; /* Căn trái các phần tử trong hàng */
+            margin-bottom: 20px; /* Khoảng cách giữa hai hàng */
+        }
+
+        .date-filter input,
+        .search-options input,
+        .search-options select {
+            margin-left: 10px;
+            padding: 10px; /* Kích thước padding lớn hơn */
+            border-radius: 6px; /* Bo tròn góc */
+            border: 1px solid #ced4da; /* Đường viền */
+            width: 220px; /* Kích thước ô nhập liệu vừa đủ */
+        }
+
+        .search-options input {
+            width: 300px; /* Điều chỉnh lại chiều rộng của ô nhập tìm kiếm */
+            
+        }
+
+        .date-filter button,
+        .search-options button {
+            padding: 10px 15px; /* Kích thước nút lớn hơn */
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s; /* Hiệu ứng chuyển màu */
+        }
+
+        .date-filter button:hover,
+        .search-options button:hover {
+            background-color: #0056b3; /* Màu khi hover */
+        }
     </style>
-  </head>
-  <body>
+</head>
+<body>
     <div class="container mt-4">
         <h2>Quản lý đơn hàng</h2>
         <table class="table table-striped" id="accountTable">
@@ -42,37 +85,41 @@
                     <th>Hành động<i class="fa fa-sort"></i></th>
                 </tr>
             </thead>
-        <tbody class="table-content">
-          <!-- Nội dung đơn hàng sẽ hiển thị ở đây -->
-        </tbody>
-      </table>
+            <tbody class="table-content">
+                <!-- Nội dung đơn hàng sẽ hiển thị ở đây -->
+            </tbody>
+        </table>
 
-      <!-- Footer của bảng -->
-      <div class="table-footer">
-        <div class="date-filter">
-          Từ ngày: <input type="date" id="fromDate" /> Đến ngày:
-          <input type="date" id="toDate" />
-          <button onclick="locDonHangTheoKhoangNgay()">
-            <i class="fa fa-search"></i> Tìm kiếm
-          </button>
-        </div>
+        <!-- Nút bên ngoài nằm dưới bảng -->
+        <div class="external-buttons">
+            <div class="date-filter">
+                <label for="fromDate">Từ ngày:</label>
+                <input type="date" id="fromDate" />
+                <label style="margin-left: 10px;" for="toDate">Đến ngày:</label>
+                <input type="date" id="toDate" />
+                <button onclick="locDonHangTheoKhoangNgay()">
+                    <i class="fa fa-search"></i> Tìm theo ngày
+                </button>
+            </div>
 
-        <div class="search-options">
-          <select name="searchOrderType">
-            <option value="ma">Tìm theo mã đơn</option>
-            <option value="khachhang">Tìm theo tên khách hàng</option>
-            <option value="trangThai">Tìm theo trạng thái</option>
-          </select>
-          <input type="text" placeholder="Tìm kiếm..." />
+            <div class="search-options">
+                <select id="searchOrderType">
+                    <option value="ma">Tìm theo mã đơn</option>
+                    <option value="khachhang">Tìm theo tên khách hàng</option>
+                    <option value="trangThai">Tìm theo trạng thái</option>
+                </select>
+                <input type="text" id="searchInput" placeholder="Tìm kiếm..." />
+                <button onclick="locDonHangTheoLoai()">
+                    <i class="fa fa-search"></i> Tìm theo đơn
+                </button>
+            </div>
         </div>
-      </div>
     </div>
-    <script src="./js/donHang.js"></script>
-    <script>
-document.addEventListener("DOMContentLoaded", () => {
-  addTableDonHang();
-});
 
-    </script>
-  </body>
+    <!-- Load JS và Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="./js/donHang.js"></script>
+</body>
 </html>

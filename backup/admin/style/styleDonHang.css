@@ -17,7 +17,7 @@
     padding: 12px;
     text-align: left;
     font-weight: bold;
-    border-bottom: 2px solid #ddd;
+    border-bottom: 2px solid hsl(0, 0%, 87%);
     cursor: pointer;
     color: #333;
 }
@@ -40,13 +40,13 @@
 }
 
 /* Để tránh trùng đường viền */
-/* .table-content td:first-child {
+.table-content td:first-child {
     border-left: none;
 }
 
 .table-content td:last-child {
     border-right: none;
-} */
+}
 
 /* Style cho footer */
 .table-footer {
@@ -115,3 +115,4 @@ table {
 td, th {
     padding: 10px; /* Tạo khoảng cách giữa nội dung và đường viền */
 }
+
