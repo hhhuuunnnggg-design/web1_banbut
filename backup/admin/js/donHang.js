@@ -11,21 +11,21 @@ function addTableDonHang() {
     const d = listDH[i];
     s +=`
     <tr class="donhang-row"> <!-- Class được thêm vào hàng -->
-      <td style="width: 5%; border-bottom: 2px solid black">${i + 1}</td> <!-- Số thứ tự -->
-      <td style="width: 9%; border-bottom: 2px solid black">${d.maDon}</td> <!-- Mã đơn hàng -->
-      <td style="width: 9%; border-bottom: 2px solid black">${d.tenKhach}</td> <!-- Tên khách hàng -->
-      <td style="width: 15%; border-bottom: 2px solid black">${d.diaChi}</td> <!-- Địa chỉ -->
-      <td style="width: 9%; border-bottom: 2px solid black">${d.soDienThoai}</td> <!-- Số điện thoại -->
-      <td style="width: 15%; border-bottom: 2px solid black"><ul>${d.sanPhamList}</ul></td> <!-- Danh sách sản phẩm -->
-      <td style="width: 9%; border-bottom: 2px solid black">${d.tongTien}<sup>đ</sup></td> <!-- Tổng tiền -->
-      <td style="width: 9%; border-bottom: 2px solid black">${d.ngayMua}</td> <!-- Ngày giờ mua -->
-      <td style="width: 9%; border-bottom: 2px solid black">${d.tinhTrang}</td> <!-- Tình trạng -->
-      <td style="width: 9%; border-bottom: 2px solid black">
-        <button style="background-color: #007bff" onclick="duyetDonHang('${d.maDon}', true)">Duyệt</button>
-        <button onclick="huyDonHang('${d.maDon}', false)">Xóa</button>
-      </td>
-    </tr>
-  `;
+                    <td>${i + 1}</td><!-- Số thứ tự -->
+                    <td>${d.maDon}</td>
+                    <td>${d.tenKhach}</td>
+                    <td>${d.diaChi}</td>    
+                    <td>${d.soDienThoai}</td>  
+                    <td><ul>${d.sanPhamList}</ul></td>  
+                    <td>${d.tongTien}<sup>đ</sup></td>  
+                    <td>${d.ngayMua}</td>  
+                    <td>${d.tinhTrang}</td>    
+                    <td>
+                        <button class="btn btn-warning" style="background-color:#15de16;border-color:#15de16;color:#ffffff" onclick="duyetDonHang('${d.maDon}', true)">Duyệt</button>
+                        <button class="btn btn-danger" onclick="huyDonHang('${d.maDon}', false)">Xóa</button>
+                    </td>
+                </tr>
+            `;
     tongTienTatCa += d.tongTien;
   }
 
