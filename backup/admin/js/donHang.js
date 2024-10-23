@@ -9,31 +9,41 @@ function addTableDonHang() {
   // Duyệt qua từng đơn hàng
   for (let i = 0; i < listDH.length; i++) {
     const d = listDH[i];
-    s +=`
+    // Xác định màu sắc cho trạng thái
+    const colorClass =
+      d.tinhTrang === "đã giao hàng" ? "text-success" : "text-warning"; // class Bootstrap cho màu xanh và cam
+
+    s += `
     <tr class="donhang-row"> <!-- Class được thêm vào hàng -->
-                    <td>${i + 1}</td><!-- Số thứ tự -->
-                    <td>${d.maDon}</td>
-                    <td>${d.tenKhach}</td>
-                    <td>${d.diaChi}</td>    
-                    <td>${d.soDienThoai}</td>  
-                    <td><ul>${d.sanPhamList}</ul></td>  
-                    <td>${d.tongTien}<sup>đ</sup></td>  
-                    <td>${d.ngayMua}</td>  
-                    <td>${d.tinhTrang}</td>    
-                    <td>
-                        <button class="btn btn-warning" style="background-color:#15de16;border-color:#15de16;color:#ffffff" onclick="duyetDonHang('${d.maDon}', true)">Duyệt</button>
-                        <button class="btn btn-danger" onclick="huyDonHang('${d.maDon}', false)">Xóa</button>
-                    </td>
-                </tr>
-            `;
+      <td>${i + 1}</td><!-- Số thứ tự -->
+      <td>${d.maDon}</td>
+      <td>${d.tenKhach}</td>
+      <td>${d.diaChi}</td>    
+      <td>${d.soDienThoai}</td>  
+      <td><ul>${d.sanPhamList}</ul></td>  
+      <td>${d.tongTien}<sup>đ</sup></td>  
+      <td>${d.ngayMua}</td>  
+      <td class="${colorClass}">${
+      d.tinhTrang
+    }</td> <!-- Áp dụng màu sắc cho trạng thái -->
+      <td>
+        <button class="btn btn-warning" style="background-color:#15de16;border-color:#15de16;color:#ffffff" onclick="duyetDonHang('${
+          d.maDon
+        }', true)">Duyệt</button>
+        <button class="btn btn-danger" onclick="huyDonHang('${
+          d.maDon
+        }', false)">Xóa</button>
+      </td>
+    </tr>
+  `;
     tongTienTatCa += d.tongTien;
   }
 
   s += `</table>`;
   tc.innerHTML = s;
 
-  const footer = document.querySelector(".table-footer");
-  footer.innerHTML = `<p>Tổng tiền của tất cả đơn hàng: ${tongTienTatCa}<sup>đ</sup></p>`;
+  // const footer = document.querySelector(".table-footer");
+  // footer.innerHTML = `<p>Tổng tiền của tất cả đơn hàng: ${tongTienTatCa}<sup>đ</sup></p>`;
 }
 
 // Hàm lấy thông tin đơn hàng từ localStorage và trả về danh sách
