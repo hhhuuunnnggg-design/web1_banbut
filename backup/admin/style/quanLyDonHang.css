@@ -1,0 +1,115 @@
+/* File styles.css */
+body {
+  background-color: #f8f9fa;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.table {
+  background-color: #fff;
+}
+
+.external-buttons {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.date-filter,
+.search-options {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+.date-filter input,
+.search-options input,
+.search-options select {
+  margin-left: 10px;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ced4da;
+  width: 220px;
+}
+
+.search-options input {
+  width: 300px;
+}
+
+.date-filter button,
+.search-options button {
+  padding: 10px 15px; /* Kích thước nút lớn hơn */
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Hiệu ứng chuyển màu */
+}
+
+.date-filter button:hover,
+.search-options button:hover {
+  background-color: #0056b3; /* Màu khi hover */
+}
+
+.donhang-row {
+  border-bottom: 5px solid #ddd;
+}
+
+/* Phong to dữ liệu trong bảng */
+.table td,
+.table th {
+  font-size: 18px; /* Thay đổi kích thước font cho các ô dữ liệu và tiêu đề */
+  padding: 12px; /* Thêm padding cho các ô để tạo khoảng cách */
+}
+
+.text-success {
+  color: green;
+}
+
+.text-warning {
+  color: orange;
+}
+
+.btn-warning {
+  background-color: #15de16;
+  border-color: #15de16;
+  color: #ffffff;
+}
+
+.btn-danger {
+  background-color: red;
+  color: #ffffff;
+}
+/* ------------------------- */
+.table td:nth-child(1),
+.table td:nth-child(2),
+.table td:nth-child(3),
+.table td:nth-child(4),
+.table td:nth-child(6),
+.table td:nth-child(7),
+.table td:nth-child(8) {
+  font-weight: bolder;
+}
+
+.table th:nth-child(1),
+.table th:nth-child(2),
+.table th:nth-child(3),
+.table th:nth-child(4),
+.table th:nth-child(5),
+.table th:nth-child(6),
+.table th:nth-child(7),
+.table th:nth-child(8),
+.table th:nth-child(9),
+.table th:nth-child(10) {
+  background-color: #007bff;
+}
+
+.table td:nth-child(5),
+.table th:nth-child(5) {
+  width: 100px;
+}

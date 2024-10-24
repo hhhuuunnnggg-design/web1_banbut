@@ -12,65 +12,8 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
     <title>QUẢN LÝ ĐƠN HÀNG</title>
-    <style>
-      body {
-        background-color: #f8f9fa;
-      }
 
-      h2 {
-        margin-bottom: 20px;
-      }
-
-      .table {
-        background-color: #fff;
-      }
-
-      /* CSS cho nút bên ngoài */
-      .external-buttons {
-        margin-top: 30px; /* Khoảng cách phía trên */
-        margin-bottom: 20px; /* Khoảng cách phía dưới */
-        display: flex;
-        flex-direction: column; /* Sắp xếp theo cột */
-      }
-
-      .date-filter,
-      .search-options {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start; /* Căn trái các phần tử trong hàng */
-        margin-bottom: 20px; /* Khoảng cách giữa hai hàng */
-      }
-
-      .date-filter input,
-      .search-options input,
-      .search-options select {
-        margin-left: 10px;
-        padding: 10px; /* Kích thước padding lớn hơn */
-        border-radius: 6px; /* Bo tròn góc */
-        border: 1px solid #ced4da; /* Đường viền */
-        width: 220px; /* Kích thước ô nhập liệu vừa đủ */
-      }
-
-      .search-options input {
-        width: 300px; /* Điều chỉnh lại chiều rộng của ô nhập tìm kiếm */
-      }
-
-      .date-filter button,
-      .search-options button {
-        padding: 10px 15px; /* Kích thước nút lớn hơn */
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-        transition: background-color 0.3s; /* Hiệu ứng chuyển màu */
-      }
-
-      .date-filter button:hover,
-      .search-options button:hover {
-        background-color: #0056b3; /* Màu khi hover */
-      }
-    </style>
+    <link rel="stylesheet" href="./style/quanLyDonHang.css" />
   </head>
   <body>
     <div class="container mt-4">
@@ -79,15 +22,15 @@
         <thead>
           <tr>
             <th>Stt<i class="fa fa-sort"></i></th>
-            <th>Mã đơn<i class="fa fa-sort"></i></th>
-            <th>Khách<i class="fa fa-sort"></i></th>
-            <th>Địa chỉ<i class="fa fa-sort"></i></th>
-            <th>Số điện thoại<i class="fa fa-sort"></i></th>
-            <th>Sản phẩm<i class="fa fa-sort"></i></th>
-            <th>Tổng tiền<i class="fa fa-sort"></i></th>
-            <th>Ngày giờ<i class="fa fa-sort"></i></th>
-            <th>Trạng thái<i class="fa fa-sort"></i></th>
-            <th>Hành động<i class="fa fa-sort"></i></th>
+            <th>Mã đơn<i></i></th>
+            <th>tên Khách hàng<i></i></th>
+            <th>Địa chỉ<i></i></th>
+            <th>Số điện thoại<i></i></th>
+            <th>Sản phẩm<i></i></th>
+            <th>Tổng tiền<i></i></th>
+            <th>Ngày giờ<i></i></th>
+            <th>Trạng thái<i></i></th>
+            <th>Hành động<i></i></th>
           </tr>
         </thead>
         <tbody class="table-content">
