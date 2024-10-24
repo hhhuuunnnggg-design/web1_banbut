@@ -68,34 +68,35 @@ function locDonHangTheoTrangThai(searchInput) {
   }
 }
 
+// đây là hàm dùng chung để vẽ
 function displayFilteredOrders(filteredOrders) {
   const tc = document.getElementsByClassName("table-content")[0];
   let s = ``;
 
-  filteredOrders.forEach((d, index) => {
+  filteredOrders.forEach((local, index) => {
     // Xác định màu sắc cho trạng thái
     const colorClass =
-      d.tinhTrang === "đã giao hàng" ? "text-success" : "text-warning"; // class Bootstrap cho màu xanh và cam
+      local.tinhTrang === "đã giao hàng" ? "text-success" : "text-warning"; // class Bootstrap cho màu xanh và cam
 
     s += `
           <tr class="donhang-row"> <!-- Class được thêm vào hàng -->
             <td>${index + 1}</td><!-- Số thứ tự -->
-            <td>${d.maDon}</td>
-            <td>${d.tenKhach}</td>
-            <td>${d.diaChi}</td>
-            <td>${d.soDienThoai}</td>
-            <td><ul>${d.sanPhamList}</ul></td>
-            <td>${d.tongTien}<sup>đ</sup></td>
-            <td>${d.ngayMua}</td>
+            <td>${local.maDon}</td>
+            <td>${local.tenKhach}</td>
+            <td>${local.diaChi}</td>
+            <td>${local.soDienThoai}</td>
+            <td><ul>${local.sanPhamList}</ul></td>
+            <td>${local.tongTien}<sup>đ</sup></td>
+            <td>${local.ngayMua}</td>
             <td class="${colorClass}">${
-      d.tinhTrang
+      local.tinhTrang
     }</td> <!-- Áp dụng màu sắc cho trạng thái -->
             <td>
               <button class="btn btn-warning" style="background-color:#15de16;border-color:#15de16;color:#ffffff" onclick="duyetDonHang('${
-                d.maDon
+                local.maDon
               }', true)">Duyệt</button>
               <button class="btn btn-danger" onclick="huyDonHang('${
-                d.maDon
+                local.maDon
               }', false)">Xóa</button>
             </td>
           </tr>`;
@@ -107,6 +108,7 @@ function displayFilteredOrders(filteredOrders) {
 // Hàm lấy danh sách đơn hàng từ localStorage và trả về
 function trangThaiDonHang() {
   const layUser = JSON.parse(localStorage.getItem("users"));
+
   let danhSachDonHang = [];
 
   layUser.forEach((user) => {
@@ -116,7 +118,9 @@ function trangThaiDonHang() {
         tenKhach: donhang.sanPham[0].ten,
         diaChi: donhang.sanPham[0].diachi,
         soDienThoai: donhang.sanPham[0].sdt,
+        ngayMua: new Date(donhang.ngaymua).toLocaleString(),
         sanPhamList: donhang.sanPham
+
           .map(
             (sp) =>
               `<li>${sp.tenSanPham} x ${sp.soLuongSanPham} - ${sp.giaSanPham}<sup>đ</sup></li>`
@@ -139,30 +143,35 @@ function trangThaiDonHang() {
 function locDonHangTheoKhoangNgay() {
   const fromDate = new Date(document.getElementById("fromDate").value);
   const toDate = new Date(document.getElementById("toDate").value);
+  console.log("Từ ngày: " + fromDate + " đến ngày: " + toDate);
 
-  // Kiểm tra nếu từ ngày và đến ngày hợp lệ
   if (isNaN(fromDate.getTime()) || isNaN(toDate.getTime())) {
     alert("Vui lòng chọn cả hai ngày!");
     return;
   }
 
-  // Chuyển đổi từ ngày và đến ngày thành dạng timestamp để so sánh
-  const listDH = trangThaiDonHang(); // Lấy danh sách đơn hàng từ localStorage
+  toDate.setHours(23, 59, 59, 999);
+
+  const listDH = trangThaiDonHang();
+
   const filteredOrders = listDH.filter((order) => {
-    const orderDate = new Date(order.ngayMua);
+    const [day, month, year] = order.ngayMua.split(",")[0].split("/"); // Lấy phần ngày, tháng, năm từ chuỗi
+    const orderDate = new Date(`${year}-${month}-${day}`); // Chuyển thành đối tượng Date dạng yyyy-MM-dd
+    console.log("Ngày mua : " + orderDate);
 
     return orderDate >= fromDate && orderDate <= toDate;
   });
-  console.log(listDH);
-  // Hiển thị kết quả
+
+  // Hiển thị kết quả tìm kiếm
   if (filteredOrders.length === 0) {
     document.getElementsByClassName(
       "table-content"
     )[0].innerHTML = `<tr><td colspan="10" style="text-align: center;">Không tìm thấy đơn hàng trong khoảng thời gian từ ${fromDate.toLocaleDateString()} đến ${toDate.toLocaleDateString()}</td></tr>`;
   } else {
-    displayFilteredOrders(filteredOrders); // Hiển thị đơn hàng đã lọc
+    displayFilteredOrders(filteredOrders);
   }
 }
+
 function duyetDonHang(maDon, trangThai) {
   const layUser = JSON.parse(localStorage.getItem("users"));
 
@@ -180,3 +189,9 @@ function duyetDonHang(maDon, trangThai) {
 
   console.log(`Đơn hàng mã ${maDon} đã giao hàng.`);
 }
+//--------------------------------------------------------
+
+function test() {
+  console.log(trangThaiDonHang());
+}
+test();
