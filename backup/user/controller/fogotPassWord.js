@@ -1,42 +1,45 @@
-// Khởi tạo EmailJS với Public Key của bạn
-emailjs.init("e6W6Oy3mKquMwkMxk");
-
-const fogotPassword = document.getElementById("forgotPasswordForm");
+const forgotPasswordForm = document.getElementById("forgotPasswordForm");
 const inputEmail = document.getElementById("email");
 const users = localStorage.getItem("users");
-const arrayuser = JSON.parse(users);
+const arrayUser = JSON.parse(users || "[]");
 
-fogotPassword.addEventListener("submit", function (e) {
+// var public ="e6W6Oy3mKquMwkMxk";
+var sericeID = "service_rd5kbcn";
+var templateID = "template_xkqcnrd";
+
+forgotPasswordForm.addEventListener("submit", function (e) {
+  emailjs.init("e6W6Oy3mKquMwkMxk");
   e.preventDefault();
+
   console.log("Chào email mới: " + inputEmail.value);
+  console.log("Dữ liệu người dùng:", arrayUser); // Kiểm tra dữ liệu người dùng
 
   if (inputEmail.value) {
-    const findUser = arrayuser.find(
+    const findUser = arrayUser.find(
       (user) => user.userEmail === inputEmail.value
     );
 
     if (findUser) {
-      alert("Đã gửi password qua email");
-
       const emailParams = {
         to_email: findUser.userEmail,
         user_name: findUser.userName,
         message: `Mật khẩu của bạn là: ${findUser.userPasWord}`,
       };
 
-      // Gửi email thông qua EmailJS với Service ID và Template ID
-      emailjs.send("service_rd5kbcn", "Template ID", emailParams).then(
+      emailjs.send(sericeID, templateID, emailParams).then(
         function (response) {
           console.log("Email gửi thành công!", response.status, response.text);
           alert("Đã gửi mật khẩu qua email của bạn!");
         },
         function (error) {
           console.error("Gửi email thất bại...", error);
-          alert("Có lỗi xảy ra khi gửi email");
+          alert("Có lỗi xảy ra khi gửi email: " + JSON.stringify(error));
         }
       );
     } else {
       alert("Sai email");
     }
+  } else {
+    alert("Vui lòng nhập email");
   }
 });

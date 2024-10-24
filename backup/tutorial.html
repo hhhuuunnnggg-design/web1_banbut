@@ -3,340 +3,46 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link rel="stylesheet" href="style/tutorial.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-
-    <title>Bán bút bi</title>
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   </head>
   <body>
-    <div class="header-main">
-      <div class="container">
-        <div class="inner-wrap">
-          <div class="inner-menu">
-            <ul>
-              <li class="thuonghieu">
-                <i class="fa-solid fa-house"></i><a href="#">Thương hiệu</a>
-                <div class="box-submenu">
-                  <ul>
-                    <li><a href="#">bút monyblanc</a></li>
-                    <li><a href="#">Bút waterman</a></li>
-                    <li><a href="#">Bút Parker</a></li>
-                    <li><a href="#">Bút Allan D'Lious</a></li>
-                    <li><a href="#">Bút Lamy</a></li>
-                    <li><a href="#">Bút Sheaffer</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="loaibut">
-                <i class="fa-solid fa-pen"></i><a href="#">Loại bút</a>
-                <div class="box-submenu">
-                  <ul class="loaibut-list">
-                    <li><div>Bút------------ html</div></li>
-                    <li><div>Bút bi</div></li>
-                    <li><div>Bút dạ bi</div></li>
-                    <li><div>Bút dạ kim</div></li>
-                    <li><div>Bút máy</div></li>
-                    <li><div>Bút chì</div></li>
-                    <li><div>Bút hàng độc</div></li>
-                    <li><div>Bút viết chữ đẹp</div></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="phukien">
-                <a href="#">Phụ kiện</a>
-                <div class="box-submenu">
-                  <ul>
-                    <li><a href="#">ruột -------------- html</a></li>
-                    <li><a href="#">Bút bi</a></li>
-                    <li><a href="#">Bút dạ bi</a></li>
-                    <li><a href="#">Bút dạ kim</a></li>
-                    <li><a href="#">Bút máy</a></li>
-                    <li><a href="#">Bút chì</a></li>
-                    <li><a href="#">Bút hàng độc</a></li>
-                    <li><a href="#">Bút viết chữ đẹp</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li><i class="fa-solid fa-book"></i><a href="#">Thư viện</a></li>
-              <li>
-                <i class="fa-solid fa-person-chalkboard"></i
-                ><a href="#">hướng dẫn mua hàng</a>
-              </li>
-              <li><i class="fa-solid fa-phone"></i><a href="#">Liên hệ</a></li>
-              <li>
-                <a
-                  href="./login_logout.html"
-                  id="btnLogin"
-                  style="text-decoration: none"
-                >
-                  <button id="loginBtn">Đăng nhập</button>
-                </a>
-              </li>
-              <li>
-                <div class="sear">
-                  <div class="search" id="search">
-                    <input
-                      type="text"
-                      id="searchInput"
-                      placeholder="Tìm kiếm sản phẩm..."
-                    />
-                    <button id="searchButton">
-                      <i class="fa-solid fa-magnifying-glass"></i>
-                    </button>
-                  </div>
-
-                  <select id="filter">
-                    <option value="mac-dinh">Mặc định</option>
-                    <option value="gia-thap-den-cao">Gía thấp đến cao</option>
-                    <option value="gia-cao-den-thap">Gía cao đến thấp</option>
-                    <option value="giam-gia-nhieu">Giam giá nhiều</option>
-                  </select>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div class="layout-defauft_account" style="margin-left: 50%">
-            <div id="greeting" style="display: none">
-              Xin chào, <span id="userNameDisplay"></span>!
-            </div>
-            <div id="btnLogout" style="display: none; text-decoration: none">
-              <button>Đăng xuất</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="tutorial">
-      <h2>Hướng dẫn mua hàng tại Thế Giới Bút</h2>
-      <div class="tutorial__bar"></div>
-      Nhằm mục đích hỗ trợ khách hàng được tốt hơn, Chúng tôi xin hướng dẫn mua
-      bút ký tại Thế Giới Bút với các nội dung sau đây:
-      <h3>I. ĐỐI VỚI KHÁCH HÀNG TP.HCM</h3>
-      <span class="tutorial--bold"
-        >Đến xem và mua trực tiếp hệ thống cửa hàng THẾ GIỚI BÚT với địa chỉ như
-        sau:</span
-      >
-      <ul>
-        <li>
-          <span class="tutorial__detail">Đại học Sài Gòn</span>, quận 5, đường
-          An Dương Vương
-        </li>
-      </ul>
-
-      <span class="tutorial--bold"
-        >Trường hợp Quý khách hàng muốn giao hàng tận nơi:</span
-      >
-      <ul>
-        <li>
-          Miễn phí giao hàng với đơn hàng trên
-          <span class="tutorial__highlight">2.000.000</span> đồng. Đơn hàng dưới
-          <span class="tutorial__highlight">2.000.000</span> đồng phí giao hàng
-          được tính theo phí Grab.
-        </li>
-        <li>
-          Giao hàng trong ngày đối với các đơn hàng đặt trước 12h00 chiều. Đơn
-          hàng đặt sau 12h00 sẽ được chuyển giao vào sáng hôm sau.
-        </li>
-        <li>Chỉ nhận giao hàng từ 8h30 – 17h00 từ Thứ 2 đến Thứ 6.</li>
-        <li>
-          Trường hợp Quý khách cần gấp, có thể chuyển khoản cho
-          <span class="tutorial__detail">Thế Giới Bút</span> và chúng tôi sẽ
-          chuyển Grab cho Quý khách ngay sau khi nhận tiền.
-        </li>
-      </ul>
-
-      <img
-        src="./Images/thumnails/Huong-dan-mua-hang-online-The-Gioi-But.jpg.webp"
-        alt="Mua hàng tại Thế Giới Bút"
-      />
-
-      <h3>II. ĐỐI VỚI KHÁCH HÀNG Ở TỈNH:</h3>
-
-      <h4>TRƯỜNG HỢP CHUYỂN KHOẢN</h4>
-      <p>
-        Quý khách vui lòng chuyển khoản vào tài khoản Công ty theo thông tin sau
-        đây:
-      </p>
-      <ul class="tutorial__diamond">
-        <li>
-          <i class="fa-solid fa-diamond"></i> Công ty TNHH TM Quốc Tế Mộc Đức
-        </li>
-        <li>
-          <i class="fa-solid fa-diamond"></i> Số tk: 62588588 Ngân hàng ACB –
-          Phòng Giao Dịch Bến Xe Miền Đồng
-        </li>
-      </ul>
-      <p>Tổng số tiền phải chuyển là:</p>
-      <p style="color: red">
-        [ Số tiền phải chuyển là] : [ Tiền hàng ] + [ Phí vận chuyển ]
-      </p>
-
-      <h4>TRƯỜNG HỢP NHẬN HÀNG VÀ THANH TOÁN (COD):</h4>
-      <p>
-        COD: là hình thức trả tiền khi nhận hàng. Tổng chi phí của đơn hàng của
-        bạn được tính như sau:
-      </p>
-      <p style="color: red">
-        [ Tổng Số tiền ] : [ Tiền hàng ] + [ Phí vận chuyển ] + [ Phí thu hộ ]
-      </p>
-      <ul class="tutorial__diamond">
-        <li>
-          <i class="fa-solid fa-diamond"></i> Tiền hàng: là số tiền trong đơn
-          hàng được niêm yết trên website.
-        </li>
-        <li>
-          <i class="fa-solid fa-diamond"></i> Phí thu hộ: 0.8% đối với Tỉnh/TP
-          lớn và 1.3% đối với tuyến Huyện/Xã.
-        </li>
-        <li>
-          <i class="fa-solid fa-diamond"></i> Phí chuyển hàng: phụ thuộc vào
-          trọng lượng & vị trí địa lý của Quý khách. Miễn phí giao hàng đối với
-          đơn hàng trên 5 triệu.
-        </li>
-      </ul>
-
-      <h3>III. THỜI GIAN XÁC NHẬN ĐƠN HÀNG VÀ GIAO HÀNG</h3>
-      <ul>
-        <li>
-          Xác nhận giao hàng: trong vòng 24h00 chúng tôi sẽ liên hệ xác nhận đơn
-          hàng (trừ Thứ 7 và Chủ Nhật)
-        </li>
-        <li>
-          Trong vòng 48h00 các bạn sẽ nhận được hàng đối với các thành phố lớn
-          như Hà Nội, Đà Nẵng…
-        </li>
-        <li>Từ 48h00 – 72h00 đối với các vùng xa, xã hoặc huyện.</li>
-        <li>
-          Nếu đặt hàng vào thứ 6 thì thời gian giao hàng sẽ không tính Thứ 7 và
-          CN (do đơn vị chuyển phát không làm việc).
-        </li>
-      </ul>
-
-      <h3>IV. MỘT SỐ LƯU LÝ QUAN TRỌNG:</h3>
-      <ul class="tutorial__diamond">
-        <li>
-          → Vì bút là hàng hóa đặc thù nên hàng mua rồi không được đổi hoặc trả
-          lại. Quý khách phải lựa chọn kỹ hoặc gọi điện đến các cửa hàng hoặc số
-          hotline của THẾ GIỚI BÚT để tư vấn.
-        </li>
-        <li>
-          → Khi chuyển tiền, Quý khách ghi nội dung cú pháp như sau: [ Mã đơn
-          hàng ] + [ Thanh toán tiền mua bút ]
-        </li>
-        <li>
-          → Mã đơn hàng do hệ thống website cung cấp tự động khi Quý khách hoàn
-          tất đơn hàng hoặc email mà THẾ GIỚI BÚT gửi cho bạn khi bạn hoàn tất
-          đơn hàng.
-        </li>
-        <li>
-          → Thời gian chuyển tiền: Quý khách vui lòng chuyển trước 15h00 hàng
-          ngày vì sau thời gian trên bên vận chuyển không nhận nữa.
-        </li>
-        <li>
-          → Đối với bút có khắc laser, Quý khách vui lòng thanh toán trước 100%
-          giá trị đơn hàng.
-        </li>
-        <li>
-          → Toàn bộ hàng hóa được bảo hành theo chính sách của hãng. Không bảo
-          hành đối với các trường hợp do lỗi người dùng (rớt, bể, vỡ, mớp,
-          gãy...).
-        </li>
-        <li>
-          → Đối với bình mực, vì là chất lỏng nên không chuyển theo đường hàng
-          không, thời gian giao hàng sẽ cộng thêm khoảng 48h00 tùy địa chỉ giao
-          hàng của Quý khách.
-        </li>
-        <li>
-          → Đối tác vận chuyển của chúng tôi là
-          <span class="tutorial__detail">Bưu Chính Viettel</span>. Quý khách có
-          thể tra cứu thông tin về lộ trình đơn hàng tại trang chủ của Viettel
-          Post.
-        </li>
-      </ul>
-
-      <p>
-        Trên đây là một số nội dung hướng dẫn mua bút ký tại Thế Giới Bút. Quý
-        khách cần trợ giúp xin vui lòng liên hệ số hotline:
-        <span class="tutorial__detail">0888.168.968.</span> Xin cảm ơn!
-      </p>
-    </div>
-
-    <footer class="footer">
-      <div class="footer-container">
-        <div class="footer-contact">
-          <h3>Liên hệ với chúng tôi</h3>
-          <ul>
-            <li>
-              <i class="fa-solid fa-phone"></i> Điện thoại: +84 123 456 789
-            </li>
-            <li>
-              <i class="fa-solid fa-envelope"></i> Email:
-              nguyendinhhungtc2020@gmail.com
-            </li>
-            <li>
-              <i class="fa-solid fa-map-marker-alt"></i> Địa chỉ: Đại học sài
-              gòn, quận 5, đường an dương vương
-            </li>
-          </ul>
-        </div>
-
-        <div class="footer-hours">
-          <h3>Giờ làm việc</h3>
-          <ul>
-            <li>
-              <i class="fa-solid fa-clock"></i> Thứ 2 - Thứ 6: 8:00 - 18:00
-            </li>
-            <li><i class="fa-solid fa-clock"></i> Thứ 7: 9:00 - 17:00</li>
-            <li><i class="fa-solid fa-clock"></i> Chủ nhật: Nghỉ</li>
-          </ul>
-        </div>
-
-        <div class="footer-social">
-          <h3>Kết nối với chúng tôi</h3>
-          <div class="social-icons">
-            <a href="https://www.facebook.com/"
-              ><i class="fa-brands fa-facebook"></i
-            ></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-twitter"></i></a>
-            <a href="#"><i class="fa-brands fa-youtube"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p>&copy; 2024 Bán Bút | Thiết kế bởi Nguyễn Đình Hùng</p>
-      </div>
-    </footer>
-
-    <script src="user/controller/drawProducts.js" type="module"></script>
-    <script src="user/controller/renderLoaibutList.js" type="module"></script>
-    <script src="user/controller/gioHang.js" type="module"></script>
-    <script src="user/controller/logout.js" type="module"></script>
-    <script src="user/controller/cartGui.js" type="module"></script>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const userName = localStorage.getItem("loggedInUserName");
-
-        if (userName) {
-          document.getElementById("greeting").style.display = "block";
-          document.getElementById("userNameDisplay").textContent = userName;
-          document.getElementById("btnLogout").style.display = "block";
-          document.getElementById("btnLogin").style.display = "none";
-        } else {
-          document.getElementById("btnLogin").style.display = "block";
-          document.getElementById("btnLogout").style.display = "none";
-          document.getElementById("greeting").style.display = "none";
-        }
-      });
-    </script>
+    <h1>send Email</h1>
+    sender Name
+    <input type="text" id="sendername" /> <br />
+    to (Email)
+    <input type="text" id="to" /> <br />
+    Subject
+    <input type="text" id="subject" /> <br />
+    Reply to (Email)
+    <input type="text" id="replyto" /> <br />
+    Message <br />
+    <textarea id="message" cols="40" rows="8"></textarea> <br />
+    <button onclick="sendMail();">send</button>
   </body>
+
+  <script>
+    function sendMail() {
+      (function () {
+        emailjs.init("e6W6Oy3mKquMwkMxk");
+      })();
+
+      var params = {
+        sendername: document.querySelector("#sendername").value,
+        to: document.querySelector("#to").value,
+        subject: document.querySelector("#subject").value,
+        replyto: document.querySelector("#replyto").value,
+        message: document.querySelector("#message").value,
+      };
+      var sericeID = "service_rd5kbcn";
+      var templateID = "template_xkqcnrd";
+
+      emailjs
+        .send(sericeID, templateID, params)
+        .then((res) => {
+          alert("gui email thanh cong");
+        })
+        .catch();
+    }
+  </script>
 </html> -->
