@@ -173,6 +173,7 @@
                 </div>
             </div>
         </div>
+        <div id="pagination" class="pagination-container"></div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -440,7 +441,132 @@
 
 
         }
-    
+     let currentPage = 1;
+        let itemsPerPage = 4;
+
+        // Function to load items for the current page
+        function loadItems() {
+            const sanpham = JSON.parse(localStorage.getItem("ListPens")) || [];
+            const productTableBody = document.querySelector('#productTable tbody');
+            productTableBody.innerHTML = ""; // Clear existing rows
+
+            const totalItems = sanpham.length;
+            const start = (currentPage - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+
+            sanpham.slice(start, end).forEach((item) => {
+                const newRow = `
+            <tr id="product-${item.id}">
+                <td>${item.id}</td>
+                <td>${item.title}</td>
+                <td>${item.category}</td>
+                <td><img src="${item.thumbnail}" alt="${item.title}" class="img-thumbnail"></td>
+                <td>${item.price} VNĐ</td>
+                <td>${item.discountPercentage}</td>
+                <td>${item.inStock}</td>
+                <td>${item.description}</td>
+                <td>${item.returnPolicy}</td>
+                <td>
+                    <button class="btn btn-warning" onclick="openEditProductModal(${item.id}, '${item.title}', '${item.category}', '${item.thumbnail}', ${item.price}, '${item.discountPercentage}', ${item.inStock}, '${item.description}', '${item.returnPolicy}')">Sửa</button>
+                    <button class="btn btn-danger" onclick="Confirmbeforedelete(${item.id})">Xóa</button>
+                </td>
+            </tr>
+        `;
+                productTableBody.insertAdjacentHTML('beforeend', newRow);
+            });
+
+            renderPagination(totalItems);
+        }
+
+        // Function to render pagination buttons
+        function renderPagination(totalItems) {
+            const paginationContainer = document.getElementById('pagination');
+            paginationContainer.innerHTML = ''; // Clear previous pagination buttons
+
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
+            const maxVisibleButtons = 5; // Số nút hiển thị tối đa trước và sau trang hiện tại
+
+            // Nút "Previous"
+            if (currentPage > 1) {
+                const prevButton = document.createElement('button');
+                prevButton.innerText = 'Trước';
+                prevButton.onclick = function () {
+                    currentPage--;
+                    loadItems();
+                };
+                paginationContainer.appendChild(prevButton);
+            }
+
+            // Tính toán phạm vi trang hiển thị
+            let startPage = Math.max(1, currentPage - Math.floor(maxVisibleButtons / 2));
+            let endPage = Math.min(totalPages, startPage + maxVisibleButtons - 1);
+
+            // Điều chỉnh nếu ở trang đầu hoặc trang cuối
+            if (endPage - startPage < maxVisibleButtons - 1) {
+                startPage = Math.max(1, endPage - maxVisibleButtons + 1);
+            }
+
+            // Nút cho trang đầu tiên và dấu "..."
+            if (startPage > 1) {
+                const firstPageButton = document.createElement('button');
+                firstPageButton.innerText = '1';
+                firstPageButton.onclick = function () {
+                    currentPage = 1;
+                    loadItems();
+                };
+                paginationContainer.appendChild(firstPageButton);
+
+                if (startPage > 2) {
+                    const dots = document.createElement('span');
+                    dots.innerText = '...';
+                    paginationContainer.appendChild(dots);
+                }
+            }
+
+            // Tạo nút cho các trang trong phạm vi hiển thị
+            for (let i = startPage; i <= endPage; i++) {
+                const pageButton = document.createElement('button');
+                pageButton.innerText = i;
+                if (i === currentPage) {
+                    pageButton.classList.add('active');
+                }
+                pageButton.onclick = function () {
+                    currentPage = i;
+                    loadItems();
+                };
+                paginationContainer.appendChild(pageButton);
+            }
+
+            // Nút cho trang cuối cùng và dấu "..."
+            if (endPage < totalPages) {
+                if (endPage < totalPages - 1) {
+                    const dots = document.createElement('span');
+                    dots.innerText = '...';
+                    paginationContainer.appendChild(dots);
+                }
+
+                const lastPageButton = document.createElement('button');
+                lastPageButton.innerText = totalPages;
+                lastPageButton.onclick = function () {
+                    currentPage = totalPages;
+                    loadItems();
+                };
+                paginationContainer.appendChild(lastPageButton);
+            }
+
+            // Nút "Next"
+            if (currentPage < totalPages) {
+                const nextButton = document.createElement('button');
+                nextButton.innerText = 'Sau';
+                nextButton.onclick = function () {
+                    currentPage++;
+                    loadItems();
+                };
+                paginationContainer.appendChild(nextButton);
+            }
+        }
+        // Initial load
+        loadItems();
     </script>
 </body>
 
