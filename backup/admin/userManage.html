@@ -27,14 +27,17 @@
 
 <body>
     <div class="container mt-4">
-        <h2>Quản lý Tài khoản</h2>
+        <h2>Quản lý tài khoản người dùng</h2>
+        <div style="padding-bottom: 10px;">
+        <button class="btn btn-primary" data-toggle="modal" data-target="#addAccountModal">Thêm Tài khoản</button>
+        </div>
         <table class="table table-striped" id="accountTable">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Tên</th>
-                    <th>Email</th>
-                    <th>Mật khẩu</th>
+                    <th>ID người dùng</th>
+                    <th>Tên đăng nhập</th>
+                    <th>Email người dùng</th>
+                    <th>Mật khẩu đăng nhập</th>
                     <th>Trạng thái</th>
                     <th>Thao tác</th>
                 </tr>
@@ -43,7 +46,7 @@
                 <!-- Dữ liệu tài khoản sẽ được chèn vào đây -->
             </tbody>
         </table>
-        <button class="btn btn-primary" data-toggle="modal" data-target="#addAccountModal">Thêm Tài khoản</button>
+
 
         <!-- Modal Thêm Tài khoản -->
         <div class="modal fade" id="addAccountModal" tabindex="-1" aria-labelledby="addAccountModalLabel"
@@ -72,7 +75,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="password">Mật khẩu:</label>
-                                <input type="password" class="form-control" id="password" required>
+                                <output type="number" class="form-control" id="password" required>
                             </div>
                             <button type="submit" class="btn btn-success">Thêm Tài khoản</button>
                         </form>
@@ -87,7 +90,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="editAccountModalLabel">Sửa Tài khoản</h5>
+                        <h5 class="modal-title" id="editAccountModalLabel">Sửa Tài khoản người dùng</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -95,20 +98,20 @@
                     <div class="modal-body">
                         <form id="editAccountForm">
                             <div class="form-group">
-                                <label for="editUsersId1">ID:</label>
+                                <label for="editUsersId1">ID người dùng:</label>
                                 <output class="form-control" id="editUsersId1" >
                             </div>
                             <div class="form-group">
-                                <label for="editUsername">Tên:</label>
+                                <label for="editUsername">Tên đăng nhập:</label>
                                 <input type="text" class="form-control" id="editUsername" >
                             </div>
                             <div class="form-group">
-                                <label for="editEmail">Email:</label>
+                                <label for="editEmail">Email người dùng:</label>
                                 <input type="email" class="form-control" id="editEmail" >
                             </div>
                             <div class="form-group">
-                                <label for="editPassword">Mật khẩu:</label>
-                                <input type="password" class="form-control" id="editPassword" >
+                                <label for="editPassword">Mật khẩu đăng nhập:</label>
+                                <output type="number" class="form-control" id="editPassword" >
                             </div>
                             <button type="submit" class="btn btn-success">Cập nhật Tài khoản</button>
                         </form>
@@ -147,9 +150,8 @@
                         <td>${password}</td>
                         <td class="status" id="status-${accountId}" >${Checkifaccountislocked(lock)}</td>
                         <td>
-                            <button class="btn btn-warning" onclick="openEditAccountModal(${accountId}, '${username}', '${email}', '${password}')">Sửa</button>
-                            <button class="btn btn-danger" onclick="Confirmbeforedelete(${accountId})">Xóa</button>
-                            <button class="btn btn-secondary" id="button-${accountId}" onclick="toggleUserStatus(${accountId})">${LoadButton(lock)}</button>
+                            <button class="btn btn-warning" style="background-color:#15de16;border-color:#15de16;color:#ffffff" onclick="openEditAccountModal(${accountId}, '${username}', '${email}', '${password}')">Sửa</button>
+                            <button class="btn btn-danger" id="button-${accountId}" onclick="toggleUserStatus(${accountId})">${LoadButton(lock)}</button>
                         </td>
                     </tr>
                 `;
@@ -190,9 +192,8 @@
                     <td>${password}</td>    
                     <td class="status" id="status-${userId}">${Checkifaccountislocked(lock)}</td>
                     <td>
-                        <button class="btn btn-warning" onclick="openEditAccountModal(${userId}, '${username}', '${email}', '${password}')">Sửa</button>
-                        <button class="btn btn-danger" onclick="Confirmbeforedelete(${userId})">Xóa</button>
-                        <button class="btn btn-secondary" id="button-${userId}" onclick="toggleUserStatus(${userId})">${LoadButton(lock)}</button>
+                        <button class="btn btn-warning" style="background-color:#15de16;border-color:#15de16;color:#ffffff" onclick="openEditAccountModal(${userId}, '${username}', '${email}', '${password}')">Sửa</button>
+                        <button class="btn btn-danger" id="button-${userId}" onclick="toggleUserStatus(${userId})">${LoadButton(lock)}</button>
                     </td>
                 </tr>
             `;
@@ -232,36 +233,6 @@
 
         };
 
-        //Hàm xác nhận xóa tài khoản và gọi hàm xóa
-        function Confirmbeforedelete(id)
-        {
-            if(confirm("Bạn có chắc chắn muốn xóa không ?"))
-            {
-            deleteAccount(id);
-            alert("Đã xóa thành công");
-            }
-            else 
-            alert("Đã hủy bỏ thao tác xóa");
-        }
-
-        // Hàm xóa tài khoản
-        function deleteAccount(id) {
-            const users=JSON.parse(localStorage.getItem("users")) || [];//Lấy dữ liệu từ LocalStorage
-            const row = document.getElementById(`account-${id}`); // Lấy hàng theo ID
-            let index;
-            for(let j=0;j<users.length;j++)
-            {
-                if(users[j].userId==id)
-                {
-                    index=j;
-                    break;
-                }
-            }
-            users.splice(index,1);
-            localStorage.setItem('users',JSON.stringify(users));
-            row.remove(); // Xóa hàng
-        }
-
         // Hàm mở modal sửa tài khoản
         function openEditAccountModal(id, username, email, password, role) {
             document.getElementById('editUsersId1').value = id;
@@ -279,12 +250,10 @@
             const id = document.getElementById('editUsersId1').value;
             const username = document.getElementById('editUsername').value;
             const email = document.getElementById('editEmail').value;
-            const password = document.getElementById('editPassword').value;
 
             const row = document.getElementById(`account-${id}`);
             row.cells[1].textContent = username;
             row.cells[2].textContent = email;
-            row.cells[3].textContent = password; // Hiển thị mật khẩu
             //Đưa dữ liệu mới cập nhật vào LocalStorage
             const users=JSON.parse(localStorage.getItem("users")) || [];//Lấy dữ liệu từ LocalStorage
             const index= users.findIndex(users => users.userId==id)
@@ -292,7 +261,6 @@
             {
                 users[index].userName = username;
                 users[index].userEmail = email;
-                users[index].userPasWord = password;
             }
             localStorage.setItem('users',JSON.stringify(users));
             // Đóng modal và reset form
