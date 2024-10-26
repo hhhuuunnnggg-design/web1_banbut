@@ -23,6 +23,7 @@
             margin-right: 5px;
         }
     </style>
+    <link rel="stylesheet" href="./css/productManage.css">
 </head>
 
 <body>
@@ -119,6 +120,7 @@
                 </div>
             </div>
         </div>
+        <div id="pagination" class="pagination-container"></div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -361,6 +363,132 @@
             else 
                 console.error(`Không tìm thấy nút với ID: button-${id}`);
         }
+        function createTableRow(user) {
+    return `
+        <tr id="account-${user.userId}">
+            <td id="id-${user.userId}">${user.userId}</td>
+            <td>${user.userName}</td>
+            <td>${user.userEmail}</td>
+            <td>${user.userPasWord}</td>
+            <td class="status" id="status-${user.userId}">${Checkifaccountislocked(user.off)}</td>
+            <td>
+                <button class="btn btn-warning" style="background-color:#15de16;border-color:#15de16;color:#ffffff" onclick="openEditAccountModal(${user.userId}, '${user.userName}', '${user.userEmail}', '${user.userPasWord}')">Sửa</button>
+                <button class="btn btn-danger" id="button-${user.userId}" onclick="toggleUserStatus(${user.userId})">${LoadButton(user.off)}</button>
+            </td>
+        </tr>
+    `;
+}
+
+        let currentPage = 1;
+        let itemsPerPage = 4;
+
+        // Function to load items for the current page
+        function loadItems() {
+            const users = JSON.parse(localStorage.getItem("users")) || [];
+            const accountTableBody = document.querySelector('#accountTable tbody');
+            accountTableBody.innerHTML = ""; 
+
+            const totalItems = users.length;
+            const start = (currentPage - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+
+            users.slice(start, end).forEach((user) => {
+    const newRow = createTableRow(user);
+    accountTableBody.insertAdjacentHTML('beforeend', newRow);
+});
+
+            renderPagination(totalItems);
+        }
+
+        // Function to render pagination buttons
+        function renderPagination(totalItems) {
+            const paginationContainer = document.getElementById('pagination');
+            paginationContainer.innerHTML = ''; 
+
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
+            const maxVisibleButtons = 5; 
+
+            // Nút "Previous"
+            if (currentPage > 1) {
+                const prevButton = document.createElement('button');
+                prevButton.innerText = 'Trước';
+                prevButton.onclick = function () {
+                    currentPage--;
+                    loadItems();
+                };
+                paginationContainer.appendChild(prevButton);
+            }
+
+            // Tính toán phạm vi trang hiển thị
+            let startPage = Math.max(1, currentPage - Math.floor(maxVisibleButtons / 2));
+            let endPage = Math.min(totalPages, startPage + maxVisibleButtons - 1);
+
+            // Điều chỉnh nếu ở trang đầu hoặc trang cuối
+            if (endPage - startPage < maxVisibleButtons - 1) {
+                startPage = Math.max(1, endPage - maxVisibleButtons + 1);
+            }
+
+            // Nút cho trang đầu tiên và dấu "..."
+            if (startPage > 1) {
+                const firstPageButton = document.createElement('button');
+                firstPageButton.innerText = '1';
+                firstPageButton.onclick = function () {
+                    currentPage = 1;
+                    loadItems();
+                };
+                paginationContainer.appendChild(firstPageButton);
+
+                if (startPage > 2) {
+                    const dots = document.createElement('span');
+                    dots.innerText = '...';
+                    paginationContainer.appendChild(dots);
+                }
+            }
+
+            // Tạo nút cho các trang trong phạm vi hiển thị
+            for (let i = startPage; i <= endPage; i++) {
+                const pageButton = document.createElement('button');
+                pageButton.innerText = i;
+                if (i === currentPage) {
+                    pageButton.classList.add('active');
+                }
+                pageButton.onclick = function () {
+                    currentPage = i;
+                    loadItems();
+                };
+                paginationContainer.appendChild(pageButton);
+            }
+
+            // Nút cho trang cuối cùng và dấu "..."
+            if (endPage < totalPages) {
+                if (endPage < totalPages - 1) {
+                    const dots = document.createElement('span');
+                    dots.innerText = '...';
+                    paginationContainer.appendChild(dots);
+                }
+
+                const lastPageButton = document.createElement('button');
+                lastPageButton.innerText = totalPages;
+                lastPageButton.onclick = function () {
+                    currentPage = totalPages;
+                    loadItems();
+                };
+                paginationContainer.appendChild(lastPageButton);
+            }
+
+            // Nút "Next"
+            if (currentPage < totalPages) {
+                const nextButton = document.createElement('button');
+                nextButton.innerText = 'Sau';
+                nextButton.onclick = function () {
+                    currentPage++;
+                    loadItems();
+                };
+                paginationContainer.appendChild(nextButton);
+            }
+        }
+        // Initial load
+        loadItems();
 
 
     </script>
