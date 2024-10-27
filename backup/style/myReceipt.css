@@ -1,0 +1,25 @@
+h1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align : center;
+}
+
+.receipt-table thead {
+    background-color: rgb(0, 157, 254);
+    align-self      : center;
+}
+
+.receipt-table tbody {
+    background-color: rgb(210, 209, 209);
+}
+
+.receipt-table td {
+    width : 100%;
+    height: auto;
+    margin: 0;
+}
+
+.receipt-table td img {
+    display: block;
+    width  : 100%;
+    height : auto;
+}

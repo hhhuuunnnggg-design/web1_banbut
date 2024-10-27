@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style/myReceipt.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đơn Hàng Của Tôi</title>
+</head>
+
+<body>
+    <h1 id="title-name">ĐƠN HÀNG CỦA BẠN</h1>
+    <table class="receipt-table" cellspacing="0" cellpadding="50%" align="center" style="width: 50%;">
+        <thead>
+            <tr>
+                <th>Số Thứ Tự</th>
+                <th>Tên Sản Phẩm</th>
+                <th>Ảnh</th>
+                <th>Giá</th>
+                <th>Số Lượng</th>
+            </tr>
+        </thead>
+        <tbody class="product_content" align="center">
+        </tbody>
+    </table>
+    <h4 align="right">Tổng Số Tiền: </h4>
+    </div>
+</body>
+<script>
+    let i = 0;
+    const productData = JSON.parse(localStorage.getItem(localStorage.getItem("loggedInUserEmail")));
+    const productContent = document.querySelector(".product_content");
+
+    <!--tích hợp json và các biến ở trên-->
+    while (productData[i]) {
+        const newRow = document.createElement("tr");
+        const productId = document.createElement("td");
+        const productName = document.createElement("td");
+        const productImg = document.createElement("td");
+        const productPrice = document.createElement("td");
+        const productAmount = document.createElement("td");
+        const imgDisplay = document.createElement("img");
+        productId.textContent = i + 1;
+        productName.textContent = productData[i].tenSanPham;
+
+        //định dạng lại ảnh
+
+        imgDisplay.src = productData[i].imgSanPham;
+        //
+        productImg.appendChild(imgDisplay);
+        productPrice.textContent = productData[i].giaSanPham;
+        productAmount.textContent = productData[i].soLuongSanPham;
+
+        newRow.appendChild(productId);
+        newRow.appendChild(productName);
+        newRow.appendChild(productImg);
+        newRow.appendChild(productPrice);
+        newRow.appendChild(productAmount);
+
+        productContent.appendChild(newRow);
+        i++;
+    }
+</script>
+
+</html>

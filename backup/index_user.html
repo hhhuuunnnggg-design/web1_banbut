@@ -1,100 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style/index.css" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>Bán bút bi</title>
 </head>
+
 <body>
   <div class="header-main">
     <div class="container">
       <div class="inner-wrap">
         <div class="hamburger" id="hamburger">
-          <div><i class="fa-solid fa-bars"></i></div>         
-          </div>
-        </div>
-        <div class="inner-menu" id="menu">
-          <ul>
-            <li class="thuonghieu">
-              <i class="fa-solid fa-house"></i>
-              <a href="./index_user.html">Trang chủ</a>
-            </li>
-            <li class="loaibut">
-              <i class="fa-solid fa-pen"></i>
-              <a href="#">Loại bút</a>
-              <div class="box-submenu">
-                <ul class="loaibut-list">
-                  <li><div>Bút------------ html</div></li>
-                  <li><div>Bút bi</div></li>
-                  <li><div>Bút dạ bi</div></li>
-                  <li><div>Bút dạ kim</div></li>
-                  <li><div>Bút máy</div></li>
-                  <li><div>Bút chì</div></li>
-                  <li><div>Bút hàng độc</div></li>
-                  <li><div>Bút viết chữ đẹp</div></li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <i class="fa-solid fa-person-chalkboard"></i>
-              <a href="#" class="huong_dan_mua_hang">Hướng dẫn mua hàng</a>
-            </li>
-            <li>
-              <i class="fa-solid fa-phone"></i>
-              <a href="#">Liên hệ</a>
-            </li>
-            <li>
-              <a href="./login_logout.html" id="btnLogin" style="text-decoration: none">
-                <button id="loginBtn">Đăng Nhập</button>
-              </a>
-            </li>
-            <div class="cart-icon" id="xem_gio_hang">
-              <i class="fa-solid fa-cart-shopping"></i> Giỏ hàng
-            </div>
-            <li>
-              <div class="sear2">
-                <div class="search" id="search">
-                  <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm..." />
-                  <button id="searchButton">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                  </button>
-                </div>
-                <select id="filter">
-                  <option value="mac-dinh">Mặc định</option>
-                  <option value="gia-thap-den-cao">Gía thấp đến cao</option>
-                  <option value="gia-cao-den-thap">Gía cao đến thấp</option>
-                  <option value="giam-gia-nhieu">Giảm giá nhiều</option>
-                </select>
-                <div class="tim_gia" style="display: none">
-                  <input type="text" placeholder="Giá min" id="searchPriceMin" />
-                  <input type="text" placeholder="Giá max" id="searchPriceMax" />
-                  <button id="searchButtonPrice">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                  </button>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="layout-defauft_account" >
-                <div id="greeting" style="display: none">Xin chào, <span id="userNameDisplay"></span>!</div>
-                <div id="btnLogout" style="display: none; text-decoration: none">
-                  <button class="log_out">Đăng xuất</button>
-                </div>
-                
-            </li>
-          </ul>
-        </div>
+          <div><i class="fa-solid fa-bars"></i></div>
         </div>
       </div>
+      <div class="inner-menu" id="menu">
+        <ul>
+          <li class="thuonghieu">
+            <i class="fa-solid fa-house"></i>
+            <a href="./index_user.html">Trang chủ</a>
+          </li>
+          <li class="loaibut">
+            <i class="fa-solid fa-pen"></i>
+            <a href="#">Loại bút</a>
+            <div class="box-submenu">
+              <ul class="loaibut-list">
+                <li>
+                  <div>Bút------------ html</div>
+                </li>
+                <li>
+                  <div>Bút bi</div>
+                </li>
+                <li>
+                  <div>Bút dạ bi</div>
+                </li>
+                <li>
+                  <div>Bút dạ kim</div>
+                </li>
+                <li>
+                  <div>Bút máy</div>
+                </li>
+                <li>
+                  <div>Bút chì</div>
+                </li>
+                <li>
+                  <div>Bút hàng độc</div>
+                </li>
+                <li>
+                  <div>Bút viết chữ đẹp</div>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <i class="fa-solid fa-person-chalkboard"></i>
+            <a href="#" class="huong_dan_mua_hang">Hướng dẫn mua hàng</a>
+          </li>
+          <li>
+            <i class="fa-solid fa-phone"></i>
+            <a href="#">Liên hệ</a>
+          </li>
+          <li>
+            <i class="fa-solid fa-receipt"></i>
+            <a href="./myReceipt.html" id="myReceipt">
+              Đơn Hàng Của Tôi
+            </a>
+          </li>
+          <div class="cart-icon" id="xem_gio_hang">
+            <i class="fa-solid fa-cart-shopping"></i>Giỏ hàng
+          </div>
+          <li>
+            <div class="sear2">
+              <div class="search" id="search">
+                <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm..." />
+                <button id="searchButton">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+              </div>
+              <select id="filter">
+                <option value="mac-dinh">Mặc định</option>
+                <option value="gia-thap-den-cao">Gía thấp đến cao</option>
+                <option value="gia-cao-den-thap">Gía cao đến thấp</option>
+                <option value="giam-gia-nhieu">Giảm giá nhiều</option>
+              </select>
+              <div class="tim_gia" style="display: none">
+                <input type="text" placeholder="Giá min" id="searchPriceMin" />
+                <input type="text" placeholder="Giá max" id="searchPriceMax" />
+                <button id="searchButtonPrice">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="layout-defauft_account">
+              <div id="greeting" style="display: none">Xin chào, <span id="userNameDisplay"></span>!</div>
+              <div id="btnLogout" style="display: none; text-decoration: none">
+                <button class="log_out">Đăng xuất</button>
+              </div>
+
+          </li>
+        </ul>
+      </div>
     </div>
+  </div>
+  </div>
   </div>
 
   <div id="products" class="product_list">
@@ -217,7 +232,6 @@
         document.getElementById("greeting").style.display = "block";
         document.getElementById("userNameDisplay").textContent = userName;
         document.getElementById("btnLogout").style.display = "block";
-        document.getElementById("btnLogin").style.display = "none";
       } else {
         document.getElementById("btnLogin").style.display = "block";
         document.getElementById("btnLogout").style.display = "none";
@@ -225,7 +239,7 @@
       }
 
       // Mở/đóng menu
-      document.getElementById('hamburger').addEventListener('click', function() {
+      document.getElementById('hamburger').addEventListener('click', function () {
         var menu = document.querySelector('.inner-menu');
         var overlay = document.getElementById('overlay'); // Thêm dòng này
         menu.classList.toggle('show');
@@ -233,7 +247,7 @@
       });
 
       // Đóng menu khi nhấp ra ngoài
-      document.addEventListener('click', function(event) {
+      document.addEventListener('click', function (event) {
         const menu = document.querySelector('.inner-menu');
         const hamburger = document.getElementById('hamburger');
         const overlay = document.getElementById('overlay'); // Thêm dòng này
@@ -249,27 +263,28 @@
       window.location.href = "./Payment.html";
     });
     function toggleSearchDisplay() {
-    const searchElement = document.querySelector('.sear2');
-    if (window.innerWidth < 768) {
+      const searchElement = document.querySelector('.sear2');
+      if (window.innerWidth < 768) {
         searchElement.style.display = 'none'; // Ẩn khi trên màn hình điện thoại
-    } else {
+      } else {
         searchElement.style.display = 'block'; // Hiện khi trên màn hình lớn
+      }
     }
-}
 
-// Kiểm tra kích thước khi trang được tải
-document.addEventListener("DOMContentLoaded", toggleSearchDisplay);
     // Kiểm tra kích thước khi trang được tải
-document.addEventListener("DOMContentLoaded", toggleSearchDisplay);
-document.querySelectorAll('.inner-menu a').forEach(item => {
-  item.addEventListener('click', function() {
-    var menu = document.querySelector('.inner-menu');
-    var overlay = document.getElementById('overlay');
-    menu.classList.remove('show');
-    overlay.style.display = 'none';
-  });
-});
-</script>
+    document.addEventListener("DOMContentLoaded", toggleSearchDisplay);
+    // Kiểm tra kích thước khi trang được tải
+    document.addEventListener("DOMContentLoaded", toggleSearchDisplay);
+    document.querySelectorAll('.inner-menu a').forEach(item => {
+      item.addEventListener('click', function () {
+        var menu = document.querySelector('.inner-menu');
+        var overlay = document.getElementById('overlay');
+        menu.classList.remove('show');
+        overlay.style.display = 'none';
+      });
+    });
+  </script>
 
 </body>
+
 </html>
