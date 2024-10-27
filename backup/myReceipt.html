@@ -23,16 +23,15 @@
         <tbody class="product_content" align="center">
         </tbody>
     </table>
-    <div class="sum-container">
-        <p>Tổng Số Tiền: </p>
-    </div>
+    <div class="sum_container">
+        <p id="money_sum" style="color: white;"></p>
     </div>
 </body>
 <script>
-    let i = 0;
+    let i = 0;//index for array
+    var sum = 0;//for todal money calculation
     const productData = JSON.parse(localStorage.getItem(localStorage.getItem("loggedInUserEmail")));
     const productContent = document.querySelector(".product_content");
-
     <!--tích hợp json và các biến ở trên-->
     while (productData[i]) {
         const newRow = document.createElement("tr");
@@ -42,15 +41,22 @@
         const productPrice = document.createElement("td");
         const productAmount = document.createElement("td");
         const imgDisplay = document.createElement("img");
+
+        //tính tổng
+        const money = parseFloat(productData[i].giaSanPham);
+        const sumMoney = document.getElementById("money_sum");
+        sum += money;
+        sumMoney.textContent = "Tổng số tiền: " + sum + " VND";
+        //
+
         productId.textContent = i + 1;
         productName.textContent = productData[i].tenSanPham;
 
         //định dạng lại ảnh
-
         imgDisplay.src = productData[i].imgSanPham;
         //
         productImg.appendChild(imgDisplay);
-        productPrice.textContent = productData[i].giaSanPham;
+        productPrice.textContent = productData[i].giaSanPham + " VND";
         productAmount.textContent = productData[i].soLuongSanPham;
 
         newRow.appendChild(productId);

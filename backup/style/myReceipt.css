@@ -3,15 +3,16 @@ h1 {
     text-align : center;
 }
 
-.sum-container {
-    background-color: rgb(0, 157, 254);
-    display         : inline;
-
+body {
+    position: relative;
 }
+
+
 
 .receipt-table thead {
     background-color: rgb(0, 157, 254);
     align-self      : center;
+    color           : white;
 }
 
 .receipt-table tbody {
@@ -26,6 +27,21 @@ h1 {
 
 .receipt-table td img {
     display: block;
-    width  : 100%;
+    width  : 200%;
     height : auto;
+}
+
+.sum_container {
+    background-color: rgb(0, 157, 254);
+    display         : flex;
+    flex-direction  : column;
+    justify-content : end;
+    margin-top      : 20px;
+    margin-left     : 20px;
+    margin-right    : 20px;
+    padding         : 20px;
+}
+
+.sum_container .money_sum {
+    display: inline-block;
 }
