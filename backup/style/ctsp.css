@@ -9,6 +9,13 @@ body {
     -webkit-box-sizing: border-box;
     font-family: Arial, sans-serif;
   }
+button{
+    box-shadow: none ;
+    border: none;
+  }
+button:hover{
+  background-color: #cccccc;
+}
 .container{
     display: flex;
     margin: 0 auto;
@@ -91,7 +98,7 @@ body {
 .bottom__MuaHang:hover, .bottom__GioHang:hover {
     opacity: 0.8; 
 }
-.HDMH{
+.TuyChon{
     margin-top: 10px;
     overflow-y: auto;
     max-width: 473px;
@@ -99,12 +106,12 @@ body {
     justify-content: center;
     align-items: center;
 }
-.HDMH__bar{
+.TuyChon__bar{
     width: 100%;
     height: 2px;
     background-color: rgba(128, 128, 128, 0.2);
 }
-.HDMH__header{
+.TuyChon__header{
     border: 2px solid rgba(128, 128, 128, 0.1);
     color:gray;
     position: sticky;
@@ -113,7 +120,7 @@ body {
     padding: 1px;
     margin-bottom: 15px;
 }
-.HDMH__script{
+.TuyChon__script{
     text-align: left;
     line-height: 1.6;
     font-size: 14px;
@@ -133,6 +140,29 @@ body {
 .description__MTSP--script {
     line-height: 1.6;
     font-size: 16px;
+}
+.title {
+  background-color: #f7f7f7;
+  font-weight: bold;
+}
+.title1 {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+.row{
+  background-color: #f7f7f7;
+}
+.row1{
+  background-color: #f2f2f2;
+  padding-left: 20px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+td {
+  padding: 12px;
+  border: 1px solid #ddd;
 }
   /* footer */
   .footer {
