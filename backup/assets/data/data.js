@@ -13,6 +13,17 @@ export const sanpham = [
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail:
           "./Images/thumnails/ButDaKim/ButDaKimMontblancStarWalkerDouéFinelinerPenMB118872.jpg",
+      chitiet:[{
+        XuatXu: "Germany",
+        DoiTuong: "Doanh nhân, Nam, Nữ",
+        ChatLieuVo: "Hợp kim Platinum",
+        MauSac: "Đen",
+        LoaiNgoiBut: "Ngòi dạ kim",
+        MauMucMacDinh:"Đen, Xanh",
+        PhuKienDiKem:"Hộp + Phiếu BH + Túi",
+        DongSanPham:"Starwalker Reconnect",
+        
+      }]
       },
       {
         id: 2,
@@ -25,6 +36,16 @@ export const sanpham = [
         inStock: 13,
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail: "./Images/thumnails/ButBi/ButBiAllan6002BS.jpg",
+      chitiet:[{
+        XuatXu:"Malaysia",
+        DoiTuong:"Nam, Nữ",
+        ChatLieuVo:"Stainless Steel",
+        MauSac:"Bạc",
+        LoaiNgoiBut:"Ngòi bi",
+        MauMucMacDinh:"Xanh",
+        PhuKienDiKem:"Hộp + Phiếu BH + Túi",
+        DongSanPham:"Allan D'lious 6002",       
+      }]
       },
       {
         id: 3,
@@ -37,6 +58,17 @@ export const sanpham = [
         inStock: 25,
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail: "./Images/thumnails/ButBi/ButBiAllan120BBL.jpg",
+      chitiet:[{
+        XuatXu:"Malaysia",
+        DoiTuong:"Nam, Nữ",
+        ChatLieuVo:"Stainless Steel phủ sơn mài",
+        MauSac:"Xanh",
+        LoaiNgoiBut:"Ngòi bi",
+        MauMucMacDinh:"Xanh",
+        PhuKienDiKem:"Hộp + Phiếu BH + Túi",
+        DongSanPham:"Allan D'lious 120",
+        
+      }]
       },
       {
         id: 4,
@@ -50,6 +82,17 @@ export const sanpham = [
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail:
           "./Images/thumnails/ButBi/ButBiLamyLoGoMattBlueBallpoint.jpg",
+      chitiet:[{
+        XuatXu:"Germany",
+        DoiTuong:"Nam, Nữ, Sinh Viên, Học Sinh",
+        ChatLieuVo:"Nhựa",
+        MauSac:"Xanh",
+        LoaiNgoiBut:"Ngòi bi",
+        MauMucMacDinh:"Đen",
+        PhuKienDiKem:"Hộp + Phiếu BH + Túi",
+        DongSanPham:"Lamy Logo",
+        
+      }]
       },
       {
         id: 5,
@@ -62,6 +105,17 @@ export const sanpham = [
         inStock: 20,
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail: "./Images/thumnails/ButBi/ButBiLamyLoGoM+BlueBP.jpg",
+      chitiet:[{
+        XuatXu:"Germany",
+        DoiTuong:"Nam, Nữ, Sinh Viên, Học Sinh",
+        ChatLieuVo:"Nhựa",
+        MauSac:"Xanh",
+        LoaiNgoiBut:"Ngòi bi",
+        MauMucMacDinh:"Đen",
+        PhuKienDiKem:"Hộp + Phiếu BH + Túi",
+        DongSanPham:"Lamy Logo",
+        
+      }]
       },
       {
         id: 6,
@@ -74,6 +128,17 @@ export const sanpham = [
         inStock: 6,
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail: "./Images/thumnails/ButMay/ButMayAllan6002FBK.jpg",
+      chitiet:[{
+        XuatXu:"Malaysia",
+        DoiTuong:"Doanh nhân, Nam, Nữ",
+        ChatLieuVo:"Stainless Steel phủ sơn mài",
+        MauSac:"Đen",
+        LoaiNgoiBut:"Ngòi máy",
+        MauMucMacDinh:"Đen, Xanh",
+        PhuKienDiKem:"Hộp + Phiếu BH + Túi",
+        DongSanPham:"Allan D'lious 6002",
+        
+      }]
       },
       {
         id: 7,
@@ -86,6 +151,17 @@ export const sanpham = [
         inStock: 5,
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail: "./Images/thumnails/ButMay/ButMayAllan0302FG.jpg",
+      chitiet:[{
+        XuatXu:"Malaysia",
+        DoiTuong:"Nam, Nữ",
+        ChatLieuVo:"Stainless Steel",
+        MauSac:"Bạc",
+        LoaiNgoiBut:"Ngòi máy",
+        MauMucMacDinh:"Đen, Xanh",
+        PhuKienDiKem:"Hộp + Phiếu BH + Túi",
+        DongSanPham:"Allan D'lious 0302",
+        
+      }]
       },
       {
         id: 8,
@@ -99,6 +175,17 @@ export const sanpham = [
         inStock: 6,
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail: "./Images/thumnails/ButChi/ButChiParkerJotter2017.jpg",
+      chitiet:[{
+        XuatXu:"Mỹ",
+        DoiTuong:"Doanh nhân, Nam, Nữ",
+        ChatLieuVo:"Stainless Steel",
+        MauSac:"Bạc",
+        LoaiNgoiBut:"Bút chì",
+        MauMucMacDinh:"Đen",
+        PhuKienDiKem:"Hộp + Phiếu BH + Túi",
+        DongSanPham:"Parker Jotter 2017",
+        
+      }]
       },
       {
         id: 9,
@@ -112,6 +199,17 @@ export const sanpham = [
         inStock: 5,
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail: "./Images/thumnails/ButChi/ButChiMontblancVirginiaWoolf.jpg",
+      chitiet:[{
+        XuatXu:"Germany",
+        DoiTuong:"Doanh nhân, Nam, Nữ",
+        ChatLieuVo:"Nhựa resin",
+        MauSac:"Đen",
+        LoaiNgoiBut:"Ngòi bi",
+        MauMucMacDinh:"Đen, Xanh",
+        PhuKienDiKem:"Hộp + Phiếu BH + Túi",
+        DongSanPham:"Montblanc Writers Edition",
+        
+      }]
       },
       {
         id: 10,
@@ -126,6 +224,17 @@ export const sanpham = [
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail:
           "./Images/thumnails/ButDaKim/ButDaKimMontblancStarwalkerBluePlanet.jpg",
+          chitiet:[{
+            XuatXu:"Germany",
+            DoiTuong:"Doanh nhân, Nam, Nữ",
+            ChatLieuVo:"Nhựa resin",
+            MauSac:"Xanh",
+            LoaiNgoiBut:"Ngòi dạ kim",
+            MauMucMacDinh:"Đen, Xanh",
+            PhuKienDiKem:"Hộp + Phiếu BH + Túi",
+            DongSanPham:"Starwalker Blue Planet",
+            
+          }]
       },
       {
         id: 11,
@@ -138,6 +247,17 @@ export const sanpham = [
         inStock: 4,
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail: "./Images/thumnails/ButDaKim/ButDaKimParkerIngennuity.jpg",
+      chitiet:[{
+        XuatXu:"Mỹ",
+        DoiTuong:"Doanh nhân, Nam, Nữ",
+        ChatLieuVo:"Đồng thau phủ sơn mài",
+        MauSac:"Đen",
+        LoaiNgoiBut:"Ngòi dạ kim",
+        MauMucMacDinh:"Đen",
+        PhuKienDiKem:"Hộp + Phiếu BH + Túi",
+        DongSanPham:"Parker Ingenuity 2017",
+        
+      }]
       },
       {
         id: 12,
@@ -151,6 +271,17 @@ export const sanpham = [
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail:
           "./Images/thumnails/ButDaKim/ButDaKimParkerIngennuityRubberMetalBlack.jpg",
+      chitiet:[{
+        XuatXu:"Mỹ",
+        DoiTuong:"Doanh nhân, Nam, Nữ",
+        ChatLieuVo:"Đồng thau phủ sơn mài",
+        MauSac:"Đen",
+        LoaiNgoiBut:"Ngòi dạ kim",
+        MauMucMacDinh:"Đen",
+        PhuKienDiKem:"Hộp + Phiếu BH + Túi",
+        DongSanPham:"Parker Ingenuity 2017",
+        
+      }]
       },
       {
         id: 13,
@@ -165,9 +296,20 @@ export const sanpham = [
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail:
           "./Images/thumnails/ButMay/ButMayMontblancMeisterstuckOlympic.jpg",
+      chitiet:[{
+        XuatXu:"Germany",
+        DoiTuong:"Doanh nhân, Nam, Nữ",
+        ChatLieuVo:"Nhựa resin kết hợp kim loại",
+        MauSac:"Đỏ",
+        LoaiNgoiBut:"Ngòi máy",
+        MauMucMacDinh:"Đen",
+        PhuKienDiKem:"Hộp + Phiếu BH + Túi",
+        DongSanPham:"Meisterstuck Olympic",
+        
+      }]
       },
       {
-        id: 14,
+        id: 14,// Đã lấy dữ liệu chi tiết sản phẩm đến đây
         title: "Bút máy Parker Duofold 100th Years LE Blue GT",
         description:
           "Năm 2021 đánh dấu cột mốc 100 năm kể từ khi ra mắt siêu phẩm mang tính biểu tượng Parker Duofold...",
@@ -178,6 +320,17 @@ export const sanpham = [
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail:
           "./Images/thumnails/ButMay/ButMayParkerDuofold100thYearsLEBlueGT.jpg",
+      chitiet:[{
+        XuatXu:"Mỹ",
+        DoiTuong:"Doanh nhân, Nam, Nữ",
+        ChatLieuVo:"Đồng thau phủ sơn mài",
+        MauSac:"Đen",
+        LoaiNgoiBut:"Ngòi dạ kim",
+        MauMucMacDinh:"Đen",
+        PhuKienDiKem:"Hộp + Phiếu BH + Túi",
+        DongSanPham:"Parker Ingenuity 2017",
+        
+      }]
       },
       {
         id: 15,
@@ -191,6 +344,17 @@ export const sanpham = [
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail:
           "./Images/thumnails/ButMay/ButMayParkerDuofold100thYearsLERedGT.jpg",
+      chitiet:[{
+        XuatXu:"Mỹ",
+        DoiTuong:"Doanh nhân, Nam, Nữ",
+        ChatLieuVo:"Đồng thau phủ sơn mài",
+        MauSac:"Đen",
+        LoaiNgoiBut:"Ngòi dạ kim",
+        MauMucMacDinh:"Đen",
+        PhuKienDiKem:"Hộp + Phiếu BH + Túi",
+        DongSanPham:"Parker Ingenuity 2017",
+        
+      }]
       },
       {
         id: 16,
@@ -204,6 +368,17 @@ export const sanpham = [
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail:
           "./Images/thumnails/ButMay/ButMayParkerDuofold100thYearsLEBlackGT.jpg",
+      chitiet:[{
+        XuatXu:"Mỹ",
+        DoiTuong:"Doanh nhân, Nam, Nữ",
+        ChatLieuVo:"Đồng thau phủ sơn mài",
+        MauSac:"Đen",
+        LoaiNgoiBut:"Ngòi dạ kim",
+        MauMucMacDinh:"Đen",
+        PhuKienDiKem:"Hộp + Phiếu BH + Túi",
+        DongSanPham:"Parker Ingenuity 2017",
+        
+      }]
       },
       {
         id: 17,
@@ -218,6 +393,17 @@ export const sanpham = [
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail:
           "./Images/thumnails/ButMay/ButMayMontblancWritersEditionBrothersGrimm.jpg",
+      chitiet:[{
+        XuatXu:"Mỹ",
+        DoiTuong:"Doanh nhân, Nam, Nữ",
+        ChatLieuVo:"Đồng thau phủ sơn mài",
+        MauSac:"Đen",
+        LoaiNgoiBut:"Ngòi dạ kim",
+        MauMucMacDinh:"Đen",
+        PhuKienDiKem:"Hộp + Phiếu BH + Túi",
+        DongSanPham:"Parker Ingenuity 2017",
+        
+      }]
       },
       {
         id: 18,
@@ -232,6 +418,17 @@ export const sanpham = [
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail:
           "./Images/thumnails/ButMay/ButMayMontblancGreattCharactersJimiHendrix.jpg",
+      chitiet:[{
+        XuatXu:"Mỹ",
+        DoiTuong:"Doanh nhân, Nam, Nữ",
+        ChatLieuVo:"Đồng thau phủ sơn mài",
+        MauSac:"Đen",
+        LoaiNgoiBut:"Ngòi dạ kim",
+        MauMucMacDinh:"Đen",
+        PhuKienDiKem:"Hộp + Phiếu BH + Túi",
+        DongSanPham:"Parker Ingenuity 2017",
+        
+      }]
       },
       {
         id: 19,
@@ -246,6 +443,17 @@ export const sanpham = [
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail:
           "./Images/thumnails/ButBi/ButBiParkerPremier2017MonochromeBlack.jpg",
+      chitiet:[{
+        XuatXu:"Mỹ",
+        DoiTuong:"Doanh nhân, Nam, Nữ",
+        ChatLieuVo:"Đồng thau phủ sơn mài",
+        MauSac:"Đen",
+        LoaiNgoiBut:"Ngòi dạ kim",
+        MauMucMacDinh:"Đen",
+        PhuKienDiKem:"Hộp + Phiếu BH + Túi",
+        DongSanPham:"Parker Ingenuity 2017",
+        
+      }]
       },
       {
         id: 20,
@@ -259,6 +467,17 @@ export const sanpham = [
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail:
           "./Images/thumnails/ButBi/ButBiParkerPremierLuxury2017BlackCTBP.jpg",
+      chitiet:[{
+        XuatXu:"Mỹ",
+        DoiTuong:"Doanh nhân, Nam, Nữ",
+        ChatLieuVo:"Đồng thau phủ sơn mài",
+        MauSac:"Đen",
+        LoaiNgoiBut:"Ngòi dạ kim",
+        MauMucMacDinh:"Đen",
+        PhuKienDiKem:"Hộp + Phiếu BH + Túi",
+        DongSanPham:"Parker Ingenuity 2017",
+        
+      }]
       },
       {
         id: 21,
@@ -272,6 +491,17 @@ export const sanpham = [
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail:
           "./Images/thumnails/ButBi/ButBiParkerSonnetLacqueBlueCTBallpoint.jpg",
+      chitiet:[{
+        XuatXu:"Mỹ",
+        DoiTuong:"Doanh nhân, Nam, Nữ",
+        ChatLieuVo:"Đồng thau phủ sơn mài",
+        MauSac:"Đen",
+        LoaiNgoiBut:"Ngòi dạ kim",
+        MauMucMacDinh:"Đen",
+        PhuKienDiKem:"Hộp + Phiếu BH + Túi",
+        DongSanPham:"Parker Ingenuity 2017",
+        
+      }]
       },
       {
         id: 22,
@@ -286,6 +516,17 @@ export const sanpham = [
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail:
           "./Images/thumnails/ButBi/ButBiParkerSonnetMetalAndPearlSlimGTBallpoint.jpg",
+      chitiet:[{
+        XuatXu:"Mỹ",
+        DoiTuong:"Doanh nhân, Nam, Nữ",
+        ChatLieuVo:"Đồng thau phủ sơn mài",
+        MauSac:"Đen",
+        LoaiNgoiBut:"Ngòi dạ kim",
+        MauMucMacDinh:"Đen",
+        PhuKienDiKem:"Hộp + Phiếu BH + Túi",
+        DongSanPham:"Parker Ingenuity 2017",
+        
+      }]
       },
       {
         id: 23,
@@ -299,6 +540,17 @@ export const sanpham = [
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail:
           "./Images/thumnails/ButBi/ButBiParkerSonnetMaltBlackGTBallpoint.jpg",
+      chitiet:[{
+        XuatXu:"Mỹ",
+        DoiTuong:"Doanh nhân, Nam, Nữ",
+        ChatLieuVo:"Đồng thau phủ sơn mài",
+        MauSac:"Đen",
+        LoaiNgoiBut:"Ngòi dạ kim",
+        MauMucMacDinh:"Đen",
+        PhuKienDiKem:"Hộp + Phiếu BH + Túi",
+        DongSanPham:"Parker Ingenuity 2017",
+        
+      }]
       },
       {
         id: 24,
@@ -312,6 +564,17 @@ export const sanpham = [
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail:
           "./Images/thumnails/ButBi/ButBiParkerUrbanTwistMutedBlackGTBP2143640.jpg",
+      chitiet:[{
+        XuatXu:"Mỹ",
+        DoiTuong:"Doanh nhân, Nam, Nữ",
+        ChatLieuVo:"Đồng thau phủ sơn mài",
+        MauSac:"Đen",
+        LoaiNgoiBut:"Ngòi dạ kim",
+        MauMucMacDinh:"Đen",
+        PhuKienDiKem:"Hộp + Phiếu BH + Túi",
+        DongSanPham:"Parker Ingenuity 2017",
+        
+      }]
       },
       {
         id: 25,
@@ -326,6 +589,17 @@ export const sanpham = [
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail:
           "./Images/thumnails/ButBi/ButBiParkerUrbanPremium2017GreenCTBallpoint.jpg",
+      chitiet:[{
+        XuatXu:"Mỹ",
+        DoiTuong:"Doanh nhân, Nam, Nữ",
+        ChatLieuVo:"Đồng thau phủ sơn mài",
+        MauSac:"Đen",
+        LoaiNgoiBut:"Ngòi dạ kim",
+        MauMucMacDinh:"Đen",
+        PhuKienDiKem:"Hộp + Phiếu BH + Túi",
+        DongSanPham:"Parker Ingenuity 2017",
+        
+      }]
       },
       {
         id: 26,
@@ -340,6 +614,17 @@ export const sanpham = [
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail:
           "./Images/thumnails/ButBi/ButBiParkerUrbanPremium2017DarkBlueCTBallpoint.jpg",
+      chitiet:[{
+        XuatXu:"Mỹ",
+        DoiTuong:"Doanh nhân, Nam, Nữ",
+        ChatLieuVo:"Đồng thau phủ sơn mài",
+        MauSac:"Đen",
+        LoaiNgoiBut:"Ngòi dạ kim",
+        MauMucMacDinh:"Đen",
+        PhuKienDiKem:"Hộp + Phiếu BH + Túi",
+        DongSanPham:"Parker Ingenuity 2017",
+        
+      }]
       },
       {
         id: 27,
@@ -354,6 +639,17 @@ export const sanpham = [
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail:
           "./Images/thumnails/ButBi/ButBiParkerUrbanPremium2017DarkPurpleCTBallpoint.jpg",
+      chitiet:[{
+        XuatXu:"Mỹ",
+        DoiTuong:"Doanh nhân, Nam, Nữ",
+        ChatLieuVo:"Đồng thau phủ sơn mài",
+        MauSac:"Đen",
+        LoaiNgoiBut:"Ngòi dạ kim",
+        MauMucMacDinh:"Đen",
+        PhuKienDiKem:"Hộp + Phiếu BH + Túi",
+        DongSanPham:"Parker Ingenuity 2017",
+        
+      }]
       },
       {
         id: 28,
@@ -367,6 +663,17 @@ export const sanpham = [
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail:
           "./Images/thumnails/ButBi/ButBiParkerIMWritingRitualsGreenBallpoint.jpg",
+      chitiet:[{
+        XuatXu:"Mỹ",
+        DoiTuong:"Doanh nhân, Nam, Nữ",
+        ChatLieuVo:"Đồng thau phủ sơn mài",
+        MauSac:"Đen",
+        LoaiNgoiBut:"Ngòi dạ kim",
+        MauMucMacDinh:"Đen",
+        PhuKienDiKem:"Hộp + Phiếu BH + Túi",
+        DongSanPham:"Parker Ingenuity 2017",
+        
+      }]
       },
       {
         id: 29,
@@ -380,6 +687,17 @@ export const sanpham = [
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail:
           "./Images/thumnails/ButBi/ButBiParkerIMPremium2017BlueCTBallpoint.jpg",
+      chitiet:[{
+        XuatXu:"Mỹ",
+        DoiTuong:"Doanh nhân, Nam, Nữ",
+        ChatLieuVo:"Đồng thau phủ sơn mài",
+        MauSac:"Đen",
+        LoaiNgoiBut:"Ngòi dạ kim",
+        MauMucMacDinh:"Đen",
+        PhuKienDiKem:"Hộp + Phiếu BH + Túi",
+        DongSanPham:"Parker Ingenuity 2017",
+        
+      }]
       },
       {
         id: 30,
@@ -394,6 +712,17 @@ export const sanpham = [
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail:
           "./Images/thumnails/ButBi/ButBiParkerIMPremium2017PaleGreenCTBallpoint.jpg",
+      chitiet:[{
+        XuatXu:"Mỹ",
+        DoiTuong:"Doanh nhân, Nam, Nữ",
+        ChatLieuVo:"Đồng thau phủ sơn mài",
+        MauSac:"Đen",
+        LoaiNgoiBut:"Ngòi dạ kim",
+        MauMucMacDinh:"Đen",
+        PhuKienDiKem:"Hộp + Phiếu BH + Túi",
+        DongSanPham:"Parker Ingenuity 2017",
+        
+      }]
       },
       {
         id: 31,
@@ -407,6 +736,17 @@ export const sanpham = [
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail:
           "./Images/thumnails/ButDaBi/ButDaMiMaVangAllanDliousAG6666.jpg",
+      chitiet:[{
+        XuatXu:"Mỹ",
+        DoiTuong:"Doanh nhân, Nam, Nữ",
+        ChatLieuVo:"Đồng thau phủ sơn mài",
+        MauSac:"Đen",
+        LoaiNgoiBut:"Ngòi dạ kim",
+        MauMucMacDinh:"Đen",
+        PhuKienDiKem:"Hộp + Phiếu BH + Túi",
+        DongSanPham:"Parker Ingenuity 2017",
+        
+      }]
       },
       {
         id: 32,
@@ -419,6 +759,17 @@ export const sanpham = [
         inStock: 23,
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail: "./Images/thumnails/ButDaBi/ButDaBiAllanDlious405R.jpg",
+      chitiet:[{
+        XuatXu:"Mỹ",
+        DoiTuong:"Doanh nhân, Nam, Nữ",
+        ChatLieuVo:"Đồng thau phủ sơn mài",
+        MauSac:"Đen",
+        LoaiNgoiBut:"Ngòi dạ kim",
+        MauMucMacDinh:"Đen",
+        PhuKienDiKem:"Hộp + Phiếu BH + Túi",
+        DongSanPham:"Parker Ingenuity 2017",
+        
+      }]
       },
       {
         id: 33,
@@ -432,6 +783,17 @@ export const sanpham = [
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail:
           "./Images/thumnails/ButDaBi/ButDaBiMaVangAllanDliousAG3333.jpg",
+      chitiet:[{
+        XuatXu:"Mỹ",
+        DoiTuong:"Doanh nhân, Nam, Nữ",
+        ChatLieuVo:"Đồng thau phủ sơn mài",
+        MauSac:"Đen",
+        LoaiNgoiBut:"Ngòi dạ kim",
+        MauMucMacDinh:"Đen",
+        PhuKienDiKem:"Hộp + Phiếu BH + Túi",
+        DongSanPham:"Parker Ingenuity 2017",
+        
+      }]
       },
       {
         id: 34,
@@ -445,6 +807,17 @@ export const sanpham = [
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail:
           "./Images/thumnails/ButDaBi/ButDaBiMaVang18KAllanDliousAG4444.jpg",
+      chitiet:[{
+        XuatXu:"Mỹ",
+        DoiTuong:"Doanh nhân, Nam, Nữ",
+        ChatLieuVo:"Đồng thau phủ sơn mài",
+        MauSac:"Đen",
+        LoaiNgoiBut:"Ngòi dạ kim",
+        MauMucMacDinh:"Đen",
+        PhuKienDiKem:"Hộp + Phiếu BH + Túi",
+        DongSanPham:"Parker Ingenuity 2017",
+        
+      }]
       },
       {
         id: 35,
@@ -457,6 +830,17 @@ export const sanpham = [
         inStock: 17,
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail: "./Images/thumnails/ButDaBi/ButDaBIAllanDlious6002RG.jpg",
+      chitiet:[{
+        XuatXu:"Mỹ",
+        DoiTuong:"Doanh nhân, Nam, Nữ",
+        ChatLieuVo:"Đồng thau phủ sơn mài",
+        MauSac:"Đen",
+        LoaiNgoiBut:"Ngòi dạ kim",
+        MauMucMacDinh:"Đen",
+        PhuKienDiKem:"Hộp + Phiếu BH + Túi",
+        DongSanPham:"Parker Ingenuity 2017",
+        
+      }]
       },
       {
         id: 36,
@@ -469,6 +853,17 @@ export const sanpham = [
         inStock: 22,
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail: "./Images/thumnails/ButDaBi/ButLamyAl-StarOceanBlueRB.jpg",
+      chitiet:[{
+        XuatXu:"Mỹ",
+        DoiTuong:"Doanh nhân, Nam, Nữ",
+        ChatLieuVo:"Đồng thau phủ sơn mài",
+        MauSac:"Đen",
+        LoaiNgoiBut:"Ngòi dạ kim",
+        MauMucMacDinh:"Đen",
+        PhuKienDiKem:"Hộp + Phiếu BH + Túi",
+        DongSanPham:"Parker Ingenuity 2017",
+        
+      }]
       },
       {
         id: 37,
@@ -483,6 +878,17 @@ export const sanpham = [
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail:
           "./Images/thumnails/ButDaBi/ButLamySafariCandyAquamarineSpecialEdition2020Rollerball.jpg",
+      chitiet:[{
+        XuatXu:"Mỹ",
+        DoiTuong:"Doanh nhân, Nam, Nữ",
+        ChatLieuVo:"Đồng thau phủ sơn mài",
+        MauSac:"Đen",
+        LoaiNgoiBut:"Ngòi dạ kim",
+        MauMucMacDinh:"Đen",
+        PhuKienDiKem:"Hộp + Phiếu BH + Túi",
+        DongSanPham:"Parker Ingenuity 2017",
+        
+      }]
       },
       {
         id: 38,
@@ -496,6 +902,17 @@ export const sanpham = [
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail:
           "./Images/thumnails/ButDaBi/ButLamySafariCandyVioletSpecialEdition2020Rollerball.jpg",
+      chitiet:[{
+        XuatXu:"Mỹ",
+        DoiTuong:"Doanh nhân, Nam, Nữ",
+        ChatLieuVo:"Đồng thau phủ sơn mài",
+        MauSac:"Đen",
+        LoaiNgoiBut:"Ngòi dạ kim",
+        MauMucMacDinh:"Đen",
+        PhuKienDiKem:"Hộp + Phiếu BH + Túi",
+        DongSanPham:"Parker Ingenuity 2017",
+        
+      }]
       },
       {
         id: 39,
@@ -509,6 +926,17 @@ export const sanpham = [
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail:
           "./Images/thumnails/ButDaBi/ButLamySafariCandyMangoSpecialEdition2020Rollerball.jpg",
+      chitiet:[{
+        XuatXu:"Mỹ",
+        DoiTuong:"Doanh nhân, Nam, Nữ",
+        ChatLieuVo:"Đồng thau phủ sơn mài",
+        MauSac:"Đen",
+        LoaiNgoiBut:"Ngòi dạ kim",
+        MauMucMacDinh:"Đen",
+        PhuKienDiKem:"Hộp + Phiếu BH + Túi",
+        DongSanPham:"Parker Ingenuity 2017",
+        
+      }]
       },
       {
         id: 40,
@@ -523,6 +951,17 @@ export const sanpham = [
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail:
           "./Images/thumnails/ButDaBi/ButDaBiMontblancMeisterstuckDoueAroundTheWorld80DaysRollerballMB126350.jpg",
+      chitiet:[{
+        XuatXu:"Mỹ",
+        DoiTuong:"Doanh nhân, Nam, Nữ",
+        ChatLieuVo:"Đồng thau phủ sơn mài",
+        MauSac:"Đen",
+        LoaiNgoiBut:"Ngòi dạ kim",
+        MauMucMacDinh:"Đen",
+        PhuKienDiKem:"Hộp + Phiếu BH + Túi",
+        DongSanPham:"Parker Ingenuity 2017",
+        
+      }]
       },
       {
         id: 41,
@@ -536,6 +975,17 @@ export const sanpham = [
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail:
           "./Images/thumnails/ButDaKim/ButDaKimParkerIngenuityPearlPGT5th1931451.jpg",
+      chitiet:[{
+        XuatXu:"Mỹ",
+        DoiTuong:"Doanh nhân, Nam, Nữ",
+        ChatLieuVo:"Đồng thau phủ sơn mài",
+        MauSac:"Đen",
+        LoaiNgoiBut:"Ngòi dạ kim",
+        MauMucMacDinh:"Đen",
+        PhuKienDiKem:"Hộp + Phiếu BH + Túi",
+        DongSanPham:"Parker Ingenuity 2017",
+        
+      }]
       },
     ],
     loaibut: [
