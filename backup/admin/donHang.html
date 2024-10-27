@@ -134,7 +134,11 @@
           </div>
       </div>
 
-      <button id="toggleBtn" style="position: fixed; left: 250px; top: 50%; transform: translateY(-50%); cursor: pointer; font-size: 24px; background: transparent; border: none; color: #007bff;">
+      <button id="toggleBtn" style="position: fixed; left: 250px; top: 50%; 
+                            transform: translateY(-50%); 
+                            cursor: pointer; font-size: 24px; background: transparent; 
+                            border: none; color: #007bff;
+                            outline: none; transition: color 0.3s;">
           &#x25B6; <!-- Mũi tên sang phải -->
       </button>
     </div>
@@ -194,30 +198,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="./js/timKiemDonHang.js"></script>
     <script src="./js/donHang.js"></script>
-
-    <script>
-      let isCollapsed = false; // Biến để theo dõi trạng thái
-
-      document.getElementById("toggleBtn").onclick = function () {
-          const box1 = document.getElementById("box1");
-          const box2 = document.getElementById("box2");
-          const toggleBtn = document.getElementById("toggleBtn");
-
-          if (isCollapsed) {
-              // Hiện lại box
-              box1.style.display = "flex"; // Hiển thị lại box1
-              box2.style.display = "block"; // Hiển thị lại box2
-              toggleBtn.innerHTML = "&#x25B6;"; // Đổi nút thành mũi tên sang phải
-              toggleBtn.style.left = "250px"; // Vị trí cho mũi tên
-          } else {
-              // Ẩn cả box1 và box2
-              box1.style.display = "none"; // Ẩn box1
-              box2.style.display = "none"; // Ẩn box2
-              toggleBtn.innerHTML = "&#x25C0;"; // Đổi nút thành mũi tên sang trái
-              toggleBtn.style.left = "0px"; // Kéo nút lại gần hơn
-          }
-          isCollapsed = !isCollapsed; // Đổi trạng thái
-      };
-    </script>
+    <script src="./js/toggle.js"></script>
   </body>
 </html>
