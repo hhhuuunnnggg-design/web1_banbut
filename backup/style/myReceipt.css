@@ -3,6 +3,12 @@ h1 {
     text-align : center;
 }
 
+.sum-container {
+    background-color: rgb(0, 157, 254);
+    display         : inline;
+
+}
+
 .receipt-table thead {
     background-color: rgb(0, 157, 254);
     align-self      : center;
