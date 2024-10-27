@@ -20,3 +20,11 @@ let isCollapsed = false; // Biến để theo dõi trạng thái
           }
           isCollapsed = !isCollapsed; // Đổi trạng thái
         };
+
+        window.onresize = function () {
+            if (window.innerWidth < 1300) { // Thay đổi giá trị này nếu cần
+                if (!isCollapsed) {
+                    document.getElementById("toggleBtn").onclick();
+                }
+            }
+        };

@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html style="margin: 0">
+<html style="margin: 0" lang="vi">
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="./style/indexstyle.css">
     <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -26,6 +25,60 @@
         #toggleAdminPanel:hover {
             background-color: #0056b3;
         }
+        #box1
+        {
+                border:0px;
+                width: 250px;
+                height: 0;
+                background-color: #182444;
+                position: sticky;
+        }
+
+                #box2{
+                        border:0px;
+                        width: 250px;
+                        height: 100vh;
+                        background-color: #172e4d;
+                        position: absolute;
+                }
+
+        h3
+        {
+                color: #c9d8eb;
+        }
+        .button_ql
+        {
+                cursor: pointer;
+                transition: background-color 0.3s ;
+                background-color:#172e4d ;
+                display: flex;
+                width: 250px;
+                border: none;
+        }
+
+        .button_ql:hover
+        {
+                background-color: #0056B3;
+        }
+        a{
+                text-decoration: none;
+        }
+
+            /* Căn giữa ảnh và giới hạn kích thước */
+        .content_area {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #fff; /* Màu nền vùng trắng */
+                height: 100vh; /* Đảm bảo chiếm toàn bộ chiều cao của khung */
+                overflow: hidden; /* Đảm bảo ảnh không tràn ra ngoài */
+            }
+            
+            .content_area img {
+                max-width: 100vh; /* Đặt kích thước tối đa cho chiều rộng */
+                max-height: 100vh; /* Đặt kích thước tối đa cho chiều cao */
+                object-fit: contain; /* Đảm bảo ảnh giữ nguyên tỉ lệ và nằm gọn trong khung */
+            }
     </style>
 </head>
     <body style="margin:0; height: 100vh;">
@@ -86,7 +139,11 @@
                 </div>
             </div>
 
-            <button id="toggleBtn" style="position: absolute; left: 250px; top: 50%; transform: translateY(-50%); cursor: pointer; font-size: 24px; background: transparent; border: none; color: #007bff;">
+            <button id="toggleBtn" style="position: absolute; left: 250px; top: 50%; 
+                                          transform: translateY(-50%); cursor: pointer; 
+                                          font-size: 24px; background: transparent; 
+                                          border: none; color: #007bff;
+                                          outline: none; transition: color 0.3s;">
                 &#x25B6; <!-- Mũi tên sang phải -->
             </button>
 

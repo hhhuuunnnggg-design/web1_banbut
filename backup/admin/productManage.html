@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html style="margin: 0;" lang="vi">
 
 <head>
     <meta charset="UTF-8">
@@ -29,12 +29,121 @@
             height: auto;
             /* Tự động điều chỉnh chiều cao */
         }
+        #box1
+        {
+            border:0px;
+            width: 250px;
+            height: 0;
+            background-color: #182444;
+            position: sticky;
+        }
+
+            #box2{
+            border: 0px;
+                width: 250px;
+                height: 100vh; /* Chiều cao tối đa là chiều cao cửa sổ */
+                background-color: #172e4d;
+                position: fixed; /* Để box2 luôn đứng yên khi cuộn */
+                overflow-y: auto; /* Hiển thị thanh cuộn khi cần */
+                top: 0; /* Đặt box2 ở đầu trang */
+            }
+
+        h3
+        {
+            color: #c9d8eb;
+            font-size: 1.07em;
+        }
+        .button_ql
+        {
+            cursor: pointer;
+            transition: background-color 0.3s ;
+            background-color:#172e4d ;
+            display: flex;
+            width: 250px;
+            border: none;
+        }
+
+        .button_ql:hover
+        {
+            background-color: #0056B3;
+        }
+        a{
+            text-decoration: none;
+        }
     </style>
     <link rel="stylesheet" href="./css/productManage.css">
 </head>
 
-<body>
-    <div class="container mt-4">
+<body style="margin: 0;">
+    <div style="height: auto;">
+        <div id="box1" style="display: flex; position: relative;">
+            <a>
+                <img src="../Images/logo.png" width="100px">
+            </a>
+            <h3>Quản lí</h3>
+        </div>
+        <div id="box2">
+            <div style="display: flex; align-items: center; justify-content: center;">
+              <a href="./trangchu.html" style="text-decoration: none">
+                <h3 style="font-size: 30px;margin-top: 30px;margin-bottom: 30px; ">Quản Lý Admin</h3>
+              </a>
+            </div>                
+            <div style="display: flex;">
+                <a href="./userManage.html">
+                    <button class="button_ql">
+                        <img src="../Images/admin/user-admin.png" width="35px" height="35px" style="margin: 13px;">
+                        <h3 style="margin-top: 13px;">Quản lí tài khoản</h3>
+                    </button>
+                </a>
+            </div>
+            <div>
+                <a href="./productManage.html">
+                    <button class="button_ql">
+                        <div style="display: flex;">
+                            <img src="../Images/admin/giohang-admin.png" width="35px" height="35px" style="margin: 13px;">
+                            <h3 style="margin-top: 13px;">Quản lí sản phẩm</h3>
+                        </div>
+                    </button>
+                </a>
+  
+                <a href="./donHang.html">
+                    <button class="button_ql">
+                        <div style="display: flex;">
+                            <img src="../Images/admin/donhang-admin.png" width="35px" height="35px" style="margin: 13px;">
+                            <h3 style="margin-top: 13px;">Quản lí đơn hàng</h3>
+                        </div>
+                    </button>
+                </a>
+                <a href="./thongke.html">
+                    <button class="button_ql">
+                        <div style="display: flex;">
+                            <img src="../Images/admin/donhang-admin.png" width="35px" height="35px" style="margin: 13px;">
+                            <h3 style="margin-top: 13px;">Thống kê</h3>
+                        </div>
+                    </button>
+                </a>
+  
+                <a href="./statsManager.html">
+                    <button class="button_ql">
+                        <div style="display: flex;">
+                            <img src="../Images/admin/thongke-admin.png" width="35px" height="35px" style="margin: 10px; ">
+                            <h3 style="margin-top: 13px;">Quản lí doanh thu</h3>
+                        </div>
+                    </button>
+                </a>
+            </div>
+        </div>
+  
+        <button id="toggleBtn" style="position: fixed; left: 250px; top: 50%; 
+                              transform: translateY(-50%); 
+                              cursor: pointer; font-size: 24px; background: transparent; 
+                              border: none; color: #007bff;
+                              outline: none; transition: color 0.3s;">
+            &#x25B6; <!-- Mũi tên sang phải -->
+        </button>
+    </div>
+    
+    <div class="container mt-4" style="margin-right: 100px;">
         <h2>Quản lý Sản phẩm</h2>
         <table class="table table-striped" id="productTable">
             <thead>
@@ -180,6 +289,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="./js/toggle.js"></script>
 
     <script>
         let productid = 1; // ID cho sản phẩm mới
