@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html style="margin: 0" lang="vi">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,31 +15,133 @@
 
     <link rel="stylesheet" href="./style/quanLyDonHang.css" />
     <link rel="stylesheet" href="./css/productManage.css">
-  </head>
-  <body>
-    <div class="container mt-4">
-      <h2>Quản lý đơn hàng</h2>
-      <table class="table table-striped" id="accountTable">
-        <thead>
-          <tr>
-            <th>Stt<i class="fa fa-sort"></i></th>
-            <th>Mã đơn<i></i></th>
-            <th>tên Khách hàng<i></i></th>
-            <th>Địa chỉ<i></i></th>
-            <th>Số điện thoại<i></i></th>
-            <th>Sản phẩm<i></i></th>
-            <th>Tổng tiền<i></i></th>
-            <th>Ngày giờ<i></i></th>
-            <th>Trạng thái<i></i></th>
-            <th>Hành động<i></i></th>
-          </tr>
-        </thead>
-        <tbody class="table-content">
-          <!-- Nội dung đơn hàng sẽ hiển thị ở đây -->
-        </tbody>
-      </table>
 
-      <!-- Nút bên ngoài nằm dưới bảng -->
+    <style>
+      #box1
+      {
+        border:0px;
+        width: 250px;
+        height: 0;
+        background-color: #182444;
+        position: sticky;
+      }
+
+        #box2{
+          border: 0px;
+            width: 250px;
+            height: 100vh; /* Chiều cao tối đa là chiều cao cửa sổ */
+            background-color: #0f1a34;
+            position: fixed; /* Để box2 luôn đứng yên khi cuộn */
+            overflow-y: auto; /* Hiển thị thanh cuộn khi cần */
+            top: 0; /* Đặt box2 ở đầu trang */
+        }
+
+      h3
+      {
+        color: #c9d8eb;
+        font-size: 1.07em;
+      }
+      .button_ql
+      {
+        cursor: pointer;
+        transition: background-color 0.3s ;
+        background-color:#0f1a34 ;
+        display: flex;
+        width: 250px;
+        border: none;
+      }
+
+      .button_ql:hover
+      {
+        background-color: #0056B3;
+      }
+      a{
+        text-decoration: none;
+      }
+      /* #toggleAdminPanel {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        #toggleAdminPanel:hover {
+            background-color: #0056b3;
+        } */
+    </style>
+
+  </head>
+
+  <body style="margin:0;">
+    <div style="height: auto;">
+      <div id="box1" style="display: flex; position: relative;">
+          <a>
+              <img src="../Images/logo.png" width="100px">
+          </a>
+          <h3>Quản lí</h3>
+      </div>
+      <div id="box2">
+          <div style="display: flex; align-items: center; justify-content: center;">
+              <h3 style="font-size: 30px;margin-top: 30px;margin-bottom: 30px; ">Quản Lý Admin</h3>
+          </div>                
+          <div style="display: flex;">
+              <a href="./userManage.html">
+                  <button class="button_ql">
+                      <img src="../Images/admin/user-admin.png" width="35px" height="35px" style="margin: 13px;">
+                      <h3 style="margin-top: 13px;">Quản lí tài khoản</h3>
+                  </button>
+              </a>
+          </div>
+          <div>
+              <a href="./productManage.html">
+                  <button class="button_ql">
+                      <div style="display: flex;">
+                          <img src="../Images/admin/giohang-admin.png" width="35px" height="35px" style="margin: 13px;">
+                          <h3 style="margin-top: 13px;">Quản lí sản phẩm</h3>
+                      </div>
+                  </button>
+              </a>
+
+              <a href="./donHang.html">
+                  <button class="button_ql">
+                      <div style="display: flex;">
+                          <img src="../Images/admin/donhang-admin.png" width="35px" height="35px" style="margin: 13px;">
+                          <h3 style="margin-top: 13px;">Quản lí đơn hàng</h3>
+                      </div>
+                  </button>
+              </a>
+              <a href="./thongke.html">
+                  <button class="button_ql">
+                      <div style="display: flex;">
+                          <img src="../Images/admin/donhang-admin.png" width="35px" height="35px" style="margin: 13px;">
+                          <h3 style="margin-top: 13px;">Thống kê</h3>
+                      </div>
+                  </button>
+              </a>
+
+              <a href="./statsManager.html">
+                  <button class="button_ql">
+                      <div style="display: flex;">
+                          <img src="../Images/admin/thongke-admin.png" width="35px" height="35px" style="margin: 10px; ">
+                          <h3 style="margin-top: 13px;">Quản lí doanh thu</h3>
+                      </div>
+                  </button>
+              </a>
+          </div>
+      </div>
+
+      <button id="toggleBtn" style="position: fixed; left: 250px; top: 50%; transform: translateY(-50%); cursor: pointer; font-size: 24px; background: transparent; border: none; color: #007bff;">
+          &#x25B6; <!-- Mũi tên sang phải -->
+      </button>
+    </div>
+
+    <div class="container mt-4" style="position: relative; left: 100px">
+      <h2>Quản lý đơn hàng</h2>
+
       <div class="external-buttons">
         <div class="date-filter">
           <label for="fromDate">Từ ngày:</label>
@@ -63,6 +165,26 @@
           </button>
         </div>
       </div>
+
+      <table class="table table-striped" id="accountTable">
+        <thead>
+          <tr>
+            <th>Stt<i class="fa fa-sort"></i></th>
+            <th>Mã đơn<i></i></th>
+            <th>tên Khách hàng<i></i></th>
+            <th>Địa chỉ<i></i></th>
+            <th>Số điện thoại<i></i></th>
+            <th>Sản phẩm<i></i></th>
+            <th>Tổng tiền<i></i></th>
+            <th>Ngày giờ<i></i></th>
+            <th>Trạng thái<i></i></th>
+            <th>Hành động<i></i></th>
+          </tr>
+        </thead>
+        <tbody class="table-content">
+          <!-- Nội dung đơn hàng sẽ hiển thị ở đây -->
+        </tbody>
+      </table>
       <div id="pagination" class="pagination-container"></div>
     </div>
 
@@ -72,5 +194,30 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="./js/timKiemDonHang.js"></script>
     <script src="./js/donHang.js"></script>
+
+    <script>
+      let isCollapsed = false; // Biến để theo dõi trạng thái
+
+      document.getElementById("toggleBtn").onclick = function () {
+          const box1 = document.getElementById("box1");
+          const box2 = document.getElementById("box2");
+          const toggleBtn = document.getElementById("toggleBtn");
+
+          if (isCollapsed) {
+              // Hiện lại box
+              box1.style.display = "flex"; // Hiển thị lại box1
+              box2.style.display = "block"; // Hiển thị lại box2
+              toggleBtn.innerHTML = "&#x25B6;"; // Đổi nút thành mũi tên sang phải
+              toggleBtn.style.left = "250px"; // Vị trí cho mũi tên
+          } else {
+              // Ẩn cả box1 và box2
+              box1.style.display = "none"; // Ẩn box1
+              box2.style.display = "none"; // Ẩn box2
+              toggleBtn.innerHTML = "&#x25C0;"; // Đổi nút thành mũi tên sang trái
+              toggleBtn.style.left = "0px"; // Kéo nút lại gần hơn
+          }
+          isCollapsed = !isCollapsed; // Đổi trạng thái
+      };
+    </script>
   </body>
 </html>

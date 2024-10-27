@@ -37,9 +37,12 @@
                 <h3>Quản lí</h3>
             </div>
             <div id="box2">
+                <div style="display: flex; align-items: center; justify-content: center;">
+                    <h3 style="font-size: 30px;">Quản Lý Admin</h3>
+                </div>                
                 <div style="display: flex;">
                     <a href="./userManage.html">
-                        <button>
+                        <button class="button_ql">
                             <img src="../Images/admin/user-admin.png" width="35px" height="auto" style="margin: 10px;">
                             <h3>Quản lí tài khoản</h3>
                         </button>
@@ -47,7 +50,7 @@
                 </div>
                 <div>
                     <a href="./productManage.html">
-                        <button>
+                        <button class="button_ql">
                             <div style="display: flex;">
                                 <img src="../Images/admin/giohang-admin.png" width="35px" height="auto" style="margin: 10px;">
                                 <h3>Quản lí sản phẩm</h3>
@@ -56,7 +59,7 @@
                     </a>
 
                     <a href="./donHang.html">
-                        <button>
+                        <button class="button_ql">
                             <div style="display: flex;">
                                 <img src="../Images/admin/donhang-admin.png" width="35px" height="auto" style="margin: 10px;">
                                 <h3>Quản lí đơn hàng</h3>
@@ -64,7 +67,7 @@
                         </button>
                     </a>
                     <a href="./thongke.html">
-                        <button>
+                        <button class="button_ql">
                             <div style="display: flex;">
                                 <img src="../Images/admin/donhang-admin.png" width="35px" height="auto" style="margin: 10px;">
                                 <h3>Thống kê</h3>
@@ -73,7 +76,7 @@
                     </a>
 
                     <a href="./statsManager.html">
-                        <button>
+                        <button class="button_ql">
                             <div style="display: flex;">
                                 <img src="../Images/admin/thongke-admin.png" width="35px" height="auto" style="margin: 10px; ">
                                 <h3>Quản lí doanh thu</h3>
@@ -86,6 +89,10 @@
             <button id="toggleBtn" style="position: absolute; left: 250px; top: 50%; transform: translateY(-50%); cursor: pointer; font-size: 24px; background: transparent; border: none; color: #007bff;">
                 &#x25B6; <!-- Mũi tên sang phải -->
             </button>
+
+            <div class="content_area">
+                <img src="../Images/logo.png" alt="Background Image" id="backgroundImage">
+            </div>
         </div>
 
         <script>

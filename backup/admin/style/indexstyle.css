@@ -2,25 +2,24 @@
 {
         border:0px;
         width: 250px;
-        height: auto;
+        height: 0;
         background-color: #182444;
         position: sticky;
 }
 
-#box2
-{
-        border:0px;
-        width: 250px;
-        height: 100vh;
-        background-color: #0f1a34;
-        position: absolute;
-}
+        #box2{
+                border:0px;
+                width: 250px;
+                height: 100vh;
+                background-color: #0f1a34;
+                position: absolute;
+        }
 
 h3
 {
         color: #c9d8eb;
 }
-button
+.button_ql
 {
         cursor: pointer;
         transition: background-color 0.3s ;
@@ -30,10 +29,28 @@ button
         border: none;
 }
 
-button:hover
+.button_ql:hover
 {
         background-color: #0056B3;
 }
 a{
         text-decoration: none;
 }
+
+    /* Căn giữa ảnh và giới hạn kích thước */
+.content_area {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff; /* Màu nền vùng trắng */
+        height: 100vh; /* Đảm bảo chiếm toàn bộ chiều cao của khung */
+        overflow: hidden; /* Đảm bảo ảnh không tràn ra ngoài */
+    }
+    
+    .content_area img {
+        max-width: 100vh; /* Đặt kích thước tối đa cho chiều rộng */
+        max-height: 100vh; /* Đặt kích thước tối đa cho chiều cao */
+        object-fit: contain; /* Đảm bảo ảnh giữ nguyên tỉ lệ và nằm gọn trong khung */
+    }
+    
+    
