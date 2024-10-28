@@ -113,6 +113,9 @@ export function drawProducts(page = 1, searchTerm = "") {
                 Thêm vào giỏ hàng
               </button>
             </div>
+            <div class="product_detail">
+            <button class="ChiTietSP" data-id="${product.id}">Chi tiết sản phẩm</button>
+            </div>
           </div>
         </div>
       </div>
@@ -131,8 +134,15 @@ export function drawProducts(page = 1, searchTerm = "") {
 
       onclickDuaVaoGioHang(productId, imgSanPham, tenSanPham, giaSanPham);
     });
+    
   });
-
+  //Gán sự kiện onclick cho các nút "Chi tiết sản phẩm" và lấy mã sản phẩm từ thuộc tính `data-id`
+  document.querySelectorAll(".ChiTietSP").forEach((button) => {
+    button.addEventListener("click",function(){
+      const productId = button.getAttribute("data-id");
+      localStorage.setItem('GetID',JSON.stringify(productId));
+    });
+  });
   // Cập nhật nút phân trang
   function updatePagination(currentPage, totalPages) {
     document.getElementById("paginationNumber").innerText = currentPage;
