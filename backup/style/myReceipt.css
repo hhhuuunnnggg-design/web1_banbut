@@ -45,3 +45,42 @@ body {
 .sum_container .money_sum {
     display: inline-block;
 }
+
+#prevPage {
+    background-color: rgb(0, 157, 254);
+    border-style    : none;
+    padding         : 20px;
+    margin-bottom   : 10px;
+    border-radius   : 10px;
+}
+
+#nextPage {
+    background-color: rgb(0, 157, 254);
+    border-style    : none;
+    padding         : 20px;
+    margin-bottom   : 10px;
+    border-radius   : 10px;
+}
+
+#pageNumbers button {
+    background-color: rgb(210, 209, 209);
+    border-style    : none;
+    padding         : 15px;
+    border-radius   : 10px;
+}
+
+#firstPage {
+    background-color: orange;
+    border-style    : none;
+    padding         : 20px;
+    margin-bottom   : 10px;
+    border-radius   : 10px;
+}
+
+#lastPage {
+    background-color: orange;
+    border-style    : none;
+    padding         : 20px;
+    margin-bottom   : 10px;
+    border-radius   : 10px;
+}

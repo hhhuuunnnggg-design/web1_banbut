@@ -10,6 +10,15 @@
 
 <body>
     <h1 id="title-name">ĐƠN HÀNG CỦA BẠN</h1>
+    <!--div cho phân trang-->
+    <div class="pagination" align="center">
+        <button id="firstPage">First</button>
+        <button id="prevPage" disabled>Previous</button>
+        <span id="pageNumbers"></span>
+        <button id="nextPage">Next</button>
+        <button id="lastPage">Last</button>
+    </div>
+
     <table class="receipt-table" cellspacing="0" cellpadding="50%" align="center" style="width: 50%;">
         <thead>
             <tr>
@@ -28,46 +37,121 @@
     </div>
 </body>
 <script>
-    let i = 0;//index for array
-    var sum = 0;//for todal money calculation
+    let currentPage = 1;
+    const itemsPerPage = 3;
     const productData = JSON.parse(localStorage.getItem(localStorage.getItem("loggedInUserEmail")));
     const productContent = document.querySelector(".product_content");
-    <!--tích hợp json và các biến ở trên-->
-    while (productData[i]) {
-        const newRow = document.createElement("tr");
-        const productId = document.createElement("td");
-        const productName = document.createElement("td");
-        const productImg = document.createElement("td");
-        const productPrice = document.createElement("td");
-        const productAmount = document.createElement("td");
-        const imgDisplay = document.createElement("img");
+    const pageNumbers = document.getElementById("pageNumbers");
+    const sumMoney = document.getElementById("money_sum");
 
-        //tính tổng
-        const money = parseFloat(productData[i].giaSanPham);
-        const sumMoney = document.getElementById("money_sum");
-        sum += money;
-        sumMoney.textContent = "Tổng số tiền: " + sum + " VND";
-        //
+    let sum = productData.reduce((acc, item) => acc + parseFloat(item.giaSanPham), 0);
+    sumMoney.textContent = "Tổng số tiền: " + sum + " VND";
 
-        productId.textContent = i + 1;
-        productName.textContent = productData[i].tenSanPham;
+    // tính tổng số trang(tối đa 4)
+    const totalPages = Math.min(4, Math.ceil(productData.length / itemsPerPage));
 
-        //định dạng lại ảnh
-        imgDisplay.src = productData[i].imgSanPham;
-        //
-        productImg.appendChild(imgDisplay);
-        productPrice.textContent = productData[i].giaSanPham + " VND";
-        productAmount.textContent = productData[i].soLuongSanPham;
+    // hàm hiện sản phẩm ở trang hiện tại
+    function displayProducts(page) {
+        // giữ vị trí kéo chuột trước khi chuyển sang trang mới
+        const scrollPosition = window.scrollY;
 
-        newRow.appendChild(productId);
-        newRow.appendChild(productName);
-        newRow.appendChild(productImg);
-        newRow.appendChild(productPrice);
-        newRow.appendChild(productAmount);
+        productContent.innerHTML = "";
+        const start = (page - 1) * itemsPerPage;
+        const end = Math.min(start + itemsPerPage, productData.length);
 
-        productContent.appendChild(newRow);
-        i++;
+        for (let i = start; i < end; i++) {
+            const newRow = document.createElement("tr");
+
+            const productId = document.createElement("td");
+            const productName = document.createElement("td");
+            const productImg = document.createElement("td");
+            const productPrice = document.createElement("td");
+            const productAmount = document.createElement("td");
+            const imgDisplay = document.createElement("img");
+
+            productId.textContent = i + 1;
+            productName.textContent = productData[i].tenSanPham;
+            imgDisplay.src = productData[i].imgSanPham;
+            imgDisplay.style.width = "100px";
+            productImg.appendChild(imgDisplay);
+            productPrice.textContent = productData[i].giaSanPham + " VND";
+            productAmount.textContent = productData[i].soLuongSanPham;
+
+            newRow.appendChild(productId);
+            newRow.appendChild(productName);
+            newRow.appendChild(productImg);
+            newRow.appendChild(productPrice);
+            newRow.appendChild(productAmount);
+
+            productContent.appendChild(newRow);
+        }
+        window.scrollTo(0, scrollPosition);
     }
+
+    // hàm tạo nút chuyển trang
+    function updatePageButtons() {
+        pageNumbers.innerHTML = "";
+        for (let i = 1; i <= totalPages; i++) {
+            const pageButton = document.createElement("button");
+            pageButton.textContent = i;
+            pageButton.disabled = i === currentPage;
+            pageButton.addEventListener("click", () => {
+                currentPage = i;
+                displayProducts(currentPage);
+                updatePageButtons();
+                updateNavButtons();
+            });
+            pageNumbers.appendChild(pageButton);
+        }
+    }
+
+    // hàm cập nhật nút trang
+    function updateNavButtons() {
+        document.getElementById("prevPage").disabled = currentPage === 1;
+        document.getElementById("nextPage").disabled = currentPage === totalPages;
+        document.getElementById("firstPage").disabled = currentPage === 1;
+        document.getElementById("lastPage").disabled = currentPage === totalPages;
+    }
+
+    // Event listener cho nút trang
+    document.getElementById("prevPage").addEventListener("click", () => {
+        if (currentPage > 1) {
+            currentPage--;
+            displayProducts(currentPage);
+            updatePageButtons();
+            updateNavButtons();
+        }
+    });
+
+    document.getElementById("nextPage").addEventListener("click", () => {
+        if (currentPage < totalPages) {
+            currentPage++;
+            displayProducts(currentPage);
+            updatePageButtons();
+            updateNavButtons();
+        }
+    });
+
+    // Event listeners cho hai nút đầu và cuối trang
+    document.getElementById("firstPage").addEventListener("click", () => {
+        currentPage = 1;
+        displayProducts(currentPage);
+        updatePageButtons();
+        updateNavButtons();
+    });
+
+    document.getElementById("lastPage").addEventListener("click", () => {
+        currentPage = totalPages;
+        displayProducts(currentPage);
+        updatePageButtons();
+        updateNavButtons();
+    });
+
+    // setup 
+    displayProducts(currentPage);
+    updatePageButtons();
+    updateNavButtons();
+
 </script>
 
 </html>
