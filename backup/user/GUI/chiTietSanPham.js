@@ -1,6 +1,6 @@
 
 
-function ButtonLeft()
+export function ButtonLeft()
 {
   const sanpham=JSON.parse(localStorage.getItem('ListPens'));
   const id=JSON.parse(localStorage.getItem('GetID'));
@@ -50,7 +50,7 @@ function ButtonLeft()
   }
 }
 
-function ButtonRight(){
+export function ButtonRight(){
   document.getElementById('ChiTiet').innerHTML=`<h5>I. ĐỐI VỚI KHÁCH HÀNG TẠI TP.HCM:</h5>
             Đến xem và mua trực tiếp tại 4 địa chỉ như sau: <br>
 
@@ -127,14 +127,47 @@ function ButtonRight(){
           }
 
 //Hàm lấy dữ liệu của sp
-function GetItemFromLocalStorage()
+export function GetItemFromLocalStorage()
 {
     const sanpham=JSON.parse(localStorage.getItem('ListPens'));
     const id=JSON.parse(localStorage.getItem('GetID'));
     const index=sanpham.findIndex(sanpham => sanpham.id==id);
     const image=sanpham[index].thumbnail;
+    const mota=sanpham[index].MoTa[0];
     document.getElementById("MSP").innerHTML="MSP: " + sanpham[index].id;
     document.getElementById("Name").innerHTML=sanpham[index].title;
     document.getElementById("Price").innerHTML=sanpham[index].price;
     document.getElementById("Image").innerHTML=`<img src="${image}" height="466" alt=""></img>`;    
+    document.getElementById("Tieu_de1").innerHTML=
+    `${mota.TieuDe1}   
+    <div class="description__MTSP--script_content" id="Noi_dung1">
+       ${mota.MoTa1}
+        </div>`
+    document.getElementById("Tieu_de2").innerHTML=
+    `${mota.TieuDe2}   
+    <div class="description__MTSP--script_content" id="Noi_dung2">
+       ${mota.MoTa2}
+        </div>`
+     document.getElementById("Tieu_de3").innerHTML=
+    `${mota.TieuDe3}   
+    <div class="description__MTSP--script_content" id="Noi_dung3">
+       ${mota.MoTa3}
+        </div>`
+     document.getElementById("Tieu_de4").innerHTML=
+    `${mota.TieuDe4}   
+    <div class="description__MTSP--script_content" id="Noi_dung4">
+       ${mota.MoTa4}
+        </div>`
+     document.getElementById("Tieu_de5").innerHTML=
+    `${mota.TieuDe5}   
+    <div class="description__MTSP--script_content" id="Noi_dung5">
+       ${mota.MoTa5}
+        </div>`
+     document.getElementById("Tieu_de6").innerHTML=
+    `${mota.TieuDe6}   
+    <div class="description__MTSP--script_content" id="Noi_dung6">
+       ${mota.MoTa6}
+        </div>`
 }
+
+
