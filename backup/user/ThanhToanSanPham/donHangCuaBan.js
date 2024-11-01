@@ -50,14 +50,14 @@ export function donHangCuaBan() {
   dsItemGioHang.forEach((item) => {
     const { idSanPham, imgSanPham, tenSanPham, soLuongSanPham, giaSanPham } =
       item;
-
+    const formattedPrice = Number(giaSanPham).toLocaleString("vi-VN");
     const productRow = `
           <tr>
               <td style="display: flex; align-items: center ">
                   <img style="width: 70px" src="${imgSanPham}" alt="${tenSanPham}" />${tenSanPham}
               </td>
               <td>
-                  <p><span>${giaSanPham}</span><sup>đ</sup></p>
+                  <p><span>${formattedPrice}</span><sup>vnđ.</sup></p>
               </td>
               <td>
                   <input style="width: 30px; outline: none" type="text" value="${soLuongSanPham}" min="0" />
@@ -70,7 +70,7 @@ export function donHangCuaBan() {
   });
 
   const tongTien = tinhTongTienGioHang();
-  priceTotalElement.textContent = tongTien;
+  priceTotalElement.textContent = Number(tongTien).toLocaleString("vi-VN");
 }
 
 document.addEventListener("DOMContentLoaded", () => {

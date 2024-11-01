@@ -12,7 +12,7 @@ export function tinhTongTienGioHang() {
     tongTien += tongGiaSanPham;
   });
 
-  console.log("Tổng tiền:", tongTien);
+  console.log("Tổng tiền ", tongTien);
   return tongTien;
 }
 
@@ -45,7 +45,9 @@ export function drawcartGui() {
         <td>
           <input style="width: 30px; outline: none" type="number" value="${soLuongSanPham}" min="0" />
         </td>
-        <td style="cursor: pointer" class="xoa-san-pham" data-id="${idSanPham}">Xóa</td>
+        <td>
+        <button type="button" class="xoa-san-pham btn btn-danger" data-id="${idSanPham}" style="padding: 5px 10px;">Xóa</button>
+      </td>
       </tr>
     `;
 
@@ -55,7 +57,7 @@ export function drawcartGui() {
 
   // cập nhật tổng tiền
   const tongTien = tinhTongTienGioHang();
-  priceTotalElement.textContent = tongTien;
+  priceTotalElement.textContent = `${Number(tongTien).toLocaleString("vi-VN")}`;
 
   // Thêm sự kiện xóa sản phẩm khỏi giỏ hàng
   document.querySelectorAll(".xoa-san-pham").forEach((btn) => {
