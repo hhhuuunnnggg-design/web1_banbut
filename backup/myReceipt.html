@@ -142,6 +142,7 @@
             <button id="lastPage">Cuối</button>
         </div>
     </main>
+
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-contact">
@@ -175,6 +176,74 @@
             <p>&copy; 2024 Bán Bút | Thiết kế bởi Nguyễn Đình Hùng</p>
         </div>
     </footer>
+    <div class="overlay" id="overlay"></div>
+    <script src="user/controller/drawProducts.js" type="module"></script>
+    <script src="user/controller/renderLoaibutList.js" type="module"></script>
+    <script src="user/controller/gioHang.js" type="module"></script>
+    <script src="user/controller/logout.js" type="module"></script>
+    <script src="user/controller/cartGui.js" type="module"></script>
+    <script src="user/GUI/huongdanmuahang.js" type="module"></script>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const userName = localStorage.getItem("loggedInUserName");
+            if (userName) {
+                document.getElementById("greeting").style.display = "block";
+                document.getElementById("userNameDisplay").textContent = userName;
+                document.getElementById("btnLogout").style.display = "block";
+            } else {
+                document.getElementById("btnLogin").style.display = "block";
+                document.getElementById("btnLogout").style.display = "none";
+                document.getElementById("greeting").style.display = "none";
+            }
+
+            // Mở/đóng menu
+            document.getElementById('hamburger').addEventListener('click', function () {
+                var menu = document.querySelector('.inner-menu');
+                var overlay = document.getElementById('overlay'); // Thêm dòng này
+                menu.classList.toggle('show');
+                overlay.style.display = menu.classList.contains('show') ? 'block' : 'none'; // Hiện/ẩn overlay
+            });
+
+            // Đóng menu khi nhấp ra ngoài
+            document.addEventListener('click', function (event) {
+                const menu = document.querySelector('.inner-menu');
+                const hamburger = document.getElementById('hamburger');
+                const overlay = document.getElementById('overlay'); // Thêm dòng này
+                if (!menu.contains(event.target) && !hamburger.contains(event.target)) {
+                    menu.classList.remove('show');
+                    overlay.style.display = 'none'; // Ẩn overlay
+                }
+            });
+        });
+
+        document.getElementById("chotdon").addEventListener("click", function (e) {
+            e.preventDefault();
+            window.location.href = "./Payment.html";
+        });
+        function toggleSearchDisplay() {
+            const searchElement = document.querySelector('.sear2');
+            if (window.innerWidth < 768) {
+                searchElement.style.display = 'none'; // Ẩn khi trên màn hình điện thoại
+            } else {
+                searchElement.style.display = 'block'; // Hiện khi trên màn hình lớn
+            }
+        }
+
+        // Kiểm tra kích thước khi trang được tải
+        document.addEventListener("DOMContentLoaded", toggleSearchDisplay);
+        // Kiểm tra kích thước khi trang được tải
+        document.addEventListener("DOMContentLoaded", toggleSearchDisplay);
+        document.querySelectorAll('.inner-menu a').forEach(item => {
+            item.addEventListener('click', function () {
+                var menu = document.querySelector('.inner-menu');
+                var overlay = document.getElementById('overlay');
+                menu.classList.remove('show');
+                overlay.style.display = 'none';
+            });
+        });
+    </script>
 </body>
 <script>
     let currentPage = 1;
