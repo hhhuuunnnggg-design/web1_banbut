@@ -4,11 +4,12 @@ import {
   luuDSvaoStorage,
   taoGioHang,
 } from "../controller/gioHang.js";
-import { drawcartGui } from "./cartGui.js";
-import {  ButtonLeft,
-          ButtonRight ,
-          GetItemFromLocalStorage 
+import {
+  ButtonLeft,
+  ButtonRight,
+  GetItemFromLocalStorage,
 } from "../GUI/chiTietSanPham.js";
+import { drawcartGui } from "./cartGui.js";
 
 const products = sanpham[0].products;
 const productList = document.getElementById("products");
@@ -97,18 +98,19 @@ export function drawProducts(page = 1, searchTerm = "") {
   const productsToShow = userLocal.slice(start, end);
 
   productsToShow.forEach((product) => {
+    const formattedPrice = Number(product.price).toLocaleString("vi-VN");
     const productItem = `
       <div class="product_item">
         <div class="product_image">
           <img src="${product.thumbnail}" alt="${product.title}" />
-          <div class="product_percent">${product.discountPercentage}%</div>
+          
         </div>
         <div class="product_content">
           <h3 class="product_title">${product.title}</h3>
           <p class="product_description">${product.description}</p>
           <div class="product_meta">
-            <div class="product_price">${product.price} $</div>
-            <div class="product_stock">${product.stock} sp</div>
+            <div class="product_price">${formattedPrice} vnđ</div>
+           
             <div class="product_order">
               <button class="addToCart" data-id="${product.id}" 
                       data-img="${product.thumbnail}" 
@@ -134,12 +136,14 @@ export function drawProducts(page = 1, searchTerm = "") {
   // cập nhật phân trang
   updatePagination(page, totalPages);
 
-    //Gán sự kiện onclick cho các nút "Chi tiết sản phẩm" và lấy mã sản phẩm từ thuộc tính `data-id`
-    document.querySelectorAll(".ChiTietSP").forEach((button) => {
-      button.addEventListener("click",function(){
-        const productId = button.getAttribute("data-id");
-        localStorage.setItem('GetID',JSON.stringify(productId));
-        document.getElementById("detail").innerHTML=`  <div class="container_ctsp">
+  //Gán sự kiện onclick cho các nút "Chi tiết sản phẩm" và lấy mã sản phẩm từ thuộc tính `data-id`
+  document.querySelectorAll(".ChiTietSP").forEach((button) => {
+    button.addEventListener("click", function () {
+      const productId = button.getAttribute("data-id");
+      localStorage.setItem("GetID", JSON.stringify(productId));
+      document.getElementById(
+        "detail"
+      ).innerHTML = `  <div class="container_ctsp">
       <div class="detail">
         <div class="detail__img" id="Image">
           
@@ -217,25 +221,28 @@ export function drawProducts(page = 1, searchTerm = "") {
           </div>
         </div>
       </div>
-    </div>` 
-    GetItemFromLocalStorage();
-    ButtonLeft();
-    document.getElementById('button-right').addEventListener('click', ButtonRight);
-    document.getElementById('button-left').addEventListener('click',ButtonLeft);
-    document.querySelectorAll(".bottom__GioHang").forEach((button) => {
-      button.addEventListener("click", function () {
-        const productId = button.getAttribute("data-id");
-        const imgSanPham = button.getAttribute("data-img");
-        const tenSanPham = button.getAttribute("data-title");
-        const giaSanPham = button.getAttribute("data-price");
-  
-        onclickDuaVaoGioHang(productId, imgSanPham, tenSanPham, giaSanPham);
-      });
-    });
-      });
-    });
+    </div>`;
+      GetItemFromLocalStorage();
+      ButtonLeft();
+      document
+        .getElementById("button-right")
+        .addEventListener("click", ButtonRight);
+      document
+        .getElementById("button-left")
+        .addEventListener("click", ButtonLeft);
+      document.querySelectorAll(".bottom__GioHang").forEach((button) => {
+        button.addEventListener("click", function () {
+          const productId = button.getAttribute("data-id");
+          const imgSanPham = button.getAttribute("data-img");
+          const tenSanPham = button.getAttribute("data-title");
+          const giaSanPham = button.getAttribute("data-price");
 
-    
+          onclickDuaVaoGioHang(productId, imgSanPham, tenSanPham, giaSanPham);
+        });
+      });
+    });
+  });
+
   // Gán sự kiện onclick cho các nút "Thêm vào giỏ hàng" và lấy mã sản phẩm từ thuộc tính `data-id`
   document.querySelectorAll(".addToCart").forEach((button) => {
     button.addEventListener("click", function () {
@@ -246,7 +253,6 @@ export function drawProducts(page = 1, searchTerm = "") {
 
       onclickDuaVaoGioHang(productId, imgSanPham, tenSanPham, giaSanPham);
     });
-    
   });
 
   // Cập nhật nút phân trang
@@ -260,7 +266,9 @@ export function drawProducts(page = 1, searchTerm = "") {
 }
 
 // Điều khiển phân trang
-document.getElementById("paginationPrev").addEventListener("click", function () {
+document
+  .getElementById("paginationPrev")
+  .addEventListener("click", function () {
     if (currentPage > 1) {
       currentPage--;
       drawProducts(currentPage, document.getElementById("searchInput").value); // Cập nhật tìm kiếm khi phân trang
