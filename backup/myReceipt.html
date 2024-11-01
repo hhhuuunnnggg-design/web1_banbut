@@ -3,38 +3,178 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style/myReceipt.css">
+    <link rel="stylesheet" href="./style/myReceipt.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/index.css" />
+    <link rel="stylesheet" href="./style/ctsp.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Đơn Hàng Của Tôi</title>
 </head>
 
 <body>
-    <h1 id="title-name">ĐƠN HÀNG CỦA BẠN</h1>
-    <!--div cho phân trang-->
-    <div class="pagination" align="center">
-        <button id="firstPage">Đầu</button>
-        <button id="prevPage" disabled>Trước</button>
-        <span id="pageNumbers"></span>
-        <button id="nextPage">Sau</button>
-        <button id="lastPage">Cuối</button>
-    </div>
+    <header>
+        <div class="header-main">
+            <div class="container">
+                <div class="inner-wrap">
+                    <div class="hamburger" id="hamburger">
+                        <div><i class="fa-solid fa-bars"></i></div>
+                    </div>
+                </div>
+                <div class="inner-menu" id="menu">
+                    <ul>
+                        <li class="thuonghieu">
+                            <i class="fa-solid fa-house"></i>
+                            <a href="./index_user.html">Trang chủ</a>
+                        </li>
+                        <li class="loaibut">
+                            <i class="fa-solid fa-pen"></i>
+                            <a href="#">Loại bút</a>
+                            <div class="box-submenu">
+                                <ul class="loaibut-list">
+                                    <li>
+                                        <div>Bút------------ html</div>
+                                    </li>
+                                    <li>
+                                        <div>Bút bi</div>
+                                    </li>
+                                    <li>
+                                        <div>Bút dạ bi</div>
+                                    </li>
+                                    <li>
+                                        <div>Bút dạ kim</div>
+                                    </li>
+                                    <li>
+                                        <div>Bút máy</div>
+                                    </li>
+                                    <li>
+                                        <div>Bút chì</div>
+                                    </li>
+                                    <li>
+                                        <div>Bút hàng độc</div>
+                                    </li>
+                                    <li>
+                                        <div>Bút viết chữ đẹp</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-person-chalkboard"></i>
+                            <a href="#" class="huong_dan_mua_hang">Hướng dẫn mua hàng</a>
+                        </li>
 
-    <table class="receipt-table" cellspacing="0" cellpadding="50%" align="center" style="width: 50%;">
-        <thead>
-            <tr>
-                <th>Số Thứ Tự</th>
-                <th>Tên Sản Phẩm</th>
-                <th>Ảnh</th>
-                <th>Giá</th>
-                <th>Số Lượng</th>
-            </tr>
-        </thead>
-        <tbody class="product_content" align="center">
-        </tbody>
-    </table>
-    <div class="sum_container">
-        <p id="money_sum" style="color: white;"></p>
-    </div>
+                        <li>
+                            <i class="fa-solid fa-phone"></i>
+                            <a href="#">Liên hệ</a>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-receipt"></i>
+                            <a href="./myReceipt.html" id="myReceipt">
+                                Đơn Hàng Của Tôi
+                            </a>
+                        </li>
+                        <div class="cart-icon" id="xem_gio_hang">
+                            <i class="fa-solid fa-cart-shopping"></i>Giỏ hàng
+                        </div>
+                        <li>
+                            <div class="sear2">
+                                <div class="search" id="search">
+                                    <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm..." />
+                                    <button id="searchButton">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </button>
+                                </div>
+                                <select id="filter">
+                                    <option value="mac-dinh">Mặc định</option>
+                                    <option value="gia-thap-den-cao">Gía thấp đến cao</option>
+                                    <option value="gia-cao-den-thap">Gía cao đến thấp</option>
+                                    <option value="giam-gia-nhieu">Giảm giá nhiều</option>
+                                </select>
+                                <div class="tim_gia" style="display: none">
+                                    <input type="text" placeholder="Giá min" id="searchPriceMin" />
+                                    <input type="text" placeholder="Giá max" id="searchPriceMax" />
+                                    <button id="searchButtonPrice">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="layout-defauft_account">
+                                <div id="greeting" style="display: none">Xin chào, <span id="userNameDisplay"></span>!
+                                </div>
+                                <div id="btnLogout" style="display: none; text-decoration: none">
+                                    <button class="log_out">Đăng xuất</button>
+                                </div>
+
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+    </header>
+    <main>
+        <h1 id="title-name">ĐƠN HÀNG CỦA BẠN</h1>
+        <table class="receipt-table" cellspacing="0" cellpadding="50%" align="center" style="width: 50%;">
+            <thead>
+                <tr>
+                    <th>Số Thứ Tự</th>
+                    <th>Tên Sản Phẩm</th>
+                    <th>Ảnh</th>
+                    <th>Giá</th>
+                    <th>Số Lượng</th>
+                </tr>
+            </thead>
+            <tbody class="product_content" align="center">
+            </tbody>
+        </table>
+        <div class="sum_container">
+            <p id="money_sum" style="color: white;"></p>
+        </div>
+        <!--div cho phân trang-->
+        <div class="pagination" align="center">
+            <button id="firstPage">Đầu</button>
+            <button id="prevPage" disabled>Trước</button>
+            <span id="pageNumbers"></span>
+            <button id="nextPage">Sau</button>
+            <button id="lastPage">Cuối</button>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-contact">
+                <h3>Liên hệ với chúng tôi</h3>
+                <ul>
+                    <li><i class="fa-solid fa-phone"></i> Điện thoại: +84 123 456 789</li>
+                    <li><i class="fa-solid fa-envelope"></i> Email: nguyendinhhungtc2020@gmail.com</li>
+                    <li><i class="fa-solid fa-map-marker-alt"></i> Địa chỉ: Đại học Sài Gòn, quận 5, đường An Dương
+                        Vương</li>
+                </ul>
+            </div>
+            <div class="footer-hours">
+                <h3>Giờ làm việc</h3>
+                <ul>
+                    <li><i class="fa-solid fa-clock"></i> Thứ 2 - Thứ 6: 8:00 - 18:00</li>
+                    <li><i class="fa-solid fa-clock"></i> Thứ 7: 9:00 - 17:00</li>
+                    <li><i class="fa-solid fa-clock"></i> Chủ nhật: Nghỉ</li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3>Kết nối với chúng tôi</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Bán Bút | Thiết kế bởi Nguyễn Đình Hùng</p>
+        </div>
+    </footer>
 </body>
 <script>
     let currentPage = 1;
