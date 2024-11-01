@@ -5,6 +5,11 @@ import {
   taoGioHang,
 } from "../controller/gioHang.js";
 import { drawcartGui } from "./cartGui.js";
+import {  ButtonLeft,
+          ButtonRight ,
+          GetItemFromLocalStorage 
+} from "../GUI/chiTietSanPham.js";
+
 const products = sanpham[0].products;
 const productList = document.getElementById("products");
 
@@ -114,7 +119,11 @@ export function drawProducts(page = 1, searchTerm = "") {
               </button>
             </div>
             <div class="product_detail">
-            <button class="ChiTietSP" data-id="${product.id}">Chi tiết sản phẩm</button>
+            <a href="#">
+            <button class="ChiTietSP" data-id="${product.id}"
+                      data-img="${product.thumbnail}" 
+                      data-title="${product.title}"
+                      data-price="${product.price}">Chi tiết sản phẩm</button>
             </div>
           </div>
         </div>
@@ -124,6 +133,109 @@ export function drawProducts(page = 1, searchTerm = "") {
   });
   // cập nhật phân trang
   updatePagination(page, totalPages);
+
+    //Gán sự kiện onclick cho các nút "Chi tiết sản phẩm" và lấy mã sản phẩm từ thuộc tính `data-id`
+    document.querySelectorAll(".ChiTietSP").forEach((button) => {
+      button.addEventListener("click",function(){
+        const productId = button.getAttribute("data-id");
+        localStorage.setItem('GetID',JSON.stringify(productId));
+        document.getElementById("detail").innerHTML=`  <div class="container_ctsp">
+      <div class="detail">
+        <div class="detail__img" id="Image">
+          
+        </div>
+        <div class="detail__script">
+          <div class="detail__script--msp" id="MSP">
+            MSP: W0SR-0001
+          </div>
+          <div class="detail__script--name" id="Name">
+            Viết Waterman Serénité Air
+          </div>
+          <div class="detail__script--price" id="Price">
+            100.000.000 ₫
+          </div>
+          <div class="detail__script--notice">
+            Liên hệ để biết tình trạng sản phẩm
+          </div>
+          <div class="bottom">
+            <button class="bottom__MuaHang">
+              Mua ngay
+            </button>
+            <button class="bottom__GioHang" >
+              Thêm vào giỏ hàng
+            </button>
+          </div>
+          <div class="TuyChon">
+            <div class="TuyChon__header" style="display: flex;">
+  
+              <div style="width: 50%;">
+              <button id="button-left" style="width: 100%;" ><h4> Thông tin sản phẩm</h4></button>
+              </div>
+              <div style="width: 50%;">
+              <button id="button-right" style="width: 100%;"><h4> Hướng dẫn mua hàng</h4></button>
+              </div>            
+            </div>
+  
+            <div class="TuyChon__script" id="ChiTiet">
+  
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="description">
+        <div class="description__MTSP--header">
+          <h1>Mô tả sản phẩm</h1>
+        </div>
+        <div class="description__MTSP--script" id="Tieu_de1">
+          <div class="description__MTSP--script_content" id="Noi_dung1">
+         
+          </div>
+        </div>
+        <div class="description__MTSP--script" id="Tieu_de2">
+          <div class="description__MTSP--script_content" id="Noi_dung2">
+         
+          </div>
+        </div>
+        <div class="description__MTSP--script" id="Tieu_de3">
+          <div class="description__MTSP--script_content" id="Noi_dung3">
+         
+          </div>
+        </div>
+        <div class="description__MTSP--script" id="Tieu_de4">
+          <div class="description__MTSP--script_content" id="Noi_dung4">
+         
+          </div>
+        </div>
+        <div class="description__MTSP--script" id="Tieu_de5">
+          <div class="description__MTSP--script_content" id="Noi_dung5">
+         
+          </div>
+        </div>
+        <div class="description__MTSP--script" id="Tieu_de6">
+          <div class="description__MTSP--script_content" id="Noi_dung6">
+         
+          </div>
+        </div>
+      </div>
+    </div>` 
+    GetItemFromLocalStorage();
+    ButtonLeft();
+    document.getElementById('button-right').addEventListener('click', ButtonRight);
+    document.getElementById('button-left').addEventListener('click',ButtonLeft);
+    document.querySelectorAll(".bottom__GioHang").forEach((button) => {
+      button.addEventListener("click", function () {
+        const productId = button.getAttribute("data-id");
+        const imgSanPham = button.getAttribute("data-img");
+        const tenSanPham = button.getAttribute("data-title");
+        const giaSanPham = button.getAttribute("data-price");
+  
+        onclickDuaVaoGioHang(productId, imgSanPham, tenSanPham, giaSanPham);
+      });
+    });
+      });
+    });
+
+    
   // Gán sự kiện onclick cho các nút "Thêm vào giỏ hàng" và lấy mã sản phẩm từ thuộc tính `data-id`
   document.querySelectorAll(".addToCart").forEach((button) => {
     button.addEventListener("click", function () {
@@ -136,13 +248,7 @@ export function drawProducts(page = 1, searchTerm = "") {
     });
     
   });
-  //Gán sự kiện onclick cho các nút "Chi tiết sản phẩm" và lấy mã sản phẩm từ thuộc tính `data-id`
-  document.querySelectorAll(".ChiTietSP").forEach((button) => {
-    button.addEventListener("click",function(){
-      const productId = button.getAttribute("data-id");
-      localStorage.setItem('GetID',JSON.stringify(productId));
-    });
-  });
+
   // Cập nhật nút phân trang
   function updatePagination(currentPage, totalPages) {
     document.getElementById("paginationNumber").innerText = currentPage;
@@ -154,9 +260,7 @@ export function drawProducts(page = 1, searchTerm = "") {
 }
 
 // Điều khiển phân trang
-document
-  .getElementById("paginationPrev")
-  .addEventListener("click", function () {
+document.getElementById("paginationPrev").addEventListener("click", function () {
     if (currentPage > 1) {
       currentPage--;
       drawProducts(currentPage, document.getElementById("searchInput").value); // Cập nhật tìm kiếm khi phân trang

@@ -16,9 +16,9 @@ button{
 button:hover{
   background-color: #cccccc;
 }
-.container{
+.container_ctsp{
     display: flex;
-    margin: 0 auto;
+    margin-top: 40px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -126,35 +126,49 @@ button:hover{
     font-size: 14px;
 }
 .description {
-    background-color: #ffffff;
+    background-color: #e5e5e5;
     padding: 40px 97px 80px 97px;
-    border-radius: 8px;
+    border-radius: 0px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .description__MTSP--header h1 {
-    margin-bottom: 15px;
+    margin-bottom: 25px;
     text-align: center;
 }
 
 .description__MTSP--script {
     line-height: 1.6;
-    font-size: 16px;
+    font-size: 20px;
 }
-.title {
+.description__MTSP--script_content{
+  line-height: 1.6;
+  font-size: 16px;
+  
+}
+
+#title {
   background-color: #f7f7f7;
   font-weight: bold;
 }
-.title1 {
+#title1 {
   background-color: #f2f2f2;
   font-weight: bold;
 }
-.row{
+#row{
   background-color: #f7f7f7;
 }
-.row1{
+#row1{
   background-color: #f2f2f2;
   padding-left: 20px;
+}
+.description__MTSP--script
+{
+  color:red;
+}
+.description__MTSP--script_content
+{
+  color:black;
 }
 table {
   width: 100%;
