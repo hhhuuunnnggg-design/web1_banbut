@@ -145,6 +145,7 @@ export function drawProducts(page = 1, searchTerm = "") {
         "detail"
       ).innerHTML = `  <div class="container_ctsp">
       <div class="detail">
+        <div id="Image-Link"></div>
         <div class="detail__img" id="Image">
           
         </div>
@@ -157,7 +158,7 @@ export function drawProducts(page = 1, searchTerm = "") {
           </div>
           <div class="detail__script--price" id="Price">
             100.000.000 ₫
-          </div>
+          </div>VND
           <div class="detail__script--notice">
             Liên hệ để biết tình trạng sản phẩm
           </div>
@@ -165,7 +166,7 @@ export function drawProducts(page = 1, searchTerm = "") {
             <button class="bottom__MuaHang">
               Mua ngay
             </button>
-            <button class="bottom__GioHang" >
+            <button class="bottom__GioHang" id="bottom_GioHang" >
               Thêm vào giỏ hàng
             </button>
           </div>
@@ -230,18 +231,18 @@ export function drawProducts(page = 1, searchTerm = "") {
       document
         .getElementById("button-left")
         .addEventListener("click", ButtonLeft);
-      document.querySelectorAll(".bottom__GioHang").forEach((button) => {
-        button.addEventListener("click", function () {
-          const productId = button.getAttribute("data-id");
-          const imgSanPham = button.getAttribute("data-img");
-          const tenSanPham = button.getAttribute("data-title");
-          const giaSanPham = button.getAttribute("data-price");
+      
+      document.getElementById("bottom_GioHang").addEventListener("click", function () {
+          const productId = document.getElementById("MSP").innerText;
+          const imgSanPham = document.getElementById("Image-Link").innerText;
+          const tenSanPham = document.getElementById("Name").innerText;
+          const giaSanPham = document.getElementById("Price").innerText;
 
           onclickDuaVaoGioHang(productId, imgSanPham, tenSanPham, giaSanPham);
         });
       });
     });
-  });
+ 
 
   // Gán sự kiện onclick cho các nút "Thêm vào giỏ hàng" và lấy mã sản phẩm từ thuộc tính `data-id`
   document.querySelectorAll(".addToCart").forEach((button) => {
