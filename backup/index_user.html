@@ -78,13 +78,24 @@
           </li>
           <li>
             <i class="fa-solid fa-receipt"></i>
-            <a href="./myReceipt.html" id="myReceipt">
+            <a href="#" id="myReceipt">
               <button class="button">
-                <span>Đơn hàng của tôi
+                <span>đơn hàng của bạn
               </span>
               </button>
             </a>
           </li>
+
+          <li>
+            <i class="fa-solid fa-receipt"></i>
+            <a href="#" id="lichsumua">
+              <button class="button">
+                <span>lịch sử mua hàng
+              </span>
+              </button>
+            </a>
+          </li>
+     
           <div class="cart-icon" id="xem_gio_hang">
             <i class="fa-solid fa-cart-shopping"></i><button class="button">
               <span>giỏ hàng
@@ -103,11 +114,11 @@
                 <option value="mac-dinh">Mặc định</option>
                 <option value="gia-thap-den-cao">Gía thấp đến cao</option>
                 <option value="gia-cao-den-thap">Gía cao đến thấp</option>
-                <option value="giam-gia-nhieu">Giảm giá nhiều</option>
+               
               </select>
               <div class="tim_gia" style="display: none">
-                <input type="text" placeholder="Giá min" id="searchPriceMin" />
-                <input type="text" placeholder="Giá max" id="searchPriceMax" />
+                <input type="text" placeholder="Giá từ" id="searchPriceMin" />
+                <input type="text" placeholder="Giá đến" id="searchPriceMax" />
                 <button id="searchButtonPrice">
                   <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
@@ -130,7 +141,7 @@
   </div>
   </div>
 <div id="detail" style="margin-top: 40px;">
-  <div id="products" class="product_list">
+  <div id="products" class="product_list" style="margin-top: 100px;">
     <div class="product_item">
       <div class="product_image">
         <img src="" alt="" />
@@ -148,9 +159,9 @@
   </div>
 </div>
 <div class="pagination">
-  <span class="pagination_buttun" id="paginationPrev">Prev</span>
+  <span class="pagination_buttun" id="paginationPrev">Trước</span>
   <span class="pagination_number" id="paginationNumber">1</span>
-  <span class="pagination_buttun" id="paginationNext">Next</span>
+  <span class="pagination_buttun" id="paginationNext">Sau</span>
 </div>
 <section class="cart" style="margin-top: 50px; width: 100%; margin-bottom: 20%;">
 
@@ -234,6 +245,8 @@
   <script src="user/controller/logout.js" type="module"></script>
   <script src="user/controller/cartGui.js" type="module"></script>
   <script src="user/GUI/huongdanmuahang.js" type="module"></script>
+  <script src="user/GUI/myReceipt.js" type="module"></script>
+  <script src="user/GUI/lichsumua.js" type="module"></script>
   
 
   <script>
