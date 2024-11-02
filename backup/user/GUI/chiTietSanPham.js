@@ -1,7 +1,5 @@
 export function ButtonLeft() {
   const sanpham = JSON.parse(localStorage.getItem("ListPens"));
-  console.log(sanpham);
-
   const id = JSON.parse(localStorage.getItem("GetID"));
   const index = sanpham.findIndex((sanpham) => sanpham.id == id);
   if (index != -1) {
@@ -132,12 +130,13 @@ export function GetItemFromLocalStorage() {
   const index = sanpham.findIndex((sanpham) => sanpham.id == id);
   const image = sanpham[index].thumbnail;
   const mota = sanpham[index].MoTa[0];
-  document.getElementById("MSP").innerHTML = "MSP: " + sanpham[index].id;
+  document.getElementById("MSP").innerHTML = sanpham[index].id;
   document.getElementById("Name").innerHTML = sanpham[index].title;
   document.getElementById("Price").innerHTML = sanpham[index].price;
   document.getElementById(
     "Image"
   ).innerHTML = `<img src="${image}" height="466" alt=""></img>`;
+  document.getElementById("Image-Link").innerHTML=image;
   document.getElementById("Tieu_de1").innerHTML = `${mota.TieuDe1}   
     <div class="description__MTSP--script_content" id="Noi_dung1">
        ${mota.MoTa1}
