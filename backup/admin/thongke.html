@@ -1,27 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Thống kê đơn hàng</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="./style/thongke.css" />
-  </head>
-  <body>
-    <h2>Thống kê số lượng bán ra và doanh thu</h2>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thống Kê Kinh Doanh</title>
+    <!-- Thêm CSS Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Tùy chỉnh CSS cho giao diện đẹp hơn */
+        .container {
+            max-width: 800px;
+        }
+        .stat-label {
+            font-weight: bold;
+            color: #333;
+        }
+        .no-data {
+            color: #888;
+        }
+        .list-group-item {
+            background-color: #f8f9fa;
+        }
+        .result-table th, .result-table td {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Thống Kê Tình Hình Kinh Doanh</h1>
 
-    <div class="chart-container">
-      <!-- Biểu đồ số lượng bán ra -->
-      <div class="chart-item">
-        <canvas id="myChart1"></canvas>
-      </div>
+        <!-- Form nhập khoảng thời gian thống kê -->
+        <form id="statistics-form" class="mb-4">
+            <div class="form-group">
+                <label for="start-date">Ngày Bắt Đầu:</label>
+                <input type="date" class="form-control" id="start-date" name="start-date" required>
+            </div>
 
-      <!-- Biểu đồ doanh thu -->
-      <div class="chart-item">
-        <canvas id="myChart2"></canvas>
-      </div>
+            <div class="form-group">
+                <label for="end-date">Ngày Kết Thúc:</label>
+                <input type="date" class="form-control" id="end-date" name="end-date" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Thống Kê</button>
+        </form>
+
+        <!-- Kết quả thống kê -->
+        <div id="statistics-results" class="mt-5">
+            <h2 class="text-center">Kết Quả Thống Kê</h2>
+
+            <!-- Thống kê theo mặt hàng -->
+            <div id="product-stats" class="mt-4">
+                <h3 class="stat-label">Thống Kê Theo Mặt Hàng</h3>
+                <table class="table table-bordered result-table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Mặt Hàng</th>
+                            <th>Số Lượng Bán Ra</th>
+                            <th>Tổng Tiền Thu Được</th>
+                            <th>Hành Động</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="4" class="no-data">Chưa có dữ liệu</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h5>Tổng Thu: <span id="total-revenue" class="no-data"></span></h5>
+                <h5>Hàng Bán Chạy Nhất: <span id="best-selling" class="no-data"></span></h5>
+                <h5>Hàng Ế Nhất: <span id="worst-selling" class="no-data"></span></h5>
+            </div>
+
+            <!-- Thống kê theo khách hàng -->
+            <div id="customer-stats" class="mt-4">
+                <h3 class="stat-label">Thống Kê Theo Khách Hàng</h3>
+                <table class="table table-bordered result-table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Khách Hàng</th>
+                            <th>Tổng Doanh Thu</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="2" class="no-data">Chưa có dữ liệu</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h5>5 Khách Hàng Đem Lại Doanh Thu Nhiều Nhất:</h5>
+                <ul id="top-customers" class="list-group">
+                    <li class="list-group-item no-data">Chưa có dữ liệu</li>
+                </ul>
+            </div>
+        </div>
     </div>
 
-    <script src="./js/thongke.js"></script>
-  </body>
+    <!-- Thêm JavaScript Bootstrap và jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 </html>
