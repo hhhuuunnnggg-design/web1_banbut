@@ -1,15 +1,12 @@
+export function ButtonLeft() {
+  const sanpham = JSON.parse(localStorage.getItem("ListPens"));
+  console.log(sanpham);
 
-
-export function ButtonLeft()
-{
-  const sanpham=JSON.parse(localStorage.getItem('ListPens'));
-  const id=JSON.parse(localStorage.getItem('GetID'));
-  const index=sanpham.findIndex(sanpham => sanpham.id==id)
-  if(index!=-1)
-  {
-    const chitietsp=sanpham[index].chitiet[0];
-  document.getElementById('ChiTiet').innerHTML=
-  `<table>
+  const id = JSON.parse(localStorage.getItem("GetID"));
+  const index = sanpham.findIndex((sanpham) => sanpham.id == id);
+  if (index != -1) {
+    const chitietsp = sanpham[index].chitiet[0];
+    document.getElementById("ChiTiet").innerHTML = `<table>
       <tr id=row>
           <td class="title">Dòng sản phẩm</td>
           <td>${chitietsp.DongSanPham}</td>
@@ -46,12 +43,14 @@ export function ButtonLeft()
           <td class="title">Bảo hành</td>
           <td>${sanpham[index].returnPolicy}</td>
       </tr>
-  </table>`
+  </table>`;
   }
 }
 
-export function ButtonRight(){
-  document.getElementById('ChiTiet').innerHTML=`<h5>I. ĐỐI VỚI KHÁCH HÀNG TẠI TP.HCM:</h5>
+export function ButtonRight() {
+  document.getElementById(
+    "ChiTiet"
+  ).innerHTML = `<h5>I. ĐỐI VỚI KHÁCH HÀNG TẠI TP.HCM:</h5>
             Đến xem và mua trực tiếp tại 4 địa chỉ như sau: <br>
 
             ♦ Showroom 1: 91 Hoa Lan, Phường 2, Q. Phú Nhuận, Tp.HCM <br>
@@ -123,51 +122,44 @@ export function ButtonRight(){
             ⇒ Mọi thông tin hỗ trợ khác xin vui lòng liên hệ số hotline là 0909.692.968 hoặc số điện thoại của các cửa
             hàng để được tư vấn cụ thể hơn.<br>
 
-            Trân trọng!<br></br>`
-          }
-
-//Hàm lấy dữ liệu của sp
-export function GetItemFromLocalStorage()
-{
-    const sanpham=JSON.parse(localStorage.getItem('ListPens'));
-    const id=JSON.parse(localStorage.getItem('GetID'));
-    const index=sanpham.findIndex(sanpham => sanpham.id==id);
-    const image=sanpham[index].thumbnail;
-    const mota=sanpham[index].MoTa[0];
-    document.getElementById("MSP").innerHTML="MSP: " + sanpham[index].id;
-    document.getElementById("Name").innerHTML=sanpham[index].title;
-    document.getElementById("Price").innerHTML=sanpham[index].price;
-    document.getElementById("Image").innerHTML=`<img src="${image}" height="466" alt=""></img>`;    
-    document.getElementById("Tieu_de1").innerHTML=
-    `${mota.TieuDe1}   
-    <div class="description__MTSP--script_content" id="Noi_dung1">
-       ${mota.MoTa1}
-        </div>`
-    document.getElementById("Tieu_de2").innerHTML=
-    `${mota.TieuDe2}   
-    <div class="description__MTSP--script_content" id="Noi_dung2">
-       ${mota.MoTa2}
-        </div>`
-     document.getElementById("Tieu_de3").innerHTML=
-    `${mota.TieuDe3}   
-    <div class="description__MTSP--script_content" id="Noi_dung3">
-       ${mota.MoTa3}
-        </div>`
-     document.getElementById("Tieu_de4").innerHTML=
-    `${mota.TieuDe4}   
-    <div class="description__MTSP--script_content" id="Noi_dung4">
-       ${mota.MoTa4}
-        </div>`
-     document.getElementById("Tieu_de5").innerHTML=
-    `${mota.TieuDe5}   
-    <div class="description__MTSP--script_content" id="Noi_dung5">
-       ${mota.MoTa5}
-        </div>`
-     document.getElementById("Tieu_de6").innerHTML=
-    `${mota.TieuDe6}   
-    <div class="description__MTSP--script_content" id="Noi_dung6">
-       ${mota.MoTa6}
-        </div>`
+            Trân trọng!<br></br>`;
 }
 
-
+//Hàm lấy dữ liệu của sp
+export function GetItemFromLocalStorage() {
+  const sanpham = JSON.parse(localStorage.getItem("ListPens"));
+  const id = JSON.parse(localStorage.getItem("GetID"));
+  const index = sanpham.findIndex((sanpham) => sanpham.id == id);
+  const image = sanpham[index].thumbnail;
+  const mota = sanpham[index].MoTa[0];
+  document.getElementById("MSP").innerHTML = "MSP: " + sanpham[index].id;
+  document.getElementById("Name").innerHTML = sanpham[index].title;
+  document.getElementById("Price").innerHTML = sanpham[index].price;
+  document.getElementById(
+    "Image"
+  ).innerHTML = `<img src="${image}" height="466" alt=""></img>`;
+  document.getElementById("Tieu_de1").innerHTML = `${mota.TieuDe1}   
+    <div class="description__MTSP--script_content" id="Noi_dung1">
+       ${mota.MoTa1}
+        </div>`;
+  document.getElementById("Tieu_de2").innerHTML = `${mota.TieuDe2}   
+    <div class="description__MTSP--script_content" id="Noi_dung2">
+       ${mota.MoTa2}
+        </div>`;
+  document.getElementById("Tieu_de3").innerHTML = `${mota.TieuDe3}   
+    <div class="description__MTSP--script_content" id="Noi_dung3">
+       ${mota.MoTa3}
+        </div>`;
+  document.getElementById("Tieu_de4").innerHTML = `${mota.TieuDe4}   
+    <div class="description__MTSP--script_content" id="Noi_dung4">
+       ${mota.MoTa4}
+        </div>`;
+  document.getElementById("Tieu_de5").innerHTML = `${mota.TieuDe5}   
+    <div class="description__MTSP--script_content" id="Noi_dung5">
+       ${mota.MoTa5}
+        </div>`;
+  document.getElementById("Tieu_de6").innerHTML = `${mota.TieuDe6}   
+    <div class="description__MTSP--script_content" id="Noi_dung6">
+       ${mota.MoTa6}
+        </div>`;
+}
