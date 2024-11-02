@@ -75,7 +75,7 @@ function drawmyReceipt() {
     });
 
     if (!hasPendingOrders) {
-      main.innerHTML = "<p>Không có đơn hàng nào đang vận chuyển.</p>";
+      main.innerHTML = "<p>Bạn chưa có đơn hàng nào</p>";
     }
   });
 }
