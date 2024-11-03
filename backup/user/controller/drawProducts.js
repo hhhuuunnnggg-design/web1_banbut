@@ -258,31 +258,93 @@ export function drawProducts(page = 1, searchTerm = "") {
 
   // Cập nhật nút phân trang
   function updatePagination(currentPage, totalPages) {
-    document.getElementById("paginationNumber").innerText = currentPage;
-    document.getElementById("paginationPrev").style.display =
-      currentPage === 1 ? "none" : "inline";
-    document.getElementById("paginationNext").style.display =
-      currentPage === totalPages ? "none" : "inline";
-  }
-}
+    const paginationContainer = document.getElementById("pagination");
+        paginationContainer.innerHTML = ""; // Clear previous pagination buttons
+        const maxVisibleButtons = 5; // Số nút hiển thị tối đa trước và sau trang hiện tại
 
-// Điều khiển phân trang
-document
-  .getElementById("paginationPrev")
-  .addEventListener("click", function () {
-    if (currentPage > 1) {
-      currentPage--;
-      drawProducts(currentPage, document.getElementById("searchInput").value); // Cập nhật tìm kiếm khi phân trang
+        // Nút "Previous"
+        if (currentPage > 1) {
+          const prevButton = document.createElement("button");
+          prevButton.innerText = "Trước";
+          prevButton.onclick = function () {
+            currentPage--;
+            drawProducts(currentPage);
+          };
+          paginationContainer.appendChild(prevButton);
+        }
+
+        // Tính toán phạm vi trang hiển thị
+        let startPage = Math.max(
+          1,
+          currentPage - Math.floor(maxVisibleButtons / 2)
+        );
+        let endPage = Math.min(totalPages, startPage + maxVisibleButtons - 1);
+
+        // Điều chỉnh nếu ở trang đầu hoặc trang cuối
+        if (endPage - startPage < maxVisibleButtons - 1) {
+          startPage = Math.max(1, endPage - maxVisibleButtons + 1);
+        }
+
+        // Nút cho trang đầu tiên và dấu "..."
+        if (startPage > 1) {
+          const firstPageButton = document.createElement("button");
+          firstPageButton.innerText = "1";
+          firstPageButton.onclick = function () {
+            currentPage = 1;
+            drawProducts(currentPage);
+          };
+          paginationContainer.appendChild(firstPageButton);
+
+          if (startPage > 2) {
+            const dots = document.createElement("span");
+            dots.innerText = "...";
+            paginationContainer.appendChild(dots);
+          }
+        }
+
+        // Tạo nút cho các trang trong phạm vi hiển thị
+        for (let i = startPage; i <= endPage; i++) {
+          const pageButton = document.createElement("button");
+          pageButton.innerText = i;
+          if (i === currentPage) {
+            pageButton.classList.add("active");
+          }
+          pageButton.onclick = function () {
+            currentPage = i;
+            drawProducts(currentPage);
+          };
+          paginationContainer.appendChild(pageButton);
+        }
+
+        // Nút cho trang cuối cùng và dấu "..."
+        if (endPage < totalPages) {
+          if (endPage < totalPages - 1) {
+            const dots = document.createElement("span");
+            dots.innerText = "...";
+            paginationContainer.appendChild(dots);
+          }
+
+          const lastPageButton = document.createElement("button");
+          lastPageButton.innerText = totalPages;
+          lastPageButton.onclick = function () {
+            currentPage = totalPages;
+            drawProducts(currentPage);
+          };
+          paginationContainer.appendChild(lastPageButton);
+        }
+
+        // Nút "Next"
+        if (currentPage < totalPages) {
+          const nextButton = document.createElement("button");
+          nextButton.innerText = "Sau";
+          nextButton.onclick = function () {
+            currentPage++;
+            drawProducts(currentPage);
+          };
+          paginationContainer.appendChild(nextButton);
+        }
+      }
     }
-  });
-
-document
-  .getElementById("paginationNext")
-  .addEventListener("click", function () {
-    currentPage++;
-    drawProducts(currentPage, document.getElementById("searchInput").value); // Cập nhật tìm kiếm khi phân trang
-  });
-
 // Sự kiện tìm kiếm
 document.getElementById("searchButton").addEventListener("click", function (e) {
   const searchTerm = document.getElementById("searchInput").value; // Lấy giá trị từ input tìm kiếm
