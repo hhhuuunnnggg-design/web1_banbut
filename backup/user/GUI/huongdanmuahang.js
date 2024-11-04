@@ -1,10 +1,45 @@
 const huongdanmuahang =
   document.getElementsByClassName("huong_dan_mua_hang")[0];
 const hd = document.getElementById("products");
-
+const link = document.createElement('link');
+link.rel = 'stylesheet';
+link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css';
+document.head.appendChild(link);
+window.onscroll = function(){
+  scrollFuction();
+};
+function scrollFuction() {
+  const btn = document.getElementById("backToTop");
+  btn.addEventListener("click", topFunction);
+  if (document.documentElement.scrollTop > 20) {
+    btn.style.display = "block";
+  } else {
+    btn.style.display = "none";
+  }
+}
+function topFunction() {
+  document.documentElement.scrollTop = 0; 
+}
 huongdanmuahang.addEventListener("click", function () {
   hd.innerHTML = `
   <style>
+  #backToTop{
+  position:fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  background-color: #4e5a62;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 4px;
+  display:none;
+  }
+  #backToTop:hover{
+  background-color: #a3b0b7;
+  }
     .tutorial {
       max-width: 800px;
       margin: 5px auto;
@@ -128,6 +163,10 @@ huongdanmuahang.addEventListener("click", function () {
       </ul>
     
       <p>Trên đây là một số nội dung hướng dẫn mua bút ký tại Thế Giới Bút. Quý khách cần trợ giúp xin vui lòng liên hệ số hotline: <span class="tutorial__detail">0888.168.968.</span> Xin cảm ơn!</p>
-    </div>
+    <button onclick="topFunction()" id="backToTop"><i class="fas fa-arrow-up"></i></button>
+      </div>
 `;
+const btn = document.getElementById("backToTop");
+  btn.addEventListener("click", topFunction);
 });
+
