@@ -95,7 +95,6 @@ function quanlydonhang() {
 
   return danhSachDonHang;
 }
-
 function chiTietDonHang(maDon) {
   const listDH = quanlydonhang(); // Lấy danh sách đơn hàng
   const donHang = listDH.find((d) => d.maDon === maDon); // Tìm đơn hàng theo mã
@@ -111,9 +110,9 @@ function chiTietDonHang(maDon) {
   if (donHang) {
     // Tạo bảng chi tiết đơn hàng
     let s = `
-      <h3>Chi tiết đơn hàng mã: ${maDon}</h3>
+     <h3 style="color: red;">Chi tiết đơn hàng mã: ${maDon}</h3>
       <table class="table table-bordered">
-        <thead>
+        <thead style="background-color: red; color: white;">
           <tr>
             <th>STT</th>
             <th>Tên sản phẩm</th>
@@ -142,11 +141,10 @@ function chiTietDonHang(maDon) {
             <td>${stt++}</td>
             <td>${ten.trim()}</td>
             <td>${soLuong.trim()}</td>
-            <td>${giaTien.trim()}<sup>đ</sup></td>
-            <td>${(
-              parseInt(giaTien) * parseInt(soLuong)
-            ).toLocaleString()}<sup>đ</sup></td>
-          </tr>
+             <td>${Number(giaTien.trim()).toLocaleString()}<sup>vnđ</sup></td>
+          <td>${(
+            Number(giaTien) * parseInt(soLuong)
+          ).toLocaleString()}<sup>vnđ</sup></td>
         `;
       }
     });
