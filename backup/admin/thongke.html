@@ -42,7 +42,7 @@
                 <input type="date" class="form-control" id="end-date" name="end-date" required>
             </div>
 
-            <button type="submit" class="btn btn-primary btn-block">Thống Kê</button>
+            <button type="submit" class="btn btn-primary btn-block" onclick="onclickThongke()">Thống Kê</button>
         </form>
 
         <!-- Kết quả thống kê -->
@@ -61,15 +61,15 @@
                             <th>Hành Động</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="tbody-mathang" id="mathang">
                         <tr>
                             <td colspan="4" class="no-data">Chưa có dữ liệu</td>
                         </tr>
                     </tbody>
                 </table>
-                <h5>Tổng Thu: <span id="total-revenue" class="no-data"></span></h5>
-                <h5>Hàng Bán Chạy Nhất: <span id="best-selling" class="no-data"></span></h5>
-                <h5>Hàng Ế Nhất: <span id="worst-selling" class="no-data"></span></h5>
+                <h5 id="tongthu">Tổng Thu: <span id="total-revenue" class="no-data"></span></h5>
+                <h5 id="hangbanchaynhat">Hàng Bán Chạy Nhất: <span id="best-selling" class="no-data"></span></h5>
+                <h5 id="hangbanenhat">Hàng Ế Nhất: <span id="worst-selling" class="no-data"></span></h5>
             </div>
 
             <!-- Thống kê theo khách hàng -->
@@ -80,18 +80,32 @@
                         <tr>
                             <th>Khách Hàng</th>
                             <th>Tổng Doanh Thu</th>
+                            <th>Hành Động</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="tbody-khachhang" id="khachhang">
+                        <!-- Dữ liệu sẽ được chèn vào đây -->
                         <tr>
-                            <td colspan="2" class="no-data">Chưa có dữ liệu</td>
+                            <td colspan="3" class="no-data">Chưa có dữ liệu</td>
                         </tr>
                     </tbody>
                 </table>
                 <h5>5 Khách Hàng Đem Lại Doanh Thu Nhiều Nhất:</h5>
-                <ul id="top-customers" class="list-group">
-                    <li class="list-group-item no-data">Chưa có dữ liệu</li>
-                </ul>
+                <table class="table table-bordered result-table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Khách Hàng</th>
+                            <th>Tổng Doanh Thu</th>
+                            <th>Hành Động</th>
+                        </tr>
+                    </thead>
+                    <tbody class="tbody-khachhang" id="khachhangdoanhthunhieunhat">
+                        <!-- Dữ liệu sẽ được chèn vào đây -->
+                        <tr>
+                            <td colspan="3" class="no-data">Chưa có dữ liệu</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -100,5 +114,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="./js/thongkeMH&KH.js"></script>
 </body>
 </html>
