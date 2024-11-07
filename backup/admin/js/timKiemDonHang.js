@@ -98,6 +98,9 @@ function displayFilteredOrders(filteredOrders) {
               <button class="btn btn-danger" onclick="huyDonHang('${
                 local.maDon
               }', false)">Xóa</button>
+              <button class="btn btn-info" onclick="chiTietDonHang('${
+                local.maDon
+              }')">chi tiết đơn</button>
             </td>
           </tr>`;
   });
@@ -196,7 +199,8 @@ function test() {
 }
 test();
 function createRow(local, index) {
-  const colorClass = local.tinhTrang === "đã giao hàng" ? "text-success" : "text-warning";
+  const colorClass =
+    local.tinhTrang === "đã giao hàng" ? "text-success" : "text-warning";
   return `
     <tr class="donhang-row">
       <td>${index + 1}</td>
@@ -209,115 +213,123 @@ function createRow(local, index) {
       <td>${local.ngayMua}</td>
       <td class="${colorClass}">${local.tinhTrang}</td>
       <td>
-        <button class="btn btn-warning" style="background-color:#15de16;border-color:#15de16;color:#ffffff" onclick="duyetDonHang('${local.maDon}', true)">Duyệt</button>
-        <button class="btn btn-danger" onclick="huyDonHang('${local.maDon}', false)">Xóa</button>
+        <button class="btn btn-warning" style="background-color:#15de16;border-color:#15de16;color:#ffffff" onclick="duyetDonHang('${
+          local.maDon
+        }', true)">Duyệt</button>
+        <button class="btn btn-danger" onclick="huyDonHang('${
+          local.maDon
+        }', false)">Xóa</button>
+          <button class="btn btn-info" onclick="chiTietDonHang('${
+            local.maDon
+          }')">chi tiết đơn</button>
+        
       </td>
     </tr>`;
 }
-let currentPage=1;
-let limit=4;
-function loadItems(){
+let currentPage = 1;
+let limit = 4;
+function loadItems() {
   const listDH = trangThaiDonHang();
-  const listDHbody=document.getElementsByClassName("table-content")[0];
-  listDHbody.innerHTML="";
+  const listDHbody = document.getElementsByClassName("table-content")[0];
+  listDHbody.innerHTML = "";
 
-  const total=listDH.length;
-  const start=(currentPage-1)*limit;
-  const end=start+limit;
+  const total = listDH.length;
+  const start = (currentPage - 1) * limit;
+  const end = start + limit;
 
   listDH.slice(start, end).forEach((list, index) => {
     const newRow = createRow(list, index + start);
-    listDHbody.insertAdjacentHTML('beforeend', newRow);
+    listDHbody.insertAdjacentHTML("beforeend", newRow);
   });
   renderPagination(total);
 }
 
 // Function to render pagination buttons
 function renderPagination(totalItems) {
-    const paginationContainer = document.getElementById('pagination');
-    paginationContainer.innerHTML = ''; 
+  const paginationContainer = document.getElementById("pagination");
+  paginationContainer.innerHTML = "";
 
-    const totalPages = Math.ceil(totalItems / limit);
-    const maxVisibleButtons = 5; 
+  const totalPages = Math.ceil(totalItems / limit);
+  const maxVisibleButtons = 5;
 
-    // Nút "Previous"
-    if (currentPage > 1) {
-        const prevButton = document.createElement('button');
-        prevButton.innerText = 'Trước';
-        prevButton.onclick = function () {
-            currentPage--;
-            loadItems();
-        };
-        paginationContainer.appendChild(prevButton);
+  // Nút "Previous"
+  if (currentPage > 1) {
+    const prevButton = document.createElement("button");
+    prevButton.innerText = "Trước";
+    prevButton.onclick = function () {
+      currentPage--;
+      loadItems();
+    };
+    paginationContainer.appendChild(prevButton);
+  }
+
+  // Tính toán phạm vi trang hiển thị
+  let startPage = Math.max(1, currentPage - Math.floor(maxVisibleButtons / 2));
+  let endPage = Math.min(totalPages, startPage + maxVisibleButtons - 1);
+
+  // Điều chỉnh nếu ở trang đầu hoặc trang cuối
+  if (endPage - startPage < maxVisibleButtons - 1) {
+    startPage = Math.max(1, endPage - maxVisibleButtons + 1);
+  }
+
+  // Nút cho trang đầu tiên và dấu "..."
+  if (startPage > 1) {
+    const firstPageButton = document.createElement("button");
+    firstPageButton.innerText = "1";
+    firstPageButton.onclick = function () {
+      currentPage = 1;
+      loadItems();
+    };
+    paginationContainer.appendChild(firstPageButton);
+
+    if (startPage > 2) {
+      const dots = document.createElement("span");
+      dots.innerText = "...";
+      paginationContainer.appendChild(dots);
+    }
+  }
+
+  // Tạo nút cho các trang trong phạm vi hiển thị
+  for (let i = startPage; i <= endPage; i++) {
+    const pageButton = document.createElement("button");
+    pageButton.innerText = i;
+    if (i === currentPage) {
+      pageButton.classList.add("active");
+    }
+    pageButton.onclick = function () {
+      currentPage = i;
+      loadItems();
+    };
+    paginationContainer.appendChild(pageButton);
+  }
+
+  // Nút cho trang cuối cùng và dấu "..."
+  if (endPage < totalPages) {
+    if (endPage < totalPages - 1) {
+      const dots = document.createElement("span");
+      dots.innerText = "...";
+      paginationContainer.appendChild(dots);
     }
 
-    // Tính toán phạm vi trang hiển thị
-    let startPage = Math.max(1, currentPage - Math.floor(maxVisibleButtons / 2));
-    let endPage = Math.min(totalPages, startPage + maxVisibleButtons - 1);
+    const lastPageButton = document.createElement("button");
+    lastPageButton.innerText = totalPages;
+    lastPageButton.onclick = function () {
+      currentPage = totalPages;
+      loadItems();
+    };
+    paginationContainer.appendChild(lastPageButton);
+  }
 
-    // Điều chỉnh nếu ở trang đầu hoặc trang cuối
-    if (endPage - startPage < maxVisibleButtons - 1) {
-        startPage = Math.max(1, endPage - maxVisibleButtons + 1);
-    }
-
-    // Nút cho trang đầu tiên và dấu "..."
-    if (startPage > 1) {
-        const firstPageButton = document.createElement('button');
-        firstPageButton.innerText = '1';
-        firstPageButton.onclick = function () {
-            currentPage = 1;
-            loadItems();
-        };
-        paginationContainer.appendChild(firstPageButton);
-
-        if (startPage > 2) {
-            const dots = document.createElement('span');
-            dots.innerText = '...';
-            paginationContainer.appendChild(dots);
-        }
-    }
-
-    // Tạo nút cho các trang trong phạm vi hiển thị
-    for (let i = startPage; i <= endPage; i++) {
-        const pageButton = document.createElement('button');
-        pageButton.innerText = i;
-        if (i === currentPage) {
-            pageButton.classList.add('active');
-        }
-        pageButton.onclick = function () {
-            currentPage = i;
-            loadItems();
-        };
-        paginationContainer.appendChild(pageButton);
-    }
-
-    // Nút cho trang cuối cùng và dấu "..."
-    if (endPage < totalPages) {
-        if (endPage < totalPages - 1) {
-            const dots = document.createElement('span');
-            dots.innerText = '...';
-            paginationContainer.appendChild(dots);
-        }
-
-        const lastPageButton = document.createElement('button');
-        lastPageButton.innerText = totalPages;
-        lastPageButton.onclick = function () {
-            currentPage = totalPages;
-            loadItems();
-        };
-        paginationContainer.appendChild(lastPageButton);
-    }
-
-    // Nút "Next"
-    if (currentPage < totalPages) {
-        const nextButton = document.createElement('button');
-        nextButton.innerText = 'Sau';
-        nextButton.onclick = function () {
-            currentPage++;
-            loadItems();
-        };
-        paginationContainer.appendChild(nextButton);
-    }
+  // Nút "Next"
+  if (currentPage < totalPages) {
+    const nextButton = document.createElement("button");
+    nextButton.innerText = "Sau";
+    nextButton.onclick = function () {
+      currentPage++;
+      loadItems();
+    };
+    paginationContainer.appendChild(nextButton);
+  }
 }
 // Initial load
 loadItems();

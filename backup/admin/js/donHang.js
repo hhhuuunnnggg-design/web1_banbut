@@ -35,7 +35,7 @@ function addTableDonHang() {
         }', false)">Xóa</button>
         <button class="btn btn-info" onclick="chiTietDonHang('${
           d.maDon
-        }',true)">chi tiết đơn</button>
+        }')">chi tiết đơn</button>
       </td>
     </tr>
   `;
