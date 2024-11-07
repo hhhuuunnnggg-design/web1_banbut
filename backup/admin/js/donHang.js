@@ -33,6 +33,9 @@ function addTableDonHang() {
         <button class="btn btn-danger" onclick="huyDonHang('${
           d.maDon
         }', false)">Xóa</button>
+        <button class="btn btn-info" onclick="chiTietDonHang('${
+          d.maDon
+        }',true)">chi tiết đơn</button>
       </td>
     </tr>
   `;
@@ -61,6 +64,7 @@ function quanlydonhang() {
         const tenSp = sanpham.tenSanPham;
         const soLuong = sanpham.soLuongSanPham;
         const giaSp = Number(sanpham.giaSanPham);
+        const imgSp = sanpham.imgSanPham;
         const thanhTien = soLuong * giaSp;
         tongTienDon += thanhTien;
 
@@ -70,6 +74,7 @@ function quanlydonhang() {
       const tenKh = don.sanPham[0].ten;
       const diachiKh = don.sanPham[0].diachi;
       const sdtKh = don.sanPham[0].sdt;
+      const imgSp = don.sanPham[0].imgSanPham;
 
       const donHangMoi = {
         maDon: don.ngaymua,
@@ -80,13 +85,83 @@ function quanlydonhang() {
         tongTien: tongTienDon,
         ngayMua: new Date(don.ngaymua).toLocaleString(),
         tinhTrang: don.tinhTrang,
+        img: imgSp,
       };
 
       danhSachDonHang.push(donHangMoi);
     });
   });
+  console.log(danhSachDonHang);
 
   return danhSachDonHang;
+}
+
+function chiTietDonHang(maDon) {
+  const listDH = quanlydonhang(); // Lấy danh sách đơn hàng
+  const donHang = listDH.find((d) => d.maDon === maDon); // Tìm đơn hàng theo mã
+  const detailContent = document.getElementById("detail-content"); // Lấy phần tử hiển thị chi tiết
+
+  if (!detailContent) {
+    console.error(
+      "Không tìm thấy phần tử với id 'detail-content'. Vui lòng kiểm tra lại HTML."
+    );
+    return;
+  }
+
+  if (donHang) {
+    // Tạo bảng chi tiết đơn hàng
+    let s = `
+      <h3>Chi tiết đơn hàng mã: ${maDon}</h3>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>STT</th>
+            <th>Tên sản phẩm</th>
+            <th>Số lượng</th>
+            <th>Giá tiền</th>
+            <th>Tổng tiền</th>
+          </tr>
+        </thead>
+        <tbody>
+    `;
+
+    // Duyệt qua danh sách sản phẩm và tạo các hàng cho bảng chi tiết
+    const sanPhamList = donHang.sanPhamList.split("</li>");
+    let stt = 1;
+
+    sanPhamList.forEach((sanPham) => {
+      if (sanPham.trim() !== "") {
+        const [tenSp, soLuongGia] = sanPham
+          .replace(/<\/?li>/g, "")
+          .split(" - ");
+        const [ten, soLuong] = tenSp.split(" x ");
+        const giaTien = soLuongGia.split("<sup>đ</sup>")[0];
+
+        s += `
+          <tr>
+            <td>${stt++}</td>
+            <td>${ten.trim()}</td>
+            <td>${soLuong.trim()}</td>
+            <td>${giaTien.trim()}<sup>đ</sup></td>
+            <td>${(
+              parseInt(giaTien) * parseInt(soLuong)
+            ).toLocaleString()}<sup>đ</sup></td>
+          </tr>
+        `;
+      }
+    });
+
+    s += `
+        </tbody>
+      </table>
+      <p><strong>Tổng tiền của đơn hàng: ${donHang.tongTien}<sup>đ</sup></strong></p>
+    `;
+
+    // Hiển thị bảng chi tiết trong phần tử "detail-content"
+    detailContent.innerHTML = s;
+  } else {
+    console.log(`Không tìm thấy đơn hàng mã: ${maDon}`);
+  }
 }
 
 // Hàm duyệt đơn hàng
