@@ -132,9 +132,15 @@
               <div id="btnLogout" style="display: none; text-decoration: none">
                 <button class="log_out">Đăng xuất</button>
               </div>
-
+              <div id="btnLogin">
+                <a href="..//backup/login_logout.html">
+                  <button class="log_in">
+                  <span class="login-icon">🔒</span>
+                  Đăng nhập</button>
+                </a>
+              </div>
+            </div>
           </li>
-          
         </ul>
       </div>
     </div>
@@ -306,6 +312,32 @@
         overlay.style.display = 'none';
       });
     });
+
+    document.addEventListener("DOMContentLoaded", function () {
+    const userName = localStorage.getItem("loggedInUserName");
+
+    if (userName) {
+      // Hiển thị thông tin chào và nút Đăng xuất nếu đã đăng nhập
+      document.getElementById("greeting").style.display = "block";
+      document.getElementById("userNameDisplay").textContent = userName;
+      document.getElementById("btnLogout").style.display = "block";
+      document.getElementById("btnLogin").style.display = "none"; // Ẩn nút Đăng nhập
+    } else {
+      // Nếu chưa đăng nhập, chỉ hiển thị nút Đăng nhập
+      document.getElementById("btnLogin").style.display = "block";
+      document.getElementById("btnLogout").style.display = "none";
+      document.getElementById("greeting").style.display = "none";
+    }
+
+    // Thêm sự kiện cho nút Đăng xuất
+    document.getElementById("btnLogout").addEventListener("click", function () {
+      // Xóa thông tin đăng nhập và làm mới lại giao diện
+      localStorage.removeItem("loggedInUserName");
+      document.getElementById("greeting").style.display = "none";
+      document.getElementById("btnLogout").style.display = "none";
+      document.getElementById("btnLogin").style.display = "block"; // Hiển thị lại nút Đăng nhập
+    });
+  });
   </script>
 
 </body>
