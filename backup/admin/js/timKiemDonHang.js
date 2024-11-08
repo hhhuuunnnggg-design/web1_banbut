@@ -332,4 +332,6 @@ function renderPagination(totalItems) {
   }
 }
 // Initial load
-loadItems();
+window.onload = function() {
+  loadItems();  // Gọi khi trang tải lần đầu
+};
