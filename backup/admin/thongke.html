@@ -27,20 +27,21 @@
     </style>
 </head>
 <body>
+    
     <div class="container mt-5">
-        <h1 class="text-center mb-4">Thống Kê Tình Hình Kinh Doanh</h1>
+        <h1 class="text-center mb-4">Thống Kê Tình Hình Kinh Doanh</h1>       
 
         <!-- Form nhập khoảng thời gian thống kê -->
-        <form id="statistics-form" class="mb-4">
-            <div class="form-group">
-                <label for="start-date">Ngày Bắt Đầu:</label>
-                <input type="date" class="form-control" id="start-date" name="start-date" required>
-            </div>
+        <form id="statistics-form" class="mb-4">          
+          <div class="form-group">
+            <label for="start-date">Ngày Bắt Đầu:</label>
+            <input type="date" class="form-control" id="start-date" name="start-date" required>
+          </div>
 
-            <div class="form-group">
-                <label for="end-date">Ngày Kết Thúc:</label>
-                <input type="date" class="form-control" id="end-date" name="end-date" required>
-            </div>
+          <div class="form-group">
+              <label for="end-date">Ngày Kết Thúc:</label>
+              <input type="date" class="form-control" id="end-date" name="end-date" required>
+          </div>
 
             <button type="submit" class="btn btn-primary btn-block" onclick="onclickThongke()">Thống Kê</button>
         </form>
@@ -108,12 +109,53 @@
                 </table>
             </div>
         </div>
+<!----------------------------------Modal xem hóa đơn-------------------->
+        <div
+        class="modal fade"
+        id="XemHoaDon"
+        tabindex="-1"
+        aria-labelledby="XemHoaDonModalLabel"
+        aria-hidden="true"
+       
+        
+      >
+        <div class="modal-dialog">
+          <div class="modal-content " style="width: 900px;">
+            <div class="modal-header">
+              <h5 class="modal-title" id="hoadonkhachhang">
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-striped" id="banghoadonkhachhang">
+                        <thead>
+                          <tr>
+                          </tr>
+                        </thead>
+                        <tbody id="HoaDonKH">
+                          <!-- Dữ liệu sản phẩm sẽ được chèn vào đây -->
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+          </div>
+        </div>
     </div>
+
 
     <!-- Thêm JavaScript Bootstrap và jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="./js/thongkeMH&KH.js"></script>
+    
+
 </body>
 </html>
