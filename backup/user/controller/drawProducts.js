@@ -133,7 +133,7 @@ export function drawProducts(page = 1, searchTerm = "") {
     `;
     productList.innerHTML += productItem;
   });
-  // cập nhật phân trang
+  //vẽ cập nhật phân trang
   updatePagination(page, totalPages);
 
   //Gán sự kiện onclick cho các nút "Chi tiết sản phẩm" và lấy mã sản phẩm từ thuộc tính `data-id`
@@ -231,8 +231,10 @@ export function drawProducts(page = 1, searchTerm = "") {
       document
         .getElementById("button-left")
         .addEventListener("click", ButtonLeft);
-      
-      document.getElementById("bottom_GioHang").addEventListener("click", function () {
+
+      document
+        .getElementById("bottom_GioHang")
+        .addEventListener("click", function () {
           const productId = document.getElementById("MSP").innerText;
           const imgSanPham = document.getElementById("Image-Link").innerText;
           const tenSanPham = document.getElementById("Name").innerText;
@@ -240,9 +242,8 @@ export function drawProducts(page = 1, searchTerm = "") {
 
           onclickDuaVaoGioHang(productId, imgSanPham, tenSanPham, giaSanPham);
         });
-      });
     });
- 
+  });
 
   // Gán sự kiện onclick cho các nút "Thêm vào giỏ hàng" và lấy mã sản phẩm từ thuộc tính `data-id`
   document.querySelectorAll(".addToCart").forEach((button) => {
@@ -259,92 +260,83 @@ export function drawProducts(page = 1, searchTerm = "") {
   // Cập nhật nút phân trang
   function updatePagination(currentPage, totalPages) {
     const paginationContainer = document.getElementById("pagination");
-        paginationContainer.innerHTML = ""; // Clear previous pagination buttons
-        const maxVisibleButtons = 5; // Số nút hiển thị tối đa trước và sau trang hiện tại
+    paginationContainer.innerHTML = "";
+    const maxVisibleButtons = 5;
 
-        // Nút "Previous"
-        if (currentPage > 1) {
-          const prevButton = document.createElement("button");
-          prevButton.innerText = "Trước";
-          prevButton.onclick = function () {
-            currentPage--;
-            drawProducts(currentPage);
-          };
-          paginationContainer.appendChild(prevButton);
-        }
+    if (currentPage > 1) {
+      const prevButton = document.createElement("button");
+      prevButton.innerText = "Trước";
+      prevButton.onclick = function () {
+        currentPage--;
+        drawProducts(currentPage, document.getElementById("searchInput").value);
+      };
+      paginationContainer.appendChild(prevButton);
+    }
 
-        // Tính toán phạm vi trang hiển thị
-        let startPage = Math.max(
-          1,
-          currentPage - Math.floor(maxVisibleButtons / 2)
-        );
-        let endPage = Math.min(totalPages, startPage + maxVisibleButtons - 1);
+    let startPage = Math.max(
+      1,
+      currentPage - Math.floor(maxVisibleButtons / 2)
+    );
+    let endPage = Math.min(totalPages, startPage + maxVisibleButtons - 1);
 
-        // Điều chỉnh nếu ở trang đầu hoặc trang cuối
-        if (endPage - startPage < maxVisibleButtons - 1) {
-          startPage = Math.max(1, endPage - maxVisibleButtons + 1);
-        }
+    if (endPage - startPage < maxVisibleButtons - 1) {
+      startPage = Math.max(1, endPage - maxVisibleButtons + 1);
+    }
 
-        // Nút cho trang đầu tiên và dấu "..."
-        if (startPage > 1) {
-          const firstPageButton = document.createElement("button");
-          firstPageButton.innerText = "1";
-          firstPageButton.onclick = function () {
-            currentPage = 1;
-            drawProducts(currentPage);
-          };
-          paginationContainer.appendChild(firstPageButton);
-
-          if (startPage > 2) {
-            const dots = document.createElement("span");
-            dots.innerText = "...";
-            paginationContainer.appendChild(dots);
-          }
-        }
-
-        // Tạo nút cho các trang trong phạm vi hiển thị
-        for (let i = startPage; i <= endPage; i++) {
-          const pageButton = document.createElement("button");
-          pageButton.innerText = i;
-          if (i === currentPage) {
-            pageButton.classList.add("active");
-          }
-          pageButton.onclick = function () {
-            currentPage = i;
-            drawProducts(currentPage);
-          };
-          paginationContainer.appendChild(pageButton);
-        }
-
-        // Nút cho trang cuối cùng và dấu "..."
-        if (endPage < totalPages) {
-          if (endPage < totalPages - 1) {
-            const dots = document.createElement("span");
-            dots.innerText = "...";
-            paginationContainer.appendChild(dots);
-          }
-
-          const lastPageButton = document.createElement("button");
-          lastPageButton.innerText = totalPages;
-          lastPageButton.onclick = function () {
-            currentPage = totalPages;
-            drawProducts(currentPage);
-          };
-          paginationContainer.appendChild(lastPageButton);
-        }
-
-        // Nút "Next"
-        if (currentPage < totalPages) {
-          const nextButton = document.createElement("button");
-          nextButton.innerText = "Sau";
-          nextButton.onclick = function () {
-            currentPage++;
-            drawProducts(currentPage);
-          };
-          paginationContainer.appendChild(nextButton);
-        }
+    if (startPage > 1) {
+      const firstPageButton = document.createElement("button");
+      firstPageButton.innerText = "1";
+      firstPageButton.onclick = function () {
+        currentPage = 1;
+        drawProducts(currentPage, document.getElementById("searchInput").value);
+      };
+      paginationContainer.appendChild(firstPageButton);
+      if (startPage > 2) {
+        const dots = document.createElement("span");
+        dots.innerText = "...";
+        paginationContainer.appendChild(dots);
       }
     }
+
+    for (let i = startPage; i <= endPage; i++) {
+      const pageButton = document.createElement("button");
+      pageButton.innerText = i;
+      if (i === currentPage) {
+        pageButton.classList.add("active");
+      }
+      pageButton.onclick = function () {
+        currentPage = i;
+        drawProducts(currentPage, document.getElementById("searchInput").value);
+      };
+      paginationContainer.appendChild(pageButton);
+    }
+
+    if (endPage < totalPages) {
+      if (endPage < totalPages - 1) {
+        const dots = document.createElement("span");
+        dots.innerText = "...";
+        paginationContainer.appendChild(dots);
+      }
+      const lastPageButton = document.createElement("button");
+      lastPageButton.innerText = totalPages;
+      lastPageButton.onclick = function () {
+        currentPage = totalPages;
+        drawProducts(currentPage, document.getElementById("searchInput").value);
+      };
+      paginationContainer.appendChild(lastPageButton);
+    }
+
+    if (currentPage < totalPages) {
+      const nextButton = document.createElement("button");
+      nextButton.innerText = "Sau";
+      nextButton.onclick = function () {
+        currentPage++;
+        drawProducts(currentPage, document.getElementById("searchInput").value);
+      };
+      paginationContainer.appendChild(nextButton);
+    }
+  }
+}
 // Sự kiện tìm kiếm
 document.getElementById("searchButton").addEventListener("click", function (e) {
   const searchTerm = document.getElementById("searchInput").value; // Lấy giá trị từ input tìm kiếm
