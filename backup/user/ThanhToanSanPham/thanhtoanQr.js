@@ -2,12 +2,13 @@
 function getCurrentUserEmail() {
   return localStorage.getItem("loggedInUserEmail");
 }
-
+let success = false;
+let checkInterval;
 // Hàm gửi QR
 export function GuiQr() {
   const MY_MbBank = {
-    bank_id: "Techcombank",
-    AccCount: "7709082004",
+    bank_id: "Vietinbank",
+    AccCount: "109879341167",
   };
 
   const hd = document.getElementById("Pay__Method__body");
@@ -29,6 +30,9 @@ export function GuiQr() {
 
   // Thêm thông báo khi tạo mã QR
   alert("Bạn đã tạo mã QR. Vui lòng quét mã để chuyển tiền.");
+  checkInterval = setInterval(() => {
+    checkPaid(tongTien);
+  }, 1000);
 }
 thucHienChuyenKhoan();
 // Hàm thực hiện chuyển khoản (giả định)
@@ -62,7 +66,7 @@ function Tongtien() {
 // Hàm lấy danh sách sản phẩm trong giỏ hàng
 function DsItemGioHang() {
   const currentUserEmail = getCurrentUserEmail();
-  let DsItemGioHang = [];
+  var DsItemGioHang = [];
 
   if (currentUserEmail) {
     const jsonDSItemGioHang = localStorage.getItem(currentUserEmail);
@@ -127,3 +131,36 @@ export function drawcartGui() {
   });
 }
 // drawcartGui();
+async function checkPaid(price) {
+if (success) {
+  clearInterval(checkInterval);
+  return;
+}else{
+  try{
+    const response = await fetch("https://script.googleusercontent.com/macros/echo?user_content_key=pGUitLoL7zGVy1lVg1lI8MsZ1uT3Q6cBOMqhFuUlc1zzjeFn6Ub0PYuFq2mnMgY6JF2AZmyg8ChWq7KohVP_A8BzgJuChzjNm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnB6NfkYH50W8ti1v6EfLVXbVsqYgvbH_90-2Fxt9OMwhKws0pdcg5j8T57nPnujOycYSYdP4Djo_QrKPFSRGB2z1U8e07rxmRdz9Jw9Md8uu&lib=MYHRLOEH-QL7zZAEgTyvOOCAOGknlh8FV");
+    const data= await response.json();
+    const lastPaid =data.data[data.data.length-1];
+    const lastPrice = lastPaid["Giá trị"];
+    if (lastPrice>=price){
+      alert("Thanh toán thành công");
+      clearGioHang();
+      clearInterval(checkInterval);
+      success = true;
+      location.reload();
+    }else{
+      console.log("không thành công");
+    }
+      }catch(error){
+        console.error("Lỗi:", error);
+      }
+}
+}
+function clearGioHang() {
+  const currentUserEmail = getCurrentUserEmail();
+  
+  if (currentUserEmail) {
+    localStorage.removeItem('currentUserEmail'); 
+    localStorage.removeItem(currentUserEmail);  
+  }
+  DsItemGioHang = [];
+}
