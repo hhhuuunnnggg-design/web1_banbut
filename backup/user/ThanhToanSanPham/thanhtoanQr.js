@@ -6,11 +6,11 @@ let success = false;
 let checkInterval;
 // Hàm gửi QR
 export function GuiQr() {
+  const currentUserEmail = getCurrentUserEmail()+"muahang";
   const MY_MbBank = {
     bank_id: "Vietinbank",
     AccCount: "109879341167",
   };
-
   const hd = document.getElementById("Pay__Method__body");
   if (!hd) {
     console.error("Không tìm thấy phần tử với ID 'Pay__Method__body'");
@@ -22,7 +22,7 @@ export function GuiQr() {
   hd.innerHTML = `
     <div class="course_qr">
       <img class="course_qr_img" style="width: 290px"
-           src="https://img.vietqr.io/image/${MY_MbBank.bank_id}-${MY_MbBank.AccCount}-qr_only.png?amount=${tongTien}"
+           src="https://img.vietqr.io/image/${MY_MbBank.bank_id}-${MY_MbBank.AccCount}-qr_only.png?amount=${tongTien}&addInfo=${currentUserEmail}"
            alt="Mã QR thanh toán" />
       <h3>Tổng tiền: <span>${tongTien}</span> đ</h3>
     </div>
@@ -31,7 +31,7 @@ export function GuiQr() {
   // Thêm thông báo khi tạo mã QR
   alert("Bạn đã tạo mã QR. Vui lòng quét mã để chuyển tiền.");
   checkInterval = setInterval(() => {
-    checkPaid(tongTien);
+    checkPaid(tongTien,currentUserEmail);
   }, 1000);
 }
 thucHienChuyenKhoan();
@@ -131,7 +131,7 @@ export function drawcartGui() {
   });
 }
 // drawcartGui();
-async function checkPaid(price) {
+async function checkPaid(price,content) {
 if (success) {
   clearInterval(checkInterval);
   return;
@@ -141,18 +141,19 @@ if (success) {
     const data= await response.json();
     const lastPaid =data.data[data.data.length-1];
     const lastPrice = lastPaid["Giá trị"];
-    if (lastPrice>=price){
+    const lastContent = lastPaid["Mô tả"];
+    if (lastPrice>=price && lastContent.includes(content)){
       alert("Thanh toán thành công");
       clearGioHang();
       clearInterval(checkInterval);
       success = true;
-      location.reload();
     }else{
       console.log("không thành công");
     }
       }catch(error){
         console.error("Lỗi:", error);
       }
+      quayLaiTrangChu();
 }
 }
 function clearGioHang() {
@@ -163,4 +164,7 @@ function clearGioHang() {
     localStorage.removeItem(currentUserEmail);  
   }
   DsItemGioHang = [];
+}
+function quayLaiTrangChu() {
+  window.location.href = 'index_user.html';
 }
