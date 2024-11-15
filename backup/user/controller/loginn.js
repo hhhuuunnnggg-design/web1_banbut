@@ -33,7 +33,7 @@ formLogin.addEventListener("submit", function (e) {
     localStorage.setItem("loggedInUserEmail", findAccount.userEmail);
 
     // Chuyển hướng đến trang người dùng
-    window.location.href = "index_user.html";
+    window.location.href = "index.html";
   }
 });
 // -----------------------
