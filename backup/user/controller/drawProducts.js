@@ -105,10 +105,14 @@ export function drawProducts(page = 1, searchTerm = "") {
           <img src="${product.thumbnail}" alt="${product.title}" />
           
         </div>
-        <div class="product_content">
+        <div class="product_content" style="height: 290px">
           <h3 class="product_title">${product.title}</h3>
-          <p class="product_description">${product.description}</p>
-          <div class="product_meta">
+          <p class="product_description" style="font-size: 16px; color: #555; overflow: hidden; 
+            text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; 
+            line-height: 1.5em; min-height: calc(1.5em * 4);">
+            ${product.description}
+          </p>
+          <div class="product_meta" style="display: flex; justify-self: bottom">
             <div class="product_price">${formattedPrice} vnđ</div>
            
             <div class="product_order">
@@ -120,7 +124,7 @@ export function drawProducts(page = 1, searchTerm = "") {
                 Thêm vào giỏ hàng
               </button>
             </div>
-            <div class="product_detail">
+            <div class="product_detail" >
             <a href="#">
             <button class="ChiTietSP" data-id="${product.id}"
                       data-img="${product.thumbnail}" 

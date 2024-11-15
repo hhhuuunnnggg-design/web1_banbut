@@ -301,11 +301,15 @@ body {
 
 .product_title {
   font-size: 16px;
-  /* Kích thước chữ cho tiêu đề sản phẩm */
   font-weight: bold;
-  /* Đậm cho tiêu đề */
   margin: 10px 0;
-  /* Khoảng cách trên và dưới cho tiêu đề */
+  line-height: 1.2em; /* Chiều cao dòng */
+  height: 2.4em; /* Đặt chiều cao cố định để hiển thị tối đa 2 dòng */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Giới hạn số dòng là 2 */
+  -webkit-box-orient: vertical;
 }
 
 .product_meta {
