@@ -600,7 +600,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         inStock: 8,
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail:
-          "./Images/thumnails/ButMay/ButMayParkerDuofold100thYearsLEBlueGT.jpg",
+          "./Images/thumnails/ButDaKim/ButDaKimMontblancStarwalkerBluePlanet.jpg",
       chitiet:[{
         XuatXu:"Mỹ",
         DoiTuong:"Doanh nhân, Nam, Nữ",
@@ -640,7 +640,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         inStock: 2,
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail:
-          "./Images/thumnails/ButMay/ButMayParkerDuofold100thYearsLERedGT.jpg",
+          "./Images/thumnails/ButDaKim/ButDaKimMontblancStarWalkerDouéFinelinerPenMB118872.jpg",
       chitiet:[{
         XuatXu:"Mỹ",
         DoiTuong:"Doanh nhân, Nam, Nữ",
@@ -680,7 +680,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         inStock: 4,
         returnPolicy: "30 ngày miễn phí đổi trả",
         thumbnail:
-          "./Images/thumnails/ButMay/ButMayParkerDuofold100thYearsLEBlackGT.jpg",
+          "./Images/thumnails/ButDaKim/ButDaKimParkerIngennuityRubberMetalBlack.jpg",
       chitiet:[{
         XuatXu:"Mỹ",
         DoiTuong:"Doanh nhân, Nam, Nữ",

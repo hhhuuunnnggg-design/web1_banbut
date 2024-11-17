@@ -559,6 +559,16 @@ body {
   cursor: pointer;
 }
 
+#close_cart {
+  box-shadow: 0px 4px 10px rgba(255, 0, 0, 0.5); /* Hiệu ứng đổ bóng màu đỏ */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#close_cart:hover {
+  transform: scale(1.1); /* Phóng to nhẹ khi hover */
+  box-shadow: 0px 6px 15px rgba(255, 0, 0, 0.7); /* Đổ bóng đậm hơn khi hover */
+}
+
 /* chi tiết sản phẩm*/
 .ChiTietSP {
   margin-left: 10%;

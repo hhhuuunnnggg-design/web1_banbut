@@ -170,45 +170,44 @@
 
 <section class="cart" style="margin-top: 50px; width: 100%; margin-bottom: 20%;">
 
-    <div>
-      <h2>Đây chính là giỏ hàng</h2>
-      <i class="fa-solid fa-circle-xmark" id="close_cart"></i>
+  <div>
+    <h2>Đây chính là giỏ hàng</h2>
+  </div>
+
+  <!-- view giỏ hàng -->
+  <form id="formCart" action="">
+    <table class="table table-striped table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th>Sản Phẩm</th>
+          <th>Giá</th>
+          <th>Số Lượng</th>
+          <th>Lựa chọn</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="display: flex; align-items: center">
+            <img style="width: 70px" src="./Images/thumnails/ButBi/ButBiAllan120BBL.jpg" alt="dssa" /> Bút 1
+          </td>
+          <td>
+            <p><span>320000</span><sup>đ</sup></p>
+          </td>
+          <td>
+            <input style="width: 30px; outline: none" type="number" value="1" min="0" />
+          </td>
+          <td><button type="button" class="btn btn-danger">Danger</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="text-align: right" class="price-total d-flex justify-content-end align-items-center gap-3">
+      <p style="font-weight: bold; margin: 0">Tổng tiền: <span>320000</span><sup>vnđ</sup></p>
+      <button id="chotdon" class="btn btn-warning btn-lg">Thanh Toán</button>
+      <button id="close_cart" type="button" class="btn btn-danger btn-lg">Thoát</button>
     </div>
-
-    <!-- view giỏ hàng -->
-    <form id="formCart" action="">
-      <table class="table table-striped table-hover">
-        <thead class="thead-dark">
-          <tr>
-            <th>Sản Phẩm</th>
-            <th>Giá</th>
-            <th>Số Lượng</th>
-            <th>Lựa chọn</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style="display: flex; align-items: center">
-              <img style="width: 70px" src="./Images/thumnails/ButBi/ButBiAllan120BBL.jpg" alt="dssa" /> Bút 1
-            </td>
-            <td>
-              <p><span>320000</span><sup>đ</sup></p>
-            </td>
-            <td>
-              <input style="width: 30px; outline: none" type="number" value="1" min="0" />
-            </td>
-            <td ><button type="button" class="btn btn-danger">Danger</button></td>
-          </tr>
-          
-        </tbody>
-      </table>
-      <div style="text-align: right" class="price-total">
-        <p style="font-weight: bold">Tổng tiền: <span>320000</span><sup>vnđ</sup></p>
-        <button id="chotdon" style="background-color: orange; cursor: pointer; border-radius: 5px;">Thanh Toán.</button>
-      </div>
-    </form>
-  </section>
-
+  </form>
+</section>
 
 </div>
   <footer class="footer">
