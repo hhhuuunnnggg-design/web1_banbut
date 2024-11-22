@@ -173,9 +173,6 @@ productList.innerHTML += pagination;
             Liên hệ để biết tình trạng sản phẩm
           </div>
           <div class="bottom">
-            <button class="bottom__MuaHang">
-              Mua ngay
-            </button>
             <button class="bottom__GioHang" id="bottom_GioHang" >
               Thêm vào giỏ hàng
             </button>
