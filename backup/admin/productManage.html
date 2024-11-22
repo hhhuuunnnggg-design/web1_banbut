@@ -192,7 +192,6 @@
             <th>Loại</th>
             <th>Hình ảnh</th>
             <th>Giá</th>
-            <th>Giảm giá</th>
             <th>Số lượng</th>
             <th>Thông tin</th>
             <th>Bảo hành</th>
@@ -280,15 +279,6 @@
                   />
                 </div>
                 <div class="form-group">
-                  <label for="productDiscount">Giảm giá:</label>
-                  <input
-                    type="number"
-                    class="form-control"
-                    id="productDiscount"
-                    required
-                  />
-                </div>
-                <div class="form-group">
                   <label for="productStock">Số lượng:</label>
                   <input
                     type="number"
@@ -347,9 +337,12 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" id="modal-body">
               <form id="editProductForm">
-                <input type="hidden" id="editProductId" />
+                <div class="form-group">
+                  <label for="editProductID">ID:</label>
+                <output type="number" class="form-control" id="editProductId" ></output>
+                </div>
                 <div class="form-group">
                   <label for="editProductName">Tên:</label>
                   <input
@@ -387,14 +380,6 @@
                   />
                 </div>
                 <div class="form-group">
-                  <label for="editProductDiscount">Giảm giá:</label>
-                  <input
-                    type="number"
-                    class="form-control"
-                    id="editProductDiscount"
-                  />
-                </div>
-                <div class="form-group">
                   <label for="editProductStock">Số lượng:</label>
                   <input
                     type="number"
@@ -422,6 +407,7 @@
                   Cập nhật Sản phẩm
                 </button>
               </form>
+              <div id="showimg"></div>
             </div>
           </div>
         </div>
@@ -445,7 +431,6 @@
           const productId = sanpham[i].id;
           const productName = sanpham[i].title;
           const productCategory = sanpham[i].category;
-          const productDiscount = sanpham[i].discountPercentage;
           const productImage = sanpham[i].thumbnail; // Lấy hình ảnh
           const productStock = sanpham[i].inStock;
           const productPrice = sanpham[i].price;
@@ -460,13 +445,12 @@
                             <td>${productName}</td>
                             <td>${productCategory}</td>
                             <td><img src="${productImage}" alt="${productName}" class="img-thumbnail"></td>
-                            <td>${productPrice} VNĐ</td>
-                            <td>${productDiscount}</td>
+                            <td>${productPrice.toLocaleString("vi-VN",{style:"currency",currency:"VND"})} VNĐ</td>
                             <td>${productStock}</td>
                             <td>${productInfo}</td>
                             <td>${productReturnPolicy}</td>
                             <td>
-                                <button class="btn btn-warning" onclick="openEditProductModal(${productId}, '${productName}','${productCategory}', '${productImage}', ${productPrice},'${productDiscount}','${productStock}', '${productInfo}','${productReturnPolicy}')">Sửa</button>
+                                <button class="btn btn-warning" onclick="openEditProductModal(${productId}, '${productName}','${productCategory}', '${productImage}', ${productPrice},'${productStock}', '${productInfo}','${productReturnPolicy}')">Sửa</button>
                                 <button class="btn btn-danger" onclick="Confirmbeforedelete(${productId})">Xóa</button>
                             </td>
                         </tr>
@@ -482,13 +466,12 @@
                             <td>${productName}</td>
                             <td>${productCategory}</td>
                             <td><img src=".${productImage}" alt="${productName}" class="img-thumbnail"></td>
-                            <td>${productPrice} VNĐ</td>
-                            <td>${productDiscount}</td>
+                            <td>${productPrice.toLocaleString("vi-VN",{style:"currency",currency:"VND"})} VNĐ</td>
                             <td>${productStock}</td>
                             <td>${productInfo}</td>
                             <td>${productReturnPolicy}</td>
                             <td>
-                                <button class="btn btn-warning" onclick="openEditProductModal(${productId}, '${productName}','${productCategory}', '${productImage}', ${productPrice},'${productDiscount}','${productStock}', '${productInfo}','${productReturnPolicy}')">Sửa</button>
+                                <button class="btn btn-warning" onclick="openEditProductModal(${productId}, '${productName}','${productCategory}', '${productImage}', ${productPrice},'${productStock}', '${productInfo}','${productReturnPolicy}')">Sửa</button>
                                 <button class="btn btn-danger" onclick="Confirmbeforedelete(${productId})">Xóa</button>
                             </td>
                         </tr>
@@ -512,8 +495,6 @@
           document.getElementById("ProductCategory").value;
         const productImage = document.getElementById("productImage").files[0]; // Lấy hình ảnh
         const productPrice = document.getElementById("productPrice").value;
-        const productDiscount =
-          document.getElementById("productDiscount").value;
         const productStock = document.getElementById("productStock").value;
         const productInfo = document.getElementById("productInfo").value;
         const productReturnPolicy = document.getElementById(
@@ -531,13 +512,12 @@
                             <td>${productName}</td>
                             <td>${productCategory}</td>
                             <td><img src="${base64Data}" alt="${productName}" class="img-thumbnail"></td>
-                            <td>${productPrice} VNĐ</td>
-                            <td>${productDiscount}</td>
+                            <td>${productPrice.toLocaleString("vi-VN",{style:"currency",currency:"VND"})} VNĐ</td>
                             <td>${productStock}</td>
                             <td>${productInfo}</td>
                             <td>${productReturnPolicy}</td>
                             <td>
-                                <button class="btn btn-warning" onclick="openEditProductModal(${productId}, '${productName}','${productCategory}', '${productImage}', ${productPrice},'${productDiscount}','${productStock}', '${productInfo}','${productReturnPolicy}')">Sửa</button>
+                                <button class="btn btn-warning" onclick="openEditProductModal(${productId}, '${productName}','${productCategory}', '${productImage}', ${productPrice},'${productStock}', '${productInfo}','${productReturnPolicy}')">Sửa</button>
                                 <button class="btn btn-danger" onclick="Confirmbeforedelete(${productId})">Xóa</button>
                             </td>
                         </tr>
@@ -554,7 +534,6 @@
                 title: productName,
                 category: productCategory,
                 price: productPrice,
-                discountPercentage: productDiscount,
                 thumbnail: base64Data,
                 inStock: productStock,
                 returnPolicy: productReturnPolicy,
@@ -565,7 +544,6 @@
                 title: productName,
                 category: productCategory,
                 price: productPrice,
-                discountPercentage: productDiscount,
                 thumbnail: base64Data,
                 inStock: productStock,
                 returnPolicy: productReturnPolicy,
@@ -605,39 +583,26 @@
         category,
         imageUrl,
         price,
-        discount,
         stock,
         info,
         returnpolicy
       ) {
+        document.getElementById('showimg').innerHTML="";
         const sanpham = JSON.parse(localStorage.getItem("ListPens"));
         document.getElementById("editProductId").value = id;
         document.getElementById("editProductName").value = name;
         document.getElementById("editProductCategory").value = category;
         document.getElementById("editProductPrice").value = price;
-        document.getElementById("editProductDiscount").value = discount;
         document.getElementById("editProductStock").value = stock;
         document.getElementById("editProductInfo").value = info;
         document.getElementById("editProductReturnPolicy").value = returnpolicy;
         // Hiển thị hình ảnh hiện tại
         if (imageUrl.startsWith("data:image/"))
-          document
-            .getElementById("editProductModal")
-            .querySelector(".modal-body")
-            .insertAdjacentHTML(
-              "beforeend",
-              `<img src="${imageUrl}" alt="${name}" class="img-thumbnail" style="width:100px;">`
-            );
+          document.getElementById("showimg").insertAdjacentHTML("beforeend",`<img src="${imageUrl}" alt="${name}" class="img-thumbnail" style="width:100px;">`);
         else
-          document
-            .getElementById("editProductModal")
-            .querySelector(".modal-body")
-            .insertAdjacentHTML(
-              "beforeend",
-              `<img src=".${imageUrl}" alt="${name}" class="img-thumbnail" style="width:100px;">`
-            );
+          document.getElementById("showimg").insertAdjacentHTML("beforeend",`<img src=".${imageUrl}" alt="${name}" class="img-thumbnail" style="width:100px;">`);
 
-        $("#editProductModal").modal("show");
+        $("#editProductModal").modal("show");        
       }
 
       //Hàm xác nhận trước khi xóa
@@ -657,18 +622,17 @@
         const name = document.getElementById("editProductName").value;
         const category = document.getElementById("editProductCategory").value;
         const price = document.getElementById("editProductPrice").value;
-        const discount = document.getElementById("editProductDiscount").value;
         const stock = document.getElementById("editProductStock").value;
         const info = document.getElementById("editProductInfo").value;
-        const returnpolicy = document.getElementById(
-          "editProductReturnPolicy"
-        ).value;
-        const image = document.getElementById("editProductImage").file[0]; //Lấy ảnh
-        if (image) {
+        const returnpolicy = document.getElementById("editProductReturnPolicy").value;
+        const image = document.getElementById("editProductImage").files[0]; //Lấy ảnh
           const row = document.getElementById(`product-${id}`);
           row.cells[1].textContent = name;
-          row.cells[4].textContent = `${price} VNĐ`;
-          row.cells[7].textContent = info;
+          row.cells[2].textContent=category;         
+          row.cells[4].textContent = `${price.toLocaleString("vi-VN",{style:"currency",currency:"VND"})}`;
+          row.cells[5].textContent=stock;
+          row.cells[6].textContent = info;
+          row.cells[7].textContent=returnpolicy;
 
           const sanpham = JSON.parse(localStorage.getItem("ListPens"));
           const index = sanpham.findIndex((sanpham) => sanpham.id == id);
@@ -676,28 +640,34 @@
             sanpham[index].id = id;
             sanpham[index].title = name;
             sanpham[index].category = category;
+            console.log(price);
             sanpham[index].price = price;
-            sanpham[index].discountPercentage = discount;
             sanpham[index].inStock = stock;
             sanpham[index].description = info;
             sanpham[index].returnPolicy = returnpolicy;
-            if (image.startsWith("data:image/")) {
+            if (image) 
+            {
+              row.cells[3]=image;
               reader = new FileReader();
               reader.onload = function (e) {
                 const base64Data = e.target.result;
                 sanpham[index].thumbnail = base64Data;
+                localStorage.setItem("ListPens", JSON.stringify(sanpham));
+                $("#editProductModal").modal("hide");
               };
               reader.readAsDataURL(image);
-            } else {
-              sanpham[index].thumbnail = image;
-            }
-          }
-          localStorage.setItem("ListPens", JSON.stringify(sanpham));
+              
+            }         
+            else{
+              localStorage.setItem("ListPens", JSON.stringify(sanpham));
+              $("#editProductModal").modal("hide");  
+            } 
+          
           // Đóng modal và reset form
         }
-        $("#editProductModal").modal("hide");
-        document.getElementById("editProductForm").reset();
+              
       };
+      
       let currentPage = 1;
       let itemsPerPage = 4;
 
@@ -712,24 +682,53 @@
         const end = start + itemsPerPage;
 
         sanpham.slice(start, end).forEach((item) => {
+          let pricesp;
+          if(typeof item.price===Number)
+          {pricesp=item.price;}
+          else
+          {          
+          pricesp=Number(item.price);
+          }
+          if(item.thumbnail.startsWith("data:image/"))
+          {
+            const newRow = `
+            <tr id="product-${item.id}">
+                <td>${item.id}</td>
+                <td>${item.title}</td>
+                <td>${item.category}</td>
+                <td><img src="${item.thumbnail}" alt="${item.title}" class="img-thumbnail"></td>
+                <td>${pricesp.toLocaleString("vi-VN",{style:"currency",currency:"VND"})}</td>
+                <td>${item.inStock}</td>
+                <td>${item.description}</td>
+                <td>${item.returnPolicy}</td>
+                <td>
+                    <button class="btn btn-warning" onclick="openEditProductModal(${item.id}, '${item.title}', '${item.category}', '${item.thumbnail}', ${item.price}, ${item.inStock}, '${item.description}', '${item.returnPolicy}')">Sửa</button>
+                    <button class="btn btn-danger" onclick="Confirmbeforedelete(${item.id})">Xóa</button>
+                </td>
+            </tr>
+        `;
+          productTableBody.insertAdjacentHTML("beforeend", newRow);
+          }
+          else
+          {
           const newRow = `
             <tr id="product-${item.id}">
                 <td>${item.id}</td>
                 <td>${item.title}</td>
                 <td>${item.category}</td>
                 <td><img src=".${item.thumbnail}" alt="${item.title}" class="img-thumbnail"></td>
-                <td>${item.price} VNĐ</td>
-                <td>${item.discountPercentage}</td>
+                <td>${pricesp.toLocaleString("vi-VN",{style:"currency",currency:"VND"})}</td>
                 <td>${item.inStock}</td>
                 <td>${item.description}</td>
                 <td>${item.returnPolicy}</td>
                 <td>
-                    <button class="btn btn-warning" onclick="openEditProductModal(${item.id}, '${item.title}', '${item.category}', '${item.thumbnail}', ${item.price}, '${item.discountPercentage}', ${item.inStock}, '${item.description}', '${item.returnPolicy}')">Sửa</button>
+                    <button class="btn btn-warning" onclick="openEditProductModal(${item.id}, '${item.title}', '${item.category}', '${item.thumbnail}', ${item.price}, ${item.inStock}, '${item.description}', '${item.returnPolicy}')">Sửa</button>
                     <button class="btn btn-danger" onclick="Confirmbeforedelete(${item.id})">Xóa</button>
                 </td>
             </tr>
         `;
           productTableBody.insertAdjacentHTML("beforeend", newRow);
+          }
         });
 
         renderPagination(totalItems);
