@@ -1685,58 +1685,58 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         
       }]
       },
-      {
-        id: 39,
-        title: "Bút Lamy Safari Candy Mango Special Edition 2020 Rollerball",
-        description:
-          "Giống như những dòng bút Lamy Safari mang trong mình nét hiện đại vượt thời gian tới cho những người trẻ tuổi...",
-        MoTa:[
-          {
-            TieuDe1:`<h3>Bộ sưu tập Lamy Safari Candy 2020</h3>`,
-            MoTa1:"Sự ấm áp làm nên mùa hè, màu sắc sặc sỡ làm nên cá tính thời trang trẻ trung của bạn! Bộ sản phẩm đáng mong chờ trong năm Lamy Safari Candy Special Edition 2020. Bút dạ bi Lamy Safari Candy Aquamarine Special Edition 2020",
-            TieuDe2:`<h3>ĐẶC TRƯNG NỔI BẬC CỦA BÚT LAMY SAFARI</h3>`,
-            MoTa2:`Giống như những dòng bút Lamy Safari mang trong mình nét hiện đại vượt thời gian tới cho những người trẻ tuổi – và cả cho những tâm hồn không tuổi – với một đẳng cấp riêng biệt. Khi ra mắt, nó đã tạo nên một sự khuấy động trên thị trường vào đầu những năm 80 với thiết kế tiên phong và cài bút lạ mắt.
-            <div><p></p></div>
-            Nhiều màu sắc hấp dẫn, thiết kế vượt thời gian, thiết kế tối giản hoàn hảo. Đó là lý do mà LAMY safari là một trong những dòng bút phổ biến nhất cho giới trẻ. Thân bút thuôn dài và có độ lớn tối ưu giúp cầm viết dễ dàng và thoải mái. Vỏ nhựa ABS bền bỉ với nhiều màu sắc tươi trẻ, thời trang. Kẹp bút bằng kim loại sáng bóng. LAMY Safari là dòng bút bao gồm bút máy, bút bi, bút bi nước, bút chì kim. Mực LAMY T10 màu xanh / có thể được sử dụng với bộ chuyển đổi LAMY Z 28.
-            <div><p></p></div>
-            Chiếc bút Lamy Safari được tạo ra với những đặc điểm mang nhiều nét mạnh mẽ phi thường. Những tính năng mới và những sản phẩm mang nhiều màu sắc liên tục được ra mắt đã khiến chiếc bút lamy safari thành công trên toàn cầu, và thiết kế hiện đại nhưng không kém phần cổ điển đã chứng minh giá trị của mình ở vô số quốc gia trên thế giới.`,
-            TieuDe3:`<h3>BỘ SƯU TẬP LAMY SAFARI CANDY SPECIAL EDITION 2020</h3>`,
-            MoTa3:`Lamy Safari Candy là những cây bút mà nhìn thôi là đã muốn viết rồi, giống như những cây kẹo ngọt ngon lành, tươi vui của Lamy để chào đón mùa hè vậy. Ngòi bút máy Lamy Safari làm từ thép không gỉ chắc chắn đảm bảo sự dễ chịu và dòng mực chảy đều khi viết. Ngòi có nhiều kích cỡ và đồng thời có nhiều phiên bản dành cho những người thuận tay trái. Bộ kẹo này gồm có cả bút bi và bút máy, với ba màu cơ bản như sau:
-            <div><p></p></div>
-            – Bút Lamy Safari Candy Aquamarine – màu xanh ngọc dịu mát của biển.
-            <div><p></p></div>
-            – Bút Lamy Safari Candy Violet – sắc tím lãng đãng mây trời
-            <div><p></p></div>
-            – Bút Lamy Safari Candy Mango – màu của những quả xoài mọng chín trên cây.
-            <div><p></p></div>
-            Bút dạ bi Lamy Safari Candy Aquamarine Special Edition 2020 được trong hộp thiếc rất đẹp và bắt mắt. Có thể mua thêm bình mực để sử dùng tiết kiệm hơn.`,
-            TieuDe4:`<h3></h3>`,
-            MoTa4:"",
-            TieuDe5:`<h3></h3>`,
-            MoTa5:"",
-            TieuDe6:`<h3></h3>`,
-            MoTa6:""
-          }
-        ],
-        category: "Bút dạ bi",
-        price: 980000,
-        discountPercentage: 15,
-        inStock: 17,
-        returnPolicy: "30 ngày miễn phí đổi trả",
-        thumbnail:
-          "./Images/thumnails/ButDaBi/ButLamySafariCandyMangoSpecialEdition2020Rollerball.jpg",
-      chitiet:[{
-        XuatXu:"Germany",
-        DoiTuong:"Nam, Nữ",
-        ChatLieuVo:"Nhựa ABS",
-        MauSac:"Vàng",
-        LoaiNgoiBut:"Ngòi dạ bi",
-        MauMucMacDinh:"Đen, Xanh",
-        PhuKienDiKem:"Hộp + Phiếu BH + Túi",
-        DongSanPham:"Lamy Safari",
+      // {
+      //   id: 39,
+      //   title: "Bút Lamy Safari Candy Mango Special Edition 2020 Rollerball",
+      //   description:
+      //     "Giống như những dòng bút Lamy Safari mang trong mình nét hiện đại vượt thời gian tới cho những người trẻ tuổi...",
+      //   MoTa:[
+      //     {
+      //       TieuDe1:`<h3>Bộ sưu tập Lamy Safari Candy 2020</h3>`,
+      //       MoTa1:"Sự ấm áp làm nên mùa hè, màu sắc sặc sỡ làm nên cá tính thời trang trẻ trung của bạn! Bộ sản phẩm đáng mong chờ trong năm Lamy Safari Candy Special Edition 2020. Bút dạ bi Lamy Safari Candy Aquamarine Special Edition 2020",
+      //       TieuDe2:`<h3>ĐẶC TRƯNG NỔI BẬC CỦA BÚT LAMY SAFARI</h3>`,
+      //       MoTa2:`Giống như những dòng bút Lamy Safari mang trong mình nét hiện đại vượt thời gian tới cho những người trẻ tuổi – và cả cho những tâm hồn không tuổi – với một đẳng cấp riêng biệt. Khi ra mắt, nó đã tạo nên một sự khuấy động trên thị trường vào đầu những năm 80 với thiết kế tiên phong và cài bút lạ mắt.
+      //       <div><p></p></div>
+      //       Nhiều màu sắc hấp dẫn, thiết kế vượt thời gian, thiết kế tối giản hoàn hảo. Đó là lý do mà LAMY safari là một trong những dòng bút phổ biến nhất cho giới trẻ. Thân bút thuôn dài và có độ lớn tối ưu giúp cầm viết dễ dàng và thoải mái. Vỏ nhựa ABS bền bỉ với nhiều màu sắc tươi trẻ, thời trang. Kẹp bút bằng kim loại sáng bóng. LAMY Safari là dòng bút bao gồm bút máy, bút bi, bút bi nước, bút chì kim. Mực LAMY T10 màu xanh / có thể được sử dụng với bộ chuyển đổi LAMY Z 28.
+      //       <div><p></p></div>
+      //       Chiếc bút Lamy Safari được tạo ra với những đặc điểm mang nhiều nét mạnh mẽ phi thường. Những tính năng mới và những sản phẩm mang nhiều màu sắc liên tục được ra mắt đã khiến chiếc bút lamy safari thành công trên toàn cầu, và thiết kế hiện đại nhưng không kém phần cổ điển đã chứng minh giá trị của mình ở vô số quốc gia trên thế giới.`,
+      //       TieuDe3:`<h3>BỘ SƯU TẬP LAMY SAFARI CANDY SPECIAL EDITION 2020</h3>`,
+      //       MoTa3:`Lamy Safari Candy là những cây bút mà nhìn thôi là đã muốn viết rồi, giống như những cây kẹo ngọt ngon lành, tươi vui của Lamy để chào đón mùa hè vậy. Ngòi bút máy Lamy Safari làm từ thép không gỉ chắc chắn đảm bảo sự dễ chịu và dòng mực chảy đều khi viết. Ngòi có nhiều kích cỡ và đồng thời có nhiều phiên bản dành cho những người thuận tay trái. Bộ kẹo này gồm có cả bút bi và bút máy, với ba màu cơ bản như sau:
+      //       <div><p></p></div>
+      //       – Bút Lamy Safari Candy Aquamarine – màu xanh ngọc dịu mát của biển.
+      //       <div><p></p></div>
+      //       – Bút Lamy Safari Candy Violet – sắc tím lãng đãng mây trời
+      //       <div><p></p></div>
+      //       – Bút Lamy Safari Candy Mango – màu của những quả xoài mọng chín trên cây.
+      //       <div><p></p></div>
+      //       Bút dạ bi Lamy Safari Candy Aquamarine Special Edition 2020 được trong hộp thiếc rất đẹp và bắt mắt. Có thể mua thêm bình mực để sử dùng tiết kiệm hơn.`,
+      //       TieuDe4:`<h3></h3>`,
+      //       MoTa4:"",
+      //       TieuDe5:`<h3></h3>`,
+      //       MoTa5:"",
+      //       TieuDe6:`<h3></h3>`,
+      //       MoTa6:""
+      //     }
+      //   ],
+      //   category: "Bút dạ bi",
+      //   price: 980000,
+      //   discountPercentage: 15,
+      //   inStock: 17,
+      //   returnPolicy: "30 ngày miễn phí đổi trả",
+      //   thumbnail:
+      //     "./Images/thumnails/ButDaBi/ButLamySafariCandyMangoSpecialEdition2020Rollerball.jpg",
+      // chitiet:[{
+      //   XuatXu:"Germany",
+      //   DoiTuong:"Nam, Nữ",
+      //   ChatLieuVo:"Nhựa ABS",
+      //   MauSac:"Vàng",
+      //   LoaiNgoiBut:"Ngòi dạ bi",
+      //   MauMucMacDinh:"Đen, Xanh",
+      //   PhuKienDiKem:"Hộp + Phiếu BH + Túi",
+      //   DongSanPham:"Lamy Safari",
         
-      }]
-      },
+      // }]
+      // },
       {
         id: 40,
         title:
@@ -1781,50 +1781,6 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         MauMucMacDinh:"Đen",
         PhuKienDiKem:"Hộp + Phiếu BH + Túi",
         DongSanPham:"Meisterstuck Around The World",
-        
-      }]
-      },
-      {
-        id: 41,
-        title: "Bút dạ kim Parker Ingenuity Pearl PGT 5th 1931451",
-        description:
-          "Bút dạ kim Parker Ingenuity Pearl PGT 5th 1931451 là chiếc bút thuộc dòng Ingenuity Premium. Parker Ingenuity...",
-        MoTa:[
-          {
-            TieuDe1:`<h3>Bút dạ kim Parker Ingenuity Pearl PGT 5th 1931451</h3>`,
-            MoTa1:"Bút dạ kim Parker Ingenuity Pearl PGT 5th 1931451 là chiếc bút thuộc dòng Ingenuity Premium. Parker Ingenuity được hãng cho ra mắt vào năm 2011 với công nghệ độc đáo và đạt tiêu chuẩn cho thế kỷ 21. Tên gọi được đặt cho phong cách viết đích thực thứ năm. Sau một chuỗi những sản phẩm như  bút máy, bút bi, bút lông bi và bút chì bấm đã tạo nên nghệ thuật viết chữ đẹp trong suốt bao thập kỉ qua.",
-            TieuDe2:`<h3>Thiết kế và chất liệu</h3>`,
-            MoTa2:`Chương mới này trong câu chuyện bút Parker Ingenuity vẫn trung thành với những gì đã làm cho nó nổi tiếng đó là công nghệ Parker 5TH. Bút ký Parker Ingenuity Pearl có thân bằng đồng thau phủ sơn mài trắng ngọc trai. Đây là xu hướng mới nhất, hiện đại trong thời trang trang sức. Cài bút dạ kim Parker Ingenuity Slim Pearl PGT 5th 1931451 được mạ vàng hồng PVD sáng bóng và tinh xảo với hình dáng mũi tên truyền thống. Các chi tiết khác như đỉnh nắp, khoen, đấy cũng được mạ vàng hồng đồng bộ với hình tượng con rồng trên thân bút. Như thường lệ logo Parker được khắc chìm sắc nét trên vòng khoen chính giữa thân bút. PVD: lắng đọng hơi vật lý – là một phương pháp hoàn thiện đảm bảo độ bền và cho phép bạn tạo ra màu sắc và độ sáng bóng cho vật thể, đồng thời duy trì kết cấu tự nhiên của nó. Phương pháp này được sử dụng trong sản xuất hàng xa xỉ như đồng hồ, kính và điện thoại di động.
-            <div><p></p></div>
-            Ngòi viết Parker Ingenuity Pearl PGT 5th 1931451 mạ vàng hồng và được sản xuất theo thế hệ thứ 5 của Parker với đầu viết chạm khắc biểu tượng của Parker. Ngòi bút với kiểu dáng hiện đại mang hình dáng công nghê tương lai. Công nghệ 5th sẽ cho các bạn cảm giác viết êm và tiện lợi với ruột bút không lem mực. Phần cầm bút cũng được mạ vàng đồng bộ với các chi tiết khác. Có thể nói tổng thể đây là cây bút rất đẹp và đặc biệt.`,
-            TieuDe3:`<h3>Kích thước và quy cách đóng gói</h3>`,
-            MoTa3:"Bút dạ kim Parker Ingenuity 2017 Premium Pearl Lacquer Pgt 5th 1931451 có kích thước tiêu chuẩn dài 151mm, đường kính thân 16.7mm và trọng lượng 40gam. Với kích thước cân bằng vừa vặn với mọi bàn tay, chắc chắn bạn sẽ cảm thấy thoải mái khi viết. Chiếc bút được trang bị một chiếc hộp Parker đi kèm rất đẹp và tinh tế. Nội thất bên trong viết sang trọng và được bọc lớp vải mềm mại nhằm bảo quản viết ở điều kiện tốt nhất. Tạo nên sự đẳng cấp khi làm quà tặng cho sếp, lãnh đạo, người thân hay bạn bè. Đi kèm là tem chống giả, phiếu bảo hành và túi giấy. Sản phẩm được bảo hành 12 tháng toàn cầu theo tiêu chuẩn của hãng Parker.",
-            TieuDe4:`<h3>Cơ chế hoạt động và cách dùng</h3>`,
-            MoTa4:"Viết dạ kim Parker Ingenuity Pearl PGT 5th 1931451 sử dụng cơ chế mở nắp để viết và thay ruột bút dạ kim Parker khi hết mực. Màu mực mặc định theo tiêu chuẩn của hãng là màu đen. Vì vậy, phần lớn các khách hàng của Thế Giới Bút thường mua thêm ruột bút dạ kim Parker màu xanh để tặng kèm hoặc thay vào khi mua bút. Các bạn không nên mua ruột bút Parker giá rẻ, kém chất lượng nó sẽ ảnh hưởng đến cơ chế hoạt động của bút và rất dễ làm hỏng bút.",
-            TieuDe5:`<h3>Nhận xét tổng thể về viết Parker Ingenuity</h3>`,
-            MoTa5:"Bút dạ kim Parker Ingenuity Pearl PGT 5th 1931451 không chỉ được yêu thích nhờ thiết kế đơn giản, sang trọng mà còn ở chất lượng ngòi bút xuất sắc. Đây là dạng bút bi nước cho nét mực viết mềm mại, trơn tru, thanh thoát và không bị lắng cặn. Đây là dòng bút có sắc màu của tương lai rất mạnh mẽ và ấn tượng. Chúng ta có thể gia công khắc tên lên bút Parker 1931451 để làm quà tặng cho người thân, bạn bè hay quà tặng trong các sự kiện của doanh nghiệp rất hợp lý và ý nghĩa.",
-            TieuDe6:`<h3>Bút Parker Ingenuity 5th – Cộng nghệ và phong cách mới!</h3>`,
-            MoTa6:`2011 một thế hệ bút Parker mới ra đời. Bút Parker thế hệ thứ 5 – tên gọi được đặt cho phong cách viết đích thực thứ năm. Sau một chuỗi những sản phẩm như  bút máy, bút bi, bút lông bi và bút chì bấm đã tạo nên nghệ thuật viết chữ đẹp trong suốt bao thập kỉ qua. Bút Parker 5th được phát triển từ cuộc nghiên cứu quy mô lớn về nhu cầu của khách hàng. Kết quả cho thấy người tiêu dùng thực sự mong đợi một dòng bút máy có thể kết hợp thiết kế vỏ bút bằng kim loại hiện đại với cảm giác viết êm và tiện lợi với ruột bút không lem mực.
-            <div><p></p></div>
-            Parker thế hệ thứ 5 là phương thức viết cải tiến nhất hiện nay trên thế giới có khả năng đáp ứng được những nhu cầu đó. Một thế hệ viết mới, sáng tạo và hiện đại, bút Parker Ingenuity phù hợp với mọi phong cách viết, tạo ra những nét chữ trơn tru với cảm giác lướt nhẹ dễ dàng nhờ vào công nghệ mới nhất của Bút Parker Ingenuity thế hệ thứ 5. Thiết kế nổi bật theo xu hướng năng động, viết Parker 5th là phụ kiện hoàn hảo để mang đi bất cứ nơi đâu.`
-          }
-        ],
-        category: "Bút dạ kim",
-        price: 6762000,
-        discountPercentage: 10,
-        inStock: 21,
-        returnPolicy: "30 ngày miễn phí đổi trả",
-        thumbnail:
-          "./Images/thumnails/ButDaKim/ButDaKimParkerIngenuityPearlPGT5th1931451.jpg",
-      chitiet:[{
-        XuatXu:"Mỹ",
-        DoiTuong:"Doanh nhân, Nam, Nữ",
-        ChatLieuVo:"Đồng thau phủ sơn mài",
-        MauSac:"Trắng",
-        LoaiNgoiBut:"Ngòi dạ kim",
-        MauMucMacDinh:"Đen",
-        PhuKienDiKem:"Hộp + Phiếu BH + Túi",
-        DongSanPham:"Parker Ingenuity",
         
       }]
       },
