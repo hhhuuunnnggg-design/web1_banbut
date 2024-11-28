@@ -75,7 +75,11 @@ function drawmyReceipt() {
     });
 
     if (!hasPendingOrders) {
-      main.innerHTML = "<p>Bạn chưa có đơn hàng nào</p>";
+      main.innerHTML =
+        "<p style='font-size: 20px; font-weight: bold;'>Bạn chưa có đơn hàng nào</p><br>";
+
+      main.innerHTML +=
+        '<img src="/backup/Images/anh_rong.png" alt="" style="height: 500px;"><br>';
     }
   });
 }

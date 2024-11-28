@@ -97,52 +97,46 @@ export function drawProducts(page = 1, searchTerm = "") {
   const end = start + itemsPerPage;
   const productsToShow = userLocal.slice(start, end);
 
- // Tạo danh sách sản phẩm
-productsToShow.forEach((product) => {
-  const formattedPrice = Number(product.price).toLocaleString("vi-VN");
-  const productItem = `
-    <div class="product_item">
-      <div class="product_image">
-        <img src="${product.thumbnail}" alt="${product.title}" />
-      </div>
-      <div class="product_content" style="height: 290px">
-        <h3 class="product_title">${product.title}</h3>
-        <p class="product_description" style="font-size: 16px; color: #555; overflow: hidden; 
-          text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; 
-          line-height: 1.5em; min-height: calc(1.5em * 4);">
-          ${product.description}
-        </p>
-        <div class="product_meta" style="display: flex; justify-self: bottom">
-          <div class="product_price">${formattedPrice} vnđ</div>
-          <div class="product_order">
-            <button class="addToCart" data-id="${product.id}" 
-                    data-img="${product.thumbnail}" 
-                    data-title="${product.title}"
-                    data-price="${product.price}">
-              Thêm vào giỏ hàng
-            </button>
-          </div>
-          <div class="product_detail">
+  productsToShow.forEach((product) => {
+    const formattedPrice = Number(product.price).toLocaleString("vi-VN");
+    const productItem = `
+      <div class="product_item">
+        <div class="product_image">
+          <img src="${product.thumbnail}" alt="${product.title}" />
+          
+        </div>
+        <div class="product_content" style="height: 290px">
+          <h3 class="product_title">${product.title}</h3>
+          <p class="product_description" style="font-size: 16px; color: #555; overflow: hidden; 
+            text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; 
+            line-height: 1.5em; min-height: calc(1.5em * 4);">
+            ${product.description}
+          </p>
+          <div class="product_meta" style="display: flex; justify-self: bottom">
+            <div class="product_price">${formattedPrice} vnđ</div>
+           
+            <div class="product_order">
+              <button class="addToCart" data-id="${product.id}" 
+                      data-img="${product.thumbnail}" 
+                      data-title="${product.title}"
+                      data-price="${product.price}"
+                      >
+                Thêm vào giỏ hàng
+              </button>
+            </div>
+            <div class="product_detail" >
             <a href="#">
-              <button class="ChiTietSP" data-id="${product.id}"
+            <button class="ChiTietSP" data-id="${product.id}"
                       data-img="${product.thumbnail}" 
                       data-title="${product.title}"
                       data-price="${product.price}">Chi tiết sản phẩm</button>
-            </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  `;
-  productList.innerHTML += productItem;
-});
-
-// Tạo phân trang sau khi hiển thị tất cả sản phẩm
-const pagination = `
-  <div id="pagination" class="pagination-container d-flex justify-content-center" style="margin-top: 10px; margin-left: 35%;"></div>
-`;
-productList.innerHTML += pagination;
-
+    `;
+    productList.innerHTML += productItem;
+  });
   //vẽ cập nhật phân trang
   updatePagination(page, totalPages);
 
@@ -173,6 +167,7 @@ productList.innerHTML += pagination;
             Liên hệ để biết tình trạng sản phẩm
           </div>
           <div class="bottom">
+            
             <button class="bottom__GioHang" id="bottom_GioHang" >
               Thêm vào giỏ hàng
             </button>

@@ -79,8 +79,8 @@
           </li>
           <li>
             <i class="fa-solid fa-receipt"></i>
-            <a href="#" id="myReceipt">
-              <button class="button">
+            <a href="#" id="myReceipt" >
+              <button class="button" id="historyButton">
                 <span>đơn hàng của bạn
               </span>
               </button>
@@ -90,12 +90,12 @@
           <li>
             <i class="fa-solid fa-receipt"></i>
             <a href="#" id="lichsumua">
-              <button class="button">
-                <span>lịch sử mua hàng
-              </span>
-              </button>
+                <button class="button" id="historyButton">
+                    <span>lịch sử mua hàng</span>
+                </button>
             </a>
-          </li>
+        </li>
+        
      
           <div class="cart-icon" id="xem_gio_hang">
             <i class="fa-solid fa-cart-shopping"></i><button class="button">
@@ -163,8 +163,10 @@
         </div>
       </div>
     </div>
+   
   </div>
-  <!-- <div id="pagination" class="pagination-container"></div> -->
+  
+  <div id="pagination" class="pagination-container"></div>
   <br>
 </div>
 
@@ -327,6 +329,21 @@
       document.getElementById("btnLogout").style.display = "none";
       document.getElementById("greeting").style.display = "none";
     }
+
+
+    // ẩn cái phân trang
+const historyButton = document.getElementById('historyButton');
+const pagination = document.getElementById('pagination');
+
+// Add an event listener to the button
+historyButton.addEventListener('click', function(event) {
+    // Prevent the default action (if you don't want the page to navigate)
+    event.preventDefault();
+    
+    // Hide the pagination element
+    pagination.style.display = 'none';
+});
+
 
     // Thêm sự kiện cho nút Đăng xuất
     document.getElementById("btnLogout").addEventListener("click", function () {
