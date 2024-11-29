@@ -369,6 +369,7 @@
                     id="editProductImage"
                     accept="image/*"
                   />
+                  <button class="btn btn-danger" onclick="XoaAnh()">Xóa ảnh</button>
                 </div>
 
                 <div class="form-group">
@@ -450,7 +451,7 @@
                             <td>${productInfo}</td>
                             <td>${productReturnPolicy}</td>
                             <td>
-                                <button class="btn btn-warning" onclick="openEditProductModal(${productId}, '${productName}','${productCategory}', '${productImage}', ${productPrice},'${productStock}', '${productInfo}','${productReturnPolicy}')">Sửa</button>
+                                <button class="btn btn-primary" onclick="openEditProductModal(${productId}, '${productName}','${productCategory}', '${productImage}', ${productPrice},'${productStock}', '${productInfo}','${productReturnPolicy}')">Sửa</button>
                                 <button class="btn btn-danger" onclick="Confirmbeforedelete(${productId})">Xóa</button>
                             </td>
                         </tr>
@@ -471,7 +472,7 @@
                             <td>${productInfo}</td>
                             <td>${productReturnPolicy}</td>
                             <td>
-                                <button class="btn btn-warning" onclick="openEditProductModal(${productId}, '${productName}','${productCategory}', '${productImage}', ${productPrice},'${productStock}', '${productInfo}','${productReturnPolicy}')">Sửa</button>
+                                <button class="btn btn-primary" onclick="openEditProductModal(${productId}, '${productName}','${productCategory}', '${productImage}', ${productPrice},'${productStock}', '${productInfo}','${productReturnPolicy}')">Sửa</button>
                                 <button class="btn btn-danger" onclick="Confirmbeforedelete(${productId})">Xóa</button>
                             </td>
                         </tr>
@@ -517,7 +518,7 @@
                             <td>${productInfo}</td>
                             <td>${productReturnPolicy}</td>
                             <td>
-                                <button class="btn btn-warning" onclick="openEditProductModal(${productId}, '${productName}','${productCategory}', '${productImage}', ${productPrice},'${productStock}', '${productInfo}','${productReturnPolicy}')">Sửa</button>
+                                <button class="btn btn-primary" onclick="openEditProductModal(${productId}, '${productName}','${productCategory}', '${productImage}', ${productPrice},'${productStock}', '${productInfo}','${productReturnPolicy}')">Sửa</button>
                                 <button class="btn btn-danger" onclick="Confirmbeforedelete(${productId})">Xóa</button>
                             </td>
                         </tr>
@@ -640,7 +641,6 @@
             sanpham[index].id = id;
             sanpham[index].title = name;
             sanpham[index].category = category;
-            console.log(price);
             sanpham[index].price = price;
             sanpham[index].inStock = stock;
             sanpham[index].description = info;
@@ -667,6 +667,39 @@
         }
               
       };
+
+      function XoaAnh(){
+          const sanpham=JSON.parse(localStorage.getItem('ListPens'));
+          const id=document.getElementById('editProductId').value;
+          console.log(id);
+          for(let i=0;i<sanpham.length;i++)
+          {
+            if(Number(sanpham[i].id)==Number(id))
+              {
+                if(sanpham[i].thumbnail!="")
+                {
+                  if(confirm("Ban co chac muon xoa anh nay khong!"))
+                    {
+                      sanpham[i].thumbnail="";
+                      const row = document.getElementById(`product-${id}`);
+                      row.cells[3].textContent="";
+                      alert("Anh cua san pham da duoc xoa!");
+                      break;
+                    }
+                  else
+                  {
+                    break;
+                  }
+                }
+                else
+                {
+                  alert("San pham nay khong co anh de xoa!");
+                  break;
+                }
+              }
+          }          
+          localStorage.setItem('ListPens',JSON.stringify(sanpham));
+        }
       
       let currentPage = 1;
       let itemsPerPage = 4;
@@ -702,7 +735,7 @@
                 <td>${item.description}</td>
                 <td>${item.returnPolicy}</td>
                 <td>
-                    <button class="btn btn-warning" onclick="openEditProductModal(${item.id}, '${item.title}', '${item.category}', '${item.thumbnail}', ${item.price}, ${item.inStock}, '${item.description}', '${item.returnPolicy}')">Sửa</button>
+                    <button class="btn btn-primary" onclick="openEditProductModal(${item.id}, '${item.title}', '${item.category}', '${item.thumbnail}', ${item.price}, ${item.inStock}, '${item.description}', '${item.returnPolicy}')">Sửa</button>
                     <button class="btn btn-danger" onclick="Confirmbeforedelete(${item.id})">Xóa</button>
                 </td>
             </tr>
@@ -722,7 +755,7 @@
                 <td>${item.description}</td>
                 <td>${item.returnPolicy}</td>
                 <td>
-                    <button class="btn btn-warning" onclick="openEditProductModal(${item.id}, '${item.title}', '${item.category}', '${item.thumbnail}', ${item.price}, ${item.inStock}, '${item.description}', '${item.returnPolicy}')">Sửa</button>
+                    <button class="btn btn-primary" onclick="openEditProductModal(${item.id}, '${item.title}', '${item.category}', '${item.thumbnail}', ${item.price}, ${item.inStock}, '${item.description}', '${item.returnPolicy}')">Sửa</button>
                     <button class="btn btn-danger" onclick="Confirmbeforedelete(${item.id})">Xóa</button>
                 </td>
             </tr>
@@ -752,6 +785,8 @@
           };
           paginationContainer.appendChild(prevButton);
         }
+
+        
 
         // Tính toán phạm vi trang hiển thị
         let startPage = Math.max(
