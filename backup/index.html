@@ -117,7 +117,7 @@
                 <option value="gia-cao-den-thap">Gía cao đến thấp</option>
                
               </select>
-              <div class="tim_gia" style="display: none">
+              <div class="tim_gia">
                 <input type="text" placeholder="Giá từ" id="searchPriceMin" />
                 <input type="text" placeholder="Giá đến" id="searchPriceMax" />
                 <button id="searchButtonPrice">
@@ -354,6 +354,24 @@ historyButton.addEventListener('click', function(event) {
       document.getElementById("btnLogin").style.display = "block"; // Hiển thị lại nút Đăng nhập
     });
   });
+
+    document.addEventListener("DOMContentLoaded", function() {
+    const menu = document.querySelector('.inner-menu');
+    const productList = document.querySelector('.product_list');
+
+    // Hàm cập nhật khoảng cách trên của .product_list
+    function updateProductListMargin() {
+      const menuHeight = menu.offsetHeight; // Lấy chiều cao của menu
+      productList.style.marginTop = `${menuHeight}px`; // Cập nhật khoảng cách trên của .product_list
+    }
+
+    // Gọi hàm khi trang được tải
+    updateProductListMargin();
+
+    // Cập nhật khi menu được thay đổi (nếu cần)
+    window.addEventListener('resize', updateProductListMargin);
+  });
+
   </script>
 
 </body>

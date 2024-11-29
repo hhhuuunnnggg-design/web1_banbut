@@ -237,7 +237,8 @@ body {
   background-color: transparent;
   color: #e8c22e;
   border: 1px solid #e8c22e;
-  margin: 5px 100% 0px auto;
+  margin: 10px 100% 0px auto;
+  height: 24px;
 }
 
 .sear {
@@ -739,4 +740,57 @@ body {
 
 .log_out:hover {
   background-color: #e53935;
+}
+
+.tim_gia {
+  display: flex;
+  flex-wrap: wrap; /* Cho phép các phần tử xuống hàng khi không đủ chỗ */
+  gap: 10px; /* Khoảng cách giữa các phần tử */
+  justify-content: flex-start; /* Căn các phần tử sang trái */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  margin-top: 10px; /* Khoảng cách với các phần tử phía trên */
+}
+
+.tim_gia input[type="text"] {
+  flex: 1 1 150px; /* Kích thước linh hoạt: tối thiểu 150px, ưu tiên co giãn */
+  height: 30px; /* Chiều cao đồng đều */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box; /* Bao gồm padding và border */
+}
+
+.tim_gia button {
+  width: 40px;
+  height: 30px;
+  background-color: #ffcc00;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.tim_gia button i {
+  font-size: 1rem; /* Kích thước icon */
+  color: #000; /* Màu icon */
+}
+
+/* Responsive điều chỉnh cho màn hình nhỏ */
+@media (max-width: 500px) {
+  .tim_gia {
+    flex-direction: column; /* Chuyển các phần tử thành cột */
+  }
+
+  .tim_gia input[type="text"] {
+    width: 100%; /* Chiều rộng full màn hình khi xếp dọc */
+    margin-bottom: 10px; /* Khoảng cách giữa các ô input */
+  }
+
+  .tim_gia button {
+    width: 100%; /* Nút chiếm toàn bộ chiều rộng */
+    margin-top: 10px; /* Khoảng cách phía trên nút */
+  }
 }

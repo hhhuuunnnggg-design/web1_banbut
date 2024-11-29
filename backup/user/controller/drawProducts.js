@@ -353,14 +353,14 @@ document
     if (e.key === "Enter") {
       const searchTerm = document.getElementById("searchInput").value; // Lấy giá trị từ input tìm kiếm
       currentPage = 1; //reset lại trang đầu
-      document.getElementsByClassName("tim_gia")[0].style.display = "block";
+      document.getElementsByClassName("tim_gia")[0];
       drawProducts(currentPage, searchTerm);
     }
   });
 
 document.getElementById("searchButton").addEventListener("click", function () {
   const searchTerm = document.getElementById("searchInput").value;
-  document.getElementsByClassName("tim_gia")[0].style.display = "block";
+  document.getElementsByClassName("tim_gia")[0];
   currentPage = 1;
   drawProducts(currentPage, searchTerm);
 });
