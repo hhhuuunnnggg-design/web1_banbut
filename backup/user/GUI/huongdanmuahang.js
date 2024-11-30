@@ -3,7 +3,7 @@ const huongdanmuahang =
 const hd = document.getElementById("products");
 const link = document.createElement('link');
 link.rel = 'stylesheet';
-link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css';
+link.href = "backup/assets/Bootstrap/Css/font-index4.css";
 document.head.appendChild(link);
 window.onscroll = function(){
   scrollFuction();
