@@ -178,7 +178,6 @@
             <th>Loại</th>
             <th>Hình ảnh</th>
             <th>Giá</th>
-            <th>Số lượng</th>
             <th>Thông tin</th>
             <th>Bảo hành</th>
             <th>Thao tác</th>
@@ -261,15 +260,6 @@
                     type="number"
                     class="form-control"
                     id="productPrice"
-                    required
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="productStock">Số lượng:</label>
-                  <input
-                    type="number"
-                    class="form-control"
-                    id="productStock"
                     required
                   />
                 </div>
@@ -367,14 +357,6 @@
                   />
                 </div>
                 <div class="form-group">
-                  <label for="editProductStock">Số lượng:</label>
-                  <input
-                    type="number"
-                    class="form-control"
-                    id="editProductStock"
-                  />
-                </div>
-                <div class="form-group">
                   <label for="editProductInfo">Thông tin:</label>
                   <textarea
                     class="form-control"
@@ -419,7 +401,6 @@
           const productName = sanpham[i].title;
           const productCategory = sanpham[i].category;
           const productImage = sanpham[i].thumbnail; // Lấy hình ảnh
-          const productStock = sanpham[i].inStock;
           const productPrice = sanpham[i].price;
           const productReturnPolicy = sanpham[i].returnPolicy;
           const productInfo = sanpham[i].description;
@@ -433,11 +414,10 @@
                             <td>${productCategory}</td>
                             <td><img src="${productImage}" alt="${productName}" class="img-thumbnail"></td>
                             <td>${productPrice.toLocaleString("vi-VN",{style:"currency",currency:"VND"})} VNĐ</td>
-                            <td>${productStock}</td>
                             <td>${productInfo}</td>
                             <td>${productReturnPolicy}</td>
                             <td>
-                                <button class="btn btn-primary" onclick="openEditProductModal(${productId}, '${productName}','${productCategory}', '${productImage}', ${productPrice},'${productStock}', '${productInfo}','${productReturnPolicy}')">Sửa</button>
+                                <button class="btn btn-primary" onclick="openEditProductModal(${productId}, '${productName}','${productCategory}', '${productImage}', ${productPrice}, '${productInfo}','${productReturnPolicy}')">Sửa</button>
                                 <button class="btn btn-danger" onclick="Confirmbeforedelete(${productId})">Xóa</button>
                             </td>
                         </tr>
@@ -454,11 +434,10 @@
                             <td>${productCategory}</td>
                             <td><img src=".${productImage}" alt="${productName}" class="img-thumbnail"></td>
                             <td>${productPrice.toLocaleString("vi-VN",{style:"currency",currency:"VND"})} VNĐ</td>
-                            <td>${productStock}</td>
                             <td>${productInfo}</td>
                             <td>${productReturnPolicy}</td>
                             <td>
-                                <button class="btn btn-primary" onclick="openEditProductModal(${productId}, '${productName}','${productCategory}', '${productImage}', ${productPrice},'${productStock}', '${productInfo}','${productReturnPolicy}')">Sửa</button>
+                                <button class="btn btn-primary" onclick="openEditProductModal(${productId}, '${productName}','${productCategory}', '${productImage}', ${productPrice}, '${productInfo}','${productReturnPolicy}')">Sửa</button>
                                 <button class="btn btn-danger" onclick="Confirmbeforedelete(${productId})">Xóa</button>
                             </td>
                         </tr>
@@ -482,7 +461,6 @@
           document.getElementById("ProductCategory").value;
         const productImage = document.getElementById("productImage").files[0]; // Lấy hình ảnh
         const productPrice = document.getElementById("productPrice").value;
-        const productStock = document.getElementById("productStock").value;
         const productInfo = document.getElementById("productInfo").value;
         const productReturnPolicy = document.getElementById(
           "productReturnPolicy"
@@ -500,11 +478,10 @@
                             <td>${productCategory}</td>
                             <td><img src="${base64Data}" alt="${productName}" class="img-thumbnail"></td>
                             <td>${productPrice.toLocaleString("vi-VN",{style:"currency",currency:"VND"})} VNĐ</td>
-                            <td>${productStock}</td>
                             <td>${productInfo}</td>
                             <td>${productReturnPolicy}</td>
                             <td>
-                                <button class="btn btn-primary" onclick="openEditProductModal(${productId}, '${productName}','${productCategory}', '${productImage}', ${productPrice},'${productStock}', '${productInfo}','${productReturnPolicy}')">Sửa</button>
+                                <button class="btn btn-primary" onclick="openEditProductModal(${productId}, '${productName}','${productCategory}', '${productImage}', ${productPrice}, '${productInfo}','${productReturnPolicy}')">Sửa</button>
                                 <button class="btn btn-danger" onclick="Confirmbeforedelete(${productId})">Xóa</button>
                             </td>
                         </tr>
@@ -522,7 +499,7 @@
                 category: productCategory,
                 price: productPrice,
                 thumbnail: base64Data,
-                inStock: productStock,
+                description:productInfo,
                 returnPolicy: productReturnPolicy,
               });
             } else {
@@ -532,7 +509,7 @@
                 category: productCategory,
                 price: productPrice,
                 thumbnail: base64Data,
-                inStock: productStock,
+                description:productInfo,
                 returnPolicy: productReturnPolicy,
               };
             }
@@ -570,7 +547,6 @@
         category,
         imageUrl,
         price,
-        stock,
         info,
         returnpolicy
       ) {
@@ -580,7 +556,6 @@
         document.getElementById("editProductName").value = name;
         document.getElementById("editProductCategory").value = category;
         document.getElementById("editProductPrice").value = price;
-        document.getElementById("editProductStock").value = stock;
         document.getElementById("editProductInfo").value = info;
         document.getElementById("editProductReturnPolicy").value = returnpolicy;
         // Hiển thị hình ảnh hiện tại
@@ -609,7 +584,6 @@
         const name = document.getElementById("editProductName").value;
         const category = document.getElementById("editProductCategory").value;
         const price = document.getElementById("editProductPrice").value;
-        const stock = document.getElementById("editProductStock").value;
         const info = document.getElementById("editProductInfo").value;
         const returnpolicy = document.getElementById("editProductReturnPolicy").value;
         const image = document.getElementById("editProductImage").files[0]; //Lấy ảnh
@@ -617,7 +591,6 @@
           row.cells[1].textContent = name;
           row.cells[2].textContent=category;         
           row.cells[4].textContent = `${price.toLocaleString("vi-VN",{style:"currency",currency:"VND"})}`;
-          row.cells[5].textContent=stock;
           row.cells[6].textContent = info;
           row.cells[7].textContent=returnpolicy;
 
@@ -628,7 +601,6 @@
             sanpham[index].title = name;
             sanpham[index].category = category;
             sanpham[index].price = price;
-            sanpham[index].inStock = stock;
             sanpham[index].description = info;
             sanpham[index].returnPolicy = returnpolicy;
             if (image) 
@@ -717,11 +689,10 @@
                 <td>${item.category}</td>
                 <td><img src="${item.thumbnail}" alt="${item.title}" class="img-thumbnail"></td>
                 <td>${pricesp.toLocaleString("vi-VN",{style:"currency",currency:"VND"})}</td>
-                <td>${item.inStock}</td>
                 <td>${item.description}</td>
                 <td>${item.returnPolicy}</td>
                 <td>
-                    <button class="btn btn-primary" onclick="openEditProductModal(${item.id}, '${item.title}', '${item.category}', '${item.thumbnail}', ${item.price}, ${item.inStock}, '${item.description}', '${item.returnPolicy}')">Sửa</button>
+                    <button class="btn btn-primary" onclick="openEditProductModal(${item.id}, '${item.title}', '${item.category}', '${item.thumbnail}', ${item.price}, '${item.description}', '${item.returnPolicy}')">Sửa</button>
                     <button class="btn btn-danger" onclick="Confirmbeforedelete(${item.id})">Xóa</button>
                 </td>
             </tr>
@@ -737,11 +708,10 @@
                 <td>${item.category}</td>
                 <td><img src=".${item.thumbnail}" alt="${item.title}" class="img-thumbnail"></td>
                 <td>${pricesp.toLocaleString("vi-VN",{style:"currency",currency:"VND"})}</td>
-                <td>${item.inStock}</td>
                 <td>${item.description}</td>
                 <td>${item.returnPolicy}</td>
                 <td>
-                    <button class="btn btn-primary" onclick="openEditProductModal(${item.id}, '${item.title}', '${item.category}', '${item.thumbnail}', ${item.price}, ${item.inStock}, '${item.description}', '${item.returnPolicy}')">Sửa</button>
+                    <button class="btn btn-primary" onclick="openEditProductModal(${item.id}, '${item.title}', '${item.category}', '${item.thumbnail}', ${item.price}, '${item.description}', '${item.returnPolicy}')">Sửa</button>
                     <button class="btn btn-danger" onclick="Confirmbeforedelete(${item.id})">Xóa</button>
                 </td>
             </tr>
