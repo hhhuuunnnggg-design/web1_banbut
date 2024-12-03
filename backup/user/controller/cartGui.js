@@ -25,7 +25,7 @@ export function drawcartGui() {
   cartTableBody.innerHTML = "";
 
   if (dsItemGioHang.length === 0) {
-    cartTableBody.innerHTML = `<tr><td colspan="4">Giỏ hàng trống</td></tr>`;
+    cartTableBody.innerHTML = `<tr><td colspan="4">Giỏ hàng trống!</td></tr>`;
     priceTotalElement.textContent = "0";
     return;
   }

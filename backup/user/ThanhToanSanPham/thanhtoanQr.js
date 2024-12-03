@@ -6,7 +6,7 @@ let success = false;
 let checkInterval;
 // Hàm gửi QR
 export function GuiQr() {
-  const currentUserEmail = getCurrentUserEmail()+"muahang";
+  const currentUserEmail = getCurrentUserEmail() + "muahang";
   const MY_MbBank = {
     bank_id: "Vietinbank",
     AccCount: "109879341167",
@@ -31,7 +31,7 @@ export function GuiQr() {
   // Thêm thông báo khi tạo mã QR
   alert("Bạn đã tạo mã QR. Vui lòng quét mã để chuyển tiền.");
   checkInterval = setInterval(() => {
-    checkPaid(tongTien,currentUserEmail);
+    checkPaid(tongTien, currentUserEmail);
   }, 1000);
 }
 thucHienChuyenKhoan();
@@ -131,33 +131,35 @@ export function drawcartGui() {
   });
 }
 // drawcartGui();
-async function checkPaid(price,content) {
-if (success) {
-  clearInterval(checkInterval);
-  quayLaiTrangChu();
-  return;
-}else{
-  try{
-    const response = await fetch("https://script.googleusercontent.com/macros/echo?user_content_key=pGUitLoL7zGVy1lVg1lI8MsZ1uT3Q6cBOMqhFuUlc1zzjeFn6Ub0PYuFq2mnMgY6JF2AZmyg8ChWq7KohVP_A8BzgJuChzjNm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnB6NfkYH50W8ti1v6EfLVXbVsqYgvbH_90-2Fxt9OMwhKws0pdcg5j8T57nPnujOycYSYdP4Djo_QrKPFSRGB2z1U8e07rxmRdz9Jw9Md8uu&lib=MYHRLOEH-QL7zZAEgTyvOOCAOGknlh8FV");
-    const data= await response.json();
-    const lastPaid =data.data[data.data.length-1];
-    const lastPrice = lastPaid["Giá trị"];
-    const lastContent = lastPaid["Mô tả"];
-    if (lastPrice>=price && lastContent.includes(content)){
-      thanhToanKhiNhanHang();
-      success = true;
-      clearInterval(checkInterval);
-      quayLaiTrangChu();
-    }else{
-      console.log("không thành công");
-    }
-      }catch(error){
-        console.error("Lỗi:", error);
+async function checkPaid(price, content) {
+  if (success) {
+    clearInterval(checkInterval);
+    quayLaiTrangChu();
+    return;
+  } else {
+    try {
+      const response = await fetch(
+        "https://script.googleusercontent.com/macros/echo?user_content_key=pGUitLoL7zGVy1lVg1lI8MsZ1uT3Q6cBOMqhFuUlc1zzjeFn6Ub0PYuFq2mnMgY6JF2AZmyg8ChWq7KohVP_A8BzgJuChzjNm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnB6NfkYH50W8ti1v6EfLVXbVsqYgvbH_90-2Fxt9OMwhKws0pdcg5j8T57nPnujOycYSYdP4Djo_QrKPFSRGB2z1U8e07rxmRdz9Jw9Md8uu&lib=MYHRLOEH-QL7zZAEgTyvOOCAOGknlh8FV"
+      );
+      const data = await response.json();
+      const lastPaid = data.data[data.data.length - 1];
+      const lastPrice = lastPaid["Giá trị"];
+      const lastContent = lastPaid["Mô tả"];
+      if (lastPrice >= price && lastContent.includes(content)) {
+        thanhToanKhiNhanHang();
+        success = true;
+        clearInterval(checkInterval);
+        quayLaiTrangChu();
+      } else {
+        console.log("không thành công");
       }
-}
+    } catch (error) {
+      console.error("Lỗi:", error);
+    }
+  }
 }
 function quayLaiTrangChu() {
-  window.location.href = 'index_user.html';
+  window.location.href = "index_user.html";
 }
 function thanhToanKhiNhanHang() {
   // Lấy email người dùng đã đăng nhập từ localStorage
@@ -223,6 +225,9 @@ function thanhToanKhiNhanHang() {
     localStorage.setItem(loggedInUserEmail, JSON.stringify([]));
 
     alert("Đặt hàng thành công");
+    console.log("ádasdasd");
+
+    drawcartGui();
   } else {
     console.log("Không tìm thấy user với email này.");
   }
