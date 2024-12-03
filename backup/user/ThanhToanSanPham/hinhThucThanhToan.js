@@ -86,6 +86,7 @@ function thanhToanKhiNhanHang() {
     localStorage.setItem(loggedInUserEmail, JSON.stringify([]));
 
     alert("Đặt hàng thành công");
+    window.location.href = "index.html";
   } else {
     console.log("Không tìm thấy user với email này.");
   }
