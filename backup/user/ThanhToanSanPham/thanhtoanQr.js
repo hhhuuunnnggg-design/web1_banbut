@@ -159,7 +159,7 @@ async function checkPaid(price, content) {
   }
 }
 function quayLaiTrangChu() {
-  window.location.href = "index_user.html";
+  window.location.href = "index.html";
 }
 function thanhToanKhiNhanHang() {
   // Lấy email người dùng đã đăng nhập từ localStorage
