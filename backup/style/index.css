@@ -139,9 +139,9 @@ body {
   display: none;
   z-index: 998;
 }
-
+/*  */
 .header-main .inner-menu ul li:not(:last-child):hover {
-  background-color: #4e5a62;
+  /* background-color: #4e5a62; */
   border-radius: 5px;
 }
 
@@ -709,7 +709,7 @@ body {
 .log_in {
   display: flex;
   align-items: center;
-  background-color: #4CAF50; /* Màu nền xanh lá */
+  background-color: #4caf50; /* Màu nền xanh lá */
   color: white;
   font-size: 20px;
   font-weight: bold;
