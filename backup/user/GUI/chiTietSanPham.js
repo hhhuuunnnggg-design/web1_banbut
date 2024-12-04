@@ -135,8 +135,19 @@ export function GetItemFromLocalStorage() {
   document.getElementById("Price").innerHTML = sanpham[index].price;
   document.getElementById(
     "Image"
-  ).innerHTML = `<img src="${image}" height="466" alt=""></img>`;
+  ).innerHTML = `<img src="${image}" height="466px" alt="" style="margin-top: 100px;"></img>`;
   document.getElementById("Image-Link").innerHTML=image;
+
+  const detailScript = document.querySelector(".detail__script");
+  if (detailScript) {
+    detailScript.style.marginTop = "100px";
+  }
+
+  const description = document.querySelector(".description");
+  if (description) {
+    description.style.marginTop = "50px";
+  }
+
   document.getElementById("Tieu_de1").innerHTML = `${mota.TieuDe1}   
     <div class="description__MTSP--script_content" id="Noi_dung1">
        ${mota.MoTa1}
