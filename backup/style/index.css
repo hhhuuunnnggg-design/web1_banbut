@@ -794,3 +794,20 @@ body {
     margin-top: 10px; /* Khoảng cách phía trên nút */
   }
 }
+@media (max-width: 768px) {
+  .product_list {
+    display: block; 
+  }
+  .product_item {
+    width: 100%;
+    display: flex;
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+  .product_image{
+    flex:1;
+  }
+  .product_content{
+    flex:1;
+  }
+}
