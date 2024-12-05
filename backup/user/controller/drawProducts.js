@@ -238,7 +238,6 @@ export function drawProducts(page = 1, searchTerm = "") {
       document
         .getElementById("bottom_GioHang")
         .addEventListener("click", function () {
-          const productId = document.getElementById("MSP").innerText;
           const imgSanPham = document.getElementById("Image-Link").innerText;
           const tenSanPham = document.getElementById("Name").innerText;
           const giaSanPham = document.getElementById("Price").innerText;
