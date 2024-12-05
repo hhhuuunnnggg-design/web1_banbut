@@ -209,7 +209,10 @@ function createRow(local, index) {
       <td>${local.diaChi}</td>
       <td>${local.soDienThoai}</td>
       <td><ul>${local.sanPhamList}</ul></td>
-      <td>${local.tongTien}<sup>đ</sup></td>
+      <td>${local.tongTien
+        .toLocaleString("vi-VN", { style: "currency", currency: "VND" })
+        .replace("₫", "")}<sup>đ</sup></td>
+
       <td>${local.ngayMua}</td>
       <td class="${colorClass}">${local.tinhTrang}</td>
       <td>
@@ -332,6 +335,6 @@ function renderPagination(totalItems) {
   }
 }
 // Initial load
-window.onload = function() {
-  loadItems();  // Gọi khi trang tải lần đầu
+window.onload = function () {
+  loadItems(); // Gọi khi trang tải lần đầu
 };
