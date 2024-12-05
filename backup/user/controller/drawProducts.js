@@ -166,7 +166,7 @@ export function drawProducts(page = 1, searchTerm = "") {
           </div>
           <div><span class="detail__script--price" id="Price">
             100.000.000 ₫
-          </span><span> VND</span></div>
+          </span><span> vnđ</span></div>
           <div class="detail__script--notice">
             Liên hệ để biết tình trạng sản phẩm
           </div>
