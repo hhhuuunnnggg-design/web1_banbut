@@ -130,9 +130,8 @@ export function GetItemFromLocalStorage() {
   const index = sanpham.findIndex((sanpham) => sanpham.id == id);
   const image = sanpham[index].thumbnail;
   const mota = sanpham[index].MoTa[0];
-  document.getElementById("MSP").innerHTML = sanpham[index].id;
   document.getElementById("Name").innerHTML = sanpham[index].title;
-  document.getElementById("Price").innerHTML = sanpham[index].price;
+  document.getElementById("Price").innerHTML = Number(sanpham[index].price).toLocaleString("vi-VN") + " vnđ";
   document.getElementById(
     "Image"
   ).innerHTML = `<img src="${image}" height="466px" alt="" style="margin-top: 100px;"></img>`;
@@ -140,7 +139,7 @@ export function GetItemFromLocalStorage() {
 
   const detailScript = document.querySelector(".detail__script");
   if (detailScript) {
-    detailScript.style.marginTop = "100px";
+    detailScript.style.marginTop = "20px";
   }
 
   const description = document.querySelector(".description");
