@@ -24,7 +24,7 @@ formLogin.addEventListener("submit", function (e) {
     alertError.style.display = "block";
   } else if (findAccount.off === true) {
     // Nếu tài khoản bị ban
-    alertError.innerHTML = "Tài khoản của bạn đã bị ban.";
+    alertError.innerHTML = "Tài khoản của bạn đã bị khóa.";
     alertError.style.display = "block";
   } else {
     // Nếu tài khoản hợp lệ và không bị ban, lưu trạng thái đăng nhập và tên người dùng vào localStorage
