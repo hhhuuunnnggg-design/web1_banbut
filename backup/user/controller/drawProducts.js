@@ -126,10 +126,14 @@ export function drawProducts(page = 1, searchTerm = "") {
             </div>
             <div class="product_detail" >
             <a href="#">
-            <button class="ChiTietSP" data-id="${product.id}"
+            <button class="ChiTietSP" 
+                      id="unpagination"
+                      data-id="${product.id}"
                       data-img="${product.thumbnail}" 
                       data-title="${product.title}"
-                      data-price="${product.price}">Chi tiết sản phẩm</button>
+                      data-price="${product.price}"
+                      
+                      >Chi tiết sản phẩm</button>
             </div>
           </div>
         </div>
@@ -146,7 +150,7 @@ export function drawProducts(page = 1, searchTerm = "") {
       const productId = button.getAttribute("data-id");
       localStorage.setItem("GetID", JSON.stringify(productId));
       document.getElementById(
-        "detail"
+        "products"
       ).innerHTML = `  <div class="container_ctsp">
       <div class="detail">
         <div id="Image-Link"></div>

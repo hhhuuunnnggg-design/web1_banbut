@@ -331,18 +331,30 @@
     }
 
 
-    // ẩn cái phân trang
-const historyButton = document.getElementById('historyButton');
-const pagination = document.getElementById('pagination');
-
-// Add an event listener to the button
-historyButton.addEventListener('click', function(event) {
+    // ẩn cái phân trang của đơn hàng của bạn và lịch sử mua hàng
+  const historyButton = document.getElementById('historyButton');
+  const pagination = document.getElementById('pagination');
+  // Add an event listener to the button
+  historyButton.addEventListener('click', function(event) {
     // Prevent the default action (if you don't want the page to navigate)
     event.preventDefault();
-    
     // Hide the pagination element
     pagination.style.display = 'none';
 });
+  // end 
+
+  const historyButtons = document.getElementById('unpagination');
+  const paginations = document.getElementById('pagination');
+  // Add an event listener to the button
+  historyButtons.addEventListener('click', function(event) {
+    // Prevent the default action (if you don't want the page to navigate)
+    event.preventDefault();
+    // Hide the pagination element
+    paginations.style.display = 'none';
+});
+
+
+  
 
 
     // Thêm sự kiện cho nút Đăng xuất

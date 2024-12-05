@@ -136,7 +136,7 @@ export function GetItemFromLocalStorage() {
   document.getElementById(
     "Image"
   ).innerHTML = `<img src="${image}" height="466px" alt="" style="margin-top: 100px;"></img>`;
-  document.getElementById("Image-Link").innerHTML=image;
+  document.getElementById("Image-Link").innerHTML = image;
 
   const detailScript = document.querySelector(".detail__script");
   if (detailScript) {
