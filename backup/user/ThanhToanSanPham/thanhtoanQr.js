@@ -6,7 +6,7 @@ let success = false;
 let checkInterval;
 // Hàm gửi QR
 export function GuiQr() {
-  const currentUserEmail = getCurrentUserEmail() + "muahang";
+  const currentUserEmail = localStorage.getItem("loggedInUserName");
   const MY_MbBank = {
     bank_id: "Vietinbank",
     AccCount: "109879341167",
@@ -133,7 +133,6 @@ export function drawcartGui() {
 // drawcartGui();
 async function checkPaid(price, content) {
   if (success) {
-    clearInterval(checkInterval);
     quayLaiTrangChu();
     return;
   } else {
@@ -148,7 +147,6 @@ async function checkPaid(price, content) {
       if (lastPrice >= price && lastContent.includes(content)) {
         thanhToanKhiNhanHang();
         success = true;
-        clearInterval(checkInterval);
         quayLaiTrangChu();
       } else {
         console.log("không thành công");
