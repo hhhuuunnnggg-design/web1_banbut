@@ -72,7 +72,7 @@
           </li>
           <li>
             <i class="fa-solid fa-person-chalkboard"></i>
-            <a href="#" class="huong_dan_mua_hang"><button class="button" >
+            <a href="#" class="huong_dan_mua_hang"><button class="button"  id="unPaginationHDMH">
               <span>Hướng dẫn mua hàng
             </span>
             </button></a>
@@ -364,6 +364,17 @@
     event.preventDefault();
     // Hide the pagination element
     unpagination.style.display = 'none';
+});
+
+// ẩn phân trang của hướng đãn mua hàng
+const unPaginationHDMH = document.getElementById('unPaginationHDMH');
+const unpaginationhdmh = document.getElementById('pagination');
+// Add an event listener to the button
+unPaginationHDMH.addEventListener('click', function(event) {
+  // Prevent the default action (if you don't want the page to navigate)
+  event.preventDefault();
+  // Hide the pagination element
+  unpaginationhdmh.style.display = 'none';
 });
   
 
