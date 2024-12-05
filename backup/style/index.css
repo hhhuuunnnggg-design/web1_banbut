@@ -213,6 +213,7 @@ body {
   border: 1px solid #e8c22e;
   color: #e8c22e;
   outline: none;
+  width: 200px;
 }
 
 .search input::placeholder {
@@ -238,13 +239,15 @@ body {
   color: #e8c22e;
   border: 1px solid #e8c22e;
   margin: 10px 100% 0px auto;
-  height: 24px;
+  height: 28px;
+  width: 200px;
 }
 
 .sear {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: 210px;
 }
 
 .fa-solid {
@@ -706,6 +709,8 @@ body {
     rotate: 10deg;
   }
 }
+
+
 .log_in {
   display: flex;
   align-items: center;
@@ -718,6 +723,7 @@ body {
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s;
+  margin-left: 50px;
 }
 
 .log_in:hover {
@@ -749,7 +755,13 @@ body {
   justify-content: flex-start; /* Căn các phần tử sang trái */
   align-items: center; /* Căn giữa theo chiều dọc */
   margin-top: 10px; /* Khoảng cách với các phần tử phía trên */
+  width: 200px;
 }
+
+.tim_gia input::placeholder {
+  color: #e8c22e;
+}
+
 
 .tim_gia input[type="text"] {
   flex: 1 1 150px; /* Kích thước linh hoạt: tối thiểu 150px, ưu tiên co giãn */
@@ -759,6 +771,10 @@ body {
   border-radius: 4px;
   font-size: 1rem;
   box-sizing: border-box; /* Bao gồm padding và border */
+  background-color: transparent;
+  border: 1px solid #e8c22e;
+  color: #e8c22e;
+  outline: none;
 }
 
 .tim_gia button {
@@ -778,6 +794,14 @@ body {
   color: #000; /* Màu icon */
 }
 
+input#searchPriceMin {
+  width: 200px;
+}
+
+input#searchPriceMax {
+  width: 150px;
+}
+
 /* Responsive điều chỉnh cho màn hình nhỏ */
 @media (max-width: 500px) {
   .tim_gia {
@@ -787,11 +811,6 @@ body {
   .tim_gia input[type="text"] {
     width: 100%; /* Chiều rộng full màn hình khi xếp dọc */
     margin-bottom: 10px; /* Khoảng cách giữa các ô input */
-  }
-
-  .tim_gia button {
-    width: 100%; /* Nút chiếm toàn bộ chiều rộng */
-    margin-top: 10px; /* Khoảng cách phía trên nút */
   }
 }
 @media (max-width: 768px) {
