@@ -158,15 +158,12 @@ export function drawProducts(page = 1, searchTerm = "") {
           
         </div>
         <div class="detail__script">
-          <div class="detail__script--msp" id="MSP">
-            MSP: W0SR-0001
-          </div>
           <div class="detail__script--name" id="Name">
             Viết Waterman Serénité Air
           </div>
           <div class="detail__script--price" id="Price">
             100.000.000 ₫
-          </div>VND
+          </div>
           <div class="detail__script--notice">
             Liên hệ để biết tình trạng sản phẩm
           </div>
