@@ -122,9 +122,9 @@
               <div class="form-group">
                 <div class="half-width">
                   <label for="number"
-                    >Số điện thoại<span style="color: red">*</span></label
+                    >Số điện thoại.<span style="color: red">*</span></label
                   >
-                  <input type="text" id="number" />
+                  <input type="number" id="number" />
                 </div>
                 <div class="half-width">
                   <label for="Email"
@@ -333,5 +333,26 @@
         hideContent.style.display = "none";
       }
     </script>
+
+    <script>
+      const input = document.getElementById("number");
+      input.addEventListener("input", function (e) {
+        // Chỉ cho phép số nguyên
+        this.value = this.value.replace(/[^0-9]/g, "");
+      });
+    </script>
+    <style>
+      /* Ẩn nút tăng/giảm cho trình duyệt Webkit (Chrome, Safari, Opera) */
+      input[type="number"]::-webkit-outer-spin-button,
+      input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      /* Ẩn nút tăng/giảm cho trình duyệt Firefox */
+      input[type="number"] {
+        -moz-appearance: textfield;
+      }
+    </style>
   </body>
 </html>
