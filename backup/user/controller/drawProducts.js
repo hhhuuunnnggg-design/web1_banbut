@@ -158,12 +158,15 @@ export function drawProducts(page = 1, searchTerm = "") {
           
         </div>
         <div class="detail__script">
+          <div>MSP:<div class="detail__script" id="MSP">
+          </div>
+          </div>
           <div class="detail__script--name" id="Name">
             Viết Waterman Serénité Air
           </div>
-          <div class="detail__script--price" id="Price">
+          <div><span class="detail__script--price" id="Price">
             100.000.000 ₫
-          </div>
+          </span><span> VND</span></div>
           <div class="detail__script--notice">
             Liên hệ để biết tình trạng sản phẩm
           </div>
@@ -238,9 +241,10 @@ export function drawProducts(page = 1, searchTerm = "") {
       document
         .getElementById("bottom_GioHang")
         .addEventListener("click", function () {
+          const productId =document.getElementById("MSP").innerText;
           const imgSanPham = document.getElementById("Image-Link").innerText;
           const tenSanPham = document.getElementById("Name").innerText;
-          const giaSanPham = document.getElementById("Price").innerText;
+          const giaSanPham = Number(document.getElementById("Price").innerText)*1000;
 
           onclickDuaVaoGioHang(productId, imgSanPham, tenSanPham, giaSanPham);
         });
