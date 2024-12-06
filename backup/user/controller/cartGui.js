@@ -43,7 +43,7 @@ export function drawcartGui() {
           <p><span>${formattedPrice}</span><sup>vnđ</sup></p>
         </td>
         <td>
-          <input style="width: 30px; outline: none" type="number" value="${soLuongSanPham}" min="0" />
+          <input style="width: 30px; outline: none" type="number" value="${soLuongSanPham}" min="1" />
         </td>
         <td>
         <button type="button" class="xoa-san-pham btn btn-danger" data-id="${idSanPham}" style="padding: 5px 10px;">Xóa</button>
