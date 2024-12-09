@@ -183,30 +183,37 @@ function duyetDonHang(maDon, trangThai) {
 }
 
 // Hàm hủy đơn hàng
+// Hàm hủy đơn hàng
 function huyDonHang(maDon, trangThai) {
   const layUser = JSON.parse(localStorage.getItem("users"));
   let isDeleted = false;
 
-  layUser.forEach((user) => {
-    user.donhang = user.donhang.filter((don) => {
-      if (don.ngaymua === maDon) {
-        if (don.tinhTrang === "đã giao hàng") {
-          alert("Đơn hàng đã giao hàng, bạn không thể xóa nó!");
-          return true;
-        } else {
-          isDeleted = true;
-          return false;
+  // Sử dụng confirm thay cho alert để hiển thị hộp thoại có nút OK và Cancel
+  const isConfirmed = window.confirm("Bạn có chắc muốn xóa đơn hàng này?");
+
+  if (isConfirmed) {
+    layUser.forEach((user) => {
+      user.donhang = user.donhang.filter((don) => {
+        if (don.ngaymua === maDon) {
+          if (don.tinhTrang === "đã giao hàng") {
+            alert("Đơn hàng đã giao hàng, bạn không thể xóa nó!");
+            return true; // Nếu đơn hàng đã giao thì không xóa
+          } else {
+            isDeleted = true;
+            return false; // Xóa đơn hàng
+          }
         }
-      }
-      return true;
+        return true; // Giữ lại các đơn hàng khác
+      });
     });
-  });
 
-  if (isDeleted) {
-    localStorage.setItem("users", JSON.stringify(layUser));
-
-    addTableDonHang();
-    console.log(`Đơn hàng mã ${maDon} đã được hủy.`);
+    if (isDeleted) {
+      localStorage.setItem("users", JSON.stringify(layUser));
+      addTableDonHang(); // Cập nhật lại bảng đơn hàng
+      console.log(`Đơn hàng mã ${maDon} đã được hủy.`);
+    }
+  } else {
+    console.log("Người dùng đã hủy thao tác xóa.");
   }
 }
 
