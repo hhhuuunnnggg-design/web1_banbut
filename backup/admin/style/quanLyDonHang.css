@@ -105,3 +105,97 @@ h2 {
 .table th:nth-child(5) {
   width: 100px;
 }
+/* chat */
+/* 
+#accountTable th {
+  text-align: center;
+  vertical-align: middle; 
+}
+
+
+#accountTable td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+
+#accountTable th:nth-child(1),
+#accountTable td:nth-child(1) {
+  width: 5%; 
+}
+
+#accountTable th:nth-child(2),
+#accountTable td:nth-child(2) {
+  width: 10%; 
+}
+
+#accountTable th:nth-child(3),
+#accountTable td:nth-child(3) {
+  width: 15%; 
+}
+
+#accountTable th:nth-child(4),
+#accountTable td:nth-child(4) {
+  width: 20%;
+}
+
+#accountTable th:nth-child(5),
+#accountTable td:nth-child(5) {
+  width: 10%; 
+}
+
+#accountTable th:nth-child(6),
+#accountTable td:nth-child(6) {
+  width: 10%; 
+}
+
+#accountTable th:nth-child(7),
+#accountTable td:nth-child(7) {
+  width: 10%; 
+}
+
+#accountTable th:nth-child(8),
+#accountTable td:nth-child(8) {
+  width: 10%; 
+}
+
+#accountTable th:nth-child(9),
+#accountTable td:nth-child(9) {
+  width: 15%;
+}
+
+
+
+
+#accountTable td button {
+  width: 100%; 
+  height: 40px; 
+  padding: 5px 0; 
+  text-align: center; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px; 
+  margin: 2px 0; 
+}
+
+#accountTable td button:not(:last-child) {
+  margin-bottom: 5px; 
+}
+
+#accountTable td button.btn-warning {
+  background-color: #15de16;
+  border-color: #15de16;
+  color: #ffffff;
+}
+
+#accountTable td button.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  color: #ffffff;
+}
+#accountTable td button.btn-info {
+  background-color: #17a2b8;
+  border-color: #17a2b8;
+  color: #ffffff;
+} */
