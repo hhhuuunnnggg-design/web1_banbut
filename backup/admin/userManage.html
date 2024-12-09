@@ -78,7 +78,7 @@
         <div id="box2">
             <div style="display: flex; align-items: center; justify-content: center;">
                 <a href="./trangchu.html" style="text-decoration: none">
-                    <h3 style="font-size: 30px;margin-top: 30px;margin-bottom: 30px; ">chào Admin</h3>
+                    <h3 style="font-size: 30px;margin-top: 30px;margin-bottom: 30px; ">Quản Lý Admin</h3>
                 </a>
             </div>                
             <div style="display: flex;">
@@ -162,10 +162,6 @@
                     </div>
                     <div class="modal-body">
                         <form id="addAccountForm">
-                            <div class="form-group">
-                                <label for="usersId1">ID:</label>
-                                <input type="number" class="form-control" id="usersId1" required>
-                            </div>
                             <div class="form-group">
                                 <label for="username">Tên:</label>
                                 <input type="text" class="form-control" id="username" required>
@@ -288,7 +284,7 @@
         document.getElementById('addAccountForm').onsubmit = function (e) {
             e.preventDefault();
             const users=JSON.parse(localStorage.getItem("users")) || [];
-            const userId= document.getElementById('usersId1').value;
+            const userId= generateRandomInRange(0, 9999999);
             const username = document.getElementById('username').value;
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
@@ -508,6 +504,10 @@
     `;
 }
 
+function generateRandomInRange(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
         let currentPage = 1;
         let itemsPerPage = 4;
 
@@ -621,6 +621,4 @@
 
 
     </script>
-
-   
 </body
