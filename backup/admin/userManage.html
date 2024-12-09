@@ -176,7 +176,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="password">Mật khẩu:</label>
-                                <output type="number" class="form-control" id="password" required>
+                                <input type="text" class="form-control" id="password" required>
                             </div>
                             <button type="submit" class="btn btn-success">Thêm Tài khoản</button>
                         </form>
@@ -212,7 +212,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="editPassword">Mật khẩu đăng nhập:</label>
-                                <output type="number" class="form-control" id="editPassword" >
+                                <input type="text" class="form-control" id="editPassword" >
                             </div>
                             <button type="submit" class="btn btn-success">Cập nhật Tài khoản</button>
                         </form>
@@ -353,17 +353,19 @@
             const id = document.getElementById('editUsersId1').value;
             const username = document.getElementById('editUsername').value;
             const email = document.getElementById('editEmail').value;
-
+            const password=document.getElementById('editPassword').value;
             const row = document.getElementById(`account-${id}`);
             row.cells[1].textContent = username;
             row.cells[2].textContent = email;
+            row.cells[3].textContent = password;
             //Đưa dữ liệu mới cập nhật vào LocalStorage
             const users=JSON.parse(localStorage.getItem("users")) || [];//Lấy dữ liệu từ LocalStorage
-            const index= users.findIndex(users => users.userId==id)
+            const index= users.findIndex(users => Number(users.userId)===id)
             if(index!=-1)
             {
                 users[index].userName = username;
                 users[index].userEmail = email;
+                users[index].userPasWord=password;
             }
             localStorage.setItem('users',JSON.stringify(users));
             // Đóng modal và reset form
