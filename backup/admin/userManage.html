@@ -178,6 +178,10 @@
                                 <label for="password">Mật khẩu:</label>
                                 <input type="text" class="form-control" id="password" required>
                             </div>
+                            <div class="form-group">
+                                <label for="Reinputpassword">Nhập lại mật khẩu:</label>
+                                <input type="text" class="form-control" id="Reinputpassword" required>
+                            </div>
                             <button type="submit" class="btn btn-success">Thêm Tài khoản</button>
                         </form>
                     </div>
@@ -213,6 +217,10 @@
                             <div class="form-group">
                                 <label for="editPassword">Mật khẩu đăng nhập:</label>
                                 <input type="text" class="form-control" id="editPassword" >
+                            </div>
+                            <div class="form-group">
+                                <label for="editReinputpassword">Nhập lại mật khẩu:</label>
+                                <input type="text" class="form-control" id="editReinputpassword">
                             </div>
                             <button type="submit" class="btn btn-success">Cập nhật Tài khoản</button>
                         </form>
@@ -284,6 +292,16 @@
             const username = document.getElementById('username').value;
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
+            const reinputpass= document.getElementById('Reinputpassword').value;
+            users.forEach(users =>{
+                if(Number(users.userId)===userId){
+                alert("ID mà bạn nhập đã có!");
+                document.getElementById('addAccountForm').reset();
+                return;}
+
+            });
+            if(reinputpass===password)
+            {
             const lock= false;
 
             // Tạo một hàng mới trong bảng
@@ -332,17 +350,18 @@
             // Đóng modal và reset form
             $('#addAccountModal').modal('hide');
             document.getElementById('addAccountForm').reset();
-
+            }
+            else{alert("Phần nhập lại mật khẩu của bạn không trùng khớp!")}
 
         };
 
         // Hàm mở modal sửa tài khoản
-        function openEditAccountModal(id, username, email, password, role) {
-            document.getElementById('editUsersId1').value = id;
+        function openEditAccountModal(id, username, email, password) {
+            document.getElementById('editUsersId1').value = Number(id);
             document.getElementById('editUsername').value = username;
             document.getElementById('editEmail').value = email;
             document.getElementById('editPassword').value = password;
-
+            document.getElementById('editReinputpassword').value = password;
             $('#editAccountModal').modal('show');
         }
 
@@ -354,6 +373,10 @@
             const username = document.getElementById('editUsername').value;
             const email = document.getElementById('editEmail').value;
             const password=document.getElementById('editPassword').value;
+            const reinput=document.getElementById('editReinputpassword').value;
+            if(reinput===password)
+            {               
+            
             const row = document.getElementById(`account-${id}`);
             row.cells[1].textContent = username;
             row.cells[2].textContent = email;
@@ -371,6 +394,9 @@
             // Đóng modal và reset form
             $('#editAccountModal').modal('hide');
             document.getElementById('editAccountForm').reset();
+
+            }
+            else{alert("Phần nhập lại mật khẩu của bạn không trùng khớp!")}
         };
 
         function Comfirmbeforelockaccount(id)
