@@ -20,7 +20,7 @@ function addTableDonHang() {
       <td>${d.tenKhach}</td>
       <td>${d.diaChi}</td>    
       <td>${d.soDienThoai}</td>  
-      <td><ul>${d.sanPhamList}</ul></td>  
+      
       <td>${d.tongTien}<sup>đ</sup></td>  
       <td>${d.ngayMua}</td>  
       <td class="${colorClass}">${
@@ -81,7 +81,8 @@ function quanlydonhang() {
         tenKhach: tenKh,
         diaChi: diachiKh,
         soDienThoai: sdtKh,
-        sanPhamList: danhSachSanPham,
+
+        sanPhamList: danhSachSanPham, //cái này để hiện chi tiết đơn
         tongTien: tongTienDon,
         ngayMua: new Date(don.ngaymua).toLocaleString(),
         tinhTrang: don.tinhTrang,

@@ -85,7 +85,7 @@ function displayFilteredOrders(filteredOrders) {
             <td>${local.tenKhach}</td>
             <td>${local.diaChi}</td>
             <td>${local.soDienThoai}</td>
-            <td><ul>${local.sanPhamList}</ul></td>
+            
             <td>${local.tongTien}<sup>đ</sup></td>
             <td>${local.ngayMua}</td>
             <td class="${colorClass}">${
@@ -208,7 +208,7 @@ function createRow(local, index) {
       <td>${local.tenKhach}</td>
       <td>${local.diaChi}</td>
       <td>${local.soDienThoai}</td>
-      <td><ul>${local.sanPhamList}</ul></td>
+      
       <td>${local.tongTien
         .toLocaleString("vi-VN", { style: "currency", currency: "VND" })
         .replace("₫", "")}<sup>đ</sup></td>
