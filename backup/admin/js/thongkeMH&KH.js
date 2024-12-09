@@ -12,6 +12,11 @@ function onclickThongke()
 {
     const start=document.querySelector('#start-date').value;
     const end=document.querySelector('#end-date').value;
+    if(start==""||end=="")
+    {
+        alert("Bạn chưa chọn thời gian để thống kê");
+        return;
+    }
     const startday=new Date(start);
     const endday=new Date(end);
 
@@ -207,7 +212,7 @@ function openXemHoaDonKH(KhachHang)
                         
                     });
                     tableHoaDonKH3.insertAdjacentHTML("beforeend",`<td>Tổng tiền thanh toán: ${tong1donhang}</td></tr><br></br>`); 
-                    stt++;       
+                    stt++;        
                     }    
                 });
             }
