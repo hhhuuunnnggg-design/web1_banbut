@@ -24,7 +24,6 @@ function onclickThongke()
         // Tính tổng doanh thu của mỗi khách hàng
         user.donhang.forEach(donhang => {
             const ngaymuahang=new Date(donhang.ngaymua)
-            console.log(ngaymuahang);
             if (donhang.tinhTrang === "đã giao hàng" && ngaymuahang>=startday && ngaymuahang<=endday) {
                 donhang.sanPham.forEach(sanPham => {
                     tong += sanPham.giaSanPham*sanPham.soLuongSanPham;
@@ -174,29 +173,41 @@ function openXemHoaDonKH(KhachHang)
                     {
                     //Tính đơn giá
                     const newRowDonhangKH1=`
-                    <tr>
-                        <td>Ngày mua: ${donhang.ngaymua}</td>
-                        <td>Tên khách hàng: ${donhang.sanPham[0].ho} ${donhang.sanPham[0].ten}</td>
-                        <td>Địa chỉ khách hàng: ${donhang.sanPham[0].diachi}</td>
-                        <td>email khách hàng: ${donhang.sanPham[0].email}</td>
-                        <td>Quốc gia: ${donhang.sanPham[0].quocgia}</td>
-                        <td>SĐT: ${donhang.sanPham[0].sdt}</td>                       
+                    <p style="color:"red""><h1>Mã hóa đơn: ${donhang.ngaymua}</h1></p>
+                    <p>Tên khách hàng: ${donhang.sanPham[0].ho} ${donhang.sanPham[0].ten}</p>
+                    <p>Địa chỉ khách hàng: ${donhang.sanPham[0].diachi}</p>
+                    <p>Email khách hàng: ${donhang.sanPham[0].email}</p>
+                    <p>Quốc gia: ${donhang.sanPham[0].quocgia}</p>
+                    <p>SĐT: ${donhang.sanPham[0].sdt}</p>                  
                     `;
                     tableHoaDonKH1.insertAdjacentHTML("beforeend",newRowDonhangKH1);
+                    const newrowtable=`
+                        <table>
+                        <thead>
+                        <th>STT</th>
+                        <th>Sản phẩm</th>
+                        <th>Số lượng</th>
+                        <th>Tổng giá tiền sản phẩm</th>                    
+                        </thead>
+                        </table>`
+                    tableHoaDonKH1.insertAdjacentHTML("beforeend",newrowtable);
+                    let stt=1;
                     donhang.sanPham.forEach(sanPham =>{
                         
                         tong1sp=Number(sanPham.giaSanPham)*sanPham.soLuongSanPham;
                         tong1donhang+=tong1sp;
                         const newRowDonhangKH2=`
-                            <td>
-                            <p>Sản phẩm: ${sanPham.tenSanPham}  
-                            Số lượng: ${sanPham.soLuongSanPham}
-                            Giá tiền: ${tong1sp}
-                            <p>
-                            </td>`;
+                            <tr>
+                            <th>${stt}</th>
+                            <th>${sanPham.tenSanPham}</th>  
+                            <th>${sanPham.soLuongSanPham}</th>
+                            <th>${tong1sp} ₫</th>                    
+                            </tr>`
                         tableHoaDonKH2.insertAdjacentHTML("beforeend",newRowDonhangKH2);
+                        
                     });
-                    tableHoaDonKH3.insertAdjacentHTML("beforeend",`<td>Tổng tiền: ${tong1donhang}</td></tr><br></br>`);        
+                    tableHoaDonKH3.insertAdjacentHTML("beforeend",`<td>Tổng tiền thanh toán: ${tong1donhang}</td></tr><br></br>`); 
+                    stt++;       
                     }    
                 });
             }
@@ -227,28 +238,43 @@ function openXemHoaDonKH(KhachHang)
                 if(check!=0 && ngaymuahang>=startday && ngaymuahang<=endday)
                 {//Tính đơn giá
                 const newRowDonhangKH1=`
-                <tr>
-                    <td>Ngày mua: ${donhang.ngaymua}</td>
-                    <td>Tên khách hàng: ${donhang.sanPham[0].ho} ${donhang.sanPham[0].ten}</td>
-                    <td>Địa chỉ khách hàng: ${donhang.sanPham[0].diachi}</td>
-                    <td>email khách hàng: ${donhang.sanPham[0].email}</td>
-                    <td>Quốc gia: ${donhang.sanPham[0].quocgia}</td>
-                    <td>SĐT: ${donhang.sanPham[0].sdt}</td>                       
+ 
+                    <p style="color:"red""><h1>Mã hóa đơn: ${donhang.ngaymua}</h1></p>
+                    <p>Tên khách hàng: ${donhang.sanPham[0].ho} ${donhang.sanPham[0].ten}</p>
+                    <p>Địa chỉ khách hàng: ${donhang.sanPham[0].diachi}</p>
+                    <p>Email khách hàng: ${donhang.sanPham[0].email}</p>
+                    <p>Quốc gia: ${donhang.sanPham[0].quocgia}</p>
+                    <p>SĐT: ${donhang.sanPham[0].sdt}</p>  
+
                 `;
                 tableHoaDonKH1.insertAdjacentHTML("beforeend",newRowDonhangKH1);
+                const newrowtable=`
+                    <table>
+                    <thead>
+                    <th>STT</th>
+                    <th>Sản phẩm</th>
+                    <th>Số lượng</th>
+                    <th>Tổng giá tiền sản phẩm</th>                    
+                    </thead>
+                    </table>`
+                tableHoaDonKH1.insertAdjacentHTML("beforeend",newrowtable);
+                let stt=1;
                 donhang.sanPham.forEach(sanPham =>{                   
                     tong1sp=Number(sanPham.giaSanPham)*sanPham.soLuongSanPham;
-                    tong1donhang+=tong1sp;
+                    tong1donhang+=tong1sp;                   
                     const newRowDonhangKH2=`
-                        <td>
-                        <p>Sản phẩm: ${sanPham.tenSanPham}  
-                        Số lượng: ${sanPham.soLuongSanPham}
-                        Giá tiền: ${tong1sp}
-                        <p>
-                        </td>`;
+                        <tr>
+                        <th>${stt}</th>
+                        <th>${sanPham.tenSanPham}</th>  
+                        <th>${sanPham.soLuongSanPham}</th>
+                        <th>${tong1sp} ₫</th>                    
+                        </tr>
+                    `;
+                        
                     tableHoaDonKH2.insertAdjacentHTML("beforeend",newRowDonhangKH2);
+                    stt++;
                 });
-                tableHoaDonKH3.insertAdjacentHTML("beforeend",`<td>Tổng tiền: ${tong1donhang}</td></tr><br></br>`);    
+                tableHoaDonKH3.insertAdjacentHTML("beforeend",`<p>Tổng tiền thanh toán: ${tong1donhang} ₫</p><br></br>`);    
                 check-=1;   
                 }        
             });
