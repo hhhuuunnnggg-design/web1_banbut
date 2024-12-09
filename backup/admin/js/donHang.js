@@ -120,6 +120,7 @@ function chiTietDonHang(maDon) {
             <th>Số lượng</th>
             <th>Giá tiền</th>
             <th>Tổng tiền</th>
+            <th>Đơn vị</th>
           </tr>
         </thead>
         <tbody>
@@ -142,10 +143,11 @@ function chiTietDonHang(maDon) {
             <td>${stt++}</td>
             <td>${ten.trim()}</td>
             <td>${soLuong.trim()}</td>
-             <td>${Number(giaTien.trim()).toLocaleString()}<sup>vnđ</sup></td>
-          <td>${(
-            Number(giaTien) * parseInt(soLuong)
-          ).toLocaleString()}<sup>vnđ</sup></td>
+            <td>${Number(giaTien.trim()).toLocaleString()}<sup>vnđ</sup></td>
+            <td>${(
+              Number(giaTien) * parseInt(soLuong)
+            ).toLocaleString()}<sup>vnđ</sup></td>
+             <td>cây</td>
         `;
       }
     });
@@ -177,12 +179,11 @@ function duyetDonHang(maDon, trangThai) {
 
   localStorage.setItem("users", JSON.stringify(layUser));
 
-  addTableDonHang();
+  loadItems(); // Gọi lại loadItems để hiển thị lại bảng với phân trang đúng
 
   console.log(`Đơn hàng mã ${maDon} đã giao hàng.`);
 }
 
-// Hàm hủy đơn hàng
 // Hàm hủy đơn hàng
 function huyDonHang(maDon, trangThai) {
   const layUser = JSON.parse(localStorage.getItem("users"));
@@ -209,12 +210,32 @@ function huyDonHang(maDon, trangThai) {
 
     if (isDeleted) {
       localStorage.setItem("users", JSON.stringify(layUser));
-      addTableDonHang(); // Cập nhật lại bảng đơn hàng
+      loadItems(); // Gọi lại loadItems để hiển thị lại bảng với phân trang đúng
       console.log(`Đơn hàng mã ${maDon} đã được hủy.`);
     }
   } else {
     console.log("Người dùng đã hủy thao tác xóa.");
   }
+}
+
+function loadItems() {
+  // Kiểm tra xem đã có bộ lọc nào chưa
+  const listDH =
+    filteredOrders.length > 0 ? filteredOrders : trangThaiDonHang(); // Dùng danh sách đã lọc nếu có
+
+  const listDHbody = document.getElementsByClassName("table-content")[0];
+  listDHbody.innerHTML = "";
+
+  const total = listDH.length;
+  const start = (currentPage - 1) * limit;
+  const end = start + limit;
+
+  listDH.slice(start, end).forEach((list, index) => {
+    const newRow = createRow(list, index + start);
+    listDHbody.insertAdjacentHTML("beforeend", newRow);
+  });
+
+  renderPagination(total); // Cập nhật phân trang
 }
 
 // Gọi hàm hiển thị bảng đơn hàng khi trang được tải
