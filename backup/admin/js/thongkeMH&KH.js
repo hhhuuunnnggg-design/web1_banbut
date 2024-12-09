@@ -190,8 +190,10 @@ function openXemHoaDonKH(KhachHang)
                         <table>
                         <thead>
                         <th>STT</th>
+                        <th>Đơn vị</th>
                         <th>Sản phẩm</th>
                         <th>Số lượng</th>
+                        <th>Đơn giá</th>
                         <th>Tổng giá tiền sản phẩm</th>                    
                         </thead>
                         </table>`
@@ -204,9 +206,11 @@ function openXemHoaDonKH(KhachHang)
                         const newRowDonhangKH2=`
                             <tr>
                             <th>${stt}</th>
+                            <th>Cây </th>
                             <th>${sanPham.tenSanPham}</th>  
                             <th>${sanPham.soLuongSanPham}</th>
-                            <th>${tong1sp} ₫</th>                    
+                            <th>${sanPham.giaSanPham} ₫</th>
+                            <th>${tong1sp} ₫</th>                       
                             </tr>`
                         tableHoaDonKH2.insertAdjacentHTML("beforeend",newRowDonhangKH2);
                         
@@ -257,8 +261,10 @@ function openXemHoaDonKH(KhachHang)
                     <table>
                     <thead>
                     <th>STT</th>
+                    <th>Đơn vị</th>
                     <th>Sản phẩm</th>
                     <th>Số lượng</th>
+                    <th>Đơn giá</th>
                     <th>Tổng giá tiền sản phẩm</th>                    
                     </thead>
                     </table>`
@@ -270,8 +276,10 @@ function openXemHoaDonKH(KhachHang)
                     const newRowDonhangKH2=`
                         <tr>
                         <th>${stt}</th>
+                        <th>Cây</th>
                         <th>${sanPham.tenSanPham}</th>  
                         <th>${sanPham.soLuongSanPham}</th>
+                        <th>${sanPham.giaSanPham} ₫</th>
                         <th>${tong1sp} ₫</th>                    
                         </tr>
                     `;
