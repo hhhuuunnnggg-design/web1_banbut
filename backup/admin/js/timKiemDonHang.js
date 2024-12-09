@@ -7,21 +7,23 @@ function locDonHangTheoLoai() {
 
   switch (searchOrderType) {
     case "ma":
-      locDonHangTheoMa(searchInput);
+      filteredOrders = locDonHangTheoMa(searchInput); // Lưu kết quả lọc vào filteredOrders
       console.log(`Bạn đang tìm mã đơn với mã: ${searchInput}`);
-      // Logic tìm kiếm theo mã đơn (chưa được định nghĩa trong mã hiện tại)
       break;
     case "khachhang":
-      locDonHangTheoKhachHang(searchInput);
+      filteredOrders = locDonHangTheoKhachHang(searchInput); // Lưu kết quả lọc vào filteredOrders
       console.log(`Bạn đang tìm khách hàng với tên: ${searchInput}`);
       break;
     case "trangThai":
-      locDonHangTheoTrangThai(searchInput);
+      filteredOrders = locDonHangTheoTrangThai(searchInput); // Lưu kết quả lọc vào filteredOrders
       console.log(`Bạn đang tìm trạng thái với: ${searchInput}`);
       break;
     default:
       console.log("Chọn một phương thức tìm kiếm hợp lệ.");
+      return;
   }
+
+  loadItems(); // Gọi lại loadItems để hiển thị lại các đơn hàng đã lọc
 }
 
 function locDonHangTheoKhachHang(searchInput) {
@@ -34,10 +36,11 @@ function locDonHangTheoKhachHang(searchInput) {
     document.getElementsByClassName(
       "table-content"
     )[0].innerHTML = `<tr><td colspan="10" style="text-align: center;">Không tìm thấy đơn hàng với tên khách hàng "${searchInput}"</td></tr>`;
-  } else {
-    displayFilteredOrders(filteredOrders);
   }
+
+  return filteredOrders;
 }
+
 function locDonHangTheoMa(searchInput) {
   const listDH = trangThaiDonHang();
   const filteredOrders = listDH.filter((order) =>
@@ -47,14 +50,14 @@ function locDonHangTheoMa(searchInput) {
   if (filteredOrders.length === 0) {
     document.getElementsByClassName(
       "table-content"
-    )[0].innerHTML = `<tr><td colspan="10" style="text-align: center;">Không tìm thấy đơn hàng với tên khách hàng "${searchInput}"</td></tr>`;
-  } else {
-    displayFilteredOrders(filteredOrders);
+    )[0].innerHTML = `<tr><td colspan="10" style="text-align: center;">Không tìm thấy đơn hàng với mã "${searchInput}"</td></tr>`;
   }
+
+  return filteredOrders;
 }
 
 function locDonHangTheoTrangThai(searchInput) {
-  const listDH = trangThaiDonHang(); // Lấy danh sách đơn hàng từ localStorage
+  const listDH = trangThaiDonHang();
   const filteredOrders = listDH.filter(
     (order) => order.tinhTrang.toLowerCase() === searchInput
   );
@@ -63,9 +66,9 @@ function locDonHangTheoTrangThai(searchInput) {
     document.getElementsByClassName(
       "table-content"
     )[0].innerHTML = `<tr><td colspan="10" style="text-align: center;">Không tìm thấy đơn hàng với trạng thái "${searchInput}"</td></tr>`;
-  } else {
-    displayFilteredOrders(filteredOrders);
   }
+
+  return filteredOrders;
 }
 
 // đây là hàm dùng chung để vẽ
@@ -194,10 +197,10 @@ function duyetDonHang(maDon, trangThai) {
 }
 //--------------------------------------------------------
 
-function test() {
-  console.log(trangThaiDonHang());
-}
-test();
+// function test() {
+//   console.log(trangThaiDonHang());
+// }
+// test();
 function createRow(local, index) {
   const colorClass =
     local.tinhTrang === "đã giao hàng" ? "text-success" : "text-warning";
@@ -231,8 +234,14 @@ function createRow(local, index) {
 }
 let currentPage = 1;
 let limit = 4;
+
+let filteredOrders = [];
+
 function loadItems() {
-  const listDH = trangThaiDonHang();
+  // Kiểm tra xem đã có bộ lọc nào chưa
+  const listDH =
+    filteredOrders.length > 0 ? filteredOrders : trangThaiDonHang(); // Dùng danh sách đã lọc nếu có
+
   const listDHbody = document.getElementsByClassName("table-content")[0];
   listDHbody.innerHTML = "";
 
@@ -244,7 +253,8 @@ function loadItems() {
     const newRow = createRow(list, index + start);
     listDHbody.insertAdjacentHTML("beforeend", newRow);
   });
-  renderPagination(total);
+
+  renderPagination(total); // Cập nhật phân trang
 }
 
 // Function to render pagination buttons
