@@ -38,7 +38,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         price: 10000,
         discountPercentage: 10,
         stock: 35,
-        returnPolicy: "30 ngày miễn phí đổi trả",
+        returnPolicy: "3 năm",
         thumbnail:
           "./Images/thumnails/ButDaKim/ButDaKimMontblancStarWalkerDouéFinelinerPenMB118872.jpg",
         chitiet: [
@@ -87,7 +87,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         price: 580000,
         discountPercentage: 10,
         inStock: 13,
-        returnPolicy: "30 ngày miễn phí đổi trả",
+        returnPolicy: "3 năm",
         thumbnail: "./Images/thumnails/ButBi/ButBiAllan6002BS.jpg",
         chitiet: [
           {
@@ -132,7 +132,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         price: 390000,
         discountPercentage: 15,
         inStock: 25,
-        returnPolicy: "30 ngày miễn phí đổi trả",
+        returnPolicy: "3 năm",
         thumbnail: "./Images/thumnails/ButBi/ButBiAllan120BBL.jpg",
         chitiet: [
           {
@@ -175,7 +175,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         price: 390000,
         discountPercentage: 20,
         inStock: 20,
-        returnPolicy: "30 ngày miễn phí đổi trả",
+        returnPolicy: "3 năm",
         thumbnail:
           "./Images/thumnails/ButBi/ButBiLamyLoGoMattBlueBallpoint.jpg",
         chitiet: [
@@ -218,7 +218,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         price: 450000,
         discountPercentage: 10,
         inStock: 20,
-        returnPolicy: "30 ngày miễn phí đổi trả",
+        returnPolicy: "3 năm",
         thumbnail: "./Images/thumnails/ButBi/ButBiLamyLoGoM+BlueBP.jpg",
         chitiet: [
           {
@@ -266,7 +266,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         price: 680000,
         discountPercentage: 10,
         inStock: 6,
-        returnPolicy: "30 ngày miễn phí đổi trả",
+        returnPolicy: "3 năm",
         thumbnail: "./Images/thumnails/ButMay/ButMayAllan6002FBK.jpg",
         chitiet: [
           {
@@ -314,7 +314,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         price: 410000,
         discountPercentage: 15,
         inStock: 5,
-        returnPolicy: "30 ngày miễn phí đổi trả",
+        returnPolicy: "3 năm",
         thumbnail: "./Images/thumnails/ButMay/ButMayAllan0302FG.jpg",
         chitiet: [
           {
@@ -357,7 +357,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         price: 748000,
         discountPercentage: 10,
         inStock: 6,
-        returnPolicy: "30 ngày miễn phí đổi trả",
+        returnPolicy: "3 năm",
         thumbnail: "./Images/thumnails/ButChi/ButChiParkerJotter2017.jpg",
         chitiet: [
           {
@@ -406,7 +406,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         price: 28810000,
         discountPercentage: 5,
         inStock: 5,
-        returnPolicy: "30 ngày miễn phí đổi trả",
+        returnPolicy: "3 năm",
         thumbnail: "./Images/thumnails/ButChi/ButChiMontblancVirginiaWoolf.jpg",
         chitiet: [
           {
@@ -461,7 +461,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         price: 11968000,
         discountPercentage: 5,
         inStock: 3,
-        returnPolicy: "30 ngày miễn phí đổi trả",
+        returnPolicy: "3 năm",
         thumbnail:
           "./Images/thumnails/ButDaKim/ButDaKimMontblancStarwalkerBluePlanet.jpg",
         chitiet: [
@@ -510,7 +510,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         price: 7931000,
         discountPercentage: 5,
         inStock: 4,
-        returnPolicy: "30 ngày miễn phí đổi trả",
+        returnPolicy: "3 năm",
         thumbnail: "./Images/thumnails/ButDaKim/ButDaKimParkerIngennuity.jpg",
         chitiet: [
           {
@@ -558,7 +558,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         price: 9890000,
         discountPercentage: 5,
         inStock: 2,
-        returnPolicy: "30 ngày miễn phí đổi trả",
+        returnPolicy: "3 năm",
         thumbnail:
           "./Images/thumnails/ButDaKim/ButDaKimParkerIngennuityRubberMetalBlack.jpg",
         chitiet: [
@@ -609,7 +609,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         price: 2507500,
         discountPercentage: 5,
         inStock: 8,
-        returnPolicy: "30 ngày miễn phí đổi trả",
+        returnPolicy: "3 năm",
         thumbnail:
           "./Images/thumnails/ButMay/ButMayMontblancMeisterstuckOlympic.jpg",
         chitiet: [
@@ -652,7 +652,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         price: 48000000,
         discountPercentage: 5,
         inStock: 8,
-        returnPolicy: "30 ngày miễn phí đổi trả",
+        returnPolicy: "3 năm",
         thumbnail:
           "./Images/thumnails/ButDaKim/ButDaKimMontblancStarwalkerBluePlanet.jpg",
         chitiet: [
@@ -696,7 +696,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         price: 48000000,
         discountPercentage: 5,
         inStock: 2,
-        returnPolicy: "30 ngày miễn phí đổi trả",
+        returnPolicy: "3 năm",
         thumbnail:
           "./Images/thumnails/ButDaKim/ButDaKimMontblancStarWalkerDouéFinelinerPenMB118872.jpg",
         chitiet: [
@@ -740,7 +740,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         price: 4800000,
         discountPercentage: 5,
         inStock: 4,
-        returnPolicy: "30 ngày miễn phí đổi trả",
+        returnPolicy: "3 năm",
         thumbnail:
           "./Images/thumnails/ButDaKim/ButDaKimParkerIngennuityRubberMetalBlack.jpg",
         chitiet: [
@@ -793,7 +793,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         price: 118000000,
         discountPercentage: 5,
         inStock: 2,
-        returnPolicy: "30 ngày miễn phí đổi trả",
+        returnPolicy: "3 năm",
         thumbnail:
           "./Images/thumnails/ButMay/ButMayMontblancWritersEditionBrothersGrimm.jpg",
         chitiet: [
@@ -847,7 +847,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         price: 105999000,
         discountPercentage: 5,
         inStock: 3,
-        returnPolicy: "30 ngày miễn phí đổi trả",
+        returnPolicy: "3 năm",
         thumbnail:
           "./Images/thumnails/ButMay/ButMayMontblancGreattCharactersJimiHendrix.jpg",
         chitiet: [
@@ -896,7 +896,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         price: 8920000,
         discountPercentage: 10,
         inStock: 5,
-        returnPolicy: "30 ngày miễn phí đổi trả",
+        returnPolicy: "3 năm",
         thumbnail:
           "./Images/thumnails/ButBi/ButBiParkerPremier2017MonochromeBlack.jpg",
         chitiet: [
@@ -944,7 +944,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         price: 9088000,
         discountPercentage: 10,
         inStock: 3,
-        returnPolicy: "30 ngày miễn phí đổi trả",
+        returnPolicy: "3 năm",
         thumbnail:
           "./Images/thumnails/ButBi/ButBiParkerPremierLuxury2017BlackCTBP.jpg",
         chitiet: [
@@ -991,7 +991,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         price: 2880000,
         discountPercentage: 10,
         inStock: 8,
-        returnPolicy: "30 ngày miễn phí đổi trả",
+        returnPolicy: "3 năm",
         thumbnail:
           "./Images/thumnails/ButBi/ButBiParkerSonnetLacqueBlueCTBallpoint.jpg",
         chitiet: [
@@ -1039,7 +1039,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         price: 3600000,
         discountPercentage: 10,
         inStock: 3,
-        returnPolicy: "30 ngày miễn phí đổi trả",
+        returnPolicy: "3 năm",
         thumbnail:
           "./Images/thumnails/ButBi/ButBiParkerSonnetMetalAndPearlSlimGTBallpoint.jpg",
         chitiet: [
@@ -1088,7 +1088,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         price: 2944000,
         discountPercentage: 10,
         inStock: 7,
-        returnPolicy: "30 ngày miễn phí đổi trả",
+        returnPolicy: "3 năm",
         thumbnail:
           "./Images/thumnails/ButBi/ButBiParkerSonnetMaltBlackGTBallpoint.jpg",
         chitiet: [
@@ -1134,7 +1134,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         price: 993000,
         discountPercentage: 10,
         inStock: 2,
-        returnPolicy: "30 ngày miễn phí đổi trả",
+        returnPolicy: "3 năm",
         thumbnail:
           "./Images/thumnails/ButBi/ButBiParkerUrbanTwistMutedBlackGTBP2143640.jpg",
         chitiet: [
@@ -1183,7 +1183,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         price: 1955000,
         discountPercentage: 5,
         inStock: 12,
-        returnPolicy: "30 ngày miễn phí đổi trả",
+        returnPolicy: "3 năm",
         thumbnail:
           "./Images/thumnails/ButBi/ButBiParkerUrbanPremium2017GreenCTBallpoint.jpg",
         chitiet: [
@@ -1230,7 +1230,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         price: 1955000,
         discountPercentage: 5,
         inStock: 10,
-        returnPolicy: "30 ngày miễn phí đổi trả",
+        returnPolicy: "3 năm",
         thumbnail:
           "./Images/thumnails/ButBi/ButBiParkerUrbanPremium2017DarkBlueCTBallpoint.jpg",
         chitiet: [
@@ -1278,7 +1278,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         price: 1955000,
         discountPercentage: 5,
         inStock: 14,
-        returnPolicy: "30 ngày miễn phí đổi trả",
+        returnPolicy: "3 năm",
         thumbnail:
           "./Images/thumnails/ButBi/ButBiParkerUrbanPremium2017DarkPurpleCTBallpoint.jpg",
         chitiet: [
@@ -1328,7 +1328,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         price: 1330000,
         discountPercentage: 5,
         inStock: 8,
-        returnPolicy: "30 ngày miễn phí đổi trả",
+        returnPolicy: "3 năm",
         thumbnail:
           "./Images/thumnails/ButBi/ButBiParkerIMWritingRitualsGreenBallpoint.jpg",
         chitiet: [
@@ -1377,7 +1377,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         price: 1570000,
         discountPercentage: 10,
         inStock: 14,
-        returnPolicy: "30 ngày miễn phí đổi trả",
+        returnPolicy: "3 năm",
         thumbnail:
           "./Images/thumnails/ButBi/ButBiParkerIMPremium2017BlueCTBallpoint.jpg",
         chitiet: [
@@ -1427,7 +1427,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         price: 1570000,
         discountPercentage: 10,
         inStock: 23,
-        returnPolicy: "30 ngày miễn phí đổi trả",
+        returnPolicy: "3 năm",
         thumbnail:
           "./Images/thumnails/ButBi/ButBiParkerIMPremium2017PaleGreenCTBallpoint.jpg",
         chitiet: [
@@ -1479,7 +1479,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         price: 1680000,
         discountPercentage: 15,
         inStock: 28,
-        returnPolicy: "30 ngày miễn phí đổi trả",
+        returnPolicy: "3 năm",
         thumbnail:
           "./Images/thumnails/ButDaBi/ButDaMiMaVangAllanDliousAG6666.jpg",
         chitiet: [
@@ -1528,7 +1528,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         price: 1280000,
         discountPercentage: 15,
         inStock: 23,
-        returnPolicy: "30 ngày miễn phí đổi trả",
+        returnPolicy: "3 năm",
         thumbnail: "./Images/thumnails/ButDaBi/ButDaBiAllanDlious405R.jpg",
         chitiet: [
           {
@@ -1581,7 +1581,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         price: 960000,
         discountPercentage: 10,
         inStock: 19,
-        returnPolicy: "30 ngày miễn phí đổi trả",
+        returnPolicy: "3 năm",
         thumbnail:
           "./Images/thumnails/ButDaBi/ButDaBiMaVangAllanDliousAG3333.jpg",
         chitiet: [
@@ -1632,7 +1632,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         price: 960000,
         discountPercentage: 10,
         inStock: 21,
-        returnPolicy: "30 ngày miễn phí đổi trả",
+        returnPolicy: "3 năm",
         thumbnail:
           "./Images/thumnails/ButDaBi/ButDaBiMaVang18KAllanDliousAG4444.jpg",
         chitiet: [
@@ -1681,7 +1681,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         price: 730000,
         discountPercentage: 15,
         inStock: 17,
-        returnPolicy: "30 ngày miễn phí đổi trả",
+        returnPolicy: "3 năm",
         thumbnail: "./Images/thumnails/ButDaBi/ButDaBIAllanDlious6002RG.jpg",
         chitiet: [
           {
@@ -1723,7 +1723,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         price: 1290000,
         discountPercentage: 15,
         inStock: 22,
-        returnPolicy: "30 ngày miễn phí đổi trả",
+        returnPolicy: "3 năm",
         thumbnail: "./Images/thumnails/ButDaBi/ButLamyAl-StarOceanBlueRB.jpg",
         chitiet: [
           {
@@ -1777,7 +1777,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         price: 980000,
         discountPercentage: 15,
         inStock: 20,
-        returnPolicy: "30 ngày miễn phí đổi trả",
+        returnPolicy: "3 năm",
         thumbnail:
           "./Images/thumnails/ButDaBi/ButLamySafariCandyAquamarineSpecialEdition2020Rollerball.jpg",
         chitiet: [
@@ -1831,7 +1831,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         price: 980000,
         discountPercentage: 15,
         inStock: 23,
-        returnPolicy: "30 ngày miễn phí đổi trả",
+        returnPolicy: "3 năm",
         thumbnail:
           "./Images/thumnails/ButDaBi/ButLamySafariCandyVioletSpecialEdition2020Rollerball.jpg",
         chitiet: [
@@ -1885,7 +1885,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         price: 980000,
         discountPercentage: 15,
         inStock: 17,
-        returnPolicy: "30 ngày miễn phí đổi trả",
+        returnPolicy: "3 năm",
         thumbnail:
           "./Images/thumnails/ButDaBi/ButLamySafariCandyMangoSpecialEdition2020Rollerball.jpg",
         chitiet: [
@@ -1934,7 +1934,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         price: 29860000,
         discountPercentage: 5,
         inStock: 23,
-        returnPolicy: "30 ngày miễn phí đổi trả",
+        returnPolicy: "3 năm",
         thumbnail:
           "./Images/thumnails/ButDaBi/ButDaBiMontblancMeisterstuckDoueAroundTheWorld80DaysRollerballMB126350.jpg",
         chitiet: [
@@ -1983,7 +1983,7 @@ Mặc dù hầu hết chúng ta sẽ không có cơ hội trải nghiệm du hà
         price: 6762000,
         discountPercentage: 10,
         inStock: 21,
-        returnPolicy: "30 ngày miễn phí đổi trả",
+        returnPolicy: "3 năm",
         thumbnail:
           "./Images/thumnails/ButDaKim/ButDaKimParkerIngenuityPearlPGT5th1931451.jpg",
         chitiet: [

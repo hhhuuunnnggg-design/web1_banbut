@@ -86,7 +86,7 @@
         >
           <a href="./trangchu.html" style="text-decoration: none">
             <h3 style="font-size: 30px; margin-top: 30px; margin-bottom: 30px">
-              Quản Lý Admin
+              chào Admin
             </h3>
           </a>
         </div>
@@ -194,7 +194,6 @@
           <!-- Dữ liệu sản phẩm sẽ được chèn vào đây -->
         </tbody>
       </table>
-      
 
       <!-- Modal Thêm Sản phẩm -->
       <div
@@ -318,7 +317,11 @@
               <form id="editProductForm">
                 <div class="form-group">
                   <label for="editProductID">ID:</label>
-                <output type="number" class="form-control" id="editProductId" ></output>
+                  <output
+                    type="number"
+                    class="form-control"
+                    id="editProductId"
+                  ></output>
                 </div>
                 <div class="form-group">
                   <label for="editProductName">Tên:</label>
@@ -346,7 +349,9 @@
                     id="editProductImage"
                     accept="image/*"
                   />
-                  <button class="btn btn-danger" onclick="XoaAnh()">Xóa ảnh</button>
+                  <button class="btn btn-danger" onclick="XoaAnh()">
+                    Xóa ảnh
+                  </button>
                 </div>
 
                 <div class="form-group">
@@ -414,7 +419,10 @@
                             <td>${productName}</td>
                             <td>${productCategory}</td>
                             <td><img src="${productImage}" alt="${productName}" class="img-thumbnail"></td>
-                            <td>${productPrice.toLocaleString("vi-VN",{style:"currency",currency:"VND"})} VNĐ</td>
+                            <td>${productPrice.toLocaleString("vi-VN", {
+                              style: "currency",
+                              currency: "VND",
+                            })} VNĐ</td>
                             <td>${productInfo}</td>
                             <td>${productReturnPolicy}</td>
                             <td>
@@ -434,7 +442,10 @@
                             <td>${productName}</td>
                             <td>${productCategory}</td>
                             <td><img src=".${productImage}" alt="${productName}" class="img-thumbnail"></td>
-                            <td>${productPrice.toLocaleString("vi-VN",{style:"currency",currency:"VND"})} VNĐ</td>
+                            <td>${productPrice.toLocaleString("vi-VN", {
+                              style: "currency",
+                              currency: "VND",
+                            })} VNĐ</td>
                             <td>${productInfo}</td>
                             <td>${productReturnPolicy}</td>
                             <td>
@@ -478,7 +489,10 @@
                             <td>${productName}</td>
                             <td>${productCategory}</td>
                             <td><img src="${base64Data}" alt="${productName}" class="img-thumbnail"></td>
-                            <td>${productPrice.toLocaleString("vi-VN",{style:"currency",currency:"VND"})} VNĐ</td>
+                            <td>${productPrice.toLocaleString("vi-VN", {
+                              style: "currency",
+                              currency: "VND",
+                            })} VNĐ</td>
                             <td>${productInfo}</td>
                             <td>${productReturnPolicy}</td>
                             <td>
@@ -500,7 +514,7 @@
                 category: productCategory,
                 price: productPrice,
                 thumbnail: base64Data,
-                description:productInfo,
+                description: productInfo,
                 returnPolicy: productReturnPolicy,
               });
             } else {
@@ -510,7 +524,7 @@
                 category: productCategory,
                 price: productPrice,
                 thumbnail: base64Data,
-                description:productInfo,
+                description: productInfo,
                 returnPolicy: productReturnPolicy,
               };
             }
@@ -551,7 +565,7 @@
         info,
         returnpolicy
       ) {
-        document.getElementById('showimg').innerHTML="";
+        document.getElementById("showimg").innerHTML = "";
         const sanpham = JSON.parse(localStorage.getItem("ListPens"));
         document.getElementById("editProductId").value = id;
         document.getElementById("editProductName").value = name;
@@ -561,11 +575,21 @@
         document.getElementById("editProductReturnPolicy").value = returnpolicy;
         // Hiển thị hình ảnh hiện tại
         if (imageUrl.startsWith("data:image/"))
-          document.getElementById("showimg").insertAdjacentHTML("beforeend",`<img src="${imageUrl}" alt="${name}" class="img-thumbnail" style="width:100px;">`);
+          document
+            .getElementById("showimg")
+            .insertAdjacentHTML(
+              "beforeend",
+              `<img src="${imageUrl}" alt="${name}" class="img-thumbnail" style="width:100px;">`
+            );
         else
-          document.getElementById("showimg").insertAdjacentHTML("beforeend",`<img src=".${imageUrl}" alt="${name}" class="img-thumbnail" style="width:100px;">`);
+          document
+            .getElementById("showimg")
+            .insertAdjacentHTML(
+              "beforeend",
+              `<img src=".${imageUrl}" alt="${name}" class="img-thumbnail" style="width:100px;">`
+            );
 
-        $("#editProductModal").modal("show");        
+        $("#editProductModal").modal("show");
       }
 
       //Hàm xác nhận trước khi xóa
@@ -586,80 +610,73 @@
         const category = document.getElementById("editProductCategory").value;
         const price = document.getElementById("editProductPrice").value;
         const info = document.getElementById("editProductInfo").value;
-        const returnpolicy = document.getElementById("editProductReturnPolicy").value;
+        const returnpolicy = document.getElementById(
+          "editProductReturnPolicy"
+        ).value;
         const image = document.getElementById("editProductImage").files[0]; //Lấy ảnh
-          const row = document.getElementById(`product-${id}`);
-          row.cells[1].textContent = name;
-          row.cells[2].textContent=category;         
-          row.cells[4].textContent = `${price.toLocaleString("vi-VN",{style:"currency",currency:"VND"})}`;
-          row.cells[6].textContent = info;
-          row.cells[7].textContent=returnpolicy;
+        const row = document.getElementById(`product-${id}`);
+        row.cells[1].textContent = name;
+        row.cells[2].textContent = category;
+        row.cells[4].textContent = `${price.toLocaleString("vi-VN", {
+          style: "currency",
+          currency: "VND",
+        })}`;
+        row.cells[6].textContent = info;
+        row.cells[7].textContent = returnpolicy;
 
-          const sanpham = JSON.parse(localStorage.getItem("ListPens"));
-          const index = sanpham.findIndex((sanpham) => sanpham.id == id);
-          if (index != -1) {
-            sanpham[index].id = id;
-            sanpham[index].title = name;
-            sanpham[index].category = category;
-            sanpham[index].price = price;
-            sanpham[index].description = info;
-            sanpham[index].returnPolicy = returnpolicy;
-            if (image) 
-            {
-              row.cells[3]=image;
-              reader = new FileReader();
-              reader.onload = function (e) {
-                const base64Data = e.target.result;
-                sanpham[index].thumbnail = base64Data;
-                localStorage.setItem("ListPens", JSON.stringify(sanpham));
-                $("#editProductModal").modal("hide");
-              };
-              reader.readAsDataURL(image);
-              
-            }         
-            else{
+        const sanpham = JSON.parse(localStorage.getItem("ListPens"));
+        const index = sanpham.findIndex((sanpham) => sanpham.id == id);
+        if (index != -1) {
+          sanpham[index].id = id;
+          sanpham[index].title = name;
+          sanpham[index].category = category;
+          sanpham[index].price = price;
+          sanpham[index].description = info;
+          sanpham[index].returnPolicy = returnpolicy;
+          if (image) {
+            row.cells[3] = image;
+            reader = new FileReader();
+            reader.onload = function (e) {
+              const base64Data = e.target.result;
+              sanpham[index].thumbnail = base64Data;
               localStorage.setItem("ListPens", JSON.stringify(sanpham));
-              $("#editProductModal").modal("hide");  
-            } 
-          
+              $("#editProductModal").modal("hide");
+            };
+            reader.readAsDataURL(image);
+          } else {
+            localStorage.setItem("ListPens", JSON.stringify(sanpham));
+            $("#editProductModal").modal("hide");
+          }
+
           // Đóng modal và reset form
         }
-              
       };
 
-      function XoaAnh(){
-          const sanpham=JSON.parse(localStorage.getItem('ListPens'));
-          const id=document.getElementById('editProductId').value;
-          console.log(id);
-          for(let i=0;i<sanpham.length;i++)
-          {
-            if(Number(sanpham[i].id)==Number(id))
-              {
-                if(sanpham[i].thumbnail!="")
-                {
-                  if(confirm("Ban co chac muon xoa anh nay khong!"))
-                    {
-                      sanpham[i].thumbnail="";
-                      const row = document.getElementById(`product-${id}`);
-                      row.cells[3].textContent="";
-                      alert("Anh cua san pham da duoc xoa!");
-                      break;
-                    }
-                  else
-                  {
-                    break;
-                  }
-                }
-                else
-                {
-                  alert("San pham nay khong co anh de xoa!");
-                  break;
-                }
+      function XoaAnh() {
+        const sanpham = JSON.parse(localStorage.getItem("ListPens"));
+        const id = document.getElementById("editProductId").value;
+        console.log(id);
+        for (let i = 0; i < sanpham.length; i++) {
+          if (Number(sanpham[i].id) == Number(id)) {
+            if (sanpham[i].thumbnail != "") {
+              if (confirm("Ban co chac muon xoa anh nay khong!")) {
+                sanpham[i].thumbnail = "";
+                const row = document.getElementById(`product-${id}`);
+                row.cells[3].textContent = "";
+                alert("Anh cua san pham da duoc xoa!");
+                break;
+              } else {
+                break;
               }
-          }          
-          localStorage.setItem('ListPens',JSON.stringify(sanpham));
+            } else {
+              alert("San pham nay khong co anh de xoa!");
+              break;
+            }
+          }
         }
-      
+        localStorage.setItem("ListPens", JSON.stringify(sanpham));
+      }
+
       let currentPage = 1;
       let itemsPerPage = 4;
 
@@ -675,49 +692,71 @@
 
         sanpham.slice(start, end).forEach((item) => {
           let pricesp;
-          if(typeof item.price===Number)
-          {pricesp=item.price;}
-          else
-          {          
-          pricesp=Number(item.price);
+          if (typeof item.price === Number) {
+            pricesp = item.price;
+          } else {
+            pricesp = Number(item.price);
           }
-          if(item.thumbnail.startsWith("data:image/"))
-          {
+          if (item.thumbnail.startsWith("data:image/")) {
             const newRow = `
             <tr id="product-${item.id}">
                 <td>${item.id}</td>
                 <td>${item.title}</td>
                 <td>${item.category}</td>
-                <td><img src="${item.thumbnail}" alt="${item.title}" class="img-thumbnail"></td>
-                <td>${pricesp.toLocaleString("vi-VN",{style:"currency",currency:"VND"})}</td>
+                <td><img src="${item.thumbnail}" alt="${
+              item.title
+            }" class="img-thumbnail"></td>
+                <td>${pricesp.toLocaleString("vi-VN", {
+                  style: "currency",
+                  currency: "VND",
+                })}</td>
                 <td>${item.description}</td>
                 <td>${item.returnPolicy}</td>
                 <td>
-                    <button class="btn btn-primary" onclick="openEditProductModal(${item.id}, '${item.title}', '${item.category}', '${item.thumbnail}', ${item.price}, '${item.description}', '${item.returnPolicy}')">Sửa</button>
-                    <button class="btn btn-danger" onclick="Confirmbeforedelete(${item.id})">Xóa</button>
+                    <button class="btn btn-primary" onclick="openEditProductModal(${
+                      item.id
+                    }, '${item.title}', '${item.category}', '${
+              item.thumbnail
+            }', ${item.price}, '${item.description}', '${
+              item.returnPolicy
+            }')">Sửa</button>
+                    <button class="btn btn-danger" onclick="Confirmbeforedelete(${
+                      item.id
+                    })">Xóa</button>
                 </td>
             </tr>
         `;
-          productTableBody.insertAdjacentHTML("beforeend", newRow);
-          }
-          else
-          {
-          const newRow = `
+            productTableBody.insertAdjacentHTML("beforeend", newRow);
+          } else {
+            const newRow = `
             <tr id="product-${item.id}">
                 <td>${item.id}</td>
                 <td>${item.title}</td>
                 <td>${item.category}</td>
-                <td><img src=".${item.thumbnail}" alt="${item.title}" class="img-thumbnail"></td>
-                <td>${pricesp.toLocaleString("vi-VN",{style:"currency",currency:"VND"})}</td>
+                <td><img src=".${item.thumbnail}" alt="${
+              item.title
+            }" class="img-thumbnail"></td>
+                <td>${pricesp.toLocaleString("vi-VN", {
+                  style: "currency",
+                  currency: "VND",
+                })}</td>
                 <td>${item.description}</td>
                 <td>${item.returnPolicy}</td>
                 <td>
-                    <button class="btn btn-primary" onclick="openEditProductModal(${item.id}, '${item.title}', '${item.category}', '${item.thumbnail}', ${item.price}, '${item.description}', '${item.returnPolicy}')">Sửa</button>
-                    <button class="btn btn-danger" onclick="Confirmbeforedelete(${item.id})">Xóa</button>
+                    <button class="btn btn-primary" onclick="openEditProductModal(${
+                      item.id
+                    }, '${item.title}', '${item.category}', '${
+              item.thumbnail
+            }', ${item.price}, '${item.description}', '${
+              item.returnPolicy
+            }')">Sửa</button>
+                    <button class="btn btn-danger" onclick="Confirmbeforedelete(${
+                      item.id
+                    })">Xóa</button>
                 </td>
             </tr>
         `;
-          productTableBody.insertAdjacentHTML("beforeend", newRow);
+            productTableBody.insertAdjacentHTML("beforeend", newRow);
           }
         });
 
@@ -742,8 +781,6 @@
           };
           paginationContainer.appendChild(prevButton);
         }
-
-        
 
         // Tính toán phạm vi trang hiển thị
         let startPage = Math.max(
