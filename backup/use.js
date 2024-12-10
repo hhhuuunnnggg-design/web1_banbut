@@ -88,7 +88,7 @@ localStorage.setItem(
     {
       userId: 1398828,
       userName: "user2",
-      userEmail: "user2@example.com",
+      userEmail: "user2@gmail.com",
       userPasWord: "123456",
       off: false,
       donhang: [
@@ -133,7 +133,7 @@ localStorage.setItem(
     {
       userId: 1398829,
       userName: "user3",
-      userEmail: "user3@example.com",
+      userEmail: "user3@gmail.com",
       userPasWord: "123456",
       off: false,
       donhang: [
@@ -226,7 +226,7 @@ localStorage.setItem(
     {
       userId: 1398830,
       userName: "user4",
-      userEmail: "user4@example.com",
+      userEmail: "user4@gmail.com",
       userPasWord: "123456",
       off: false,
       donhang: [
@@ -271,7 +271,7 @@ localStorage.setItem(
     {
       userId: 1398831,
       userName: "user5",
-      userEmail: "user5@example.com",
+      userEmail: "user5@gmail.com",
       userPasWord: "123456",
       off: false,
       donhang: [
@@ -349,7 +349,7 @@ localStorage.setItem(
     {
       userId: 1398832,
       userName: "user6",
-      userEmail: "user6@example.com",
+      userEmail: "user6@gmail.com",
       userPasWord: "123456",
       off: false,
       donhang: [
@@ -465,7 +465,7 @@ localStorage.setItem(
     {
       userId: 1398833,
       userName: "user7",
-      userEmail: "user7@example.com",
+      userEmail: "user7@gmail.com",
       userPasWord: "123456",
       off: false,
       donhang: [
@@ -512,7 +512,7 @@ localStorage.setItem(
     {
       userId: 1398834,
       userName: "user8",
-      userEmail: "user8@example.com",
+      userEmail: "user8@gmail.com",
       userPasWord: "123456",
       off: false,
       donhang: [
@@ -559,7 +559,7 @@ localStorage.setItem(
     {
       userId: 1398835,
       userName: "user9",
-      userEmail: "user9@example.com",
+      userEmail: "user9@gmail.com",
       userPasWord: "123456",
       off: false,
       donhang: [

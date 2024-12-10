@@ -28,38 +28,6 @@ function trangThaiDonHang() {
   return danhSachDonHang;
 }
 
-function locDonHangTheoKhoangNgay_chinh() {
-  const fromDate = new Date(document.getElementById("fromDate").value);
-  const toDate = new Date(document.getElementById("toDate").value);
-  console.log("Từ ngày: " + fromDate + " đến ngày: " + toDate);
-
-  if (isNaN(fromDate.getTime()) || isNaN(toDate.getTime())) {
-    alert("Vui lòng chọn cả hai ngày!");
-    return;
-  }
-
-  toDate.setHours(23, 59, 59, 999);
-
-  const listDH = trangThaiDonHang();
-
-  const filteredOrders = listDH.filter((order) => {
-    const [day, month, year] = order.ngayMua.split(",")[0].split("/"); // Lấy phần ngày, tháng, năm từ chuỗi
-    const orderDate = new Date(`${year}-${month}-${day}`); // Chuyển thành đối tượng Date dạng yyyy-MM-dd
-    console.log("Ngày mua : " + orderDate);
-
-    return orderDate >= fromDate && orderDate <= toDate;
-  });
-
-  // Hiển thị kết quả tìm kiếm
-  if (filteredOrders.length === 0) {
-    document.getElementsByClassName(
-      "table-content"
-    )[0].innerHTML = `<tr><td colspan="10" style="text-align: center;">Không tìm thấy đơn hàng trong khoảng thời gian từ ${fromDate.toLocaleDateString()} đến ${toDate.toLocaleDateString()}</td></tr>`;
-  } else {
-    displayFilteredOrders(filteredOrders);
-  }
-}
-
 // Tìm kiếm theo khoảng ngày
 function locDonHangTheoKhoangNgay() {
   const fromDate = new Date(document.getElementById("fromDate").value);

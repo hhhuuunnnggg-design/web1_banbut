@@ -179,7 +179,16 @@ function duyetDonHang(maDon, trangThai) {
 
   localStorage.setItem("users", JSON.stringify(layUser));
 
-  loadItems(); // Gọi lại loadItems để hiển thị lại bảng với phân trang đúng
+  // Đồng bộ danh sách đã lọc nếu đang có
+  if (filteredOrders.length > 0) {
+    filteredOrders.forEach((order) => {
+      if (order.maDon === maDon) {
+        order.tinhTrang = "đã giao hàng";
+      }
+    });
+  }
+
+  loadItems(); // Cập nhật giao diện ngay lập tức
 
   console.log(`Đơn hàng mã ${maDon} đã giao hàng.`);
 }
@@ -189,7 +198,6 @@ function huyDonHang(maDon, trangThai) {
   const layUser = JSON.parse(localStorage.getItem("users"));
   let isDeleted = false;
 
-  // Sử dụng confirm thay cho alert để hiển thị hộp thoại có nút OK và Cancel
   const isConfirmed = window.confirm("Bạn có chắc muốn xóa đơn hàng này?");
 
   if (isConfirmed) {
@@ -198,19 +206,28 @@ function huyDonHang(maDon, trangThai) {
         if (don.ngaymua === maDon) {
           if (don.tinhTrang === "đã giao hàng") {
             alert("Đơn hàng đã giao hàng, bạn không thể xóa nó!");
-            return true; // Nếu đơn hàng đã giao thì không xóa
+            return true;
           } else {
             isDeleted = true;
-            return false; // Xóa đơn hàng
+            return false;
           }
         }
-        return true; // Giữ lại các đơn hàng khác
+        return true;
       });
     });
 
     if (isDeleted) {
       localStorage.setItem("users", JSON.stringify(layUser));
-      loadItems(); // Gọi lại loadItems để hiển thị lại bảng với phân trang đúng
+
+      // Cập nhật danh sách đã lọc nếu đang có
+      if (filteredOrders.length > 0) {
+        filteredOrders = filteredOrders.filter(
+          (order) => order.maDon !== maDon
+        );
+      }
+
+      loadItems(); // Cập nhật giao diện ngay lập tức
+
       console.log(`Đơn hàng mã ${maDon} đã được hủy.`);
     }
   } else {
