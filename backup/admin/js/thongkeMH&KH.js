@@ -189,7 +189,7 @@ function openXemHoaDonKH(KhachHang)
                     const newrowtable=`
                         <table>
                         <thead>
-                        <th>STT</th>
+                        <th style="width:100px;">STT</th>
                         <th>Đơn vị</th>
                         <th>Sản phẩm</th>
                         <th>Số lượng</th>
@@ -209,13 +209,13 @@ function openXemHoaDonKH(KhachHang)
                             <th>Cây </th>
                             <th>${sanPham.tenSanPham}</th>  
                             <th>${sanPham.soLuongSanPham}</th>
-                            <th>${sanPham.giaSanPham} ₫</th>
-                            <th>${tong1sp} ₫</th>                       
+                            <th>${Number(sanPham.giaSanPham).toLocaleString("vi-VN", {style:"currency",currency: "VND"})}</th>
+                            <th>${tong1sp.toLocaleString("vi-VN", {style:"currency",currency: "VND"})}</th>                       
                             </tr>`
                         tableHoaDonKH2.insertAdjacentHTML("beforeend",newRowDonhangKH2);
                         
                     });
-                    tableHoaDonKH3.insertAdjacentHTML("beforeend",`<td>Tổng tiền thanh toán: ${tong1donhang}</td></tr><br></br>`); 
+                    tableHoaDonKH3.insertAdjacentHTML("beforeend",`<td>Tổng tiền thanh toán: ${tong1donhang.toLocaleString("vi-VN", {style:"currency",currency: "VND"})}</td></tr><br></br>`); 
                     stt++;        
                     }    
                 });
@@ -260,34 +260,37 @@ function openXemHoaDonKH(KhachHang)
                 const newrowtable=`
                     <table>
                     <thead>
-                    <th>STT</th>
+                    <th style="width:100px;">STT</th>
                     <th>Đơn vị</th>
                     <th>Sản phẩm</th>
                     <th>Số lượng</th>
                     <th>Đơn giá</th>
                     <th>Tổng giá tiền sản phẩm</th>                    
                     </thead>
-                    </table>`
+                    </table>
+                    `
                 tableHoaDonKH1.insertAdjacentHTML("beforeend",newrowtable);
                 let stt=1;
                 donhang.sanPham.forEach(sanPham =>{                   
                     tong1sp=Number(sanPham.giaSanPham)*sanPham.soLuongSanPham;
                     tong1donhang+=tong1sp;                   
                     const newRowDonhangKH2=`
+
                         <tr>
                         <th>${stt}</th>
                         <th>Cây</th>
                         <th>${sanPham.tenSanPham}</th>  
                         <th>${sanPham.soLuongSanPham}</th>
-                        <th>${sanPham.giaSanPham} ₫</th>
-                        <th>${tong1sp} ₫</th>                    
+                        <th>${Number(sanPham.giaSanPham).toLocaleString("vi-VN", {style:"currency",currency: "VND"})}</th>
+                        <th>${tong1sp.toLocaleString("vi-VN", {style:"currency",currency: "VND"})}</th>                    
                         </tr>
+
                     `;
                         
                     tableHoaDonKH2.insertAdjacentHTML("beforeend",newRowDonhangKH2);
                     stt++;
                 });
-                tableHoaDonKH3.insertAdjacentHTML("beforeend",`<p>Tổng tiền thanh toán: ${tong1donhang} ₫</p><br></br>`);    
+                tableHoaDonKH3.insertAdjacentHTML("beforeend",`<p>Tổng tiền thanh toán: ${tong1donhang.toLocaleString("vi-VN", {style:"currency",currency: "VND"})}</p><br></br>`);    
                 check-=1;   
                 }        
             });
