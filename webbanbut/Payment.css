@@ -1,0 +1,485 @@
+body {
+  margin     : 0;
+  padding    : 0;
+  padding-top: 80px;
+}
+
+* {
+  box-sizing        : border-box;
+  -moz-box-sizing   : border-box;
+  -webkit-box-sizing: border-box;
+  font-family       : "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.header-main {
+  position: fixed;
+  top     : 0;
+  width   : 100%;
+  z-index : 999;
+  height  : 88px;
+}
+
+.header-main .inner-menu {
+  text-align      : center;
+  background-color: #4e5a62;
+  height          : 100%;
+}
+
+.header-main .inner-menu ul {
+  display    : inline-flex;
+  list-style : none;
+  align-items: center;
+  padding    : 0;
+  margin     : 0;
+}
+
+.header-main .inner-menu ul li {
+  position       : relative;
+  justify-content: space-between;
+  min-width      : 120px;
+  margin-right   : 13px;
+  padding        : 15px;
+  line-height    : 1.5;
+}
+
+.header-main .inner-menu ul li a {
+  color          : #e8c22e;
+  text-decoration: none;
+  font-size      : 20px;
+}
+
+.header-main .inner-menu ul li:not(:last-child):hover {
+  background-color: #fdfdfd;
+  border-radius   : 5px;
+}
+
+.header-main .inner-menu .fa-solid {
+  margin-right: 5px;
+}
+
+/* Các phần còn lại của menu và submenu không thay đổi */
+
+/* Ẩn submenu mặc định */
+.header-main .box-submenu {
+  display         : none;
+  position        : absolute;
+  /* Để submenu hiện dưới menu chính */
+  top             : 100%;
+  /* Đặt submenu phía dưới mục cha */
+  left            : 0;
+  background-color: #4e5a62;
+  /* Màu nền của submenu */
+  border-radius   : 5px;
+  z-index         : 1000;
+}
+
+/* Khi hover vào li cha, hiển thị submenu */
+.header-main .inner-menu ul li:hover .box-submenu {
+  display: block;
+}
+
+/* Định dạng submenu */
+.header-main .box-submenu ul {
+  display   : block;
+  list-style: none;
+  padding   : 0;
+  margin    : 0;
+}
+
+.header-main .box-submenu ul li {
+  padding   : 10px 20px;
+  text-align: left;
+}
+
+.header-main .box-submenu ul li a {
+  color          : #fff;
+  text-decoration: none;
+}
+
+.header-main .box-submenu ul li:hover {
+  background-color: #e8c22e;
+}
+
+#myReceipt {
+  font-family     : Arial, sans-serif;
+  font-size       : 20px;
+  color           : #e8c22e;
+  background-color: transparent;
+  border          : none;
+  padding         : 0;
+  cursor          : pointer;
+  color           : #e8c22e;
+}
+
+/* Cấu hình thanh tìm kiếm không có màu nền, border, outline */
+/* Cấu hình thanh tìm kiếm */
+.search {
+  display    : flex;
+  align-items: center;
+  width      : 100%;
+}
+
+.search input {
+  background-color: transparent;
+  border          : 1px solid #e8c22e;
+  color           : #e8c22e;
+  outline         : none;
+}
+
+.search input::placeholder {
+  color: #e8c22e;
+}
+
+.search button {
+  cursor          : pointer;
+  margin-left     : 10px;
+  background-color: transparent;
+  color           : #e8c22e;
+  border          : 1px solid #e8c22e;
+}
+
+.search button:hover {
+  color       : #f0b11f;
+  border-color: #f0b11f;
+}
+
+/* Cấu hình select filter */
+#filter {
+  background-color: transparent;
+  color           : #e8c22e;
+  border          : 1px solid #e8c22e;
+  margin          : 5px 0;
+}
+
+.sear {
+  display       : flex;
+  flex-direction: column;
+  align-items   : flex-start;
+}
+
+.fa-solid {
+  color: #e8c22e;
+}
+
+.Pay h3 {
+  text-align: center;
+  margin    : 20px 0;
+}
+
+.Pay__bar {
+  width           : 93.5%;
+  height          : 3px;
+  background-color: #414c5c;
+  margin          : 0 auto 20px auto;
+}
+
+.Pay__container {
+  display        : flex;
+  justify-content: space-evenly;
+  flex-wrap      : wrap;
+  padding        : 0 10px;
+}
+
+.Pay__Information__header,
+.Pay__Method__header,
+.Pay__Order__header {
+  background-color: #414c5c;
+  color           : #e8c22e;
+  width           : 100%;
+  height          : 40px;
+  text-align      : center;
+  line-height     : 40px;
+  margin-bottom   : 10px;
+}
+
+.Pay__Information__body,
+.Pay__Method__body,
+.Pay__Order__body {
+  width           : 100%;
+  min-height      : 150px;
+  padding         : 10px;
+  border          : 1px solid #414c5c;
+  background-color: #f8f8f8;
+}
+
+.Pay__Method__body {
+  height    : 348px;
+  max-height: 348px;
+  overflow-y: auto;
+}
+
+.Pay__Order__body {
+  max-height: 395px;
+  overflow-y: auto;
+}
+
+.Pay__Information,
+.Pay__Method,
+.Pay__Order {
+  max-height   : 440px;
+  flex-basis   : 30%;
+  box-sizing   : border-box;
+  margin-bottom: 50px;
+}
+
+.Pay a {
+  color          : #1e85be;
+  text-decoration: none;
+  font-weight    : bold;
+}
+
+.Pay a:hover {
+  text-decoration: underline;
+}
+
+.Pay__Information__body {
+  display         : flex;
+  flex-direction  : column;
+  gap             : 15px;
+  padding         : 20px;
+  width           : 100%;
+  max-width       : 800px;
+  margin          : 0 auto;
+  background-color: #f9f9f9;
+  box-shadow      : 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  display  : flex;
+  flex-wrap: wrap;
+  /* Cho phép các phần tử trong cùng một nhóm ngồi trên một dòng */
+  gap      : 15px;
+}
+
+.half-width {
+  width: 48%;
+  /* Mỗi phần tử chiếm 48% chiều rộng */
+}
+
+.form-group label {
+  font-weight    : bold;
+  color          : #333;
+  font-size      : 12px;
+  display        : flex;
+  justify-content: center;
+  /* Căn giữa nhãn theo chiều ngang */
+  width          : 100%;
+}
+
+.form-group input,
+.form-group textarea {
+  padding      : 8px;
+  border       : 1px solid #ccc;
+  border-radius: 5px;
+  font-size    : 14px;
+  outline      : none;
+  transition   : border-color 0.3s ease;
+  width        : 100%;
+}
+
+.form-group input:focus {
+  border-color: #007bff;
+}
+
+.Pay__Information__body label {
+  font-size: 14px;
+  color    : #444;
+}
+
+.Pay__Information__body input[type="text"] {
+  font-size    : 12px;
+  padding      : 8px;
+  border       : 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.Pay__Information__body input[type="text"]:focus {
+  border-color: #007bff;
+}
+
+.bank-transfer-info {
+  background-color: #dfdcde;
+  padding         : 20px;
+  border-radius   : 8px;
+  margin-top      : 10px;
+}
+
+.bank-transfer-info p {
+  font-size: 14px;
+  color    : #333;
+}
+
+.bank-transfer-info ul {
+  list-style-type: none;
+  padding-left   : 20px;
+}
+
+.bank-transfer-info ul li {
+  font-size: 14px;
+  color    : #333;
+}
+
+.cash-transfer-info {
+  background-color: #dfdcde;
+  padding         : 20px;
+  border-radius   : 8px;
+  margin-top      : 10px;
+}
+
+.cash-transfer-info p {
+  font-size: 14px;
+  color    : #333;
+}
+
+.cash-transfer-info ul {
+  list-style-type: none;
+  padding-left   : 20px;
+}
+
+.cash-transfer-info ul li {
+  font-size: 14px;
+  color    : #333;
+}
+
+.Pay__Method__body label {
+  display: block;
+}
+
+.order-button {
+  width           : 100%;
+  height          : 35px;
+  background-color: #ffb700;
+  color           : white;
+  border          : none;
+  font-size       : 18px;
+  cursor          : pointer;
+  margin-top      : 10px;
+}
+
+.order-button:hover {
+  background-color: #ff9c00;
+}
+
+/* footer */
+.footer {
+  background-color: #333;
+  color           : #fff;
+  padding         : 40px 0;
+  text-align      : center;
+}
+
+.footer-container {
+  display        : flex;
+  justify-content: space-between;
+  flex-wrap      : wrap;
+  max-width      : 1200px;
+  margin         : 0 auto;
+  padding        : 0 20px;
+}
+
+.footer h3 {
+  font-size    : 18px;
+  margin-bottom: 20px;
+  color        : #e8c22e;
+}
+
+.footer-contact ul,
+.footer-hours ul {
+  list-style: none;
+  padding   : 0;
+  text-align: left;
+}
+
+.footer-contact ul li,
+.footer-hours ul li {
+  margin-bottom: 10px;
+  font-size    : 14px;
+}
+
+.footer-contact ul li i,
+.footer-hours ul li i {
+  margin-right: 10px;
+  color       : #e8c22e;
+}
+
+.footer-social .social-icons a {
+  display   : inline-block;
+  margin    : 0 10px;
+  font-size : 20px;
+  color     : #fff;
+  transition: color 0.3s;
+}
+
+.footer-social .social-icons a:hover {
+  color: #e8c22e;
+}
+
+.footer-bottom {
+  margin-top : 20px;
+  padding-top: 20px;
+  border-top : 1px solid #444;
+}
+
+.footer-bottom p {
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align    : left;
+  }
+
+  .footer-container div {
+    margin-bottom: 20px;
+  }
+}
+
+/* end footer */
+
+/* test loại bút */
+/* Ẩn danh sách loại bút ban đầu */
+.loaibut-list {
+  display         : none;
+  position        : absolute;
+  background-color: white;
+  padding         : 10px;
+  list-style-type : none;
+  z-index         : 10;
+  border          : 1px solid #ccc;
+}
+
+.loaibut-list li div {
+  cursor : pointer;
+  padding: 5px 0;
+}
+
+/* Hiển thị danh sách khi rê chuột vào */
+.loaibut:hover .loaibut-list {
+  display: block;
+}
+
+/* -----------------------------------cart------------- */
+.cart {
+  width      : 50%;
+  margin     : auto;
+  text-align : center;
+  padding-top: 30px;
+}
+
+.cart h2 {
+  margin-bottom: 20px;
+}
+
+.cart table {
+  width: 100%;
+}
+
+.cart table thread tr th:first-child {
+  text-align: left;
+}
+
+.cart table tr td {
+  border-bottom: 1px solid #ddd;
+  padding      : 12px 0;
+}
