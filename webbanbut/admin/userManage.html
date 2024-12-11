@@ -306,7 +306,7 @@
                     <td>${password}</td>    
                     <td class="status" id="status-${userId}">${Checkifaccountislocked(lock)}</td>
                     <td>
-                        <button class="btn btn-warning" style="background-color:#15de16;border-color:#15de16;color:#ffffff" onclick="openEditAccountModal(${userId}, '${username}', '${email}', '${password}')">Sửa</button>
+                        <button class="btn btn-warning" style="background-color:#15de16;border-color:#15de16;color:#ffffff" onclick="openEditAccountModal('${username}', '${email}', '${password}')">Sửa</button>
                         <button class="btn btn-danger" id="button-${userId}" onclick="toggleUserStatus(${userId})">${LoadButton(lock)}</button>
                     </td>
                 </tr>
@@ -349,7 +349,7 @@
         };
 
         // Hàm mở modal sửa tài khoản
-        function openEditAccountModal(id, username, email, password) {
+        function openEditAccountModal( username, email, password) {
 
             document.getElementById('editUsername').value = username;
             document.getElementById('editEmail').value = email;
@@ -494,7 +494,7 @@
             <td>${user.userPasWord}</td>
             <td class="status" id="status-${user.userId}">${Checkifaccountislocked(user.off)}</td>
             <td>
-                <button class="btn btn-warning" style="background-color:#15de16;border-color:#15de16;color:#ffffff" onclick="openEditAccountModal(${user.userId}, '${user.userName}', '${user.userEmail}', '${user.userPasWord}')">Sửa</button>
+                <button class="btn btn-warning" style="background-color:#15de16;border-color:#15de16;color:#ffffff" onclick="openEditAccountModal( '${user.userName}', '${user.userEmail}', '${user.userPasWord}')">Sửa</button>
                 <button class="btn btn-danger" id="button-${user.userId}" onclick="toggleUserStatus(${user.userId})">${LoadButton(user.off)}</button>
             </td>
         </tr>
