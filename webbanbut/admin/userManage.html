@@ -254,7 +254,7 @@
                         <td>${password}</td>
                         <td class="status" id="status-${accountId}" >${Checkifaccountislocked(lock)}</td>
                         <td>
-                            <button class="btn btn-warning" style="background-color:#15de16;border-color:#15de16;color:#ffffff" onclick="openEditAccountModal(${accountId}, '${username}', '${email}', '${password}')">Sửa</button>
+                            <button class="btn btn-warning" style="background-color:#15de16;border-color:#15de16;color:#ffffff" onclick="openEditAccountModal( '${username}', '${email}', '${password}')">Sửa</button>
                             <button class="btn btn-danger" id="button-${accountId}" onclick="toggleUserStatus(${accountId})">${LoadButton(lock)}</button>
                         </td>
                     </tr>
