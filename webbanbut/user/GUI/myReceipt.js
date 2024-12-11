@@ -78,7 +78,7 @@ function drawmyReceipt() {
       main.innerHTML =
         "<p style='font-size: 20px; font-weight: bold;'>Không có đơn hàng nào đang vận chuyển</p><br>";
       main.innerHTML +=
-        '<img src="/webbanbut/Images/anh_rong.png" alt="" style="height: 500px;">';
+        '<img src="Images/anh_rong.png" alt="" style="height: 500px;">';
     }
   });
 }

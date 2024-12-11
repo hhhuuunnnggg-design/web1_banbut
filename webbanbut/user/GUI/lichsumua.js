@@ -79,7 +79,7 @@ function drawmyReceipt() {
         "<p style='font-size: 20px; font-weight: bold;'>Bạn chưa có đơn hàng nào</p><br>";
 
       main.innerHTML +=
-        '<img src="/webbanbut/Images/anh_rong.png" alt="" style="height: 500px;"><br>';
+        '<img src="Images/anh_rong.png" alt="" style="height: 500px;"><br>';
     }
   });
 }
