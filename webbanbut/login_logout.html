@@ -1,85 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    />
-    <link rel="stylesheet" href="./style/login_logout.css" />
-    <title>Modern Login Page | AsmrProg</title>
-  </head>
 
-  <body>
-    <div class="container" id="container">
-      <div class="form-container sign-up">
-        <form id="formRegister">
-          <h1>Create Account</h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <link rel="stylesheet" href="./style/login_logout.css" />
+  <title>Modern Login Page | AsmrProg</title>
+</head>
 
-          <input id="namedk" type="text" placeholder="Name" />
-          <div id="userNameError" style="color: red; display: none">
-            Tên không được để trống
-          </div>
-          <input id="emaildk" type="email" placeholder="Email" />
-          <div id="userEmailError" style="color: red; display: none">
-            Email không được để trống
-          </div>
-          <input id="passworddk" type="password" placeholder="Password" />
-          <div id="userPasswordError" style="color: red; display: none">
-            Pass không được để trống
-          </div>
-          <input
-            id="repassworddk"
-            type="password"
-            placeholder="Nhập lại Password"
-          />
-          <div id="reuserPasswordError" style="color: red; display: none">
-            Mat khau không được để trống
-          </div>
-          <button id="c" type="submit">Đăng ký123.</button>
-        </form>
-      </div>
-      <div class="form-container sign-in">
-        <form id="formLogin">
-          <h1>Đăng nhập</h1>
+<body>
+  <div class="container" id="container">
+    <div class="form-container sign-up">
+      <form id="formRegister">
+        <h1>Đăng ký tài khoản</h1>
 
-          <input id="email_dn" type="email" placeholder="Email" />
-          <input id="password_dn" type="password" placeholder="Password" />
-          <div
-            id="alertError"
-            class="alert alert-danger"
-            role="alert"
-            style="color: red; display: none"
-          >
-            Tài khoảng hoặc mật khẩu chưa chính xác
-          </div>
-          <a href="./fogot_password.html">Bạn đã quên mật khẩu ?</a>
-          <button type="submit">Đăng nhập</button>
-        </form>
-      </div>
-      <div class="toggle-container">
-        <div class="toggle">
-          <div class="toggle-panel toggle-left">
-            <h1>Chào mừng bạn</h1>
-            <p>
-              Nhập thông tin cá nhân của bạn để sử dụng tất cả các tính năng của
-              trang web
-            </p>
-            <button class="hidden" id="login">Đăng nhập!</button>
-          </div>
-          <div class="toggle-panel toggle-right">
-            <h1>Chào, Bạn!</h1>
-            <p>
-              Đăng ký với thông tin cá nhân của bạn để sử dụng tất cả các tính
-              năng của trang web
-            </p>
-            <button class="hidden" id="register">Đăng ký!</button>
-          </div>
+        <input id="namedk" type="text" placeholder="Name" />
+        <div id="userNameError" style="color: red; display: none">
+          Tên không được để trống
+        </div>
+        <input id="emaildk" type="email" placeholder="Email" />
+        <div id="userEmailError" style="color: red; display: none">
+          Email không được để trống
+        </div>
+        <input id="passworddk" type="password" placeholder="Password" />
+        <div id="userPasswordError" style="color: red; display: none">
+          Pass không được để trống
+        </div>
+        <input id="repassworddk" type="password" placeholder="Nhập lại Password" />
+        <div id="reuserPasswordError" style="color: red; display: none">
+          Mat khau không được để trống
+        </div>
+        <button id="c" type="submit">Đăng ký</button>
+      </form>
+    </div>
+    <div class="form-container sign-in">
+      <form id="formLogin">
+        <h1>Đăng nhập</h1>
+
+        <input id="email_dn" type="email" placeholder="Email" />
+        <input id="password_dn" type="password" placeholder="Password" />
+        <div id="alertError" class="alert alert-danger" role="alert" style="color: red; display: none">
+          Tài khoảng hoặc mật khẩu chưa chính xác
+        </div>
+        <a href="./fogot_password.html">Bạn đã quên mật khẩu ?</a>
+        <button type="submit">Đăng nhập</button>
+      </form>
+    </div>
+    <div class="toggle-container">
+      <div class="toggle">
+        <div class="toggle-panel toggle-left">
+          <h1>Chào mừng bạn</h1>
+          <p>
+            Nhập thông tin cá nhân của bạn để sử dụng tất cả các tính năng của
+            trang web
+          </p>
+          <button class="hidden" id="login">Đăng nhập!</button>
+        </div>
+        <div class="toggle-panel toggle-right">
+          <h1>Chào, Bạn!</h1>
+          <p>
+            Đăng ký với thông tin cá nhân của bạn để sử dụng tất cả các tính
+            năng của trang web
+          </p>
+          <button class="hidden" id="register">Đăng ký!</button>
         </div>
       </div>
     </div>
-    <script src="user/controller/register.js"></script>
-    <script src="user/controller/loginn.js"></script>
-  </body>
+  </div>
+  <script src="user/controller/register.js"></script>
+  <script src="user/controller/loginn.js"></script>
+</body>
+
 </html>
